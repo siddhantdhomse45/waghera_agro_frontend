@@ -28,7 +28,7 @@ import ApartmentHotel from './Pages/ApartmentHotel';
 import MountainHotel from './Pages/MountainHotel';
 import ClientCity from './Pages/ClientCity';
 import HotelBeach from './Pages/HotelBeach';
-import OceanBreeze from './Pages/OceanBreeze';
+// import OceanBreeze from './Pages/OceanBreeze';
 
 function App() {
   const [showSignIn, setShowSignIn] = useState(false);
@@ -94,7 +94,7 @@ function App() {
         <Route path="/apartmenthotel" element={<ApartmentHotel />} />
         <Route path="/clientcity" element={<ClientCity />} />
         <Route path="/hotelbeach" element={<HotelBeach />} />
-        <Route path="/oceanbreeze" element={<OceanBreeze />} />
+        {/* <Route path="/oceanbreeze" element={<OceanBreeze />} /> */}
         <Route path="/blog" element={<Blog />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
