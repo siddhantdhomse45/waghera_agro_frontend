@@ -86,7 +86,7 @@ export default function Hotel() {
     {/* Heading */}
     <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold py-6 mb-4 leading-snug">
       <span className="block mb-2">Welcome To Our</span>
-      <span className="block">Moonlit Hotel & Resort</span>
+      <span className="block">Waghera Agro Hotel & Resort</span>
     </h2>
 
     {/* Paragraph */}

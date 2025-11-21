@@ -338,7 +338,7 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
               }}
               className="flex items-center gap-1 hover:text-yellow-600 group cursor-pointer"
             >
-              Ambition
+              Amenities
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="14"

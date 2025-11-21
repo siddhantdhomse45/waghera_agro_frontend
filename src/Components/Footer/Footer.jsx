@@ -101,7 +101,7 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-2">
               <FaMapMarkerAlt className="text-[#a8815e]" />
-              M5T 2L9 Toronto, Canada
+              M5T 2L9 Mahabaleshwar
             </li>
           </ul>
         </div>
@@ -110,7 +110,7 @@ export default function Footer() {
       {/* Bottom Footer */}
       <div className="mt-14 border-t pt-8 flex flex-col sm:flex-row justify-between items-center text-sm text-gray-600 gap-4">
         <p className="text-center sm:text-left">
-          © 2025 Moonlit. All rights reserved.
+          © 2025 Waghera Agro Tourism. All rights reserved.
         </p>
         <div className="flex gap-6">
           <a href="#" className="hover:text-[#a8815e]">Facebook</a>

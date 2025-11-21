@@ -46,7 +46,7 @@ export default function AboutUs() {
         ―⟡ About Us
       </h4>
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-gray-900 leading-tight mb-6">
-        Welcome To Our Moonlit Hotel & Resort
+        Welcome To Our Waghera Agro Tourism Hotel & Resort
       </h2>
       <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-10">
         Welcome to Bokinn, where luxury meets comfort in the heart of Canada.

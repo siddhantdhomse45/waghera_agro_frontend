@@ -38,7 +38,7 @@ export default function SignIn({ onSwitchToSignUp }) {
           </>
         ) : (
           <>
-            <h2 className="text-2xl font-semibold mb-6 text-center">Login To Moonlit</h2>
+            <h2 className="text-2xl font-semibold mb-6 text-center">Login To Waghera Agro Tourism</h2>
 
             <div className="mb-4">
               <label className="block mb-1 font-medium text-gray-700">Your Email</label>

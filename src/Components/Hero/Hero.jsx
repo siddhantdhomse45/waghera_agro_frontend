@@ -82,7 +82,7 @@ export default function HeroSlider() {
     <span className="w-6 sm:w-10 h-px bg-white"></span>
   </span>
 
-  Welcome to Our Spa
+  Welcome to Our Hotel And Resort
 
   <span className="flex items-center">
     <span className="w-6 sm:w-10 h-px bg-white"></span>
