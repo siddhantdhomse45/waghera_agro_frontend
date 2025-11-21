@@ -44,13 +44,13 @@ function RoomOne() {
         img: "https://html.themewant.com/moonlit/assets/images/pages/room/2.webp",
       },
       {
-        name: "Double Room",
+        name: "Single Room",
         Amt: "12999₹",
          desc:"Our rooms offer a harmonious blend of comfort and elegance, designed to provide an exceptional stay for every guest.",
         img: "https://html.themewant.com/moonlit/assets/images/pages/room/3.webp",
       },
       {
-        name: "Connecting Room",
+        name: "Single Room",
         Amt: "12000₹",
          desc:"Our rooms offer a harmonious blend of comfort and elegance, designed to provide an exceptional stay for every guest.",
         img: "https://html.themewant.com/moonlit/assets/images/pages/room/5.webp",
@@ -62,7 +62,7 @@ function RoomOne() {
         img: "https://html.themewant.com/moonlit/assets/images/pages/room/4.webp",
       },
       {
-        name: "Triple Room",
+        name: "Single Room",
         Amt: "12999₹",
          desc:"Our rooms offer a harmonious blend of comfort and elegance, designed to provide an exceptional stay for every guest.",
         img: "https://html.themewant.com/moonlit/assets/images/pages/room/6.webp",
