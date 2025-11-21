@@ -100,13 +100,13 @@ const RoomTwo = () => {
             img: "https://html.themewant.com/moonlit/assets/images/pages/room/5.webp",
           },
           {
-            name: "Single Room",
+            name: "Double Room",
             Amt: "₹3999",
             desc: "Ideal for solo travelers seeking cozy comfort.",
             img: "https://html.themewant.com/moonlit/assets/images/pages/room/4.webp",
           },
           {
-            name: "Triple Room",
+            name: "Double  Room",
             Amt: "₹12999",
             desc: "A great option for friends or families with three guests.",
             img: "https://html.themewant.com/moonlit/assets/images/pages/room/6.webp",

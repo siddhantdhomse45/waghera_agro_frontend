@@ -28,6 +28,7 @@ import ApartmentHotel from './Pages/ApartmentHotel';
 import MountainHotel from './Pages/MountainHotel';
 import ClientCity from './Pages/ClientCity';
 import HotelBeach from './Pages/HotelBeach';
+import ScrollToTop from './Components/ScrollToTop';
 // import OceanBreeze from './Pages/OceanBreeze';
 
 function App() {
@@ -68,6 +69,8 @@ function App() {
           }}
         />
       )}
+
+      <ScrollToTop/>
 
       <Routes>
         <Route path="/" element={<Home />} />

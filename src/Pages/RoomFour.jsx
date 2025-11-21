@@ -76,7 +76,7 @@ export default function RoomFour() {
   <div className="space-y-24">
     {[
       {
-        name: "Single Room",
+        name: " Room",
         amt: "14000₹",
         size: "35 sqm",
         person: "5 Person",
@@ -84,7 +84,7 @@ export default function RoomFour() {
         img: "https://html.themewant.com/moonlit/assets/images/pages/room/4.webp",
       },
       {
-        name: "Tripple Room",
+        name: "Four Rooms",
         amt: "15500₹",
         size: "35 sqm",
         person: "5 Person",
@@ -108,7 +108,7 @@ export default function RoomFour() {
         img: "https://html.themewant.com/moonlit/assets/images/pages/room/3.webp",
       },
       {
-        name: "Double Room",
+        name: "Four Rooms",
         amt: "14000₹",
         size: "35 sqm",
         person: "5 Person",

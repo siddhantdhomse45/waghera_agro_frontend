@@ -83,7 +83,7 @@ export default function RoomThree() {
         img: "https://html.themewant.com/moonlit/assets/images/pages/room/2.webp",
       },
       {
-        name: "Double Room",
+        name: "Triple Room",
         Amt: "12999₹",
          desc:"A step up from the standard room, often with better views, more space, and additional amenities.",
         img: "https://html.themewant.com/moonlit/assets/images/pages/room/3.webp",
@@ -95,7 +95,7 @@ export default function RoomThree() {
         img: "https://html.themewant.com/moonlit/assets/images/pages/room/5.webp",
       },
       {
-        name: "Single Room",
+        name: "Triple Room",
         Amt: "3999₹",
          desc:"A step up from the standard room, often with better views, more space, and additional amenities.",
         img: "https://html.themewant.com/moonlit/assets/images/pages/room/4.webp",
