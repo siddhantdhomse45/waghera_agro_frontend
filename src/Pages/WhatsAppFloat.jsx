@@ -9,7 +9,7 @@ function WhatsAppFloat() {
       rel="noopener noreferrer"
       className="
         fixed
-        bottom-20 sm:bottom-24 md:bottom-28 lg:bottom-18 /* Increased gap */
+        bottom-20 sm:bottom-24 md:bottom-28 lg:bottom-22   /* Increased gap */
         right-4 sm:right-5 md:right-8 lg:right-4
         bg-[#25D366]
         text-white
