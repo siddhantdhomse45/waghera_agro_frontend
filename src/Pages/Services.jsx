@@ -203,6 +203,75 @@ const Services = () => {
               className="w-full h-auto mt-0 object-cover rounded-lg"
             />
           </div>
+          <div>
+            <img
+              src="https://i.pinimg.com/736x/fa/31/5f/fa315fa73a956a440d27ec8a7acb0ed3.jpg"
+              alt="Visit Strawberry Garden"
+              className="w-full h-[500px] object-cover rounded-lg"
+            />
+          </div>
+
+          {/* Text Block 1 */}
+          <div className="flex flex-col justify-center">
+            <div className="flex items-center gap-2 text-[#a8815e] mb-2">
+              <span className="h-px w-6 bg-[#a8815e]"></span>
+              <span className="text-2xl">Visit Strawberry Garden</span>
+            </div>
+            <h3 className="text-5xl font-serif mb-6">
+              Visit Strawberry Garden
+            </h3>
+            <p className="text-gray-700 mb-4 text-lg">
+              Step into the refreshing world of lush greenery and vibrant red
+              berries at the Strawberry Garden, a perfect retreat for nature
+              lovers and families alike. Wander through beautifully maintained
+              fields where ripe strawberries grow in abundance, filling the air
+              with a naturally sweet aroma. Here, you can pick fresh
+              strawberries, enjoy the scenic landscapes, and experience the joy
+              of harvesting your own basket of juicy, organic fruit. The garden
+              also features relaxing seating areas, photo-friendly corners, and
+              guided tours that let you learn about strawberry farming and
+              cultivation.
+            </p>
+            <a
+              href="#"
+              className="text-[#b86e2e] border-b border-[#b86e2e] w-fit hover:text-[#a15d20] transition"
+            >
+              Read More
+            </a>
+          </div>
+          <div className="flex flex-col justify-center">
+            <div className="flex items-center gap-2 text-[#a8815e] mb-2">
+              <span className="h-px w-6 bg-[#a8815e]"></span>
+              <span className="text-2xl">Camp Fire</span>
+            </div>
+            <h3 className="text-5xl font-serif mb-6">Camp Fire</h3>
+            <p className="text-gray-700 mb-4 text-lg">
+              Experience the magic of a warm camp fire as the sun sets and the
+              night sky comes alive. Gather around the crackling flames with
+              friends and family, share stories, enjoy music, or simply relax in
+              the peaceful outdoor atmosphere. Our campfire setup offers
+              comfortable seating, safe surroundings, and a beautiful natural
+              backdrop, creating the perfect environment for unforgettable
+              evenings. Whether you want to unwind after a long day or make
+              memories with your loved ones, a cozy camp fire brings warmth,
+              joy, and togetherness to your stay.
+            </p>
+            <a
+              href="#"
+              className="text-[#b86e2e] border-b border-[#b86e2e] w-fit hover:text-[#a15d20] transition"
+            >
+              Read More
+            </a>
+          </div>
+
+          {/* Image 2 */}
+          <div>
+            <img
+              src="	https://i.pinimg.com/736x/1b/62/3e/1b623ebde1130f3aafe8d92cc75841e5.jpg"
+              alt="Camp Fire"
+              className="w-full h-auto mt-0 object-cover rounded-lg"
+            />
+          </div>
         </div>
       </section>
 
