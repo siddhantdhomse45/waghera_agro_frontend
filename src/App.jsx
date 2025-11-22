@@ -29,6 +29,7 @@ import MountainHotel from './Pages/MountainHotel';
 import ClientCity from './Pages/ClientCity';
 import HotelBeach from './Pages/HotelBeach';
 import ScrollToTop from './Components/ScrollToTop';
+import WhatsAppFloat from './Pages/WhatsAppFloat';
 // import OceanBreeze from './Pages/OceanBreeze';
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
 
   return (
     <div className={`relative ${isBeachPage ? 'bg-black text-white' : ''}`}>
+      <WhatsAppFloat />
       {!isBeachPage && (
         <Header
           onSignInClick={() => {
