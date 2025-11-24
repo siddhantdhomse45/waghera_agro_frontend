@@ -175,6 +175,21 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
             </div>
           </li>
 
+           <li className="relative cursor-pointer">
+            <div
+              onClick={() => {
+                setLoading(true);
+                setTimeout(() => {
+                  setLoading(false);
+                  navigate("/about");
+                }, 600);
+              }}
+              className="flex items-center gap-1 hover:text-yellow-600 group cursor-pointer"
+            >
+              About Us
+            </div>
+          </li>
+
           {/* HOME MENU */}
           <li className="relative cursor-pointer">
             <div
