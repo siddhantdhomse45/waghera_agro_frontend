@@ -10,12 +10,10 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
   const navigate = useNavigate();
   const [, setIsDropdownOpen] = useState(false);
   const [isHomeOpen, setIsHomeOpen] = useState(false);
-  const [isRoomsOpen, setIsRoomsOpen] = useState(false);
   const [isPagesOpen, setIsPagesOpen] = useState(false);
   const [isBlogOpen, setIsBlogOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [isPagesClicked, setIsPagesClicked] = useState(false);
-  const [isRoomsClicked, setIsRoomsClicked] = useState(false);
   const [isHomeClicked, setIsHomeClicked] = useState(false);
   const [isBlogClicked, setIsBlogClicked] = useState(false);
   const location = useLocation();
@@ -24,11 +22,7 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
   const isBeachHotelPage = location.pathname.toLowerCase().startsWith("/beachhotel");
   const [scrolled, setScrolled] = useState(false);
   const [mobileHomeOpen, setMobileHomeOpen] = useState(false);
-  const [mobileRoomsOpen, setMobileRoomsOpen] = useState(false);
   const [mobilePagesOpen, setMobilePagesOpen] = useState(false);
-  const [mobileRoomOpen, setMobileRoomOpen] = useState(false);
-  const [mobileRoomStyleOpen, setMobileRoomStyleOpen] = useState(false);
-  const [mobileRoomDetailOpen, setMobileRoomDetailOpen] = useState(false);
   const [mobileBlogOpen, setMobileBlogOpen] = useState(false);
 
   useEffect(() => {
@@ -117,14 +111,6 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
     }
   }, [loading]);
 
-
-  const rooms = [
-    { name: "Room One", path: "/room-one" },
-    { name: "Room Two", path: "/room-two" },
-    { name: "Room Three", path: "/room-three" },
-    { name: "Room Four", path: "/room-four" },
-  ];
-
   return (
 
     <header className="w-full fixed top-0 left-0 z-50">
@@ -189,154 +175,21 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
             </div>
           </li>
 
-            <li className="relative cursor-pointer">
+          {/* HOME MENU */}
+          <li className="relative cursor-pointer">
             <div
               onClick={() => {
                 setLoading(true);
                 setTimeout(() => {
                   setLoading(false);
-                  navigate("/about");
+                  navigate("/room-detail");
                 }, 600);
               }}
               className="flex items-center gap-1 hover:text-yellow-600 group cursor-pointer"
             >
-             About Us
-            </div>
-          </li>
-
-
-
-
-          {/* ROOMS MENU */}
-          <li
-            className="relative cursor-pointer"
-            onMouseEnter={() => {
-              if (!isRoomsClicked) setIsRoomsOpen(true);
-            }}
-            onMouseLeave={() => {
-              if (!isRoomsClicked) setIsRoomsOpen(false);
-            }}
-          >
-            {/* Trigger Button (Click + Hover) */}
-            <div
-              onClick={() => {
-                const newClicked = !isRoomsClicked;
-                setIsRoomsClicked(newClicked);
-                setIsRoomsOpen(newClicked);
-              }}
-              className="flex items-center gap-1 hover:text-yellow-600 group cursor-pointer"
-            >
               Rooms
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className={`mt-[2px] transform transition-transform duration-300 ${isRoomsOpen ? "rotate-180" : ""
-                  }`}
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
             </div>
-
-            {/* Dropdown Menu */}
-            {isRoomsOpen && (
-              <div className="absolute top-full left-0 mt-2 z-50 bg-white shadow-lg w-60">
-                {/* Room Style + submenu */}
-                <div className="group relative px-6 py-3 mt-4 flex text-gray-800 justify-between items-center hover:text-yellow-600">
-                  Room Style
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="10"
-                    height="10"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="9 6 15 12 9 18" />
-                  </svg>
-
-                  <div className="absolute top-5 left-full bg-white shadow-lg w-50 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-200 z-50">
-                    {rooms.map((room, index) => (
-                      <button
-                        key={index}
-                        onClick={() => {
-                          setLoading(true);
-                          setIsRoomsClicked(false);
-                          setIsRoomsOpen(false);
-                          setTimeout(() => {
-                            setLoading(false);
-                            handleLinkClick(room.path);
-                          }, 500);
-                        }}
-                        className="cursor-pointer block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-yellow-600"
-                      >
-                        {room.name}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Room Details + submenu */}
-                <div className="group relative px-6 py-3 flex text-gray-800 justify-between items-center hover:text-yellow-600">
-                  Room Details
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="10"
-                    height="10"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="9 6 15 12 9 18" />
-                  </svg>
-
-                  <div className="absolute top-0 left-full bg-white shadow-lg w-52 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition duration-200 z-50">
-                    {[
-                      { label: "Room Detail 1", path: "/book-now" },
-                      { label: "Room Detail 2", path: "/room-detail" },
-                    ].map((item, index) => (
-                      <button
-                        key={index}
-                        onClick={() => {
-                          setLoading(true);
-                          setIsRoomsClicked(false);
-                          setIsRoomsOpen(false);
-                          setTimeout(() => {
-                            setLoading(false);
-                            handleLinkClick(item.path);
-                          }, 500);
-                        }}
-                        className="cursor-pointer block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-100 hover:text-yellow-600"
-                      >
-                        {item.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Loader */}
-                {loading && (
-                  <div className="fixed top-0 left-0 w-full h-full bg-white flex items-center justify-center z-[9999]">
-                    <div className="w-12 h-12 border-4 border-[#af7b4f] border-t-transparent rounded-full animate-spin"></div>
-                  </div>
-                )}
-              </div>
-            )}
           </li>
-
-         
 
 
           <li
@@ -593,85 +446,6 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
                         {item.name}
                       </li>
                     ))}
-                  </ul>
-                )}
-              </li>
-
-              {/* ROOMS */}
-              <li>
-                <div
-                  className="flex justify-between items-center cursor-pointer border-t border-gray-700 hover:text-orange-600"
-                  onClick={() => setMobileRoomOpen(!mobileRoomOpen)}
-                >
-                  <span>Rooms</span>
-                  <span>{mobileRoomOpen ? "−" : "+"}</span>
-                </div>
-                {mobileRoomOpen && (
-                  <ul className="ml-4 mt-2 space-y-2 text-base text-gray-300">
-                    {/* Room Style */}
-                    <li>
-                      <div
-                        className="flex justify-between items-center cursor-pointer border-t border-gray-700 hover:text-yellow-500"
-                        onClick={() => setMobileRoomStyleOpen(!mobileRoomStyleOpen)}
-                      >
-                        <span>Room Style</span>
-                        <span>{mobileRoomStyleOpen ? "−" : "+"}</span>
-                      </div>
-                      {mobileRoomStyleOpen && (
-                        <ul className="ml-4 mt-2 space-y-2">
-                          {rooms.map((room, idx) => (
-                            <li
-                              key={idx}
-                              onClick={() => {
-                                setLoading(true);
-                                setMenuOpen(false);
-                                setTimeout(() => {
-                                  navigate(room.path);
-                                  setLoading(false);
-                                }, 500);
-                              }}
-                              className="cursor-pointer text-lg border-t border-gray-700 hover:text-yellow-500"
-                            >
-                              {room.name}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </li>
-
-                    {/* Room Details */}
-                    <li>
-                      <div
-                        className="flex justify-between items-center border-t border-gray-700 cursor-pointer hover:text-yellow-500"
-                        onClick={() => setMobileRoomDetailOpen(!mobileRoomDetailOpen)}
-                      >
-                        <span>Room Details</span>
-                        <span>{mobileRoomDetailOpen ? "−" : "+"}</span>
-                      </div>
-                      {mobileRoomDetailOpen && (
-                        <ul className="ml-2 mt-8 space-y-2">
-                          {[
-                            { label: "Room Detail 1", path: "/book-now" },
-                            { label: "Room Detail 2", path: "/room-detail" },
-                          ].map((detail, index) => (
-                            <li
-                              key={index}
-                              onClick={() => {
-                                setLoading(true);
-                                setMenuOpen(false);
-                                setTimeout(() => {
-                                  navigate(detail.path);
-                                  setLoading(false);
-                                }, 500);
-                              }}
-                              className="cursor-pointer text-lg border-t border-gray-700 hover:text-yellow-500"
-                            >
-                              {detail.label}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </li>
                   </ul>
                 )}
               </li>

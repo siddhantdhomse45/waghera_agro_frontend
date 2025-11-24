@@ -180,10 +180,6 @@ import Events from './Pages/Event';
 import BlogDetails from './Pages/BlogDetails';
 import Blog from './Pages/Blog';
 import BookNow from './Pages/BookNow';
-import RoomOne from './Pages/RoomOne';
-import RoomTwo from './Pages/RoomTwo';
-import RoomThree from './Pages/RoomThree';
-import RoomFour from './Pages/RoomFour';
 import RoomDetail from './Pages/RoomDetail';
 import LuxeVista from './Pages/LuxeVista';
 import BeachHotel from './Pages/BeachHotel';
@@ -194,6 +190,11 @@ import ClientCity from './Pages/ClientCity';
 import HotelBeach from './Pages/HotelBeach';
 import ScrollToTop from './Components/ScrollToTop';
 import WhatsAppFloat from './Pages/WhatsAppFloat';
+import ExecutiveRoom from './Components/roomdetails/ExecutiveRoom';
+import TradditionalCottage from './Components/roomdetails/TradditionalCottage';
+import FamilySuites from './Components/roomdetails/FamilyRoom';
+import LuxurySuites from './Components/roomdetails/LuxurySuites';
+// import OceanBreeze from './Pages/OceanBreeze';
 
 function App() {
   const [showSignIn, setShowSignIn] = useState(false);
@@ -254,11 +255,14 @@ function App() {
         <Route path="/blog-details/:id" element={<BlogDetails />} />
         <Route path="/blog-details" element={<BlogDetails />} />
         <Route path="/booknow" element={<BookNow />} />
-        <Route path="/Room-One" element={<RoomOne />} />
-        <Route path="/Room-Two" element={<RoomTwo />} />
-        <Route path="/Room-Three" element={<RoomThree />} />
-        <Route path="/Room-Four" element={<RoomFour />} />
-        <Route path="/room-detail" element={<RoomDetail />} />
+        <Route path="/book-now" element={<BookNow />} />
+        <Route path="/room-detail/*" element={<RoomDetail />}>
+          <Route path="executive-room" element={<ExecutiveRoom />} />
+          <Route path="traditional-cottage" element={<TradditionalCottage />} />
+          <Route path="family-suites" element={<FamilySuites />} />
+          <Route path="luxury-suites" element={<LuxurySuites/>} />
+          {/* ...other nested routes */}
+        </Route>
         <Route path="/luxevista" element={<LuxeVista />} />
         <Route path="/beachhotel" element={<BeachHotel />} />
         <Route path="/mountainhotel" element={<MountainHotel />} />
