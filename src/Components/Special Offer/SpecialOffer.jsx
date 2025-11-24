@@ -67,6 +67,19 @@ export default function SpecialOffer() {
       ],
       type: "Group",
     },
+    {
+      id: 5,
+      title: "Weekend Package",
+      image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+      price: "₹14999",
+      features: [
+        "Special rates for weekends",
+        "Two night Stay",
+        "Bonfire & music night",
+        "Transport included",
+      ],
+      type: "Weekend",
+    },
   ];
 
   // Colors for different package types
