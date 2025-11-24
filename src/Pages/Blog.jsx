@@ -33,7 +33,7 @@ const blogPosts = [
   {
     id: 4,
     title: "Veg Delights: Taste the Authentic Flavors",
-    image: "https://source.unsplash.com/800x600/?vegetarian,food",
+    image: "https://i.pinimg.com/1200x/ee/87/c6/ee87c622879c76616cfe26ab46d8c2c7.jpg",
     author: "Sneha Shinde",
     time: "5 Min Read",
     avatar: "https://randomuser.me/api/portraits/women/45.jpg",
@@ -42,33 +42,18 @@ const blogPosts = [
   {
     id: 5,
     title: "Non-Veg Specials: Savor the Rich Meaty Dishes",
-    image: "https://source.unsplash.com/800x600/?chicken,food",
+    image: "https://i.pinimg.com/736x/2f/d4/f9/2fd4f971e5509c2ae8efa7363bfbd1b6.jpg",
     author: "Sneha Shinde",
     time: "6 Min Read",
     avatar: "https://randomuser.me/api/portraits/women/46.jpg",
   },
-  // Stay Rooms
-  {
-    id: 6,
-    title: "Single Room Comfort: Cozy and Elegant",
-    image: "https://source.unsplash.com/800x600/?hotel-room,single",
-    author: "Sneha Shinde",
-    time: "4 Min Read",
-    avatar: "https://randomuser.me/api/portraits/women/47.jpg",
-  },
-  {
-    id: 7,
-    title: "Double Room Luxury: Spacious Stay for Two",
-    image: "https://source.unsplash.com/800x600/?hotel-room,double",
-    author: "Sneha Shinde",
-    time: "5 Min Read",
-    avatar: "https://randomuser.me/api/portraits/women/48.jpg",
-  },
+ 
+ 
   // Drinking Shop
   {
     id: 8,
     title: "Drinks & More: Unwind at Our Bar",
-    image: "https://source.unsplash.com/800x600/?bar,drinks",
+    image: "https://i.pinimg.com/736x/85/49/8b/85498b60574f03452edb645e93f69807.jpg",
     author: "Sneha Shinde",
     time: "3 Min Read",
     avatar: "https://randomuser.me/api/portraits/women/49.jpg",
@@ -228,73 +213,8 @@ const Blog = () => {
           </div>
         </div>
 
-        {/* Sidebar */}
-        <div className="space-y-8 sticky top-10">
-          {/* Search */}
-          <motion.div
-            className="bg-white p-6 rounded-xl shadow-md"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h4 className="text-2xl font-semibold mb-4">Search</h4>
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search..."
-                className="w-full pl-10 border border-gray-300 rounded-md py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
-              />
-              <i className="fa-solid fa-magnifying-glass absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-            </div>
-          </motion.div>
-
-          {/* Categories */}
-          <motion.div
-            className="bg-white p-6 rounded-xl shadow-md"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-          >
-            <h4 className="text-2xl font-semibold mb-4">Categories</h4>
-            <ul className="space-y-2">
-              {["Luxury", "Travel Tips", "Reviews", "Veg Food", "Non-Veg", "Stay Rooms", "Drinks"].map(
-                (cat, i) => (
-                  <li key={i} className="flex justify-between items-center">
-                    <span>{cat}</span>
-                    <span className="text-gray-500">(12)</span>
-                  </li>
-                )
-              )}
-            </ul>
-          </motion.div>
-
-          {/* Latest Posts */}
-          <motion.div
-            className="bg-white p-6 rounded-xl shadow-md"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            <h4 className="text-2xl font-semibold mb-4">Latest Posts</h4>
-            <ul className="space-y-4">
-              {blogPosts.slice(-3).map((post) => (
-                <li key={post.id} className="flex gap-4">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-20 h-20 object-cover rounded-md"
-                  />
-                  <div>
-                    <p className="font-medium text-gray-800">{post.title}</p>
-                    <p className="text-sm text-gray-500">{post.time}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
+    
+       
       </div>
     </div>
   );
