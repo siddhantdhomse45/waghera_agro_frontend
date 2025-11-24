@@ -8,7 +8,7 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hideTopHeader, setHideTopHeader] = useState(false);
   const navigate = useNavigate();
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [, setIsDropdownOpen] = useState(false);
   const [isHomeOpen, setIsHomeOpen] = useState(false);
   const [isRoomsOpen, setIsRoomsOpen] = useState(false);
   const [isPagesOpen, setIsPagesOpen] = useState(false);
@@ -49,10 +49,10 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
   ];
 
   const pages = [
-    { name: "About", path: "/about" },
+    // { name: "About", path: "/about" },
     { name: "Restaurant", path: "/restaurant" },
     { name: "Gallery", path: "/gallery" },
-    { name: "Service", path: "/service" },
+    // { name: "Service", path: "/service" },
     { name: "Event", path: "/event" },
     { name: "Activities", path: "/activities" },
   ];
@@ -189,6 +189,22 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
             </div>
           </li>
 
+            <li className="relative cursor-pointer">
+            <div
+              onClick={() => {
+                setLoading(true);
+                setTimeout(() => {
+                  setLoading(false);
+                  navigate("/about");
+                }, 600);
+              }}
+              className="flex items-center gap-1 hover:text-yellow-600 group cursor-pointer"
+            >
+             About Us
+            </div>
+          </li>
+
+
 
 
           {/* ROOMS MENU */}
@@ -319,6 +335,9 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
               </div>
             )}
           </li>
+
+         
+
 
           <li
             className="relative cursor-pointer"

@@ -14,7 +14,7 @@ export default function Home() {
       <Hero />
       <Hotel/>
       <Facility/>
-      <OurRooms/>
+      {/* <OurRooms/> */}
       <ClientSay/>
       <VideoHeroSection/>
       <SpecialOffer/>

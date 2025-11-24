@@ -174,7 +174,7 @@ import Footer from './Components/Footer/Footer';
 import AboutUs from './Pages/AboutUs';
 import Restaurant from './Pages/Restaurant';
 import Gallery from './Pages/Gallery';
-import Services from './Pages/Services';
+// import Services from './Pages/Services';
 import Activities from './Pages/Activities';
 import Events from './Pages/Event';
 import BlogDetails from './Pages/BlogDetails';
@@ -248,7 +248,7 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/restaurant" element={<Restaurant />} />
-        <Route path="/service" element={<Services />} />
+        {/* <Route path="/service" element={<Services />} /> */}
         <Route path="/event" element={<Events />} />
         <Route path="/activities" element={<Activities />} />
         <Route path="/blog-details/:id" element={<BlogDetails />} />
