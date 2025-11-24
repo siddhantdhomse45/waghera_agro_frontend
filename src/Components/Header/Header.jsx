@@ -268,75 +268,20 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
             )}
           </li>
 
-          <li
-            className="relative cursor-pointer"
-            onMouseEnter={() => {
-              if (!isBlogClicked) setIsBlogOpen(true);
-            }}
-            onMouseLeave={() => {
-              if (!isBlogClicked) setIsBlogOpen(false);
-            }}
-          >
-            {/* Toggle Button */}
+         <li className="relative cursor-pointer">
             <div
               onClick={() => {
-                const clicked = !isBlogClicked;
-                setIsBlogClicked(clicked);
-                setIsBlogOpen(clicked);
+                setLoading(true);
+                setTimeout(() => {
+                  setLoading(false);
+                  navigate("/blog");
+                }, 600);
               }}
-              className="flex items-center gap-1 hover:text-yellow-600 group"
+              className="flex items-center gap-1 hover:text-yellow-600 group cursor-pointer"
             >
               Blog
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className={`mt-[2px] transform transition-transform duration-300 ${isBlogOpen ? "rotate-180" : ""
-                  }`}
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
             </div>
-
-            {/* Dropdown Menu */}
-            {isBlogOpen && (
-              <div className="absolute top-full left-0 mt-2 z-50 bg-white shadow-lg w-56">
-                {loading ? (
-                  <div className="px-4 py-2 text-gray-600">Loading...</div>
-                ) : (
-                  <>
-                    <button
-                      onClick={() => {
-                        setIsBlogClicked(false);
-                        setIsBlogOpen(false);
-                        handleLinkClick("/blog");
-                      }}
-                      className="cursor-pointer block w-full text-left px-4 py-2 text-gray-800 hover:text-yellow-600"
-                    >
-                      Blog
-                    </button>
-                    <button
-                      onClick={() => {
-                        setIsBlogClicked(false);
-                        setIsBlogOpen(false);
-                        handleLinkClick("/blog-details");
-                      }}
-                      className="cursor-pointer block w-full text-left px-4 py-2 text-gray-800 hover:text-yellow-600"
-                    >
-                      Blog Details
-                    </button>
-                  </>
-                )}
-              </div>
-            )}
           </li>
-
 
           <li
             onClick={() => {
