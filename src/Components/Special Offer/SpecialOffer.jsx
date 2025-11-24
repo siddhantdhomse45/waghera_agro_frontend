@@ -159,7 +159,7 @@ export default function SpecialOffer() {
                 <p className="text-3xl font-serif text-[#a8815e] font-bold">
                   {offer.price}
                 </p>
-                <Link to="/booknow">
+                <Link to="/signup">
                   <button className="bg-[#a8815e] hover:bg-[#8a6a4e] text-white px-6 py-2 rounded-full transition-colors duration-300">
                     Book Now
                   </button>

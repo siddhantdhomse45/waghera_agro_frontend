@@ -1,6 +1,9 @@
-// import { useState, useRef } from 'react';
+
+
+// import { useState, useRef, useEffect } from 'react';
 // import { Routes, Route, useLocation } from 'react-router-dom';
 // import './App.css';
+
 // import Header from './Components/Header/Header';
 // import SignIn from "./Pages/SignIn";
 // import SignUp from "./Pages/SignUp";
@@ -13,13 +16,7 @@
 // import Services from './Pages/Services';
 // import Activities from './Pages/Activities';
 // import Events from './Pages/Event';
-// import BlogDetails from './Pages/BlogDetails';
-// import Blog from './Pages/Blog';
 // import BookNow from './Pages/BookNow';
-// import RoomOne from './Pages/RoomOne';
-// import RoomTwo from './Pages/RoomTwo';
-// import RoomThree from './Pages/RoomThree';
-// import RoomFour from './Pages/RoomFour';
 // import RoomDetail from './Pages/RoomDetail';
 // import LuxeVista from './Pages/LuxeVista';
 // import BeachHotel from './Pages/BeachHotel';
@@ -30,20 +27,35 @@
 // import HotelBeach from './Pages/HotelBeach';
 // import ScrollToTop from './Components/ScrollToTop';
 // import WhatsAppFloat from './Pages/WhatsAppFloat';
+// import ExecutiveRoom from './Components/roomdetails/ExecutiveRoom';
+// import TradditionalCottage from './Components/roomdetails/TradditionalCottage';
+// import FamilySuites from './Components/roomdetails/FamilyRoom';
+// import LuxurySuites from './Components/roomdetails/LuxurySuites';
+// import Blog from './Pages/Blog';
 // // import OceanBreeze from './Pages/OceanBreeze';
 
 // function App() {
 //   const [showSignIn, setShowSignIn] = useState(false);
 //   const [showSignUp, setShowSignUp] = useState(false);
 //   const modalRef = useRef();
+
 //   const location = useLocation();
 
-//   // Identify beach/seaside pages for conditional styles
+//   // CLOSE POPUPS ON ROUTE CHANGE
+//   useEffect(() => {
+//     setShowSignIn(false);
+//     setShowSignUp(false);
+//   }, [location.pathname]);
+
+//   // ✅ AUTO OPEN SIGN-IN POPUP ON FIRST LOAD
+//   useEffect(() => {
+//     setShowSignIn(true);
+//   }, []);
+
 //   const isBeachPage =
 //     location.pathname.toLowerCase().startsWith("/beachhotel") ||
 //     location.pathname.toLowerCase().startsWith("/seaside");
 
-//   // Pages where the footer should be hidden
 //   const hideGlobalFooterPages = ["/beachhotel", "/oceanbreeze", "/seaside"];
 //   const isFooterHidden = hideGlobalFooterPages.some(path =>
 //     location.pathname.toLowerCase().startsWith(path)
@@ -59,20 +71,15 @@
 //   return (
 //     <div className={`relative ${isBeachPage ? 'bg-black text-white' : ''}`}>
 //       <WhatsAppFloat />
+
 //       {!isBeachPage && (
 //         <Header
-//           onSignInClick={() => {
-//             setShowSignIn(true);
-//             setShowSignUp(false);
-//           }}
-//           onSignUpClick={() => {
-//             setShowSignUp(true);
-//             setShowSignIn(false);
-//           }}
+//           onSignInClick={() => setShowSignIn(true)}
+//           onSignUpClick={() => setShowSignUp(true)}
 //         />
 //       )}
 
-//       <ScrollToTop/>
+//       <ScrollToTop />
 
 //       <Routes>
 //         <Route path="/" element={<Home />} />
@@ -83,15 +90,15 @@
 //         <Route path="/service" element={<Services />} />
 //         <Route path="/event" element={<Events />} />
 //         <Route path="/activities" element={<Activities />} />
-//         <Route path="/blog-details/:id" element={<BlogDetails />} />
-//         <Route path="/blog-details" element={<BlogDetails />} />
 //         <Route path="/booknow" element={<BookNow />} />
 //         <Route path="/book-now" element={<BookNow />} />
-//         <Route path="/Room-One" element={<RoomOne />} />
-//         <Route path="/Room-Two" element={<RoomTwo />} />
-//         <Route path="/Room-Three" element={<RoomThree />} />
-//         <Route path="/Room-Four" element={<RoomFour />} />
-//         <Route path="/room-detail" element={<RoomDetail />} />
+//         <Route path="/room-detail/*" element={<RoomDetail />}>
+//           <Route path="executive-room" element={<ExecutiveRoom />} />
+//           <Route path="traditional-cottage" element={<TradditionalCottage />} />
+//           <Route path="family-suites" element={<FamilySuites />} />
+//           <Route path="luxury-suites" element={<LuxurySuites/>} />
+//           {/* ...other nested routes */}
+//         </Route>
 //         <Route path="/luxevista" element={<LuxeVista />} />
 //         <Route path="/beachhotel" element={<BeachHotel />} />
 //         <Route path="/mountainhotel" element={<MountainHotel />} />
@@ -99,16 +106,16 @@
 //         <Route path="/apartmenthotel" element={<ApartmentHotel />} />
 //         <Route path="/clientcity" element={<ClientCity />} />
 //         <Route path="/hotelbeach" element={<HotelBeach />} />
-//         {/* <Route path="/oceanbreeze" element={<OceanBreeze />} /> */}
 //         <Route path="/blog" element={<Blog />} />
+
+//         {/* Normal Pages */}
 //         <Route path="/signin" element={<SignIn />} />
 //         <Route path="/signup" element={<SignUp />} />
 //       </Routes>
 
-//       {/* Show footer only when not on excluded pages */}
 //       {!isFooterHidden && <Footer />}
 
-//       {/* Sign In Modal */}
+//       {/* SIGN IN POPUP */}
 //       {showSignIn && (
 //         <div
 //           onClick={handleOverlayClick}
@@ -131,7 +138,7 @@
 //         </div>
 //       )}
 
-//       {/* Sign Up Modal */}
+//       {/* SIGN UP POPUP */}
 //       {showSignUp && (
 //         <div
 //           onClick={handleOverlayClick}
@@ -158,6 +165,7 @@
 // }
 
 // export default App;
+
 
 
 
@@ -193,13 +201,15 @@ import TradditionalCottage from './Components/roomdetails/TradditionalCottage';
 import FamilySuites from './Components/roomdetails/FamilyRoom';
 import LuxurySuites from './Components/roomdetails/LuxurySuites';
 import Blog from './Pages/Blog';
-// import OceanBreeze from './Pages/OceanBreeze';
 
 function App() {
   const [showSignIn, setShowSignIn] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
-  const modalRef = useRef();
 
+  // 🔐 LOGIN STATE (IMPORTANT)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const modalRef = useRef();
   const location = useLocation();
 
   // CLOSE POPUPS ON ROUTE CHANGE
@@ -208,7 +218,7 @@ function App() {
     setShowSignUp(false);
   }, [location.pathname]);
 
-  // ✅ AUTO OPEN SIGN-IN POPUP ON FIRST LOAD
+  // AUTO OPEN SIGN-IN POPUP ON FIRST LOAD
   useEffect(() => {
     setShowSignIn(true);
   }, []);
@@ -229,6 +239,11 @@ function App() {
     }
   };
 
+  // 🔐 PRIVATE ROUTE WRAPPER
+  const PrivateRoute = ({ children }) => {
+    return isLoggedIn ? children : <Home />;
+  };
+
   return (
     <div className={`relative ${isBeachPage ? 'bg-black text-white' : ''}`}>
       <WhatsAppFloat />
@@ -243,33 +258,36 @@ function App() {
       <ScrollToTop />
 
       <Routes>
+        {/* PUBLIC PAGE */}
         <Route path="/" element={<Home />} />
-        <Route path="/contactus" element={<ContactPage />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/restaurant" element={<Restaurant />} />
-        <Route path="/service" element={<Services />} />
-        <Route path="/event" element={<Events />} />
-        <Route path="/activities" element={<Activities />} />
-        <Route path="/booknow" element={<BookNow />} />
-        <Route path="/book-now" element={<BookNow />} />
-        <Route path="/room-detail/*" element={<RoomDetail />}>
+
+        {/* PROTECTED PAGES */}
+        <Route path="/contactus" element={<PrivateRoute><ContactPage /></PrivateRoute>} />
+        <Route path="/about" element={<PrivateRoute><AboutUs /></PrivateRoute>} />
+        <Route path="/gallery" element={<PrivateRoute><Gallery /></PrivateRoute>} />
+        <Route path="/restaurant" element={<PrivateRoute><Restaurant /></PrivateRoute>} />
+        <Route path="/service" element={<PrivateRoute><Services /></PrivateRoute>} />
+        <Route path="/event" element={<PrivateRoute><Events /></PrivateRoute>} />
+        <Route path="/activities" element={<PrivateRoute><Activities /></PrivateRoute>} />
+        <Route path="/booknow" element={<PrivateRoute><BookNow /></PrivateRoute>} />
+        <Route path="/blog" element={<PrivateRoute><Blog /></PrivateRoute>} />
+
+        <Route path="/room-detail/*" element={<PrivateRoute><RoomDetail /></PrivateRoute>}>
           <Route path="executive-room" element={<ExecutiveRoom />} />
           <Route path="traditional-cottage" element={<TradditionalCottage />} />
           <Route path="family-suites" element={<FamilySuites />} />
-          <Route path="luxury-suites" element={<LuxurySuites/>} />
-          {/* ...other nested routes */}
+          <Route path="luxury-suites" element={<LuxurySuites />} />
         </Route>
-        <Route path="/luxevista" element={<LuxeVista />} />
-        <Route path="/beachhotel" element={<BeachHotel />} />
-        <Route path="/mountainhotel" element={<MountainHotel />} />
-        <Route path="/seaside" element={<SeaSide />} />
-        <Route path="/apartmenthotel" element={<ApartmentHotel />} />
-        <Route path="/clientcity" element={<ClientCity />} />
-        <Route path="/hotelbeach" element={<HotelBeach />} />
-        <Route path="/blog" element={<Blog />} />
 
-        {/* Normal Pages */}
+        <Route path="/luxevista" element={<PrivateRoute><LuxeVista /></PrivateRoute>} />
+        <Route path="/beachhotel" element={<PrivateRoute><BeachHotel /></PrivateRoute>} />
+        <Route path="/mountainhotel" element={<PrivateRoute><MountainHotel /></PrivateRoute>} />
+        <Route path="/seaside" element={<PrivateRoute><SeaSide /></PrivateRoute>} />
+        <Route path="/apartmenthotel" element={<PrivateRoute><ApartmentHotel /></PrivateRoute>} />
+        <Route path="/clientcity" element={<PrivateRoute><ClientCity /></PrivateRoute>} />
+        <Route path="/hotelbeach" element={<PrivateRoute><HotelBeach /></PrivateRoute>} />
+
+        {/* PAGES FOR POPUP (NOT PROTECTED) */}
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
@@ -289,7 +307,12 @@ function App() {
             >
               ×
             </button>
+
             <SignIn
+              onLoginSuccess={() => {
+                setIsLoggedIn(true); // 🔐 LOGIN SUCCESS
+                setShowSignIn(false);
+              }}
               onSwitchToSignUp={() => {
                 setShowSignIn(false);
                 setShowSignUp(true);
@@ -312,7 +335,12 @@ function App() {
             >
               ×
             </button>
+
             <SignUp
+              onRegisterSuccess={() => {
+                setIsLoggedIn(true); // 🔐 REGISTER SUCCESS
+                setShowSignUp(false);
+              }}
               onSwitchToSignIn={() => {
                 setShowSignUp(false);
                 setShowSignIn(true);
