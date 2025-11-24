@@ -1,6 +1,8 @@
 import React from 'react';
 import { useEffect, useRef } from "react";
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
+import { Link } from "react-router-dom";
+
 
 export default function Hotel() {
     const imageRef = useRef(null);
@@ -95,9 +97,11 @@ export default function Hotel() {
     </p>
 
     {/* Button */}
-    <button className="bg-[#a8815e] text-white px-6 py-3 rounded-md hover:bg-[#edb88a] transition duration-300">
-      Learn More
-    </button>
+   <Link to="/about">
+  <button className="bg-[#a8815e] text-white px-6 py-3 rounded-md hover:bg-[#edb88a] transition duration-300">
+    Learn More
+  </button>
+</Link>
   </div>
 </div>
 
