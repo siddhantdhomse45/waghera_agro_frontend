@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function SpecialOffer() {
   const offers = [
@@ -44,7 +45,8 @@ export default function SpecialOffer() {
     {
       id: 4,
       title: "Corporate Package",
-      image: "https://images.unsplash.com/photo-1551884831-bbf3cdc6469e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+      image:
+        "https://images.unsplash.com/photo-1551884831-bbf3cdc6469e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
       price: "₹8999",
       features: [
         "Conference hall access",
@@ -57,7 +59,8 @@ export default function SpecialOffer() {
     {
       id: 5,
       title: "Group Package",
-      image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+      image:
+        "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
       price: "₹14999",
       features: [
         "Special rates for groups (8+)",
@@ -70,7 +73,8 @@ export default function SpecialOffer() {
     {
       id: 5,
       title: "Weekend Package",
-      image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
+      image:
+        "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80",
       price: "₹14999",
       features: [
         "Special rates for weekends",
@@ -88,7 +92,7 @@ export default function SpecialOffer() {
     Couple: "bg-[#FF69B4] text-[#75334d]",
     Honeymoon: "bg-[#b889fc] text-[#443c62]",
     Corporate: "bg-[#72e4ec] text-[#257276]",
-    Group: "bg-[#76da8c] text-[#285e39]"
+    Group: "bg-[#76da8c] text-[#285e39]",
   };
 
   return (
@@ -112,7 +116,8 @@ export default function SpecialOffer() {
           Special Offers
         </h2>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          Discover our exclusive packages designed to make your stay unforgettable
+          Discover our exclusive packages designed to make your stay
+          unforgettable
         </p>
       </div>
 
@@ -154,9 +159,11 @@ export default function SpecialOffer() {
                 <p className="text-3xl font-serif text-[#a8815e] font-bold">
                   {offer.price}
                 </p>
-                <button className="bg-[#a8815e] hover:bg-[#8a6a4e] text-white px-6 py-2 rounded-full transition-colors duration-300">
-                  Book Now
-                </button>
+                <Link to="/booknow">
+                  <button className="bg-[#a8815e] hover:bg-[#8a6a4e] text-white px-6 py-2 rounded-full transition-colors duration-300">
+                    Book Now
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
