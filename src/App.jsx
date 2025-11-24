@@ -177,8 +177,6 @@ import Gallery from './Pages/Gallery';
 import Services from './Pages/Services';
 import Activities from './Pages/Activities';
 import Events from './Pages/Event';
-import BlogDetails from './Pages/BlogDetails';
-import Blog from './Pages/Blog';
 import BookNow from './Pages/BookNow';
 import RoomDetail from './Pages/RoomDetail';
 import LuxeVista from './Pages/LuxeVista';
@@ -194,6 +192,7 @@ import ExecutiveRoom from './Components/roomdetails/ExecutiveRoom';
 import TradditionalCottage from './Components/roomdetails/TradditionalCottage';
 import FamilySuites from './Components/roomdetails/FamilyRoom';
 import LuxurySuites from './Components/roomdetails/LuxurySuites';
+import Blog from './Pages/Blog';
 // import OceanBreeze from './Pages/OceanBreeze';
 
 function App() {
@@ -252,8 +251,6 @@ function App() {
         <Route path="/service" element={<Services />} />
         <Route path="/event" element={<Events />} />
         <Route path="/activities" element={<Activities />} />
-        <Route path="/blog-details/:id" element={<BlogDetails />} />
-        <Route path="/blog-details" element={<BlogDetails />} />
         <Route path="/booknow" element={<BookNow />} />
         <Route path="/book-now" element={<BookNow />} />
         <Route path="/room-detail/*" element={<RoomDetail />}>
