@@ -1,114 +1,188 @@
 import React from "react";
-import { FaUser, FaEnvelope, FaRegCommentDots } from "react-icons/fa";
+import { Mail, Phone, MapPin, Clock, Users } from "lucide-react";
 
 export default function ContactPage() {
+  const contactInfo = [
+    { icon: MapPin, title: "Address", text: "Pune, Maharashtra" },
+    { icon: Phone, title: "Phone", text: "+91 98765 43210" },
+    { icon: Mail, title: "Email", text: "support@gmail.com" },
+    { icon: Clock, title: "Working Hours", text: "9 AM – 9 PM" },
+  ];
+
+  const highlights = [
+    { title: "Professional Team", icon: Users },
+    { title: "Fast Response", icon: Mail },
+    { title: "Reliable Support", icon: Phone },
+  ];
+
+  const logos = [
+    { src: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg", alt: "Microsoft" },
+    { src: "https://upload.wikimedia.org/wikipedia/commons/0/08/Google_Logo.svg", alt: "Google" },
+    { src: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg", alt: "Apple" },
+    { src: "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg", alt: "Facebook" },
+    { src: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Adobe_Corporate_logo.svg", alt: "Adobe" },
+    { src: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Spotify_logo_with_text.svg", alt: "Spotify" },
+  ];
+
   return (
-    <div className="pt-24 ">
-      {/* Hero Section */}
-      <div
-  className="relative bg-cover bg-center h-[700px] flex items-center justify-center"
-  style={{
-    backgroundImage: "url('https://html.themewant.com/moonlit/assets/images/pages/header__bg.webp')",
-  }}
->
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-black/50 z-0" />
-        <div className="absolute inset-0  bg-opacity-50 flex flex-col items-center justify-center text-white text-center">
-          <h1 className="text-4xl md:text-7xl font-serif mb-6">Contact Us</h1>
-          <p className="text-lg">Whether you have questions, need answers, or simply want to chat.</p>
-        </div>
-      </div>
+    <div className="min-h-screen w-full bg-gray-50">
 
-      {/* Contact Form & Image */}
-      <div className=" mx-auto  py-16 grid md:grid-cols-2 gap-12 px-4 sm:px-24">
-        {/* Contact Form */}
-        <div>
-          <h3 className="text-5xl font-serif text-gray-800 mb-7">
-            Love to hear from you! Get in touch!
-          </h3>
-          
-<form className="space-y-4">
-  {/* Name Field */}
-  <div className="flex items-center border border-gray-300 rounded px-3 py-3 focus-within:ring-2 focus-within:ring-yellow-500">
-    <FaUser className="text-gray-400 mr-3" />
-    <input
-      type="text"
-      placeholder="Your Name"
-      className="flex-1 outline-none text-gray-700"
-    />
-  </div>
+      {/* ================= HERO SECTION ================= */}
+      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1581091215369-24c0b7487cf9?auto=format&fit=crop&w=1950&q=80')" }}
+        />
+        {/* Subtle Overlay */}
+        <div className="absolute top-0 left-0 w-full h-full bg-white/10" />
 
-  {/* Email Field */}
-  <div className="flex items-center border border-gray-300 rounded px-3 py-3 focus-within:ring-2 focus-within:ring-yellow-500">
-    <FaEnvelope className="text-gray-400 mr-3" />
-    <input
-      type="email"
-      placeholder="Your Email"
-      className="flex-1 outline-none text-gray-700"
-    />
-  </div>
-
-  {/* Message Field */}
-  <div className="flex items-start border border-gray-300 rounded px-3 py-3 focus-within:ring-2 focus-within:ring-yellow-500">
-    <FaRegCommentDots className="text-gray-400 mr-3 mt-1" />
-    <textarea
-      placeholder="Message"
-      rows="4"
-      className="flex-1 outline-none text-gray-700 resize-none"
-    ></textarea>
-  </div>
-
-  {/* Submit Button */}
-  <button
-    type="submit"
-    className="bg-[#a8815e] hover:bg-yellow-900 text-white px-6 py-2 rounded"
-  >
-    Send Message
-  </button>
-</form>
-
-        </div>
-
-        {/* Right side Image */}
-        <div>
-          <img
-            src="https://html.themewant.com/moonlit/assets/images/room/2.webp"
-            alt="Room"
-            className="rounded h-[600px] w-[800px] shadow-lg"
-          />
-        </div>
-      </div>
-
-      {/* Map + Info */}
-      <div className=" mx-auto  grid md:grid-cols-2 gap-10 pb-16  px-4 sm:px-24">
-        {/* Google Map Embed */}
-        <div>
-          <iframe
-  title="Google Map - Pune, India"
-  src="https://maps.google.com/maps?q=Pune,India&t=&z=13&ie=UTF8&iwloc=&output=embed"
-  className="w-full h-[550px] border-2 border-gray-300 rounded"
-  allowFullScreen
-  loading="lazy"
-></iframe>
-        </div>
-
-        {/* Info Center */}
-        <div>
-          <h3 className="text-4xl font-serif mb-4 mt-25">Hotel Info Center</h3>
-          <p className="text-gray-700 text-lg ">Opening Hours:Monday-Sunday</p>
-          <p className="text-gray-700 text-lg  ">Booking Enquiries: +12505550199</p>
-          <p className="text-gray-700 text-lg ">Fax: +12505550199</p>
-          <p className="text-gray-700 text-lg ">Email: moonlit@gmail.com</p>
-          <h3 className=" text-4xl font-serif mt-9 mb-6">Hotel Location:</h3>
-          <p className="text-gray-600">
-            Address:280 Augusta Avenue, Mumbai
+        {/* Hero Content */}
+        <div className="relative z-10 text-center max-w-3xl px-6 py-16 bg-white/70 backdrop-blur-md rounded-3xl shadow-md animate-fadeUp">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-4 animate-slideUp">
+            Get In Touch
+          </h1>
+          <p className="text-gray-700 text-lg animate-slideUp delay-100">
+            We're here to help with everything — support, business inquiries, or general questions.
           </p>
-          <p className="text-gray-700 text-lg  ">Booking Enquiries: +12505550199</p>
-          <p className="text-gray-700 text-lg">Fax: +12505550199</p>
-          <p className="text-gray-700 text-lg">Email: moonlit@gmail.com</p>
+          <div className="mt-6 w-32 h-1 mx-auto bg-indigo-400 rounded-full animate-pulse"></div>
         </div>
-      </div>
-      <footer/>
+      </section>
+
+      {/* ================= CONTACT SECTION ================= */}
+      <section className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 px-6 md:px-10 -mt-16 mb-20">
+        {/* Contact Info */}
+        <div className="space-y-6">
+          {contactInfo.map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={idx}
+                className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transform transition-all hover:-translate-y-1 hover:scale-102 duration-300 animate-fadeUp"
+                style={{ animationDelay: `${idx * 0.1}s` }}
+              >
+                <div className="p-3 rounded-lg bg-indigo-100">
+                  <Icon size={26} className="text-indigo-500" />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">{item.title}</p>
+                  <p className="text-lg font-medium text-gray-800">{item.text}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Contact Form */}
+        <div className="bg-white rounded-2xl shadow-sm p-10 animate-fadeUp">
+          <h2 className="text-3xl font-semibold text-gray-800 mb-6">Send Us a Message</h2>
+          <form className="space-y-4">
+            <input
+              type="text"
+              placeholder="Your Name"
+              className="w-full p-3 border rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-300 transition"
+            />
+            <input
+              type="email"
+              placeholder="Your Email"
+              className="w-full p-3 border rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-300 transition"
+            />
+            <textarea
+              rows="5"
+              placeholder="Your Message"
+              className="w-full p-3 border rounded-lg bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-300 transition"
+            />
+            <button
+              type="submit"
+              className="w-full py-3 bg-indigo-400 text-white rounded-lg hover:bg-indigo-500 hover:scale-105 transition-all duration-300"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+      </section>
+
+      {/* ================= ABOUT SECTION ================= */}
+      <section className="bg-indigo-50 py-20">
+        <div className="max-w-4xl mx-auto text-center px-6">
+          <h2 className="text-4xl font-bold text-indigo-900 mb-4 animate-fadeUp">
+            About Our Team
+          </h2>
+          <p className="text-lg text-indigo-800 animate-fadeUp delay-100">
+            We are a dedicated team delivering clean, modern, and user-friendly web solutions. Our goal is a smooth and enjoyable experience.
+          </p>
+        </div>
+      </section>
+
+      {/* ================= HIGHLIGHTS SECTION ================= */}
+      <section className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-6 py-16">
+        {highlights.map((item, idx) => {
+          const Icon = item.icon;
+          return (
+            <div key={idx} className="bg-white rounded-2xl shadow-sm p-8 text-center hover:shadow-md transform transition duration-300">
+              <Icon size={36} className="mx-auto mb-4 text-indigo-400" />
+              <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
+            </div>
+          );
+        })}
+      </section>
+
+      {/* ================= MAP SECTION ================= */}
+      <section className="max-w-6xl mx-auto px-6 md:px-10 mb-20">
+        <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">Our Location</h2>
+        <div className="w-full h-[400px] rounded-2xl overflow-hidden shadow-sm">
+          <iframe
+            className="w-full h-full"
+            src="https://maps.google.com/maps?q=pune&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            frameBorder="0"
+            allowFullScreen=""
+            aria-hidden="false"
+            tabIndex="0"
+          ></iframe>
+        </div>
+      </section>
+
+      {/* ================= LOGOS SECTION ================= */}
+      <section className="relative py-20">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1556741533-f6acd647d2fb?auto=format&fit=crop&w=1950&q=80')" }}
+        />
+        {/* Subtle Overlay */}
+        <div className="absolute inset-0 bg-white/15"></div>
+
+        {/* Content */}
+        <div className="relative max-w-6xl mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold text-gray-800 mb-10">Trusted by Top Companies</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 items-center justify-items-center">
+            {logos.map((logo, idx) => (
+              <img
+                key={idx}
+                src={logo.src}
+                alt={logo.alt}
+                className="h-10 object-contain filter brightness-0 invert"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= ANIMATIONS ================= */}
+      <style>{`
+        @keyframes fadeUp {
+          0% { opacity: 0; transform: translateY(20px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeUp { animation: fadeUp 0.8s ease-out forwards; }
+
+        @keyframes slideUp {
+          0% { opacity: 0; transform: translateY(10px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slideUp { animation: slideUp 0.8s ease-out forwards; }
+      `}</style>
+
     </div>
   );
 }
