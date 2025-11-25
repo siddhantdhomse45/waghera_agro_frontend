@@ -3,8 +3,8 @@ import { Mail, Phone, MapPin, Clock, Users } from "lucide-react";
 
 export default function ContactPage() {
   const contactInfo = [
-    { icon: MapPin, title: "Address", text: "Pune, Maharashtra" },
-    { icon: Phone, title: "Phone", text: "+91 98765 43210" },
+    { icon: MapPin, title: "Address", text: "Pali t.ategaon, Maharashtra" },
+    { icon: Phone, title: "Phone", text: "+91 9420604657/9421687397" },
     { icon: Mail, title: "Email", text: "support@gmail.com" },
     { icon: Clock, title: "Working Hours", text: "9 AM – 9 PM" },
   ];
@@ -136,7 +136,7 @@ export default function ContactPage() {
             src="https://maps.google.com/maps?q=pune&t=&z=13&ie=UTF8&iwloc=&output=embed"
             frameBorder="0"
             allowFullScreen=""
-            aria-hidden="false"
+            aria-hidden="false"F
             tabIndex="0"
           ></iframe>
         </div>

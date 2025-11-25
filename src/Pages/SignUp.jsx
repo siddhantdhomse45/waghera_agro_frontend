@@ -92,16 +92,64 @@
 
 
 
-
-
-
-
+import { useState } from "react";
 import { FaGoogle, FaFacebookF } from "react-icons/fa";
 
 export default function SignUp({ onSwitchToSignIn }) {
+
+  // Store form values
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    contact: "",
+    password: "",
+    confirmPassword: ""
+  });
+
+  // Handle input changes
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  // Call backend API
+  const handleRegister = async () => {
+
+    if (form.password !== form.confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:8080/api/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          contact: form.contact,
+          password: form.password
+        }),
+      });
+
+      const data = await response.text();
+      alert(data);
+
+      if (response.ok) {
+        onSwitchToSignIn(); // redirect to login
+      }
+
+    } catch (error) {
+      alert("Something went wrong. Please try again.");
+      console.error(error);
+    }
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-8 pb-16">
       <div className="bg-white w-full max-w-md rounded-2xl shadow-xl p-6">
+
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Create Your Account</h2>
 
         {/* Name */}
@@ -110,6 +158,9 @@ export default function SignUp({ onSwitchToSignIn }) {
           <input
             type="text"
             placeholder="Enter your name"
+            name="name"
+            value={form.name}
+            onChange={handleChange}
             className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-600"
           />
         </div>
@@ -120,6 +171,9 @@ export default function SignUp({ onSwitchToSignIn }) {
           <input
             type="email"
             placeholder="Enter your email"
+            name="email"
+            value={form.email}
+            onChange={handleChange}
             className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-600"
           />
         </div>
@@ -130,6 +184,9 @@ export default function SignUp({ onSwitchToSignIn }) {
           <input
             type="tel"
             placeholder="Enter your contact number"
+            name="contact"
+            value={form.contact}
+            onChange={handleChange}
             className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-600"
           />
         </div>
@@ -140,6 +197,9 @@ export default function SignUp({ onSwitchToSignIn }) {
           <input
             type="password"
             placeholder="Create a password"
+            name="password"
+            value={form.password}
+            onChange={handleChange}
             className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-600"
           />
         </div>
@@ -150,12 +210,18 @@ export default function SignUp({ onSwitchToSignIn }) {
           <input
             type="password"
             placeholder="Confirm your password"
+            name="confirmPassword"
+            value={form.confirmPassword}
+            onChange={handleChange}
             className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-600"
           />
         </div>
 
         {/* Register Button */}
-        <button className="w-full bg-blue-100 hover:bg-[#a8815e] hover:text-white transition py-2 rounded-lg font-semibold text-gray-800 mb-4">
+        <button
+          onClick={handleRegister}
+          className="w-full bg-blue-100 hover:bg-[#a8815e] hover:text-white transition py-2 rounded-lg font-semibold text-gray-800 mb-4"
+        >
           Register
         </button>
 
@@ -186,9 +252,8 @@ export default function SignUp({ onSwitchToSignIn }) {
             Login
           </span>
         </p>
-            </div>
+
+      </div>
     </div>
   );
 }
-
-
