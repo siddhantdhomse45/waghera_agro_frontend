@@ -175,7 +175,7 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
             </div>
           </li>
 
-           <li className="relative cursor-pointer">
+          <li className="relative cursor-pointer">
             <div
               onClick={() => {
                 setLoading(true);
@@ -268,7 +268,7 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
             )}
           </li>
 
-         <li className="relative cursor-pointer">
+          <li className="relative cursor-pointer">
             <div
               onClick={() => {
                 setLoading(true);
@@ -352,200 +352,92 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="absolute top-full left-0 w-full bg-black text-white shadow-md p-4 flex flex-col gap-4 z-50 lg:hidden">
-          <div
-            className={`fixed inset-0 z-50 transition-transform duration-300 transform ${menuOpen ? "translate-x-0" : "-translate-x-full"
-              } bg-black p-6 overflow-y-auto`}
-          >
-            {/* Logo + Close button */}
-            <div className="flex items-center justify-between mb-6">
-              <div className="text-2xl font-serif font-bold text-white flex items-center gap-2">
-                <Link to="/">
-                  {/* <img
-      src="https://html.themewant.com/moonlit/assets/images/logo/logo.svg"
-      alt="Logo"
-      className="h-10 w-auto filter invert cursor-pointer"
-    /> */}
-                </Link>
+        <div className="fixed inset-0 z-50 bg-black p-6 overflow-y-auto flex flex-col">
+          {/* Header */}
+          <div className="flex items-center justify-between mb-6">
+            <Link to="/" className="text-2xl font-serif font-bold text-white">
+              Waghera Agro Tourism
+            </Link>
+            <button
+              onClick={() => setMenuOpen(false)}
+              aria-label="Close menu"
+              className="text-white text-3xl"
+            >
+              <HiX />
+            </button>
+          </div>
+
+          <p className="text-white leading-relaxed mb-10">
+            Welcome to Waghera Agro Tourism, where luxury meets comfort in the heart of Canada. Since 1999, we have been dedicated to providing.
+          </p>
+
+          <nav className="flex flex-col gap-4 text-white text-lg border-t border-gray-700 pt-6">
+            
+            
+
+            {/* Single navigations */}
+            {[
+              { name: "Home", path: "/" },
+              { name: "About Us", path: "/about" },
+              { name: "Rooms", path: "/room-detail" },
+              ...pages,
+              { name: "Blog", path: "/blog" },
+              { name: "Contact", path: "/contactus" },
+            ].map(({ name, path }) => (
+              <div
+                key={name}
+                onClick={() => {
+                  setLoading(true);
+                  setMenuOpen(false);
+                  setTimeout(() => {
+                    navigate(path);
+                    setLoading(false);
+                  }, 400);
+                }}
+                className="cursor-pointer rounded-lg bg-gray-800 bg-opacity-50 px-4 py-3 hover:bg-yellow-600 hover:text-black transition font-semibold"
+              >
+                {name}
               </div>
-              <button onClick={() => setMenuOpen(false)}>
-                <HiX className="text-white text-3xl" />
-              </button>
+            ))}
+
+            {/* Sign In / Register */}
+            <div
+              onClick={() => {
+                setLoading(true);
+                setMenuOpen(false);
+                setTimeout(() => {
+                  onSignInClick();
+                  setLoading(false);
+                }, 400);
+              }}
+              className="cursor-pointer rounded-lg bg-gray-800 bg-opacity-50 px-4 py-3 hover:bg-yellow-600 hover:text-black transition text-center font-semibold"
+            >
+              Sign In
             </div>
-
-            <p className="text-white leading-relaxed mb-20 mt-10">
-              Welcome to Waghera Agro Tourism, where luxury meets comfort in the heart of Canada. Since 1999,
-              we have been dedicated to providing.
-            </p>
-
-            <ul className="flex flex-col text-white text-lg gap-8 pt-6 border-t border-gray-700">
-              {/* HOME */}
-              <li>
-                <div
-                  className="flex justify-between items-center cursor-pointer hover:text-orange-600"
-                  onClick={() => setMobileHomeOpen(!mobileHomeOpen)}
-                >
-                  <span>Home</span>
-                  <span>{mobileHomeOpen ? "−" : "+"}</span>
-                </div>
-                {mobileHomeOpen && (
-                  <ul className="ml-4 mt-2 space-y-2 text-base text-gray-300">
-                    {homeMenuItems.map((item, idx) => (
-                      <li
-                        key={idx}
-                        onClick={() => {
-                          setLoading(true);
-                          setMenuOpen(false);
-                          setTimeout(() => {
-                            navigate(item.href);
-                            setLoading(false);
-                          }, 500);
-                        }}
-                        className="cursor-pointer hover:text-yellow-500"
-                      >
-                        {item.name}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-
-              {/* PAGES */}
-              <li>
-                <div
-                  className="flex justify-between items-center cursor-pointer text-xl border-t border-gray-700 hover:text-orange-400"
-                  onClick={() => setMobilePagesOpen(!mobilePagesOpen)}
-                >
-                  <span>Pages</span>
-                  <span>{mobilePagesOpen ? "−" : "+"}</span>
-                </div>
-                {mobilePagesOpen && (
-                  <ul className="ml-4 mt-2 space-y-2 text-base text-gray-300">
-                    {pages.map((page, idx) => (
-                      <li
-                        key={idx}
-                        onClick={() => {
-                          setLoading(true);
-                          setMenuOpen(false);
-                          setTimeout(() => {
-                            navigate(page.path);
-                            setLoading(false);
-                          }, 500);
-                        }}
-                        className="cursor-pointer border-t border-gray-700 hover:text-yellow-500"
-                      >
-                        {page.name}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-
-              {/* BLOG */}
-              <li>
-                <div
-                  className="flex justify-between items-center cursor-pointer text-lg border-t border-gray-700 hover:text-orange-500"
-                  onClick={() => setMobileBlogOpen(!mobileBlogOpen)}
-                >
-                  <span>Blog</span>
-                  <span>{mobileBlogOpen ? "−" : "+"}</span>
-                </div>
-                {mobileBlogOpen && (
-                  <ul className="ml-4 mt-2 space-y-2 text-base text-gray-300">
-                    <li
-                      className="cursor-pointer hover:text-yellow-500"
-                      onClick={() => {
-                        setLoading(true);
-                        setMenuOpen(false);
-                        setTimeout(() => {
-                          navigate("/blog");
-                          setLoading(false);
-                        }, 500);
-                      }}
-                    >
-                      Blog
-                    </li>
-                    <li
-                      className="cursor-pointer hover:text-yellow-500"
-                      onClick={() => {
-                        setLoading(true);
-                        setMenuOpen(false);
-                        setTimeout(() => {
-                          navigate("/blog-details");
-                          setLoading(false);
-                        }, 500);
-                      }}
-                    >
-                      Blog Details
-                    </li>
-                  </ul>
-                )}
-              </li>
-
-              {/* CONTACT */}
-              <li
-                onClick={() => {
-                  setLoading(true);
-                  setMenuOpen(false);
-                  setTimeout(() => {
-                    navigate("/contactus");
-                    setLoading(false);
-                  }, 500);
-                }}
-                className="cursor-pointer text-lg border-t border-gray-700 hover:text-orange-500"
-              >
-                Contact
-              </li>
-
-              {/* SIGN IN */}
-              <li
-                onClick={() => {
-                  setLoading(true);
-                  setMenuOpen(false);
-                  setTimeout(() => {
-                    onSignInClick();
-                    setLoading(false);
-                  }, 500);
-                }}
-                className="cursor-pointer text-lg border-t border-gray-700 hover:text-yellow-500"
-              >
-                Sign In
-              </li>
-
-              {/* REGISTER */}
-              <li
-                onClick={() => {
-                  setLoading(true);
-                  setMenuOpen(false);
-                  setTimeout(() => {
-                    onSignUpClick();
-                    setLoading(false);
-                  }, 500);
-                }}
-                className="cursor-pointer text-lg border-t border-gray-700 hover:text-yellow-500"
-              >
-                Register
-              </li>
-            </ul>
-
-            <div className="mt-6 flex flex-col gap-2 text-white text-sm border-gray-700 pt-4">
-              <span className="text-xl">Phone</span>
-              <div className="flex items-center gap-2">
-                <FaPhoneAlt className="text-xs" /> +12505550199
-              </div>
-              <span className="text-xl">E-mail</span>
-              <div className="flex items-center gap-2">
-                <FaEnvelope className="text-xs" /> moonlit@gmail.com
-              </div>
-              <span className="text-xl">Address</span>
-              <div className="flex items-center gap-2">
-                <FaMapMarkerAlt className="text-xs" />
-                <span>280 Augusta Avenue, M5T 2L9 Toronto, Canada</span>
-              </div>
+            <div
+              onClick={() => {
+                setLoading(true);
+                setMenuOpen(false);
+                setTimeout(() => {
+                  onSignUpClick();
+                  setLoading(false);
+                }, 400);
+              }}
+              className="cursor-pointer rounded-lg bg-gray-800 bg-opacity-50 px-4 py-3 hover:bg-yellow-600 hover:text-black transition text-center font-semibold"
+            >
+              Register
             </div>
+          </nav>
+
+          {/* Sticky Contact Info */}
+          <div className="mt-auto pt-6 border-t border-gray-700 text-white text-sm space-y-4 sticky bottom-0 bg-black bg-opacity-80 px-4 py-3 rounded-t-lg">
+            <div><FaPhoneAlt className="inline mr-2 text-xs" /> +12505550199</div>
+            <div><FaEnvelope className="inline mr-2 text-xs" /> <a href="mailto:moonlit@gmail.com" className="underline">moonlit@gmail.com</a></div>
+            <div><FaMapMarkerAlt className="inline mr-2 text-xs" /> 280 Augusta Avenue, M5T 2L9 Toronto, Canada</div>
           </div>
         </div>
       )}
+
     </header>
   );
 }
