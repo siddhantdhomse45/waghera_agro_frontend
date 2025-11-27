@@ -255,22 +255,22 @@ const Booking = () => {
             </div>
           )}
 
-          {showAgeWarning && (
-  <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 backdrop-blur-sm">
+        {showAgeWarning && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-sm">
     <div className="bg-white rounded-2xl p-8 max-w-sm w-full shadow-2xl text-center mx-4">
       <p className="mb-6 text-red-700 font-semibold text-xl">
         Please select child age up to 17.
       </p>
       <button
-        className="px-8 py-3 bg-[#a8815e] text-white rounded-full text-lg font-semibold shadow-md hover:bg-[#916c49] transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-[#a8815e]/50"
+        className="px-8 py-3 bg-[#a8815e] text-white rounded-full text-lg font-semibold shadow-md hover:bg-[#916c49] transition-colors duration-300"
         onClick={() => setShowAgeWarning(false)}
-        aria-label="Close age warning popup"
       >
         OK
       </button>
     </div>
   </div>
 )}
+
 
 
 
