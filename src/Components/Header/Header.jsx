@@ -191,7 +191,7 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
           </li>
 
           {/* HOME MENU */}
-          <li className="relative cursor-pointer">
+          {/* <li className="relative cursor-pointer">
             <div
               onClick={() => {
                 setLoading(true);
@@ -205,7 +205,7 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
               Rooms
             </div>
           </li>
-
+ */}
 
           <li
             className="relative cursor-pointer"

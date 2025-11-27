@@ -178,7 +178,7 @@ export default function Rooms() {
     ];
 
     return (
-        <div className="bg-white min-h-screen px-4 pt-16 pb-20 mt-10 flex flex-col items-center">
+        <div className="bg-white min-h-screen px-4 pt-16 pb-20 mt-10 flex flex-col items-center mt-30">
             <span className="text-[#ccb28d] text-xl tracking-wide mb-2">STAYCATION</span>
 
             <h1 className="text-4xl sm:text-5xl font-serif font-black mb-4 text-center text-black">
