@@ -239,12 +239,12 @@ export default function HeroSlider() {
                   <p className="max-w-2xl mx-auto text-lg mb-8">
                     {slide.description}
                   </p>
-                  <a
+                  {/* <a
                     href="#"
                     className="inline-block bg-[#a8815e] text-white px-6 py-3 rounded hover:bg-yellow-800 transition"
                   >
                     Discover Room
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>
