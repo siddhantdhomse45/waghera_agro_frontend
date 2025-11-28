@@ -1,4 +1,5 @@
-import React from 'react';
+import { useNavigate } from "react-router-dom";
+
 
 const galleryImages = [
     "https://html.themewant.com/moonlit/assets/images/pages/room/1.webp",
@@ -20,6 +21,8 @@ const amenities = [
 ];
 
 const LuxurySuites = () => {
+        const navigate = useNavigate();
+
     return (
         <div className="max-w-6xl mx-auto px-4 py-10 mt-30 font-serif">
 
@@ -76,6 +79,15 @@ const LuxurySuites = () => {
                         <span className="text-base md:text-lg text-gray-800 font-medium text-center">{item.label}</span>
                     </div>
                 ))}
+            </div>
+
+                <div className="flex justify-center mt-6">
+                <button
+                    onClick={() => navigate("/booknow")}
+                    className="px-8 py-3 bg-[#a1865e] text-white text-lg rounded-full shadow-md hover:bg-[#8a6f4f] transition-all"
+                >
+                    Book Now
+                </button>
             </div>
 
         </div>

@@ -10,7 +10,7 @@ import ContactPage from './Pages/ContactUs';
 import Footer from './Components/Footer/Footer';
 import AboutUs from './Pages/AboutUs';
 import Restaurant from './Pages/Restaurant';
-import Gallery from './Pages/Gallery';
+import GalleryPage from './Pages/Gallery';
 import Services from './Pages/Services';
 import Activities from './Pages/Activities';
 import Events from './Pages/Event';
@@ -38,6 +38,9 @@ import Bookings from './Pages/Admin/Bookings';
 import Rooms from './Pages/Admin/Rooms';
 import Users from './Pages/Admin/Users';
 import Settings from './Pages/Admin/Settings';
+import Payments from './Pages/Admin/Payments';
+import GalleryAdmin from './Pages/Admin/Gallery';
+import Analytics from './Pages/Admin/Analytics';
 
 function App() {
   const [showSignIn, setShowSignIn] = useState(false);
@@ -93,7 +96,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/contactus" element={<ContactPage />} />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/restaurant" element={<Restaurant />} />
         <Route path="/service" element={<Services />} />
         <Route path="/event" element={<Events />} />
@@ -125,7 +128,10 @@ function App() {
           <Route path="bookings" element={<Bookings />} />
           <Route path="rooms" element={<Rooms />} />
           <Route path="users" element={<Users />} />
+          <Route path="payments" element={<Payments />} />
+          <Route path="gallery" element={<GalleryAdmin />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="analytics" element={<Analytics />} />
         </Route>
 
         {/* Normal Pages */}
