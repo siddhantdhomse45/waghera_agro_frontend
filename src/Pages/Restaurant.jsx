@@ -17,11 +17,11 @@ const images = [
 
 const categories = [
   "Breakfast",
-  "Cold Appetizers",
-  "Vegetarian & Vegan",
-  "Burgers & Sandwiches",
-  "Dips & Spreads",
-  "Seafood Specialties",
+  "Lunch",
+  "Vegetarian",
+  "Dinner",
+  "Special Menu",
+  "Non Vegetarian",
 ];
 
 const testimonials = [

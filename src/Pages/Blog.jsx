@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { AiFillStar } from "react-icons/ai";
 
 // Blog posts with best detailed descriptions
 const blogPosts = [
@@ -305,100 +306,113 @@ const Blog = () => {
             )}
           </div>
 
-          {/* REVIEW FORM */}
-          <div className="mt-16 bg-white p-8 rounded-xl shadow-lg">
-            <h3 className="text-2xl font-semibold mb-6">Write a Review</h3>
+          
 
-            <form onSubmit={handleSubmit} className="grid gap-4">
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="border p-3 rounded-md"
-                value={formData.name}
-                required
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-              />
+<div className="mt-16 flex justify-center">
+  <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-lg">
+    <h3 className="text-2xl font-semibold mb-6">Write a Review</h3>
 
-              <textarea
-                placeholder="Your Review"
-                className="border p-3 rounded-md"
-                rows="4"
-                required
-                value={formData.comment}
-                onChange={(e) =>
-                  setFormData({ ...formData, comment: e.target.value })
-                }
-              ></textarea>
+    <form onSubmit={handleSubmit} className="grid gap-4">
+      <input
+        type="text"
+        placeholder="Your Name"
+        className="border p-3 rounded-md"
+        value={formData.name}
+        required
+        onChange={(e) =>
+          setFormData({ ...formData, name: e.target.value })
+        }
+      />
 
-              <select
-                className="border p-3 rounded-md"
-                value={formData.rating}
-                onChange={(e) =>
-                  setFormData({
-                    ...formData,
-                    rating: Number(e.target.value),
-                  })
-                }
-              >
-                <option value="5">⭐ 5 Stars</option>
-                <option value="4">⭐ 4 Stars</option>
-                <option value="3">⭐ 3 Stars</option>
-                <option value="2">⭐ 2 Stars</option>
-                <option value="1">⭐ 1 Star</option>
-              </select>
+      <textarea
+        placeholder="Your Review"
+        className="border p-3 rounded-md"
+        rows="4"
+        required
+        value={formData.comment}
+        onChange={(e) =>
+          setFormData({ ...formData, comment: e.target.value })
+        }
+      ></textarea>
 
-              <button
-                type="submit"
-                className="px-6 py-3 bg-yellow-700 text-white rounded-md hover:bg-yellow-900 transition"
-              >
-                Submit Review
-              </button>
-            </form>
-          </div>
-        </div>
+      {/* Rating with React Icons */}
+      <div className="flex items-center gap-3 border p-3 rounded-md">
+        <AiFillStar className="text-yellow-500 text-xl" />
+        <select
+          className="flex-1 outline-none bg-transparent"
+          value={formData.rating}
+          onChange={(e) =>
+            setFormData({
+              ...formData,
+              rating: Number(e.target.value),
+            })
+          }
+        >
+          <option value="5">5 Stars</option>
+          <option value="4">4 Stars</option>
+          <option value="3">3 Stars</option>
+          <option value="2">2 Stars</option>
+          <option value="1">1 Star</option>
+        </select>
+      </div>
+
+      {/* Center Button */}
+      <div className="flex justify-center mt-4">
+        <button
+          type="submit"
+          className="px-6 py-3 bg-yellow-700 text-white rounded-md hover:bg-yellow-900 transition"
+        >
+          Submit Review
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+        </div>   
       </div>
 
       {/* POPUP */}
-     {/* POPUP */}
-<AnimatePresence>
-  {selectedPost && (
-    <motion.div
-      className="fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-50"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      <motion.div
-        className="bg-white p-6 rounded-xl max-w-2xl w-full shadow-xl relative"
-        initial={{ scale: 0.8 }}
-        animate={{ scale: 1 }}
-        exit={{ scale: 0.8 }}
-      >
-        {/* Cancel icon */}
-        <button
-          onClick={() => setSelectedPost(null)}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold"
-        >
-          ✖
-        </button>
+      {/* POPUP */}
+      <AnimatePresence>
+        {selectedPost && (
+          <motion.div
+            className="fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="bg-white p-6 rounded-xl max-w-2xl w-full shadow-xl relative"
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
+            >
+              {/* Cancel icon */}
+              <button
+                onClick={() => setSelectedPost(null)}
+                className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold"
+              >
+                ✖
+              </button>
 
-        <h2 className="text-3xl font-semibold mb-4">{selectedPost.title}</h2>
+              <h2 className="text-3xl font-semibold mb-4">
+                {selectedPost.title}
+              </h2>
 
-        <img
-          src={selectedPost.image}
-          className="w-full h-72 object-cover rounded-md mb-4"
-        />
+              <img
+                src={selectedPost.image}
+                className="w-full h-72 object-cover rounded-md mb-4"
+              />
 
-        <p className="text-gray-700 whitespace-pre-line mb-4">
-          {selectedPost.content}
-        </p>
-      </motion.div>
-    </motion.div>
-  )}
-</AnimatePresence>
-
+              <p className="text-gray-700 whitespace-pre-line mb-4">
+                {selectedPost.content}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
