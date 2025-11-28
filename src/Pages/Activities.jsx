@@ -258,7 +258,7 @@ const Activities = () => {
         </div>
       </section>
 
-      <section className="px-4 py-12 ">
+      {/* <section className="px-4 py-12 ">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {images.map((image, index) => (
@@ -271,7 +271,7 @@ const Activities = () => {
                   alt={image.title}
                   className="w-full h-[600px] object-cover"
                 />
-                {/* Black overlay */}
+               
                 <div className="absolute inset-0 bg-black/40 z-10" />
 
                 <div className="absolute bottom-0 left-0 w-full p-4 z-20 bg-gradient-to-t from-black/70 to-transparent text-white">
@@ -284,7 +284,7 @@ const Activities = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}  
 
       <section>
         {" "}

@@ -28,7 +28,7 @@ const Settings = () => {
   return (
     <div className="p-4">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-800">Settings</h1>
+        <h1 className="text-2xl font-bold text-[#a8815e]">Settings</h1>
         <p className="text-gray-600">Manage your site configuration</p>
       </div>
 
@@ -45,7 +45,7 @@ const Settings = () => {
                 name="siteName"
                 value={settings.siteName}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
               />
             </div>
 
@@ -59,7 +59,7 @@ const Settings = () => {
                 name="email"
                 value={settings.email}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
               />
             </div>
 
@@ -73,7 +73,7 @@ const Settings = () => {
                 name="phone"
                 value={settings.phone}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
               />
             </div>
 
@@ -86,7 +86,7 @@ const Settings = () => {
                 name="timezone"
                 value={settings.timezone}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
               >
                 <option value="UTC">UTC</option>
                 <option value="GMT">GMT</option>
@@ -104,7 +104,7 @@ const Settings = () => {
                 name="currency"
                 value={settings.currency}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
               >
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
@@ -123,7 +123,7 @@ const Settings = () => {
                 value={settings.address}
                 onChange={handleChange}
                 rows="3"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
               />
             </div>
           </div>
@@ -131,7 +131,7 @@ const Settings = () => {
           <div className="mt-6">
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="px-4 py-2 bg-[#a8815e] text-white rounded-md hover:bg-yellow-800 focus:outline-none focus:ring-2 focus:ring-[#a8815e] focus:ring-offset-2"
             >
               Save Settings
             </button>
