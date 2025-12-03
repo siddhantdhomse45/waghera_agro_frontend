@@ -781,7 +781,7 @@
 
 import React, { useState, useEffect } from "react";
 
-const API_BASE = "http://localhost:8080/api/admin/bookings";
+const API_BASE = "http://localhost:8080/api";
 
 const Bookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -791,7 +791,7 @@ const Bookings = () => {
 
   // Fetch all bookings
   const fetchBookings = () => {
-    fetch(`${API_BASE}/all`)
+    fetch(`${API_BASE}/admin/bookings/all`)
       .then((res) => res.json())
       .then((data) => {
         const formatted = data.map((b) => ({

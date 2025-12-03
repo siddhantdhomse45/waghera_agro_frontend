@@ -1008,10 +1008,331 @@
 
 
 
+// import React, { useEffect, useState } from "react";
+// import moment from "moment";
+
+// // Extra services (optional display only)
+// const EXTRA_SERVICES = [
+//   { label: "Room Clean", price: 10, unit: "/ Night" },
+//   { label: "Parking", price: 0, unit: "Free" },
+//   { label: "Airport Transport", price: 20, unit: "/ Night" },
+//   { label: "Pet Friendly", price: 15, unit: "/ Night" },
+// ];
+
+// export default function BookNow() {
+//   const [roomTypes, setRoomTypes] = useState([]);
+//   const [selectedRoomTypeId, setSelectedRoomTypeId] = useState("");
+//   const [checkIn, setCheckIn] = useState(moment().format("YYYY-MM-DD"));
+//   const [checkOut, setCheckOut] = useState(
+//     moment().add(1, "days").format("YYYY-MM-DD")
+//   );
+//   const [adults, setAdults] = useState(1);
+//   const [children, setChildren] = useState(0);
+//   const [extraBed, setExtraBed] = useState(0);
+//   const [selectedExtraServices, setSelectedExtraServices] = useState([]);
+//   const [bookingStatus, setBookingStatus] = useState(null);
+
+//   const selectedRoomType = roomTypes.find(
+//     (room) => room.id === parseInt(selectedRoomTypeId)
+//   );
+
+//   const numNights = moment(checkOut).diff(moment(checkIn), "days");
+
+//   const calculateTotal = () => {
+//     const basePrice = selectedRoomType ? selectedRoomType.price : 0;
+//     const serviceTotal = selectedExtraServices.reduce((total, label) => {
+//       const item = EXTRA_SERVICES.find((s) => s.label === label);
+//       return total + (item ? item.price : 0);
+//     }, 0);
+
+//     const nights = numNights > 0 ? numNights : 1;
+//     return ((basePrice + serviceTotal) * nights).toFixed(2);
+//   };
+
+//   // Fetch room types
+//   useEffect(() => {
+//     fetch("http://localhost:8080/api/admin/rooms")
+//       .then((res) => res.json())
+//       .then((data) => {
+//         setRoomTypes(data);
+//         if (data.length > 0) setSelectedRoomTypeId(String(data[0].id));
+//       })
+//       .catch((err) => console.error("Error fetching rooms:", err));
+//   }, []);
+
+//   // Toggle extra services
+//   const toggleService = (label) => {
+//     setSelectedExtraServices((prev) =>
+//       prev.includes(label)
+//         ? prev.filter((s) => s !== label)
+//         : [...prev, label]
+//     );
+//   };
+
+//   // Submit Booking
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+//     // 🔥 Load logged user
+//     const loggedUser = JSON.parse(localStorage.getItem("user"));
+
+//     if (!loggedUser) {
+//       alert("Please log in before booking!");
+//       return;
+//     }
+
+//     if (!selectedRoomTypeId) return alert("Please select a room.");
+//     if (numNights < 1) return alert("Invalid check-in/check-out date.");
+
+//     setBookingStatus("loading");
+
+//     const bookingData = {
+//       userId: loggedUser.id, // ✔ dynamic user ID
+//       roomId: parseInt(selectedRoomTypeId),
+//       checkInDate: checkIn,
+//       checkOutDate: checkOut,
+//       adults: parseInt(adults),
+//       children: parseInt(children),
+//       extraBed: parseInt(extraBed),
+//     };
+
+//     try {
+//       const response = await fetch(
+//         "http://localhost:8080/api/bookings/create-with-pdf",
+//         {
+//           method: "POST",
+//           headers: { "Content-Type": "application/json" },
+//           body: JSON.stringify(bookingData),
+//         }
+//       );
+
+//       if (!response.ok) {
+//         throw new Error(await response.text());
+//       }
+
+//       // PDF download
+//       const pdfBlob = await response.blob();
+//       const pdfURL = URL.createObjectURL(pdfBlob);
+
+//       const link = document.createElement("a");
+//       link.href = pdfURL;
+//       link.download = `booking_${Date.now()}.pdf`;
+//       link.click();
+//       URL.revokeObjectURL(pdfURL);
+
+//       setBookingStatus("success");
+//       alert("Booking successful! PDF downloaded.");
+//     } catch (error) {
+//       console.error("Booking Failed:", error);
+//       setBookingStatus("error");
+//       alert("Booking failed: " + error.message);
+//     }
+//   };
+
+//   return (
+//     <div className="font-serif text-gray-800">
+//       {/* HERO SECTION */}
+//       <div
+//         className="relative bg-cover bg-center h-[400px]"
+//         style={{
+//           backgroundImage:
+//             "url('https://html.themewant.com/moonlit/assets/images/pages/header__bg.webp')",
+//         }}
+//       ></div>
+
+//       {/* MAIN SECTION */}
+//       <section className="bg-white px-4 py-10 md:px-24 min-h-[200vh]">
+//         <div className="grid lg:grid-cols-3 gap-10">
+//           {/* LEFT SIDE - ROOM DETAILS */}
+//           <div className="lg:col-span-2 h-[150vh] overflow-y-scroll scrollbar-hide pr-2">
+//             <h2 className="text-5xl text-[#af7b4f]">
+//               {selectedRoomType ? `${selectedRoomType.price} ₹ / Night` : "---"}
+//             </h2>
+
+//             <h1 className="text-6xl mt-5 mb-4">
+//               {selectedRoomType ? selectedRoomType.roomType : "Select Room"}
+//             </h1>
+
+//             {/* Room Images */}
+//             <div className="grid sm:grid-cols-2 gap-4 mb-12">
+//               {selectedRoomType?.images?.map((img, idx) => (
+//                 <img
+//                   key={idx}
+//                   src={img}
+//                   className="rounded-md object-cover w-full h-140"
+//                 />
+//               ))}
+//             </div>
+
+//             {/* Description */}
+//             <p className="text-gray-600 mb-8 text-xl">
+//               {selectedRoomType?.description ||
+//                 "Luxurious and premium rooms with modern amenities."}
+//             </p>
+//           </div>
+
+//           {/* RIGHT SIDE - BOOKING FORM */}
+//           <div className="bg-gray-100 rounded-lg p-6 shadow-sm h-fit">
+//             <h3 className="text-3xl text-center mb-7">Book Your Stay</h3>
+
+//             <form className="space-y-4 text-xl" onSubmit={handleSubmit}>
+              
+//               {/* Dates */}
+//               <div>
+//                 <label className="block mb-2">Check In</label>
+//                 <input
+//                   type="date"
+//                   value={checkIn}
+//                   min={moment().format("YYYY-MM-DD")}
+//                   onChange={(e) => setCheckIn(e.target.value)}
+//                   className="w-full border px-3 py-2 rounded bg-white"
+//                 />
+//               </div>
+
+//               <div>
+//                 <label className="block mt-4 mb-2">Check Out</label>
+//                 <input
+//                   type="date"
+//                   value={checkOut}
+//                   min={moment(checkIn).add(1, "days").format("YYYY-MM-DD")}
+//                   onChange={(e) => setCheckOut(e.target.value)}
+//                   className="w-full border px-3 py-2 rounded bg-white"
+//                 />
+//               </div>
+
+//               {/* Room Type */}
+//               <div className="mt-4">
+//                 <label className="block mb-2">Room Type</label>
+//                 <select
+//                   value={selectedRoomTypeId}
+//                   onChange={(e) => setSelectedRoomTypeId(e.target.value)}
+//                   className="w-full border px-3 py-2 rounded bg-white"
+//                 >
+//                   {roomTypes.map((room) => (
+//                     <option key={room.id} value={room.id}>
+//                       {room.roomType} — ₹{room.price}
+//                     </option>
+//                   ))}
+//                 </select>
+//               </div>
+
+//               {/* Guest Details */}
+//               <div>
+//                 <label className="block mt-4 mb-2">Adults</label>
+//                 <input
+//                   type="number"
+//                   min={1}
+//                   value={adults}
+//                   onChange={(e) => setAdults(e.target.value)}
+//                   className="w-full border px-3 py-2 rounded bg-white"
+//                 />
+//               </div>
+
+//               <div>
+//                 <label className="block mt-4 mb-2">Children</label>
+//                 <input
+//                   type="number"
+//                   min={0}
+//                   value={children}
+//                   onChange={(e) => setChildren(e.target.value)}
+//                   className="w-full border px-3 py-2 rounded bg-white"
+//                 />
+//               </div>
+
+//               <div>
+//                 <label className="block mt-4 mb-2">Extra Bed</label>
+//                 <input
+//                   type="number"
+//                   min={0}
+//                   value={extraBed}
+//                   onChange={(e) => setExtraBed(e.target.value)}
+//                   className="w-full border px-3 py-2 rounded bg-white"
+//                 />
+//               </div>
+
+//               {/* Extra Services */}
+//               <h4 className="text-3xl text-center mt-6 mb-4">Extra Services</h4>
+//               {EXTRA_SERVICES.map((item) => (
+//                 <label
+//                   key={item.label}
+//                   className="flex justify-between mt-3 text-xl"
+//                 >
+//                   <span>
+//                     <input
+//                       type="checkbox"
+//                       className="mr-2"
+//                       checked={selectedExtraServices.includes(item.label)}
+//                       onChange={() => toggleService(item.label)}
+//                     />
+//                     {item.label}
+//                   </span>
+//                   <span>
+//                     {item.price > 0 ? `₹${item.price}${item.unit}` : item.unit}
+//                   </span>
+//                 </label>
+//               ))}
+
+//               {/* Total Price */}
+//               <div className="flex justify-between mt-6 text-2xl border-t pt-4">
+//                 <span>Total Price</span>
+//                 <span className="text-[#af7b4f] font-bold">
+//                   ₹{calculateTotal()}
+//                 </span>
+//               </div>
+
+//               {/* Submit */}
+//               <button
+//                 type="submit"
+//                 disabled={bookingStatus === "loading"}
+//                 className={`w-full mt-5 py-2 text-white rounded text-2xl ${
+//                   bookingStatus === "loading"
+//                     ? "bg-gray-500"
+//                     : "bg-[#af7b4f] hover:bg-[#8c6439]"
+//                 }`}
+//               >
+//                 {bookingStatus === "loading" ? "Booking..." : "Book Your Room"}
+//               </button>
+
+//               {bookingStatus === "success" && (
+//                 <p className="text-green-600 text-center mt-2">
+//                   Booking successful!
+//                 </p>
+//               )}
+//               {bookingStatus === "error" && (
+//                 <p className="text-red-600 text-center mt-2">Booking failed!</p>
+//               )}
+//             </form>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Hide Scrollbar */}
+//       <style>
+//         {`
+//           .scrollbar-hide { scrollbar-width: none; }
+//           .scrollbar-hide::-webkit-scrollbar { display: none; }
+//         `}
+//       </style>
+//     </div>
+//   );
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 
-// Extra services (optional display only)
+// Extra services
 const EXTRA_SERVICES = [
   { label: "Room Clean", price: 10, unit: "/ Night" },
   { label: "Parking", price: 0, unit: "Free" },
@@ -1020,100 +1341,74 @@ const EXTRA_SERVICES = [
 ];
 
 export default function BookNow() {
-  const [roomTypes, setRoomTypes] = useState([]);
-  const [selectedRoomTypeId, setSelectedRoomTypeId] = useState("");
+  const [rooms, setRooms] = useState([]);
+  const [selectedRoomId, setSelectedRoomId] = useState("");
   const [checkIn, setCheckIn] = useState(moment().format("YYYY-MM-DD"));
-  const [checkOut, setCheckOut] = useState(
-    moment().add(1, "days").format("YYYY-MM-DD")
-  );
+  const [checkOut, setCheckOut] = useState(moment().add(1, "days").format("YYYY-MM-DD"));
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [extraBed, setExtraBed] = useState(0);
   const [selectedExtraServices, setSelectedExtraServices] = useState([]);
   const [bookingStatus, setBookingStatus] = useState(null);
 
-  const selectedRoomType = roomTypes.find(
-    (room) => room.id === parseInt(selectedRoomTypeId)
-  );
-
+  const selectedRoom = rooms.find((room) => room.id === parseInt(selectedRoomId));
   const numNights = moment(checkOut).diff(moment(checkIn), "days");
 
   const calculateTotal = () => {
-    const basePrice = selectedRoomType ? selectedRoomType.price : 0;
-    const serviceTotal = selectedExtraServices.reduce((total, label) => {
-      const item = EXTRA_SERVICES.find((s) => s.label === label);
-      return total + (item ? item.price : 0);
+    const basePrice = selectedRoom ? selectedRoom.price : 0;
+    const servicesPrice = selectedExtraServices.reduce((sum, label) => {
+      const service = EXTRA_SERVICES.find((s) => s.label === label);
+      return sum + (service ? service.price : 0);
     }, 0);
-
-    const nights = numNights > 0 ? numNights : 1;
-    return ((basePrice + serviceTotal) * nights).toFixed(2);
+    return ((basePrice + servicesPrice) * (numNights > 0 ? numNights : 1)).toFixed(2);
   };
 
-  // Fetch room types
   useEffect(() => {
     fetch("http://localhost:8080/api/admin/rooms")
       .then((res) => res.json())
       .then((data) => {
-        setRoomTypes(data);
-        if (data.length > 0) setSelectedRoomTypeId(String(data[0].id));
+        setRooms(data);
+        if (data.length > 0) setSelectedRoomId(data[0].id.toString());
       })
       .catch((err) => console.error("Error fetching rooms:", err));
   }, []);
 
-  // Toggle extra services
   const toggleService = (label) => {
     setSelectedExtraServices((prev) =>
-      prev.includes(label)
-        ? prev.filter((s) => s !== label)
-        : [...prev, label]
+      prev.includes(label) ? prev.filter((s) => s !== label) : [...prev, label]
     );
   };
 
-  // Submit Booking
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // 🔥 Load logged user
-    const loggedUser = JSON.parse(localStorage.getItem("user"));
-
-    if (!loggedUser) {
-      alert("Please log in before booking!");
-      return;
-    }
-
-    if (!selectedRoomTypeId) return alert("Please select a room.");
-    if (numNights < 1) return alert("Invalid check-in/check-out date.");
+    if (!selectedRoomId) return alert("Please select a room.");
+    if (numNights < 1) return alert("Check-out must be after check-in.");
 
     setBookingStatus("loading");
 
     const bookingData = {
-      userId: loggedUser.id, // ✔ dynamic user ID
-      roomId: parseInt(selectedRoomTypeId),
+      userId: 1, // Replace with actual user ID
+      roomId: parseInt(selectedRoomId),
       checkInDate: checkIn,
       checkOutDate: checkOut,
       adults: parseInt(adults),
       children: parseInt(children),
       extraBed: parseInt(extraBed),
+      extraServices: selectedExtraServices,
+      totalPrice: parseFloat(calculateTotal()),
     };
 
     try {
-      const response = await fetch(
-        "http://localhost:8080/api/bookings/create-with-pdf",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(bookingData),
-        }
-      );
+      const response = await fetch("http://localhost:8080/api/bookings/create-with-pdf", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(bookingData),
+      });
 
-      if (!response.ok) {
-        throw new Error(await response.text());
-      }
+      if (!response.ok) throw new Error(await response.text());
 
-      // PDF download
       const pdfBlob = await response.blob();
       const pdfURL = URL.createObjectURL(pdfBlob);
-
       const link = document.createElement("a");
       link.href = pdfURL;
       link.download = `booking_${Date.now()}.pdf`;
@@ -1122,197 +1417,162 @@ export default function BookNow() {
 
       setBookingStatus("success");
       alert("Booking successful! PDF downloaded.");
-    } catch (error) {
-      console.error("Booking Failed:", error);
+    } catch (err) {
+      console.error("Booking failed:", err);
       setBookingStatus("error");
-      alert("Booking failed: " + error.message);
+      alert("Booking failed: " + err.message);
     }
   };
 
   return (
     <div className="font-serif text-gray-800">
-      {/* HERO SECTION */}
+      {/* Hero */}
       <div
         className="relative bg-cover bg-center h-[400px]"
-        style={{
-          backgroundImage:
-            "url('https://html.themewant.com/moonlit/assets/images/pages/header__bg.webp')",
-        }}
+        style={{ backgroundImage: "url('https://html.themewant.com/moonlit/assets/images/pages/header__bg.webp')" }}
       ></div>
 
-      {/* MAIN SECTION */}
+      {/* Booking Section */}
       <section className="bg-white px-4 py-10 md:px-24 min-h-[200vh]">
         <div className="grid lg:grid-cols-3 gap-10">
-          {/* LEFT SIDE - ROOM DETAILS */}
+          {/* Left Column: Room Details */}
           <div className="lg:col-span-2 h-[150vh] overflow-y-scroll scrollbar-hide pr-2">
             <h2 className="text-5xl text-[#af7b4f]">
-              {selectedRoomType ? `${selectedRoomType.price} ₹ / Night` : "---"}
+              {selectedRoom ? `${selectedRoom.price} ₹ / Night` : "---"}
             </h2>
-
-            <h1 className="text-6xl mt-5 mb-4">
-              {selectedRoomType ? selectedRoomType.roomType : "Select Room"}
-            </h1>
+            <h1 className="text-6xl mt-5 mb-4">{selectedRoom ? selectedRoom.roomName : "Select Room"}</h1>
+            <p className="text-gray-600 mb-8 text-xl">
+              {selectedRoom?.type || "Comfortable and elegant rooms."}
+            </p>
 
             {/* Room Images */}
             <div className="grid sm:grid-cols-2 gap-4 mb-12">
-              {selectedRoomType?.images?.map((img, idx) => (
-                <img
-                  key={idx}
-                  src={img}
-                  className="rounded-md object-cover w-full h-140"
-                />
+              {selectedRoom?.images?.map((img, i) => (
+                <img key={i} src={img} alt={`${selectedRoom.roomName} ${i + 1}`} className="rounded-md object-cover w-full h-140" />
               ))}
             </div>
 
-            {/* Description */}
-            <p className="text-gray-600 mb-8 text-xl">
-              {selectedRoomType?.description ||
-                "Luxurious and premium rooms with modern amenities."}
-            </p>
+            {/* Room Amenities */}
+            <h2 className="text-4xl mb-6">Room Amenities</h2>
+            <div className="grid grid-cols-3 gap-6 mb-10">
+              <div className="flex items-center gap-5">
+                <img src="https://html.themewant.com/moonlit/assets/images/icon/wifi.svg" alt="Wifi" className="w-9 h-9" />
+                <span className="text-xl">Free Wifi</span>
+              </div>
+              <div className="flex items-center gap-5">
+                <img src="https://html.themewant.com/moonlit/assets/images/icon/shower.svg" alt="Shower" className="w-9 h-9" />
+                <span className="text-xl">Shower</span>
+              </div>
+              <div className="flex items-center gap-5">
+                <img src="https://html.themewant.com/moonlit/assets/images/icon/aeroplane.svg" alt="Airport Transport" className="w-9 h-9" />
+                <span className="text-xl">Airport Transport</span>
+              </div>
+            </div>
+
+            {/* Room Features */}
+            <h2 className="text-4xl mb-6">Room Features</h2>
+            <img src="https://html.themewant.com/moonlit/assets/images/pages/room/3.webp" alt="Room Features" className="rounded-md object-cover w-full h-140 mb-10" />
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-[19px] mb-10">
+              {["Children and extra beds", "Climate Control", "Art and Decor", "Coffee/Tea Maker", "High-End Bedding", "Smart Technology"].map((feature, i) => (
+                <div key={i} className="flex items-start gap-4">
+                  <span className="mt-3 w-2 h-2 rounded-full bg-[#a1865e]"></span>
+                  <span>{feature}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* RIGHT SIDE - BOOKING FORM */}
-          <div className="bg-gray-100 rounded-lg p-6 shadow-sm h-fit">
+          {/* Right Column: Booking Form */}
+          <div className="bg-gray-100 rounded-lg p-6 shadow-sm h-fit min-h-[140vh]">
             <h3 className="text-3xl text-center mb-7">Book Your Stay</h3>
-
             <form className="space-y-4 text-xl" onSubmit={handleSubmit}>
-              
-              {/* Dates */}
               <div>
-                <label className="block mb-2">Check In</label>
-                <input
-                  type="date"
-                  value={checkIn}
-                  min={moment().format("YYYY-MM-DD")}
-                  onChange={(e) => setCheckIn(e.target.value)}
-                  className="w-full border px-3 py-2 rounded bg-white"
-                />
+                <label>Check In</label>
+                <input type="date" value={checkIn} min={moment().format("YYYY-MM-DD")} onChange={e => setCheckIn(e.target.value)} className="w-full border px-3 py-2 rounded bg-white" />
               </div>
-
               <div>
-                <label className="block mt-4 mb-2">Check Out</label>
-                <input
-                  type="date"
-                  value={checkOut}
-                  min={moment(checkIn).add(1, "days").format("YYYY-MM-DD")}
-                  onChange={(e) => setCheckOut(e.target.value)}
-                  className="w-full border px-3 py-2 rounded bg-white"
-                />
+                <label>Check Out</label>
+                <input type="date" value={checkOut} min={moment(checkIn).add(1, "days").format("YYYY-MM-DD")} onChange={e => setCheckOut(e.target.value)} className="w-full border px-3 py-2 rounded bg-white" />
               </div>
-
-              {/* Room Type */}
-              <div className="mt-4">
-                <label className="block mb-2">Room Type</label>
-                <select
-                  value={selectedRoomTypeId}
-                  onChange={(e) => setSelectedRoomTypeId(e.target.value)}
-                  className="w-full border px-3 py-2 rounded bg-white"
-                >
-                  {roomTypes.map((room) => (
+              <div>
+                <label>Room Type</label>
+                <select value={selectedRoomId} onChange={e => setSelectedRoomId(e.target.value)} className="w-full border px-3 py-2 rounded bg-white">
+                  {rooms.map((room) => (
                     <option key={room.id} value={room.id}>
-                      {room.roomType} — ₹{room.price}
+                      {room.roomName} — ₹{room.price}
                     </option>
                   ))}
                 </select>
               </div>
-
-              {/* Guest Details */}
               <div>
-                <label className="block mt-4 mb-2">Adults</label>
-                <input
-                  type="number"
-                  min={1}
-                  value={adults}
-                  onChange={(e) => setAdults(e.target.value)}
-                  className="w-full border px-3 py-2 rounded bg-white"
-                />
+                <label>Adults</label>
+                <input type="number" min={1} value={adults} onChange={e => setAdults(e.target.value)} className="w-full border px-3 py-2 rounded bg-white" />
               </div>
-
               <div>
-                <label className="block mt-4 mb-2">Children</label>
-                <input
-                  type="number"
-                  min={0}
-                  value={children}
-                  onChange={(e) => setChildren(e.target.value)}
-                  className="w-full border px-3 py-2 rounded bg-white"
-                />
+                <label>Children</label>
+                <input type="number" min={0} value={children} onChange={e => setChildren(e.target.value)} className="w-full border px-3 py-2 rounded bg-white" />
               </div>
-
               <div>
-                <label className="block mt-4 mb-2">Extra Bed</label>
-                <input
-                  type="number"
-                  min={0}
-                  value={extraBed}
-                  onChange={(e) => setExtraBed(e.target.value)}
-                  className="w-full border px-3 py-2 rounded bg-white"
-                />
+                <label>Extra Bed</label>
+                <input type="number" min={0} value={extraBed} onChange={e => setExtraBed(e.target.value)} className="w-full border px-3 py-2 rounded bg-white" />
               </div>
 
               {/* Extra Services */}
               <h4 className="text-3xl text-center mt-6 mb-4">Extra Services</h4>
-              {EXTRA_SERVICES.map((item) => (
-                <label
-                  key={item.label}
-                  className="flex justify-between mt-3 text-xl"
-                >
+              {EXTRA_SERVICES.map((s, i) => (
+                <label key={i} className="flex justify-between mt-3 text-xl">
                   <span>
-                    <input
-                      type="checkbox"
-                      className="mr-2"
-                      checked={selectedExtraServices.includes(item.label)}
-                      onChange={() => toggleService(item.label)}
-                    />
-                    {item.label}
+                    <input type="checkbox" checked={selectedExtraServices.includes(s.label)} onChange={() => toggleService(s.label)} className="mr-2" />
+                    {s.label}
                   </span>
-                  <span>
-                    {item.price > 0 ? `₹${item.price}${item.unit}` : item.unit}
-                  </span>
+                  <span>{s.price > 0 ? `₹${s.price}${s.unit}` : s.unit}</span>
                 </label>
               ))}
 
               {/* Total Price */}
               <div className="flex justify-between mt-6 text-2xl border-t pt-4">
                 <span>Total Price</span>
-                <span className="text-[#af7b4f] font-bold">
-                  ₹{calculateTotal()}
-                </span>
+                <span className="text-[#af7b4f] font-bold">₹{calculateTotal()}</span>
               </div>
 
-              {/* Submit */}
-              <button
-                type="submit"
-                disabled={bookingStatus === "loading"}
-                className={`w-full mt-5 py-2 text-white rounded text-2xl ${
-                  bookingStatus === "loading"
-                    ? "bg-gray-500"
-                    : "bg-[#af7b4f] hover:bg-[#8c6439]"
-                }`}
-              >
+              <button type="submit" disabled={bookingStatus === "loading"} className={`w-full mt-5 py-2 text-white rounded text-2xl ${bookingStatus === "loading" ? "bg-gray-500" : "bg-[#af7b4f] hover:bg-[#8c6439]"}`}>
                 {bookingStatus === "loading" ? "Booking..." : "Book Your Room"}
               </button>
-
-              {bookingStatus === "success" && (
-                <p className="text-green-600 text-center mt-2">
-                  Booking successful!
-                </p>
-              )}
-              {bookingStatus === "error" && (
-                <p className="text-red-600 text-center mt-2">Booking failed!</p>
-              )}
             </form>
           </div>
         </div>
       </section>
 
-      {/* Hide Scrollbar */}
-      <style>
-        {`
-          .scrollbar-hide { scrollbar-width: none; }
-          .scrollbar-hide::-webkit-scrollbar { display: none; }
-        `}
-      </style>
+      {/* Similar Rooms */}
+      <section className="bg-white pt-0 pb-16 px-4 sm:px-6 md:px-24">
+        <h2 className="text-4xl sm:text-5xl font-serif text-center text-gray-900 mb-10">
+          Similar Rooms
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-5">
+          {[
+            { name: "Executive Room", price: "12000₹", img: "https://html.themewant.com/moonlit/assets/images/pages/room/1.webp" },
+            { name: "Single Room", price: "3999₹", img: "https://html.themewant.com/moonlit/assets/images/pages/room/2.webp" },
+            { name: "Triple Room", price: "12999₹", img: "https://html.themewant.com/moonlit/assets/images/pages/room/3.webp" },
+          ].map((room, index) => (
+            <div key={index} className="font-serif border border-gray-300 rounded-xl overflow-hidden hover:shadow-xl transition duration-300">
+              <img src={room.img} alt={room.name} className="w-full h-74 object-cover transition-transform duration-500 hover:scale-105" />
+              <div className="p-4">
+                <h3 className="text-3xl">{room.name}</h3>
+                <div className="mt-4 mb-4 text-2xl text-gray-500">{room.price}</div>
+                <a href="#" className="text-[#b86e2e] border-b text-lg border-[#b86e2e] w-fit hover:text-[#a15d20] transition">
+                  Discover More
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <style>{`
+        .scrollbar-hide { scrollbar-width: none; -ms-overflow-style: none; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+      `}</style>
     </div>
   );
 }
+
