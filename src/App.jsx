@@ -436,7 +436,7 @@ import Payments from './Pages/Admin/Payments';
 import GalleryAdmin from './Pages/Admin/Gallery';
 import Analytics from './Pages/Admin/Analytics';
 // === NEW IMPORT ===
-import Combos from './Pages/Admin/combos';
+import Combo from './Pages/Admin/Combo';
 // ==================
 
 function App() {
@@ -526,7 +526,7 @@ function App() {
           <Route path="rooms" element={<Rooms />} />
           
           {/* === NEW COMBO ROUTE === */}
-          <Route path="combos" element={<Combos />} />
+          <Route path="combos" element={<Combo />} />
           {/* ======================= */}
 
           <Route path="users" element={<Users />} />
