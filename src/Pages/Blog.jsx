@@ -428,7 +428,7 @@ import { AiFillStar } from "react-icons/ai";
 import axios from "axios"; 
 
 // --- API Configuration ---
-const REVIEW_API_URL = "http://localhost:8080/api/reviews"; // Your Spring Boot Review Controller Base URL
+const REVIEW_API_URL = "https://backend-waghera.onrender.com/api/reviews"; // Your Spring Boot Review Controller Base URL
 
 // Blog posts with best detailed descriptions (kept for local content)
 const blogPosts = [

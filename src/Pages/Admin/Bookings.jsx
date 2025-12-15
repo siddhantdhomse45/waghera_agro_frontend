@@ -781,7 +781,7 @@
 
 import React, { useState, useEffect } from "react";
 
-const API_BASE = "http://localhost:8080/api";
+const API_BASE = "https://backend-waghera.onrender.com/api";
 
 const Bookings = () => {
   const [bookings, setBookings] = useState([]);

@@ -328,10 +328,10 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchDashboard = async () => {
       try {
-        const statsRes = await axios.get("http://localhost:8080/api/dashboard/room-stats");
+        const statsRes = await axios.get("http://localhost:5000/api/dashboard/room-stats");
         setStatsData(statsRes.data);
 
-        const monthlyRes = await axios.get("http://localhost:8080/api/dashboard/monthly-bookings");
+        const monthlyRes = await axios.get("http://localhost:5000/api/dashboard/monthly-bookings");
         setMonthlyData(monthlyRes.data);
 
         // Optional: Aggregate yearly bookings

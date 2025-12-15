@@ -258,9 +258,6 @@
 // }
 
 
-
-
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ClientSay from "../Components/ClientSay/ClientSay";
@@ -271,7 +268,7 @@ export default function AboutUs() {
   // Fetch team members from backend
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/team")
+      .get("http://localhost:5000/api/team")
       .then((res) => setTeam(res.data))
       .catch((err) => console.error("Team API Error:", err));
   }, []);

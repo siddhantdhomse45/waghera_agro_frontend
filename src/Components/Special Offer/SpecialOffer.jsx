@@ -193,7 +193,7 @@ export default function SpecialOffer() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/admin/package/all")
+    fetch("https://backend-waghera.onrender.com/api/admin/package/all")
       .then((res) => res.json())
       .then((data) => {
         console.log("API Response:", data);
