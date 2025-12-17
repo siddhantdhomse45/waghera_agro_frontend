@@ -38,12 +38,12 @@ export default function ClientSay() {
     {/* Header */}
     <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between mb-10">
       <div>
-        <div className="flex items-center gap-1 text-yellow-800 font-serif text-lg mb-2">
+        <div className="flex items-center gap-1 text-yellow-800  text-lg mb-2">
           <div className="h-px w-10 bg-yellow-800"></div>
           <span className="text-xl">✦</span>
           <span className="px-4">Testimonial</span>
         </div>
-        <h2 className="text-4xl md:text-6xl font-serif text-black">What Our Client Say</h2>
+        <h2 className="text-4xl md:text-4xl text-black">What Our Client Say</h2>
       </div>
 
       <div className="flex gap-4 mt-6 sm:mt-0">
@@ -63,14 +63,14 @@ export default function ClientSay() {
         <img
           src={testimonial.image}
           alt={testimonial.name}
-          className="w-80 h-80 rounded-full object-cover"
+          className="w-60 h-60 rounded-full object-cover"
         />
       </div>
 
       {/* Right - Text Content */}
-      <div className="flex-1">
+      <div className="flex-1 ">
         {/* Star Rating */}
-        <div className="flex gap-1 text-yellow-700 text-5xl mb-4">
+        <div className="flex gap-1 text-yellow-700 text-3xl mb-4">
           {[1, 2, 3, 4].map((_, i) => (
             <span key={i}>★</span>
           ))}
@@ -83,12 +83,12 @@ export default function ClientSay() {
         </div>
 
         {/* Message */}
-        <p className="text-gray-600 text-3xl leading-relaxed mb-6">
+        <p className="text-gray-600 text-2xl leading-relaxed mb-6">
           {testimonial.message}
         </p>
 
         {/* Name & Role */}
-        <p className="text-gray-900 font-serif text-2xl">{testimonial.name}</p>
+        <p className="text-gray-900  text-2xl">{testimonial.name}</p>
         <p className="text-gray-500 text-xl">{testimonial.role}</p>
       </div>
     </div>

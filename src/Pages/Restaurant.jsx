@@ -1646,7 +1646,7 @@ export default function Restaurant() {
             Testimonials
             <span className="w-10 h-px bg-black" />
           </span>
-          <h2 className="text-6xl ">What Our Customers Say</h2>
+          <h2 className="text-3xl ">What Our Customers Say</h2>
         </div>
 
         <div className="flex flex-col md:flex-row gap-10 items-center justify-center max-w-5xl mx-auto">

@@ -111,7 +111,7 @@
 //           <Route path="family-suites" element={<FamilySuites />} />
 //           <Route path="luxury-suites" element={<LuxurySuites />} />
 //         </Route>
-        
+
 //         <Route path="/luxevista" element={<LuxeVista />} />
 //         <Route path="/beachhotel" element={<BeachHotel />} />
 //         <Route path="/mountainhotel" element={<MountainHotel />} />
@@ -307,7 +307,7 @@
 //           <Route path="family-suites" element={<FamilySuites />} />
 //           <Route path="luxury-suites" element={<LuxurySuites />} />
 //         </Route>
-        
+
 //         <Route path="/luxevista" element={<LuxeVista />} />
 //         <Route path="/beachhotel" element={<BeachHotel />} />
 //         <Route path="/mountainhotel" element={<MountainHotel />} />
@@ -444,117 +444,117 @@ import AdminEvent from './Pages/Admin/AdminEvent';
 // ==================
 
 function App() {
-  const [showSignIn, setShowSignIn] = useState(false);
-  const [showSignUp, setShowSignUp] = useState(false);
-  const modalRef = useRef();
+    const [showSignIn, setShowSignIn] = useState(false);
+    const [showSignUp, setShowSignUp] = useState(false);
+    const modalRef = useRef();
 
-  const location = useLocation();
+    const location = useLocation();
 
-  // CLOSE POPUPS ON ROUTE CHANGE
-  useEffect(() => {
-    setShowSignIn(false);
-    setShowSignUp(false);
-  }, [location.pathname]);
+    // CLOSE POPUPS ON ROUTE CHANGE
+    useEffect(() => {
+        setShowSignIn(false);
+        setShowSignUp(false);
+    }, [location.pathname]);
 
-  // AUTO OPEN SIGN-IN POPUP ON FIRST LOAD
-  useEffect(() => {
-    setShowSignIn(true);
-  }, []);
+    // AUTO OPEN SIGN-IN POPUP ON FIRST LOAD
+    useEffect(() => {
+        setShowSignIn(true);
+    }, []);
 
-  const isBeachPage =
-    location.pathname.toLowerCase().startsWith("/beachhotel") ||
-    location.pathname.toLowerCase().startsWith("/seaside");
+    const isBeachPage =
+        location.pathname.toLowerCase().startsWith("/beachhotel") ||
+        location.pathname.toLowerCase().startsWith("/seaside");
 
-  // Admin area flag
-  const isAdminPage = location.pathname.toLowerCase().startsWith("/admin");
+    // Admin area flag
+    const isAdminPage = location.pathname.toLowerCase().startsWith("/admin");
 
-  const hideGlobalFooterPages = ["/beachhotel", "/oceanbreeze", "/seaside"];
-  const isFooterHidden = hideGlobalFooterPages.some(path =>
-    location.pathname.toLowerCase().startsWith(path)
-  );
+    const hideGlobalFooterPages = ["/beachhotel", "/oceanbreeze", "/seaside"];
+    const isFooterHidden = hideGlobalFooterPages.some(path =>
+        location.pathname.toLowerCase().startsWith(path)
+    );
 
-  const handleOverlayClick = (e) => {
-    if (modalRef.current && !modalRef.current.contains(e.target)) {
-      setShowSignIn(false);
-      setShowSignUp(false);
-    }
-  };
+    const handleOverlayClick = (e) => {
+        if (modalRef.current && !modalRef.current.contains(e.target)) {
+            setShowSignIn(false);
+            setShowSignUp(false);
+        }
+    };
 
-  return (
-    <div className={`relative ${isBeachPage ? 'bg-black text-white' : ''}`}>
-      <WhatsAppFloat />
+    return (
+        <div className={`relative ${isBeachPage ? 'bg-black text-white' : ''}`}>
+            <WhatsAppFloat />
 
-      {!isBeachPage && !isAdminPage && (
-        <Header
-          onSignInClick={() => setShowSignIn(true)}
-          onSignUpClick={() => setShowSignUp(true)}
-        />
-      )}
+            {!isBeachPage && !isAdminPage && (
+                <Header
+                    onSignInClick={() => setShowSignIn(true)}
+                    onSignUpClick={() => setShowSignUp(true)}
+                />
+            )}
 
-      <ScrollToTop />
+            <ScrollToTop />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contactus" element={<ContactPage />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/gallery" element={<GalleryPage />} />
-        <Route path="/restaurant" element={<Restaurant />} />
-        <Route path="/service" element={<Services />} />
-        <Route path="/event" element={<Events />} />
-        <Route path="/activities" element={<Activities />} />
-        <Route path="/booknow" element={<BookNow />} />
-        <Route path="/book-now" element={<BookNow />} />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/contactus" element={<ContactPage />} />
+                <Route path="/about" element={<AboutUs />} />
+                <Route path="/gallery" element={<GalleryPage />} />
+                <Route path="/restaurant" element={<Restaurant />} />
+                <Route path="/service" element={<Services />} />
+                <Route path="/event" element={<Events />} />
+                <Route path="/activities" element={<Activities />} />
+                <Route path="/booknow" element={<BookNow />} />
+                <Route path="/book-now" element={<BookNow />} />
 
-        {/* Room Detail Routes */}
-        <Route path="/room-detail/*" element={<RoomDetail />}>
-          <Route path="executive-room" element={<ExecutiveRoom />} />
-          <Route path="traditional-cottage" element={<TradditionalCottage />} />
-          <Route path="family-suites" element={<FamilySuites />} />
-          <Route path="luxury-suites" element={<LuxurySuites />} />
-        </Route>
-        
-        <Route path="/luxevista" element={<LuxeVista />} />
-        <Route path="/beachhotel" element={<BeachHotel />} />
-        <Route path="/mountainhotel" element={<MountainHotel />} />
-        <Route path="/seaside" element={<SeaSide />} />
-        <Route path="/apartmenthotel" element={<ApartmentHotel />} />
-        <Route path="/clientcity" element={<ClientCity />} />
-        <Route path="/hotelbeach" element={<HotelBeach />} />
-        <Route path="/blog" element={<Blog />} />
+                {/* Room Detail Routes */}
+                <Route path="/room-detail/*" element={<RoomDetail />}>
+                    <Route path="executive-room" element={<ExecutiveRoom />} />
+                    <Route path="traditional-cottage" element={<TradditionalCottage />} />
+                    <Route path="family-suites" element={<FamilySuites />} />
+                    <Route path="luxury-suites" element={<LuxurySuites />} />
+                </Route>
 
-        {/* Admin Routes */}
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<Dashboard />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="bookings" element={<Bookings />} />
-          <Route path="rooms" element={<Rooms />} />
-    <Route path="/admin/contact-messages" element={<ContactMessages />} />
+                <Route path="/luxevista" element={<LuxeVista />} />
+                <Route path="/beachhotel" element={<BeachHotel />} />
+                <Route path="/mountainhotel" element={<MountainHotel />} />
+                <Route path="/seaside" element={<SeaSide />} />
+                <Route path="/apartmenthotel" element={<ApartmentHotel />} />
+                <Route path="/clientcity" element={<ClientCity />} />
+                <Route path="/hotelbeach" element={<HotelBeach />} />
+                <Route path="/blog" element={<Blog />} />
 
-          
-          {/* === NEW COMBO ROUTE === */}
-          <Route path="combos" element={<Combo />} />
-          {/* ======================= */}
+                {/* Admin Routes */}
+                <Route path="/admin" element={<AdminLayout />}>
+                    <Route index element={<Dashboard />} />
+                    <Route path="dashboard" element={<Dashboard />} />
+                    <Route path="bookings" element={<Bookings />} />
+                    <Route path="rooms" element={<Rooms />} />
+                    <Route path="/admin/contact-messages" element={<ContactMessages />} />
 
-          <Route path="users" element={<Users />} />
-          <Route path="payments" element={<Payments />} />
-          <Route path="gallery" element={<GalleryAdmin />} />
-          <Route path="settings" element={<Settings />} />
-          <Route path="analytics" element={<Analytics />} />
-   {/* <Route path="/admin/activities" element={<AdminActivity />} /> */}
-    <Route path="activities" element={<AdminActivity />} />
-        <Route path="events" element={<AdminEvent />} />
 
-</Route>
+                    {/* === NEW COMBO ROUTE === */}
+                    <Route path="combos" element={<Combo />} />
+                    {/* ======================= */}
 
-        {/* Normal Pages */}
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-      </Routes>
+                    <Route path="users" element={<Users />} />
+                    <Route path="payments" element={<Payments />} />
+                    <Route path="gallery" element={<GalleryAdmin />} />
+                    <Route path="settings" element={<Settings />} />
+                    <Route path="analytics" element={<Analytics />} />
+                    {/* <Route path="/admin/activities" element={<AdminActivity />} /> */}
+                    <Route path="activities" element={<AdminActivity />} />
+                    <Route path="events" element={<AdminEvent />} />
 
-      {!isFooterHidden && !isAdminPage && <Footer />}
+                </Route>
 
-      {/* SIGN IN POPUP (Unchanged) */}
-      {showSignIn && (
+                {/* Normal Pages */}
+                <Route path="/signin" element={<SignIn />} />
+                <Route path="/signup" element={<SignUp />} />
+            </Routes>
+
+            {!isFooterHidden && !isAdminPage && <Footer />}
+
+            {/* SIGN IN POPUP (Unchanged) */}
+            {/*       {showSignIn && (
         <div
           onClick={handleOverlayClick}
           className="fixed inset-0 bg-black/20 flex items-center justify-center z-50"
@@ -574,32 +574,75 @@ function App() {
             />
           </div>
         </div>
-      )}
+      )} */}
 
-      {/* SIGN UP POPUP (Unchanged) */}
-      {showSignUp && (
-        <div
-          onClick={handleOverlayClick}
-          className="fixed inset-0 bg-black/20 flex items-center justify-center z-50"
-        >
-          <div ref={modalRef} className="bg-white w-full max-w-md rounded-lg shadow-lg p-6 relative">
-            <button
-              onClick={() => setShowSignUp(false)}
-              className="absolute top-2 right-3 text-xl text-gray-500 hover:text-black"
-            >
-              ×
-            </button>
-            <SignUp
-              onSwitchToSignIn={() => {
-                setShowSignUp(false);
-                setShowSignIn(true);
-              }}
-            />
-          </div>
-        </div>
-      )}
-    </div>
-  );
+            {showSignIn && (
+                <div
+                    className="fixed inset-0 z-[9999] bg-black/60 flex items-center justify-center px-4"
+                    onClick={() => setShowSignIn(false)}   // close on overlay click
+                >
+                    <div
+                        ref={modalRef}
+                        onClick={(e) => e.stopPropagation()} // prevent close on modal click
+                        className="relative bg-white w-full max-w-md rounded-2xl shadow-2xl p-8 animate-scaleIn"
+                    >
+                        {/* Close button */}
+                        {/* <button
+        onClick={() => setShowSignIn(false)}
+        className="absolute top-4 right-4 text-gray-400 hover:text-black text-xl"
+      >
+        ✕
+      </button> */}
+                        <button
+                            onClick={onClose}
+                            className="absolute top-4 right-4 text-gray-400 hover:text-black text-xl"
+                        >
+                            ✕
+                        </button>
+
+
+                        <SignIn
+                            onSwitchToSignUp={() => {
+                                setShowSignIn(false);
+                                setShowSignUp(true);
+                            }}
+                        />
+                    </div>
+                </div>
+            )}
+
+
+            {/* SIGN UP POPUP (Unchanged) */}
+            {showSignUp && (
+  <div
+    className="fixed inset-0 z-[9999] bg-black/60 flex items-center justify-center px-4"
+    onClick={() => setShowSignUp(false)}
+  >
+    <div
+      ref={modalRef}
+      onClick={(e) => e.stopPropagation()}
+      className="relative bg-white w-full max-w-md rounded-2xl shadow-2xl p-8 animate-scaleIn"
+    >
+      <button
+        onClick={() => setShowSignUp(false)}
+        className="absolute top-4 right-4 text-gray-400 hover:text-black text-xl"
+      >
+        ✕
+      </button>
+
+      <SignUp
+        onClose={() => setShowSignUp(false)}
+        onSwitchToSignIn={() => {
+          setShowSignUp(false);
+          setShowSignIn(true);
+        }}
+      />
+    </div>
+  </div>
+)}
+
+        </div>
+    );
 }
 
 export default App;

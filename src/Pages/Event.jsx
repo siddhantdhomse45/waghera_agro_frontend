@@ -270,7 +270,7 @@ export default function Events() {
 
       {/* FACILITIES */}
       <section className="bg-white py-20 px-4 md:px-24">
-        <h4 className="flex justify-center text-6xl mb-16">Why Choose Our Events</h4>
+        <h4 className="flex justify-center text-4xl mb-16 mt-[-200px]">Why Choose Our Events</h4>
 
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {facilities.map((item, index) => (
