@@ -423,12 +423,302 @@
 
 
 
+// import React, { useEffect, useState } from "react";
+
+// const MENU_ITEMS_API_URL = "http://localhost:5000/api/menu";
+// const CLOUDINARY_UPLOAD_URL = "http://localhost:5000/api/uploads";
+
+// export default function MenuManagement() {
+//   const [menuItems, setMenuItems] = useState([]);
+//   const [loading, setLoading] = useState(false);
+
+//   const [form, setForm] = useState({
+//     name: "",
+//     description: "",
+//     category: "",
+//     price: "",
+//     imageUrl: "",
+//     isDeal: false,
+//   });
+
+//   const [editingId, setEditingId] = useState(null);
+//   const [selectedFile, setSelectedFile] = useState(null);
+//   const [uploadStatus, setUploadStatus] = useState("");
+
+//   // ================= FETCH =================
+//   const fetchMenuItems = async () => {
+//     setLoading(true);
+//     try {
+//       const res = await fetch(MENU_ITEMS_API_URL);
+//       const data = await res.json();
+//       setMenuItems(Array.isArray(data) ? data : []);
+//     } catch (e) {
+//       console.error(e);
+//       setMenuItems([]);
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   useEffect(() => {
+//     fetchMenuItems();
+//   }, []);
+
+//   // ================= FORM =================
+//   const handleChange = (e) => {
+//     const { name, value, type, checked } = e.target;
+//     setForm((p) => ({ ...p, [name]: type === "checkbox" ? checked : value }));
+//   };
+
+//   const handleFileChange = (e) => {
+//     const file = e.target.files[0];
+//     setSelectedFile(file);
+//     setUploadStatus(file ? `Selected: ${file.name}` : "");
+//   };
+
+//   const uploadImage = async () => {
+//     if (!selectedFile) {
+//       alert("Please select image first");
+//       return;
+//     }
+
+//     const fd = new FormData();
+//     fd.append("file", selectedFile);
+//     setUploadStatus("Uploading...");
+
+//     try {
+//       const res = await fetch(CLOUDINARY_UPLOAD_URL, {
+//         method: "POST",
+//         body: fd,
+//       });
+//       const data = await res.json();
+//       setForm((p) => ({ ...p, imageUrl: data.url }));
+//       setUploadStatus("Upload successful");
+//       setSelectedFile(null);
+//     } catch (e) {
+//       console.error(e);
+//       setUploadStatus("Upload failed");
+//       alert("Image upload failed");
+//     }
+//   };
+
+//   const resetForm = () => {
+//     setEditingId(null);
+//     setForm({
+//       name: "",
+//       description: "",
+//       category: "",
+//       price: "",
+//       imageUrl: "",
+//       isDeal: false,
+//     });
+//     setSelectedFile(null);
+//     setUploadStatus("");
+//   };
+
+//   // ================= SAVE =================
+//   const saveMenuItem = async (e) => {
+//     e.preventDefault();
+
+//     if (!form.imageUrl) {
+//       alert("Please upload image first");
+//       return;
+//     }
+
+//     const payload = { ...form, price: Number(form.price) };
+//     const method = editingId ? "PUT" : "POST";
+//     const url = editingId
+//       ? `${MENU_ITEMS_API_URL}/${editingId}`
+//       : MENU_ITEMS_API_URL;
+
+//     try {
+//       const res = await fetch(url, {
+//         method,
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify(payload),
+//       });
+
+//       if (!res.ok) throw new Error();
+
+//       alert(editingId ? "Menu updated successfully ✅" : "Menu added successfully ✅");
+//       resetForm();
+//       fetchMenuItems();
+//     } catch {
+//       alert("Save failed ❌");
+//     }
+//   };
+
+//   // ================= ACTIONS =================
+//   const editItem = (item) => {
+//     setEditingId(item._id);
+//     setForm({ ...item, price: String(item.price) });
+//   };
+
+//   const deleteItem = async (id) => {
+//     if (!window.confirm("Delete this item?")) return;
+
+//     try {
+//       const res = await fetch(`${MENU_ITEMS_API_URL}/${id}`, {
+//         method: "DELETE",
+//       });
+
+//       if (!res.ok) throw new Error();
+
+//       alert("Menu deleted successfully 🗑️");
+//       fetchMenuItems();
+//     } catch {
+//       alert("Delete failed ❌");
+//     }
+//   };
+
+//   return (
+//     <div className="p-6 bg-gray-50 min-h-screen">
+//       <h1 className="text-2xl font-bold mb-4">Menu Management</h1>
+
+//       {/* ===== FORM ===== */}
+//       <form
+//         onSubmit={saveMenuItem}
+//         className="bg-white p-4 rounded shadow grid grid-cols-1 md:grid-cols-2 gap-3 mb-8"
+//       >
+//         <input
+//           name="name"
+//           value={form.name}
+//           onChange={handleChange}
+//           placeholder="Name"
+//           className="border p-2 rounded"
+//           required
+//         />
+
+//         <input
+//           name="category"
+//           value={form.category}
+//           onChange={handleChange}
+//           placeholder="Category"
+//           className="border p-2 rounded"
+//           required
+//         />
+
+//         <input
+//           name="price"
+//           value={form.price}
+//           onChange={handleChange}
+//           type="number"
+//           placeholder="Price"
+//           className="border p-2 rounded"
+//           required
+//         />
+
+//         <input
+//           name="description"
+//           value={form.description}
+//           onChange={handleChange}
+//           placeholder="Description"
+//           className="border p-2 rounded"
+//           required
+//         />
+
+//         <label className="flex items-center gap-2">
+//           <input
+//             type="checkbox"
+//             name="isDeal"
+//             checked={form.isDeal}
+//             onChange={handleChange}
+//           />
+//           Special Deal
+//         </label>
+
+//         <div className="md:col-span-2">
+//           <input type="file" onChange={handleFileChange} />
+//           <button
+//             type="button"
+//             onClick={uploadImage}
+//             className="ml-2 px-3 py-1 bg-blue-600 text-white rounded"
+//           >
+//             Upload
+//           </button>
+//           <p className="text-sm text-gray-600">
+//             {uploadStatus || form.imageUrl}
+//           </p>
+//         </div>
+
+//         <div className="md:col-span-2 flex gap-2">
+//           <button className="px-4 py-2 bg-green-600 text-white rounded">
+//             {editingId ? "Update" : "Create"}
+//           </button>
+
+//           {editingId && (
+//             <button
+//               type="button"
+//               onClick={resetForm}
+//               className="px-4 py-2 bg-gray-400 text-white rounded"
+//             >
+//               Cancel
+//             </button>
+//           )}
+//         </div>
+//       </form>
+
+//       {/* ===== TABLE ===== */}
+//       <h2 className="text-xl font-semibold mb-2">Menu Items</h2>
+
+//       {loading ? (
+//         <p>Loading...</p>
+//       ) : (
+//         <table className="min-w-full bg-white rounded shadow">
+//           <thead className="bg-gray-100">
+//             <tr>
+//               <th className="p-2">Image</th>
+//               <th className="p-2">Name</th>
+//               <th className="p-2">Category</th>
+//               <th className="p-2">Price</th>
+//               <th className="p-2">Deal</th>
+//               <th className="p-2">Actions</th>
+//             </tr>
+//           </thead>
+//           <tbody>
+//             {menuItems.map((i) => (
+//               <tr key={i._id} className="border-t">
+//                 <td className="p-2">
+//                   <img
+//                     src={i.imageUrl}
+//                     className="w-14 h-14 rounded object-cover"
+//                     alt={i.name}
+//                   />
+//                 </td>
+//                 <td className="p-2">{i.name}</td>
+//                 <td className="p-2">{i.category}</td>
+//                 <td className="p-2">₹{i.price}</td>
+//                 <td className="p-2">{i.isDeal ? "Yes" : "No"}</td>
+//                 <td className="p-2 space-x-2">
+//                   <button
+//                     onClick={() => editItem(i)}
+//                     className="text-blue-600"
+//                   >
+//                     Edit
+//                   </button>
+//                   <button
+//                     onClick={() => deleteItem(i._id)}
+//                     className="text-red-600"
+//                   >
+//                     Delete
+//                   </button>
+//                 </td>
+//               </tr>
+//             ))}
+//           </tbody>
+//         </table>
+//       )}
+//     </div>
+//   );
+// }
+
+
+
 import React, { useEffect, useState } from "react";
 
-const MENU_ITEMS_API_URL = "http://localhost:5000/api/menu";
-const CLOUDINARY_UPLOAD_URL = "http://localhost:5000/api/uploads";
+const MENU_API = "http://localhost:5000/api/menu";
 
-export default function MenuManagement() {
+export default function Combo() {
   const [menuItems, setMenuItems] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -437,23 +727,21 @@ export default function MenuManagement() {
     description: "",
     category: "",
     price: "",
-    imageUrl: "",
     isDeal: false,
   });
 
+  const [imageFile, setImageFile] = useState(null);
   const [editingId, setEditingId] = useState(null);
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [uploadStatus, setUploadStatus] = useState("");
 
   // ================= FETCH =================
   const fetchMenuItems = async () => {
     setLoading(true);
     try {
-      const res = await fetch(MENU_ITEMS_API_URL);
+      const res = await fetch(MENU_API);
       const data = await res.json();
       setMenuItems(Array.isArray(data) ? data : []);
-    } catch (e) {
-      console.error(e);
+    } catch (err) {
+      console.error(err);
       setMenuItems([]);
     } finally {
       setLoading(false);
@@ -467,83 +755,64 @@ export default function MenuManagement() {
   // ================= FORM =================
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setForm((p) => ({ ...p, [name]: type === "checkbox" ? checked : value }));
+    setForm((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
   };
 
   const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setSelectedFile(file);
-    setUploadStatus(file ? `Selected: ${file.name}` : "");
-  };
-
-  const uploadImage = async () => {
-    if (!selectedFile) {
-      alert("Please select image first");
-      return;
-    }
-
-    const fd = new FormData();
-    fd.append("file", selectedFile);
-    setUploadStatus("Uploading...");
-
-    try {
-      const res = await fetch(CLOUDINARY_UPLOAD_URL, {
-        method: "POST",
-        body: fd,
-      });
-      const data = await res.json();
-      setForm((p) => ({ ...p, imageUrl: data.url }));
-      setUploadStatus("Upload successful");
-      setSelectedFile(null);
-    } catch (e) {
-      console.error(e);
-      setUploadStatus("Upload failed");
-      alert("Image upload failed");
-    }
+    setImageFile(e.target.files[0]);
   };
 
   const resetForm = () => {
-    setEditingId(null);
     setForm({
       name: "",
       description: "",
       category: "",
       price: "",
-      imageUrl: "",
       isDeal: false,
     });
-    setSelectedFile(null);
-    setUploadStatus("");
+    setImageFile(null);
+    setEditingId(null);
   };
 
   // ================= SAVE =================
   const saveMenuItem = async (e) => {
     e.preventDefault();
 
-    if (!form.imageUrl) {
-      alert("Please upload image first");
+    if (!editingId && !imageFile) {
+      alert("Please select an image");
       return;
     }
 
-    const payload = { ...form, price: Number(form.price) };
+    const fd = new FormData();
+    fd.append("name", form.name);
+    fd.append("description", form.description);
+    fd.append("category", form.category);
+    fd.append("price", form.price);
+    fd.append("isDeal", form.isDeal);
+
+    if (imageFile) {
+      fd.append("image", imageFile); // ✅ MUST MATCH BACKEND
+    }
+
+    const url = editingId ? `${MENU_API}/${editingId}` : MENU_API;
     const method = editingId ? "PUT" : "POST";
-    const url = editingId
-      ? `${MENU_ITEMS_API_URL}/${editingId}`
-      : MENU_ITEMS_API_URL;
 
     try {
       const res = await fetch(url, {
         method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: fd,
       });
 
       if (!res.ok) throw new Error();
 
-      alert(editingId ? "Menu updated successfully ✅" : "Menu added successfully ✅");
+      alert(editingId ? "Menu updated ✅" : "Menu created ✅");
       resetForm();
       fetchMenuItems();
-    } catch {
+    } catch (err) {
+      console.error(err);
       alert("Save failed ❌");
     }
   };
@@ -551,20 +820,26 @@ export default function MenuManagement() {
   // ================= ACTIONS =================
   const editItem = (item) => {
     setEditingId(item._id);
-    setForm({ ...item, price: String(item.price) });
+    setForm({
+      name: item.name,
+      description: item.description,
+      category: item.category,
+      price: item.price,
+      isDeal: item.isDeal || false,
+    });
+    setImageFile(null);
   };
 
   const deleteItem = async (id) => {
-    if (!window.confirm("Delete this item?")) return;
+    if (!window.confirm("Delete this Menu?")) return;
 
     try {
-      const res = await fetch(`${MENU_ITEMS_API_URL}/${id}`, {
+      const res = await fetch(`${MENU_API}/${id}`, {
         method: "DELETE",
       });
 
       if (!res.ok) throw new Error();
 
-      alert("Menu deleted successfully 🗑️");
       fetchMenuItems();
     } catch {
       alert("Delete failed ❌");
@@ -575,7 +850,7 @@ export default function MenuManagement() {
     <div className="p-6 bg-gray-50 min-h-screen">
       <h1 className="text-2xl font-bold mb-4">Menu Management</h1>
 
-      {/* ===== FORM ===== */}
+      {/* ================= FORM ================= */}
       <form
         onSubmit={saveMenuItem}
         className="bg-white p-4 rounded shadow grid grid-cols-1 md:grid-cols-2 gap-3 mb-8"
@@ -584,7 +859,7 @@ export default function MenuManagement() {
           name="name"
           value={form.name}
           onChange={handleChange}
-          placeholder="Name"
+          placeholder="Menu Name"
           className="border p-2 rounded"
           required
         />
@@ -600,9 +875,9 @@ export default function MenuManagement() {
 
         <input
           name="price"
+          type="number"
           value={form.price}
           onChange={handleChange}
-          type="number"
           placeholder="Price"
           className="border p-2 rounded"
           required
@@ -614,7 +889,6 @@ export default function MenuManagement() {
           onChange={handleChange}
           placeholder="Description"
           className="border p-2 rounded"
-          required
         />
 
         <label className="flex items-center gap-2">
@@ -629,21 +903,14 @@ export default function MenuManagement() {
 
         <div className="md:col-span-2">
           <input type="file" onChange={handleFileChange} />
-          <button
-            type="button"
-            onClick={uploadImage}
-            className="ml-2 px-3 py-1 bg-blue-600 text-white rounded"
-          >
-            Upload
-          </button>
-          <p className="text-sm text-gray-600">
-            {uploadStatus || form.imageUrl}
+          <p className="text-sm text-gray-600 mt-1">
+            {imageFile ? imageFile.name : "Select image"}
           </p>
         </div>
 
         <div className="md:col-span-2 flex gap-2">
           <button className="px-4 py-2 bg-green-600 text-white rounded">
-            {editingId ? "Update" : "Create"}
+            {editingId ? "Update Combo" : "Create Combo"}
           </button>
 
           {editingId && (
@@ -658,7 +925,7 @@ export default function MenuManagement() {
         </div>
       </form>
 
-      {/* ===== TABLE ===== */}
+      {/* ================= TABLE ================= */}
       <h2 className="text-xl font-semibold mb-2">Menu Items</h2>
 
       {loading ? (
@@ -681,8 +948,8 @@ export default function MenuManagement() {
                 <td className="p-2">
                   <img
                     src={i.imageUrl}
-                    className="w-14 h-14 rounded object-cover"
                     alt={i.name}
+                    className="w-14 h-14 rounded object-cover"
                   />
                 </td>
                 <td className="p-2">{i.name}</td>
@@ -690,12 +957,12 @@ export default function MenuManagement() {
                 <td className="p-2">₹{i.price}</td>
                 <td className="p-2">{i.isDeal ? "Yes" : "No"}</td>
                 <td className="p-2 space-x-2">
-                  <button
+                  {/* <button
                     onClick={() => editItem(i)}
                     className="text-blue-600"
                   >
                     Edit
-                  </button>
+                  </button> */}
                   <button
                     onClick={() => deleteItem(i._id)}
                     className="text-red-600"
