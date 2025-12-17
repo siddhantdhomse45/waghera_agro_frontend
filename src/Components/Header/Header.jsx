@@ -116,16 +116,14 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
   return (
     <header className="w-full fixed top-0 left-0 z-50">
       {/* Top Header */}
-      <div
-        className={`transition-all duration-500 px-4 sm:px-6 py-3 hidden sm:flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0 ${
-          hideTopHeader ? "sm:hidden" : ""
-        } ${
-          bg === "black"
+      {/* <div
+        className={`transition-all duration-500 px-4 sm:px-6 py-3 hidden sm:flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0 ${hideTopHeader ? "sm:hidden" : ""
+          } ${bg === "black"
             ? "bg-black text-white"
             : isSeasidePage || isOceanbreezePage // 👈 Add this condition
-            ? "bg-transparent text-white"
-            : "bg-white text-gray-700 shadow"
-        }
+              ? "bg-transparent text-white"
+              : "bg-white text-gray-700 shadow"
+          }
 `}
       >
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-6 text-sm px-4 sm:px-18">
@@ -140,28 +138,26 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
           <FaMapMarkerAlt className="text-xs" />
           <span>280 Augusta Avenue, M5T 2L9 Toronto, Mahabaleshwar</span>
         </div>
-      </div>
+      </div> */}
       <hr className="border-t border-gray-200 hidden sm:block" />
 
       <nav
-        className={`sticky top-0 py-4 flex items-center justify-between transition-all duration-300 z-40 px-4 sm:px-24 ${
-          bg === "black"
+        className={`sticky h-20 top-0 py-4 flex items-center justify-between transition-all duration-300 z-40 px-4 sm:px-24 ${bg === "black"
             ? "bg-black text-white shadow-md"
             : isSeasidePage || isOceanbreezePage
-            ? scrolled
-              ? "bg-black text-white shadow-md"
-              : "bg-transparent text-white"
-            : "bg-white text-black shadow-md"
-        }`}
+              ? scrolled
+                ? "bg-black text-white shadow-md"
+                : "bg-transparent text-white"
+              : "bg-white text-black shadow-md"
+          }`}
       >
         {loading && <Loader />}
         {/* Desktop Menu */}
         <ul
-          className={`hidden lg:flex gap-5 text-sm font-medium ${
-            bg === "black" || isSeasidePage || isOceanbreezePage
+          className={`hidden lg:flex gap-5 text-sm font-medium ${bg === "black" || isSeasidePage || isOceanbreezePage
               ? "text-white"
               : "text-gray-700"
-          }`}
+            }`}
         >
           {/* HOME MENU */}
           <li className="relative cursor-pointer">
@@ -240,9 +236,8 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className={`mt-[2px] transform transition-transform duration-300 ${
-                  isPagesOpen ? "rotate-180" : ""
-                }`}
+                className={`mt-[2px] transform transition-transform duration-300 ${isPagesOpen ? "rotate-180" : ""
+                  }`}
               >
                 <polyline points="6 9 12 15 18 9" />
               </svg>
@@ -307,9 +302,8 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
           <img
             src={logo}
             alt="Logo"
-            className={`h-14 w-auto cursor-pointer ${
-              isSeasidePage || isOceanbreezePage ? "invert" : ""
-            }`}
+            className={`h-25 w-25 cursor-pointer ${isSeasidePage || isOceanbreezePage ? "invert" : ""
+              }`}
           />
         </Link>
 
