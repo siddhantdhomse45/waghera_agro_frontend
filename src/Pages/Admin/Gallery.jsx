@@ -623,25 +623,25 @@ const Gallery = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 sm:p-6">
       {/* HEADER */}
-      <div className="mb-6 flex justify-between items-center">
+      <div className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-[#a8815e]">
+          <h1 className="text-xl sm:text-2xl font-bold text-[#a8815e]">
             Gallery Management
           </h1>
-          <p className="text-gray-600">Manage your gallery images</p>
+          <p className="text-gray-600 text-sm sm:text-base">Manage your gallery images</p>
         </div>
         <button
           onClick={() => setShowAddModal(true)}
-          className="bg-[#a8815e] text-white px-4 py-2 rounded-md"
+          className="bg-[#a8815e] text-white px-3 py-2 sm:px-4 sm:py-2 rounded-md text-sm sm:text-base"
         >
           Add Image
         </button>
       </div>
 
       {/* GALLERY GRID */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
         {images.map((image) => (
           <div
             key={image._id}
@@ -650,28 +650,28 @@ const Gallery = () => {
             <img
               src={image.url}
               alt="gallery"
-              className="w-full h-48 object-cover cursor-pointer"
+              className="w-full h-32 sm:h-48 object-cover cursor-pointer"
               onClick={() => setSelectedImage(image)}
             />
 
-            <div className="p-4 flex justify-between items-center">
-              <span className="text-sm bg-[#a8815e] text-white px-2 py-1 rounded">
+            <div className="p-3 sm:p-4 flex justify-between items-center">
+              <span className="text-xs sm:text-sm bg-[#a8815e] text-white px-2 py-1 rounded">
                 {image.category}
               </span>
-              <button onClick={() => toggleMenu(image._id)}>⋮</button>
+              <button onClick={() => toggleMenu(image._id)} className="text-lg sm:text-xl">⋮</button>
             </div>
 
             {activeMenu === image._id && (
               <div className="p-2 border-t">
                 <button
                   onClick={() => handleEditImage(image)}
-                  className="block w-full text-left text-sm"
+                  className="block w-full text-left text-xs sm:text-sm py-1"
                 >
                   Edit
                 </button>
                 <button
                   onClick={() => handleDeleteImage(image._id)}
-                  className="block w-full text-left text-sm text-red-600"
+                  className="block w-full text-left text-xs sm:text-sm py-1 text-red-600"
                 >
                   Delete
                 </button>
@@ -683,21 +683,21 @@ const Gallery = () => {
 
       {/* ADD MODAL */}
       {showAddModal && (
-        <div className="fixed inset-0 bg-black/40 flex justify-center items-center">
-          <div className="bg-white p-6 rounded w-96">
-            <h2 className="text-xl font-bold mb-4">Add Image</h2>
+        <div className="fixed inset-0 bg-black/40 flex justify-center items-center p-4">
+          <div className="bg-white p-4 sm:p-6 rounded w-full max-w-md">
+            <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Add Image</h2>
 
             <input
               type="file"
               onChange={handleImageChange}
-              className="mb-3"
+              className="mb-2 sm:mb-3 text-xs sm:text-sm"
             />
 
             {previewUrl && (
               <img
                 src={previewUrl}
                 alt="preview"
-                className="h-32 w-full object-cover mb-3"
+                className="h-24 sm:h-32 w-full object-cover mb-2 sm:mb-3"
               />
             )}
 
@@ -706,18 +706,23 @@ const Gallery = () => {
               onChange={(e) =>
                 setNewImage({ ...newImage, category: e.target.value })
               }
-              className="w-full mb-4"
+              className="w-full mb-3 sm:mb-4 p-2 text-xs sm:text-sm border rounded"
             >
               {categories.map((c) => (
-                <option key={c}>{c}</option>
+                <option key={c} className="text-xs sm:text-sm">{c}</option>
               ))}
             </select>
 
             <div className="flex justify-end gap-2">
-              <button onClick={() => setShowAddModal(false)}>Cancel</button>
+              <button 
+                onClick={() => setShowAddModal(false)}
+                className="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm"
+              >
+                Cancel
+              </button>
               <button
                 onClick={handleAddImage}
-                className="bg-[#a8815e] text-white px-4 py-2 rounded"
+                className="bg-[#a8815e] text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded text-xs sm:text-sm"
               >
                 Upload
               </button>
@@ -728,20 +733,20 @@ const Gallery = () => {
 
       {/* EDIT MODAL */}
       {showEditModal && editingImage && (
-        <div className="fixed inset-0 bg-black/40 flex justify-center items-center">
-          <div className="bg-white p-6 rounded w-96">
-            <h2 className="text-xl font-bold mb-4">Edit Image</h2>
+        <div className="fixed inset-0 bg-black/40 flex justify-center items-center p-4">
+          <div className="bg-white p-4 sm:p-6 rounded w-full max-w-md">
+            <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Edit Image</h2>
 
             <input
               type="file"
               onChange={(e) => handleImageChange(e, true)}
-              className="mb-3"
+              className="mb-2 sm:mb-3 text-xs sm:text-sm"
             />
 
             <img
               src={previewUrl || editingImage.url}
               alt="preview"
-              className="h-32 w-full object-cover mb-3"
+              className="h-24 sm:h-32 w-full object-cover mb-2 sm:mb-3"
             />
 
             <select
@@ -752,18 +757,23 @@ const Gallery = () => {
                   category: e.target.value,
                 })
               }
-              className="w-full mb-4"
+              className="w-full mb-3 sm:mb-4 p-2 text-xs sm:text-sm border rounded"
             >
               {categories.map((c) => (
-                <option key={c}>{c}</option>
+                <option key={c} className="text-xs sm:text-sm">{c}</option>
               ))}
             </select>
 
             <div className="flex justify-end gap-2">
-              <button onClick={() => setShowEditModal(false)}>Cancel</button>
+              <button 
+                onClick={() => setShowEditModal(false)}
+                className="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm"
+              >
+                Cancel
+              </button>
               <button
                 onClick={handleUpdateImage}
-                className="bg-[#a8815e] text-white px-4 py-2 rounded"
+                className="bg-[#a8815e] text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded text-xs sm:text-sm"
               >
                 Update
               </button>

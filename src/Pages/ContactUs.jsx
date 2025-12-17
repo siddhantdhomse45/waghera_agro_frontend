@@ -1048,15 +1048,15 @@ export default function ContactPage() {
               "url('https://images.unsplash.com/photo-1581091215369-24c0b7487cf9?auto=format&fit=crop&w=1950&q=80')",
           }}
         />
-        <div className="absolute inset-0 bg-white/20" />
-        <div className="relative z-10 text-center max-w-3xl px-6 py-16 bg-white/70 backdrop-blur-md rounded-3xl shadow-md animate-fadeUp">
+        <div className="absolute inset-0 " />
+        <div className="relative z-10 text-center max-w-3xl px-6 py-16 bg-white/80 backdrop-blur-md rounded-3xl shadow-md animate-fadeUp">
           <h1 className="text-5xl font-bold text-gray-800 mb-4">
             Get In Touch
           </h1>
           <p className="text-gray-700 text-lg">
             We’re here for support, inquiries & collaborations
           </p>
-          <div className="mt-6 w-32 h-1 mx-auto bg-indigo-400 rounded-full"></div>
+          <div className="mt-6 w-32 h-1 mx-auto bg-[#AB8A62] rounded-full"></div>
         </div>
       </section>
 
@@ -1072,8 +1072,8 @@ export default function ContactPage() {
                 key={idx}
                 className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition"
               >
-                <div className="p-3 rounded-lg bg-indigo-100">
-                  <Icon size={26} className="text-indigo-500" />
+                <div className="p-3 rounded-lg bg-[#f0e6d2]">
+                  <Icon size={26} className="text-[#AB8A62]" />
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">{item.title}</p>
@@ -1097,7 +1097,7 @@ export default function ContactPage() {
               placeholder="Your Name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-3 border rounded-lg bg-gray-50"
+              className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#AB8A62] focus:border-transparent transition"
               required
             />
 
@@ -1107,7 +1107,7 @@ export default function ContactPage() {
               placeholder="Your Email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-3 border rounded-lg bg-gray-50"
+              className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#AB8A62] focus:border-transparent transition"
               required
             />
 
@@ -1120,7 +1120,7 @@ export default function ContactPage() {
               onChange={handleChange}
               pattern="[6-9]{1}[0-9]{9}"
               maxLength="10"
-              className="w-full p-3 border rounded-lg bg-gray-50"
+              className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#AB8A62] focus:border-transparent transition"
               required
             />
 
@@ -1130,14 +1130,14 @@ export default function ContactPage() {
               placeholder="Your Message"
               value={formData.message}
               onChange={handleChange}
-              className="w-full p-3 border rounded-lg bg-gray-50"
+              className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#AB8A62] focus:border-transparent transition"
               required
             />
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-indigo-400 text-white rounded-lg hover:bg-indigo-500 transition"
+              className="w-full py-3 bg-[#AB8A62] text-white rounded-lg hover:bg-[#a8815e] transition duration-300"
             >
               {loading ? "Sending..." : "Send Message"}
             </button>
@@ -1146,7 +1146,7 @@ export default function ContactPage() {
               <p
                 className={`text-center mt-2 font-medium ${
                   toastType === "success"
-                    ? "text-green-600"
+                    ? "text-[#AB8A62]"
                     : "text-red-600"
                 }`}
               >

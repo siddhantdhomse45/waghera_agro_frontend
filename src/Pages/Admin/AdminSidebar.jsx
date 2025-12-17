@@ -209,7 +209,7 @@ const AdminSidebar = () => {
   ];
 
   return (
-    <div className="flex flex-col w-64 bg-white shadow-md">
+    <div className="flex flex-col h-full bg-white shadow-md">
       <div className="flex items-center justify-center h-16 bg-[#a8815e]">
         <span className="text-white font-bold text-xl">Admin Panel</span>
       </div>
@@ -227,7 +227,7 @@ const AdminSidebar = () => {
               }`}
             >
               <svg 
-                className="w-6 h-6 mr-3" 
+                className="w-6 h-6 mr-3 flex-shrink-0" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"
@@ -239,18 +239,18 @@ const AdminSidebar = () => {
                   d={item.icon}
                 />
               </svg>
-              {item.name}
+              <span className="truncate">{item.name}</span>
             </Link>
           ))}
         </nav>
         
-        <div className="p-4 border-t border-gray-200">
+        <div className="p-4 border-t border-gray-200 mt-auto">
           <Link
             to="/"
             className="flex items-center px-4 py-3 text-base font-medium text-gray-600 rounded-lg hover:bg-[#a8815e] hover:text-white"
           >
             <svg 
-              className="w-6 h-6 mr-3" 
+              className="w-6 h-6 mr-3 flex-shrink-0" 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"
@@ -262,7 +262,7 @@ const AdminSidebar = () => {
                 d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
               />
             </svg>
-            Back to Site
+            <span className="truncate">Back to Site</span>
           </Link>
         </div>
       </div>

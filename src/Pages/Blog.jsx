@@ -182,7 +182,7 @@
 //   };
 
 //   return (
-//     <div className="font-sans text-gray-800 bg-gray-50">
+//     <div className=" text-gray-800 bg-gray-50">
 //       {/* HERO SECTION */}
 //       <div
 //         className="relative h-[600px] md:h-[700px] flex items-center justify-center bg-cover bg-center"
@@ -198,7 +198,7 @@
 //           transition={{ duration: 1 }}
 //           className="relative z-10 text-center px-4"
 //         >
-//           <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-white mb-4">
+//           <h1 className="text-4xl sm:text-5xl md:text-6xl  text-white mb-4">
 //             Our Blog
 //           </h1>
 //           <p className="text-lg sm:text-xl text-white max-w-2xl mx-auto">
@@ -260,7 +260,7 @@
 
 //           {/* REVIEWS */}
 //           <div className="mt-14">
-//             <h2 className="text-3xl font-serif mb-6">Customer Reviews</h2>
+//             <h2 className="text-3xl  mb-6">Customer Reviews</h2>
 
 //             <div className="grid md:grid-cols-2 gap-6">
 //               {visibleReviews.map((review) => (
@@ -654,7 +654,7 @@ const handleDeleteAll = async () => {
   };
 
   return (
-    <div className="font-sans text-gray-800 bg-gray-50">
+    <div className=" text-gray-800 bg-gray-50">
       {/* HERO SECTION (omitted for brevity) */}
       <div
         className="relative h-[600px] md:h-[700px] flex items-center justify-center bg-cover bg-center"
@@ -670,7 +670,7 @@ const handleDeleteAll = async () => {
           transition={{ duration: 1 }}
           className="relative z-10 text-center px-4"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-white mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl  text-white mb-4">
             Our Blog
           </h1>
           <p className="text-lg sm:text-xl text-white max-w-2xl mx-auto">
@@ -732,7 +732,7 @@ const handleDeleteAll = async () => {
 
           {/* REVIEWS */}
           <div className="mt-14">
-            <h2 className="text-3xl font-serif mb-6">Customer Reviews</h2>
+            <h2 className="text-3xl  mb-6">Customer Reviews</h2>
 
             {/* Display Loading/Error State */}
             {loading && <p className="text-center text-xl text-gray-600">Loading reviews...</p>}

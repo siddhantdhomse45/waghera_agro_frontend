@@ -20,8 +20,8 @@ export default function FollowInstagram() {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-14">
-        <h4 className="text-yellow-800 text-base font-serif mb-2">
-          <span className="flex items-center justify-center text-[#a8815e] gap-2 sm:gap-4 mb-6 sm:mb-10 text-lg sm:text-2xl font-serif">
+        <h4 className="text-yellow-800 text-base  mb-2">
+          <span className="flex items-center justify-center text-[#a8815e] gap-2 sm:gap-4 mb-6 sm:mb-10 text-lg sm:text-2xl ">
             <span className="flex items-center">
               <span className="text-sm sm:text-lg">◇</span>
               <span className="w-6 sm:w-10 h-px bg-black"></span>
@@ -33,7 +33,7 @@ export default function FollowInstagram() {
             </span>
           </span>
         </h4>
-        <h2 className="text-3xl sm:text-5xl font-serif text-gray-900">
+        <h2 className="text-3xl sm:text-5xl  text-gray-900">
           Follow On Instagram
         </h2>
           

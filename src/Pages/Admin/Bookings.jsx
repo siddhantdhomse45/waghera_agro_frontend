@@ -1061,7 +1061,7 @@ const Bookings = () => {
     "bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs";
 
   return (
-    <div className="p-6">
+    <div className="p-4 sm:p-6">
       <h1 className="text-2xl font-bold text-[#a8815e] mb-4">
         Bookings Management
       </h1>
@@ -1078,37 +1078,38 @@ const Bookings = () => {
           <table className="min-w-full border border-gray-200">
             <thead className="bg-gray-100">
               <tr>
-                <th className="px-4 py-2 text-left">ID</th>
-                <th className="px-4 py-2 text-left">Customer</th>
-                <th className="px-4 py-2 text-left">Contact</th>
-                <th className="px-4 py-2 text-left">Email</th>
-                <th className="px-4 py-2 text-left">Room</th>
-                <th className="px-4 py-2 text-left">Check In</th>
-                <th className="px-4 py-2 text-left">Check Out</th>
-                <th className="px-4 py-2 text-left">Guests</th>
-                <th className="px-4 py-2 text-left">Price</th>
-                <th className="px-4 py-2 text-left">Status</th>
+                <th className="px-2 py-2 sm:px-4 sm:py-2 text-left text-xs sm:text-sm">ID</th>
+                <th className="px-2 py-2 sm:px-4 sm:py-2 text-left text-xs sm:text-sm">Customer</th>
+                <th className="px-2 py-2 sm:px-4 sm:py-2 text-left text-xs sm:text-sm">Contact</th>
+                <th className="px-2 py-2 sm:px-4 sm:py-2 text-left text-xs sm:text-sm">Email</th>
+                <th className="px-2 py-2 sm:px-4 sm:py-2 text-left text-xs sm:text-sm">Room</th>
+                <th className="px-2 py-2 sm:px-4 sm:py-2 text-left text-xs sm:text-sm">Check In</th>
+                <th className="px-2 py-2 sm:px-4 sm:py-2 text-left text-xs sm:text-sm">Check Out</th>
+                <th className="px-2 py-2 sm:px-4 sm:py-2 text-left text-xs sm:text-sm">Guests</th>
+                <th className="px-2 py-2 sm:px-4 sm:py-2 text-left text-xs sm:text-sm">Price</th>
+                <th className="px-2 py-2 sm:px-4 sm:py-2 text-left text-xs sm:text-sm">Status</th>
               </tr>
             </thead>
 
             <tbody>
               {bookings.map((b) => (
                 <tr key={b.id} className="border-t">
-                  <td className="px-4 py-2 text-sm">#{b.id.slice(-6)}</td>
-                  <td className="px-4 py-2 font-medium">{b.customer}</td>
-                  <td className="px-4 py-2">{b.contact}</td>
-                  <td className="px-4 py-2">{b.email}</td>
-                  <td className="px-4 py-2">{b.room}</td>
-                  <td className="px-4 py-2">{b.checkIn}</td>
-                  <td className="px-4 py-2">{b.checkOut}</td>
-                  <td className="px-4 py-2">
-                    {b.adults}A / {b.children}C
+                  <td className="px-2 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm">#{b.id.slice(-6)}</td>
+                  <td className="px-2 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium">{b.customer}</td>
+                  <td className="px-2 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm">{b.contact}</td>
+                  <td className="px-2 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm">{b.email}</td>
+                  <td className="px-2 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm">{b.room}</td>
+                  <td className="px-2 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm">{b.checkIn}</td>
+                  <td className="px-2 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm">{b.checkOut}</td>
+                  <td className="px-2 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm">
+                    <span className="inline-block sm:hidden">{b.adults}A/{b.children}C</span>
+                    <span className="hidden sm:inline-block">{b.adults}A / {b.children}C</span>
                   </td>
-                  <td className="px-4 py-2 font-semibold">
+                  <td className="px-2 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold">
                     ₹{b.totalPrice}
                   </td>
-                  <td className="px-4 py-2">
-                    <span className={getStatusClass()}>{b.status}</span>
+                  <td className="px-2 py-2 sm:px-4 sm:py-2">
+                    <span className={`text-xs ${getStatusClass()}`}>{b.status}</span>
                   </td>
                 </tr>
               ))}

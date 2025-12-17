@@ -235,7 +235,7 @@
 //           <div className="w-full md:w-auto">
 //             <button
 //               type="submit"
-//               className="w-full md:w-auto bg-[#a8815e] text-white font-serif mt-6 px-6 py-3 rounded-md hover:bg-[#916c49] transition-all"
+//               className="w-full md:w-auto bg-[#a8815e] text-white  mt-6 px-6 py-3 rounded-md hover:bg-[#916c49] transition-all"
 //             >
 //               Search
 //             </button>
@@ -250,7 +250,7 @@
 //         </form>
 //       ) : (
 //         <div className="bg-white shadow-xl rounded-[20px] px-6 py-8 w-full max-w-[600px] mx-auto text-center">
-//           <h2 className="text-2xl font-serif text-gray-800 mb-3">
+//           <h2 className="text-2xl  text-gray-800 mb-3">
 //             Select Number of Rooms
 //           </h2>
 //           <p className="text-gray-600 mb-6">
@@ -551,7 +551,7 @@
 //           <div className="w-full md:w-auto">
 //             <button
 //               type="submit"
-//               className="w-full md:w-auto bg-[#a8815e] text-white font-serif mt-6 px-6 py-3 rounded-md hover:bg-[#916c49] transition-all"
+//               className="w-full md:w-auto bg-[#a8815e] text-white  mt-6 px-6 py-3 rounded-md hover:bg-[#916c49] transition-all"
 //             >
 //               Search
 //             </button>
@@ -566,7 +566,7 @@
 //         </form>
 //       ) : (
 //         <div className="bg-white shadow-xl rounded-[20px] px-6 py-8 w-full max-w-[600px] mx-auto text-center">
-//           <h2 className="text-2xl font-serif text-gray-800 mb-3">
+//           <h2 className="text-2xl  text-gray-800 mb-3">
 //             Select Number of Rooms
 //           </h2>
 //           <p className="text-gray-600 mb-6">Choose how many rooms you want to book</p>

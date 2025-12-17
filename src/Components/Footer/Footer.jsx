@@ -26,7 +26,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#f8f5f0] pt-20 pb-12 px-6 sm:px-10 md:px-20 lg:px-32 font-serif text-black relative">
+    <footer className="bg-[#f8f5f0] pt-20 pb-12 px-6 sm:px-10 md:px-20 lg:px-32  text-black relative">
 
       {/* Newsletter Section */}
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16 gap-8">

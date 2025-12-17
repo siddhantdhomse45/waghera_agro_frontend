@@ -32,7 +32,7 @@ export default function facility() {
   return (
     <div className="bg-gray-100 py-16 mt-20">
   <div className="text-center mb-12">
-    <h4 className="text-yellow-800 text-lg font-serif mb-2">
+    <h4 className="text-yellow-800 text-lg mb-2">
       <span className="flex items-center justify-center text-[#a8815e] gap-2 sm:gap-4 mb-6 sm:mb-10 text-lg sm:text-2xl font-serif">
         <span className="flex items-center">
           <span className="text-sm sm:text-lg">◇</span>
@@ -45,7 +45,7 @@ export default function facility() {
         </span>
       </span>
     </h4>
-    <h2 className="text-6xl font-serif text-black">Hotel Facilities</h2>
+    <h2 className="text-6xl text-black">Hotel Facilities</h2>
   </div>
 
   <div className="max-w-[1400px] px-4 sm:px-6 lg:px-8 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-9">
@@ -55,10 +55,10 @@ export default function facility() {
         className="bg-white rounded-lg shadow-md p-10 min-h-[280px] w-full max-w-[420px] mx-auto text-center hover:shadow-xl transition-shadow duration-300"
       >
         {facility.icon}
-        <h3 className="text-xl mt-5 font-serif font-medium text-black mb-2">
+        <h3 className="text-xl mt-5 font-medium text-black mb-2">
           {facility.title}
         </h3>
-        <p className="text-gray-600 font-serif text-sm mt-5">
+        <p className="text-gray-600 text-sm mt-5">
           {facility.description}
         </p>
       </div>

@@ -103,7 +103,7 @@
 //   };
 
 //   return (
-//     <div className="font-serif text-gray-800">
+//     <div className=" text-gray-800">
 //       {/* Hero */}
 //       <div
 //         className="relative bg-cover bg-center h-[400px]"
@@ -223,7 +223,7 @@
 
 //       {/* Similar Rooms */}
 //       <section className="bg-white pt-0 pb-16 px-4 sm:px-6 md:px-24">
-//         <h2 className="text-4xl sm:text-5xl font-serif text-center text-gray-900 mb-10">
+//         <h2 className="text-4xl sm:text-5xl  text-center text-gray-900 mb-10">
 //           Similar Rooms
 //         </h2>
 //         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-5">
@@ -232,7 +232,7 @@
 //             { name: "Single Room", price: "3999₹", img: "https://html.themewant.com/moonlit/assets/images/pages/room/2.webp" },
 //             { name: "Triple Room", price: "12999₹", img: "https://html.themewant.com/moonlit/assets/images/pages/room/3.webp" },
 //           ].map((room, index) => (
-//             <div key={index} className="font-serif border border-gray-300 rounded-xl overflow-hidden hover:shadow-xl transition duration-300">
+//             <div key={index} className=" border border-gray-300 rounded-xl overflow-hidden hover:shadow-xl transition duration-300">
 //               <img src={room.img} alt={room.name} className="w-full h-74 object-cover transition-transform duration-500 hover:scale-105" />
 //               <div className="p-4">
 //                 <h3 className="text-3xl">{room.name}</h3>
@@ -370,7 +370,7 @@
 //   };
 
 //   return (
-//     <div className="font-serif text-gray-800">
+//     <div className=" text-gray-800">
 
 //       {/* Hero */}
 //       <div
@@ -610,7 +610,7 @@
 //   };
 
 //   return (
-//     <div className="font-serif text-gray-800">
+//     <div className=" text-gray-800">
 
 //       {/* HERO */}
 //       <div
@@ -901,7 +901,7 @@
 //   };
 
 //   return (
-//     <div className="font-serif text-gray-800">
+//     <div className=" text-gray-800">
 //       {/* Hero */}
 //       <div
 //         className="relative bg-cover bg-center h-[400px]"
@@ -1021,7 +1021,7 @@
 
 //       {/* Similar Rooms */}
 //       <section className="bg-white pt-0 pb-16 px-4 sm:px-6 md:px-24">
-//         <h2 className="text-4xl sm:text-5xl font-serif text-center text-gray-900 mb-10">
+//         <h2 className="text-4xl sm:text-5xl  text-center text-gray-900 mb-10">
 //           Similar Rooms
 //         </h2>
 //         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-5">
@@ -1030,7 +1030,7 @@
 //             { name: "Single Room", price: "3999₹", img: "https://html.themewant.com/moonlit/assets/images/pages/room/2.webp" },
 //             { name: "Triple Room", price: "12999₹", img: "https://html.themewant.com/moonlit/assets/images/pages/room/3.webp" },
 //           ].map((room, index) => (
-//             <div key={index} className="font-serif border border-gray-300 rounded-xl overflow-hidden hover:shadow-xl transition duration-300">
+//             <div key={index} className=" border border-gray-300 rounded-xl overflow-hidden hover:shadow-xl transition duration-300">
 //               <img src={room.img} alt={room.name} className="w-full h-74 object-cover transition-transform duration-500 hover:scale-105" />
 //               <div className="p-4">
 //                 <h3 className="text-3xl">{room.name}</h3>
@@ -1145,7 +1145,7 @@
 //   };
 
 //   return (
-//     <div className="font-serif text-gray-800">
+//     <div className=" text-gray-800">
 //       <section className="bg-white px-4 py-10 md:px-24 min-h-[200vh]">
 //         <div className="grid lg:grid-cols-3 gap-10">
 //           {/* Left Column: Room Details */}
@@ -1354,7 +1354,7 @@
 //   };
 
 //   return (
-//     <div className="font-serif text-gray-800">
+//     <div className=" text-gray-800">
 //       <section className="bg-white px-4 py-10 md:px-24 min-h-[200vh]">
 //         <div className="grid lg:grid-cols-3 gap-10">
 //           {/* Left Column */}
@@ -1552,7 +1552,7 @@ export default function BookNow() {
   };
 
   return (
-    <div className="font-serif text-gray-800">
+    <div className=" text-gray-800">
       {!user ? (
         <div className="text-center mt-10 text-2xl text-red-600">
           Please log in first to book a room.

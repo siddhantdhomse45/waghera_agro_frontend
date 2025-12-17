@@ -11,4 +11,5 @@ html, body, #root {
   height: auto; /* NOT 100% */
   overflow-x: hidden; /* ok */
   overflow-y: auto;   /* ok */
+  font-family: 'Poppins', sans-serif;
 }
