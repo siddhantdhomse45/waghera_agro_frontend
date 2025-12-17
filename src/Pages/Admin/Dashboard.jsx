@@ -292,6 +292,276 @@
 // export default Dashboard;
 
 
+
+
+
+
+
+// import React, { useState, useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
+// import {
+//   PieChart,
+//   Pie,
+//   Cell,
+//   Legend,
+//   Tooltip,
+//   LineChart,
+//   Line,
+//   XAxis,
+//   YAxis,
+//   ResponsiveContainer,
+// } from "recharts";
+// import axios from "axios";
+
+// const Dashboard = () => {
+//   const navigate = useNavigate();
+//   const [view, setView] = useState("monthly");
+
+//   // Live dashboard data
+//   const [statsData, setStatsData] = useState({
+//     totalRooms: 0,
+//     bookedToday: 0,
+//     availableRooms: 0,
+//     totalBookings: 0,
+//   });
+
+
+
+
+
+//   const [monthlyData, setMonthlyData] = useState([]);
+//   const [yearlyData, setYearlyData] = useState([]);
+//   const [loading, setLoading] = useState(true);
+
+//   // Fetch stats & bookings
+//   useEffect(() => {
+//     const fetchDashboard = async () => {
+//       try {
+//         const statsRes = await axios.get("http://localhost:5000/api/dashboard/room-stats");
+//         setStatsData(statsRes.data);
+
+//         const monthlyRes = await axios.get("http://localhost:5000/api/dashboard/monthly-bookings");
+//         setMonthlyData(monthlyRes.data);
+
+//         // Optional: Aggregate yearly bookings
+//         const yearlyAgg = monthlyRes.data.reduce((acc, item) => {
+//           const year = new Date().getFullYear(); // If backend sends year, adjust here
+//           acc[year] = (acc[year] || 0) + (item.Booked || 0);
+//           return acc;
+//         }, {});
+//         const yearlyArray = Object.entries(yearlyAgg).map(([year, count]) => ({
+//           month: year,
+//           Booked: count,
+//         }));
+//         setYearlyData(yearlyArray);
+
+//         setLoading(false);
+//       } catch (err) {
+//         console.error("Dashboard API error:", err);
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchDashboard();
+//   }, []);
+
+//   // Pie chart
+//   const pieData = [
+//     { name: "Booked Today", value: statsData.bookedToday },
+//     { name: "Available Rooms", value: statsData.availableRooms },
+//     { name: "Total Rooms", value: statsData.totalRooms },
+//   ];
+//   const colors = ["#FF4C4C", "#4CAF50", "#3B82F6"];
+
+//   // Top stats cards
+//   const stats = [
+//     {
+//       title: "Total Rooms",
+//       value: statsData.totalRooms,
+//       icon: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z",
+//       color: "bg-[#a8815e]",
+//     },
+//     {
+//       title: "Available Rooms",
+//       value: statsData.availableRooms,
+//       icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+//       color: "bg-[#a8815e]",
+//     },
+//     {
+//       title: "Booked Today",
+//       value: statsData.bookedToday,
+//       icon: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z",
+//       color: "bg-[#a8815e]",
+//     },
+//     {
+//       title: "Total Bookings",
+//       value: statsData.totalBookings,
+//       icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+//       color: "bg-[#a8815e]",
+//     },
+//   ];
+
+//   if (loading) {
+//     return (
+//       <div className="p-6 text-center text-xl font-semibold text-gray-600">
+//         Loading Dashboard...
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <div className="p-4 space-y-6">
+//       {/* Header */}
+//       <div className="mb-2 flex items-center justify-between">
+//         <div>
+//           <h1 className="text-2xl font-bold text-[#a8815e]">Dashboard</h1>
+//           <p className="text-gray-600">Welcome to your admin dashboard</p>
+//         </div>
+//         <button
+//           onClick={() => navigate("/admin/bookings")}
+//           className="px-4 py-2 bg-[#a8815e] text-white rounded-md text-sm font-semibold hover:bg-yellow-800 transition-colors"
+//         >
+//           Go to Bookings
+//         </button>
+//       </div>
+
+//       {/* Stats Cards */}
+//       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-4">
+//         {stats.map((stat, index) => (
+//           <div
+//             key={index}
+//             className="bg-white rounded-lg shadow p-6 hover:shadow-md transition-shadow duration-300"
+//           >
+//             <div className="flex items-center">
+//               <div className={`${stat.color} p-3 rounded-full text-white`}>
+//                 <svg className="w-6 h-6" fill="none" stroke="currentColor">
+//                   <path
+//                     strokeLinecap="round"
+//                     strokeLinejoin="round"
+//                     strokeWidth="2"
+//                     d={stat.icon}
+//                   />
+//                 </svg>
+//               </div>
+//               <div className="ml-4">
+//                 <h2 className="text-lg font-semibold text-gray-600">
+//                   {stat.title}
+//                 </h2>
+//                 <p className="text-2xl font-bold text-[#a8815e]">
+//                   {stat.value}
+//                 </p>
+//               </div>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+
+//       {/* Pie + Line Charts */}
+//       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+//         {/* Pie Chart */}
+//         <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
+//           <h3 className="text-xl font-semibold mb-4 text-gray-800">
+//             Room Status Overview
+//           </h3>
+
+//           <ResponsiveContainer width="100%" height={300}>
+//             <PieChart>
+//               <Pie
+//                 data={pieData}
+//                 dataKey="value"
+//                 outerRadius={120}
+//                 innerRadius={60}
+//                 paddingAngle={5}
+//                 label={({ name, value }) => `${name}: ${value}`}
+//               >
+//                 {pieData.map((entry, index) => (
+//                   <Cell
+//                     key={index}
+//                     fill={colors[index]}
+//                     stroke="#fff"
+//                     strokeWidth={2}
+//                   />
+//                 ))}
+//               </Pie>
+//               <Tooltip />
+//               <Legend verticalAlign="bottom" height={36} />
+//             </PieChart>
+//           </ResponsiveContainer>
+//         </div>
+
+//         {/* Line Chart */}
+//         <div className="lg:col-span-2 bg-white rounded-xl p-6 shadow-lg">
+//           <div className="flex justify-between mb-4">
+//             <h3 className="text-xl font-semibold text-gray-700">
+//               Booking Trends
+//             </h3>
+
+//             <div className="space-x-3">
+//               <button
+//                 className={`px-4 py-2 rounded-md ${
+//                   view === "monthly"
+//                     ? "bg-amber-600 text-white"
+//                     : "bg-gray-200 text-gray-700"
+//                 }`}
+//                 onClick={() => setView("monthly")}
+//               >
+//                 Monthly
+//               </button>
+//               <button
+//                 className={`px-4 py-2 rounded-md ${
+//                   view === "yearly"
+//                     ? "bg-amber-600 text-white"
+//                     : "bg-gray-200 text-gray-700"
+//                 }`}
+//                 onClick={() => setView("yearly")}
+//               >
+//                 Yearly
+//               </button>
+//             </div>
+//           </div>
+
+//           <ResponsiveContainer width="100%" height={280}>
+//             <LineChart data={view === "monthly" ? monthlyData : yearlyData}>
+//               <XAxis dataKey="month" />
+//               <YAxis />
+//               <Tooltip />
+//               <Line
+//                 type="monotone"
+//                 dataKey="Booked"
+//                 stroke="#3B82F6"
+//                 strokeWidth={3}
+//               />
+//             </LineChart>
+//           </ResponsiveContainer>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Dashboard;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -310,9 +580,8 @@ import axios from "axios";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const [view, setView] = useState("monthly");
+  const [view, setView] = useState("daily"); // default view
 
-  // Live dashboard data
   const [statsData, setStatsData] = useState({
     totalRooms: 0,
     bookedToday: 0,
@@ -320,31 +589,68 @@ const Dashboard = () => {
     totalBookings: 0,
   });
 
+  const [dailyData, setDailyData] = useState([]);
+  const [weeklyData, setWeeklyData] = useState([]);
   const [monthlyData, setMonthlyData] = useState([]);
   const [yearlyData, setYearlyData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch stats & bookings
   useEffect(() => {
     const fetchDashboard = async () => {
       try {
-        const statsRes = await axios.get("http://localhost:5000/api/dashboard/room-stats");
-        setStatsData(statsRes.data);
+        // ROOM STATS
+        const statsRes = await axios.get(
+          "http://localhost:5000/api/dashboard/room-stats"
+        );
+        const stats = statsRes.data;
 
-        const monthlyRes = await axios.get("http://localhost:5000/api/dashboard/monthly-bookings");
-        setMonthlyData(monthlyRes.data);
+        // Total bookings = bookedToday + available (or fetch all bookings if backend provides)
+        const totalBookingsRes = await axios.get(
+          "http://localhost:5000/api/dashboard/monthly-bookings"
+        );
+        const totalBookings = totalBookingsRes.data.values.reduce(
+          (acc, val) => acc + val,
+          0
+        );
 
-        // Optional: Aggregate yearly bookings
-        const yearlyAgg = monthlyRes.data.reduce((acc, item) => {
-          const year = new Date().getFullYear(); // If backend sends year, adjust here
-          acc[year] = (acc[year] || 0) + (item.Booked || 0);
-          return acc;
-        }, {});
-        const yearlyArray = Object.entries(yearlyAgg).map(([year, count]) => ({
-          month: year,
-          Booked: count,
+        setStatsData({ ...stats, totalBookings });
+
+        // DAILY
+        const dailyRes = await axios.get(
+          "http://localhost:5000/api/dashboard/daily-bookings"
+        );
+        const daily = dailyRes.data.labels.map((label, idx) => ({
+          day: label,
+          Booked: dailyRes.data.values[idx],
         }));
-        setYearlyData(yearlyArray);
+        setDailyData(daily);
+
+        // WEEKLY
+        const weeklyRes = await axios.get(
+          "http://localhost:5000/api/dashboard/weekly-bookings"
+        );
+        const weekly = weeklyRes.data.labels.map((label, idx) => ({
+          week: label,
+          Booked: weeklyRes.data.values[idx],
+        }));
+        setWeeklyData(weekly);
+
+        // MONTHLY
+        const monthly = totalBookingsRes.data.labels.map((label, idx) => ({
+          month: label,
+          Booked: totalBookingsRes.data.values[idx],
+        }));
+        setMonthlyData(monthly);
+
+        // YEARLY
+        const yearlyRes = await axios.get(
+          "http://localhost:5000/api/dashboard/yearly-bookings"
+        );
+        const yearly = yearlyRes.data.labels.map((label, idx) => ({
+          year: label,
+          Booked: yearlyRes.data.values[idx],
+        }));
+        setYearlyData(yearly);
 
         setLoading(false);
       } catch (err) {
@@ -356,15 +662,12 @@ const Dashboard = () => {
     fetchDashboard();
   }, []);
 
-  // Pie chart
   const pieData = [
     { name: "Booked Today", value: statsData.bookedToday },
     { name: "Available Rooms", value: statsData.availableRooms },
-    { name: "Total Rooms", value: statsData.totalRooms },
   ];
-  const colors = ["#FF4C4C", "#4CAF50", "#3B82F6"];
+  const colors = ["#FF4C4C", "#4CAF50"];
 
-  // Top stats cards
   const stats = [
     {
       title: "Total Rooms",
@@ -398,6 +701,25 @@ const Dashboard = () => {
         Loading Dashboard...
       </div>
     );
+  }
+
+  // LINE CHART DATA based on view
+  let lineData = [];
+  let dataKey = "Booked";
+  let xKey = "day";
+
+  if (view === "daily") {
+    lineData = dailyData;
+    xKey = "day";
+  } else if (view === "weekly") {
+    lineData = weeklyData;
+    xKey = "week";
+  } else if (view === "monthly") {
+    lineData = monthlyData;
+    xKey = "month";
+  } else if (view === "yearly") {
+    lineData = yearlyData;
+    xKey = "year";
   }
 
   return (
@@ -447,7 +769,7 @@ const Dashboard = () => {
         ))}
       </div>
 
-      {/* Pie + Line Charts */}
+      {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Pie Chart */}
         <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
@@ -488,37 +810,28 @@ const Dashboard = () => {
             </h3>
 
             <div className="space-x-3">
-              <button
-                className={`px-4 py-2 rounded-md ${
-                  view === "monthly"
-                    ? "bg-amber-600 text-white"
-                    : "bg-gray-200 text-gray-700"
-                }`}
-                onClick={() => setView("monthly")}
-              >
-                Monthly
-              </button>
-              <button
-                className={`px-4 py-2 rounded-md ${
-                  view === "yearly"
-                    ? "bg-amber-600 text-white"
-                    : "bg-gray-200 text-gray-700"
-                }`}
-                onClick={() => setView("yearly")}
-              >
-                Yearly
-              </button>
+              {["daily","weekly","monthly","yearly"].map(v => (
+                <button
+                  key={v}
+                  className={`px-4 py-2 rounded-md ${
+                    view === v ? "bg-amber-600 text-white" : "bg-gray-200 text-gray-700"
+                  }`}
+                  onClick={() => setView(v)}
+                >
+                  {v.charAt(0).toUpperCase() + v.slice(1)}
+                </button>
+              ))}
             </div>
           </div>
 
           <ResponsiveContainer width="100%" height={280}>
-            <LineChart data={view === "monthly" ? monthlyData : yearlyData}>
-              <XAxis dataKey="month" />
+            <LineChart data={lineData}>
+              <XAxis dataKey={xKey} />
               <YAxis />
               <Tooltip />
               <Line
                 type="monotone"
-                dataKey="Booked"
+                dataKey={dataKey}
                 stroke="#3B82F6"
                 strokeWidth={3}
               />
