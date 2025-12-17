@@ -313,7 +313,7 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
             onClick={onSignInClick} // 🔁 This triggers the modal now
             className="cursor-pointer border border-gray-300 px-4 py-2 rounded hover:bg-[#a8815e]"
           >
-            Sign In
+            Login
           </button>
           <button
             onClick={onSignUpClick}

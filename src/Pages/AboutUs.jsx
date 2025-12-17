@@ -3,7 +3,7 @@
 
 // export default function AboutUs() {
 //   return (
-//     <div className="font-sans text-gray-800">
+//     <div className=" text-gray-800">
 //       {/* Hero Section */}
 //       <div
 //         className="relative bg-cover bg-center h-[800px] flex items-center justify-center"
@@ -14,7 +14,7 @@
 //         {/* Overlay */}
 //         <div className="absolute inset-0 bg-black/50 z-0" />
 //         <div className="absolute inset-0  bg-opacity-50 flex flex-col items-center justify-center text-white text-center">
-//           <h1 className="text-4xl md:text-7xl font-serif mb-6 mt-45">About Us</h1>
+//           <h1 className="text-4xl md:text-7xl  mb-6 mt-45">About Us</h1>
 //           <p className="text-xl">Whether you have questions, need answers, or simply want to chat.</p>
 //         </div>
 //       </div>
@@ -45,7 +45,7 @@
 //             <h4 className="text-[#a1865e] text-xl sm:text-2xl font-semibold tracking-wide mb-3">
 //               ―⟡ About Us
 //             </h4>
-//             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-gray-900 leading-tight mb-6">
+//             <h2 className="text-3xl sm:text-4xl md:text-5xl  text-gray-900 leading-tight mb-6">
 //               Welcome To Our Waghera Agro Tourism Hotel & Resort
 //             </h2>
 //             <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-10">
@@ -72,7 +72,7 @@
 //           {/* Left Content */}
 //           <div className="mb-5">
 //             <p className="text-[#a1865e] text-3xl mb-5 ">―◇ Facilities</p>
-//             <h2 className="text-4xl md:text-6xl font-serif text-gray-900 mb-20">
+//             <h2 className="text-4xl md:text-6xl  text-gray-900 mb-20">
 //               Hotel Facilities
 //             </h2>
 
@@ -143,8 +143,8 @@
 //       {/* Meet The Team Section */}
 //       <section className="bg-white py-16 px-4 sm:px-6 md:px-24 text-center">
 //         {/* Section Heading */}
-//         <h4 className="text-yellow-800 text-base font-serif mb-2">
-//           <span className="flex items-center justify-center text-[#a8815e] gap-2 sm:gap-4 mb-6 sm:mb-10 text-lg sm:text-2xl font-serif">
+//         <h4 className="text-yellow-800 text-base  mb-2">
+//           <span className="flex items-center justify-center text-[#a8815e] gap-2 sm:gap-4 mb-6 sm:mb-10 text-lg sm:text-2xl ">
 //             <span className="flex items-center">
 //               <span className="text-sm sm:text-lg">◇</span>
 //               <span className="w-6 sm:w-10 h-px bg-black"></span>
@@ -157,7 +157,7 @@
 //           </span>
 //         </h4>
 
-//         <h2 className="text-3xl sm:text-5xl font-serif text-gray-900 mb-10">
+//         <h2 className="text-3xl sm:text-5xl  text-gray-900 mb-10">
 //           Meet The Team
 //         </h2>
 
@@ -274,7 +274,7 @@ export default function AboutUs() {
   }, []);
 
   return (
-    <div className="font-sans text-gray-800">
+    <div className=" text-gray-800">
 
       {/* Hero Section */}
       <div
@@ -286,7 +286,7 @@ export default function AboutUs() {
       >
         <div className="absolute inset-0 bg-black/50 z-0" />
         <div className="absolute inset-0 bg-opacity-50 flex flex-col items-center justify-center text-white text-center">
-          <h1 className="text-4xl md:text-7xl font-serif mb-6 mt-45">About Us</h1>
+          <h1 className="text-4xl md:text-7xl  mb-6 mt-45">About Us</h1>
           <p className="text-xl">
             Whether you have questions, need answers, or simply want to chat.
           </p>
@@ -317,7 +317,7 @@ export default function AboutUs() {
             <h4 className="text-[#a1865e] text-xl sm:text-2xl font-semibold tracking-wide mb-3">
               ―⟡ About Us
             </h4>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-gray-900 leading-tight mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl  text-gray-900 leading-tight mb-6">
               Welcome To Our Waghera Agro Tourism Hotel & Resort
             </h2>
             <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-10">
@@ -342,7 +342,7 @@ export default function AboutUs() {
 
           <div className="mb-5">
             <p className="text-[#a1865e] text-3xl mb-5 ">―◇ Facilities</p>
-            <h2 className="text-4xl md:text-6xl font-serif text-gray-900 mb-20">
+            <h2 className="text-4xl md:text-6xl  text-gray-900 mb-20">
               Hotel Facilities
             </h2>
 
@@ -417,8 +417,8 @@ export default function AboutUs() {
 
       {/* Meet The Team – BACKEND CONNECTED */}
       <section className="bg-white py-16 px-4 sm:px-6 md:px-24 text-center">
-        <h4 className="text-yellow-800 text-base font-serif mb-2">
-          <span className="flex items-center justify-center text-[#a8815e] gap-2 text-lg sm:text-2xl font-serif">
+        <h4 className="text-yellow-800 text-base  mb-2">
+          <span className="flex items-center justify-center text-[#a8815e] gap-2 text-lg sm:text-2xl ">
             <span className="flex items-center">
               <span className="text-sm sm:text-lg">◇</span>
               <span className="w-6 sm:w-10 h-px bg-black"></span>
@@ -431,7 +431,7 @@ export default function AboutUs() {
           </span>
         </h4>
 
-        <h2 className="text-3xl sm:text-5xl font-serif text-gray-900 mb-10">
+        <h2 className="text-3xl sm:text-5xl  text-gray-900 mb-10">
           Meet The Team
         </h2>
 

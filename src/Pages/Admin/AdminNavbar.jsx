@@ -1,14 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const AdminNavbar = () => {
+const AdminNavbar = ({ onMenuClick }) => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-40 bg-[#a8815e] shadow-md">
-      <div className="flex items-center justify-between px-6 py-3">
-        {/* Left: brand + (optional) mobile toggle */}
+      <div className="flex items-center justify-between px-4 sm:px-6 py-3">
+        {/* Left: brand + mobile toggle */}
         <div className="flex items-center gap-3">
-          {/* If you connect this button with sidebar open/close later */}
-          <button className="text-white focus:outline-none lg:hidden">
+          <button 
+            className="text-white focus:outline-none lg:hidden"
+            onClick={onMenuClick}
+          >
             <svg
               className="h-6 w-6"
               fill="none"

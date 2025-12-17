@@ -729,12 +729,12 @@ const Rooms = () => {
   };
 
   return (
-    <div className="p-6">
-      <div className="flex justify-between mb-4">
+    <div className="p-4 sm:p-6">
+      <div className="flex flex-col sm:flex-row justify-between mb-4 gap-3">
         <h1 className="text-2xl font-bold">Rooms Management</h1>
         <button
           onClick={() => setShowAddModal(true)}
-          className="px-4 py-2 bg-blue-600 text-white rounded"
+          className="px-4 py-2 bg-blue-600 text-white rounded self-start sm:self-auto"
         >
           + Add Room
         </button>
@@ -743,41 +743,43 @@ const Rooms = () => {
       {loading && <p>Loading...</p>}
       {error && <p className="text-red-500">{error}</p>}
 
-      <table className="w-full border">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="border p-2">Room</th>
-            <th className="border p-2">Type</th>
-            <th className="border p-2">Price</th>
-            <th className="border p-2">Status</th>
-            <th className="border p-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rooms.map((room) => (
-            <tr key={room._id}>
-              <td className="border p-2">{room.roomName}</td>
-              <td className="border p-2">{room.type}</td>
-              <td className="border p-2">₹{room.price}</td>
-              <td className="border p-2">{room.status}</td>
-              <td className="border p-2 space-x-2">
-                <button
-                  onClick={() => openEdit(room)}
-                  className="px-2 py-1 bg-yellow-400 rounded"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => handleDelete(room._id)}
-                  className="px-2 py-1 bg-red-500 text-white rounded"
-                >
-                  Delete
-                </button>
-              </td>
+      <div className="overflow-x-auto">
+        <table className="w-full border min-w-[600px] sm:min-w-full">
+          <thead className="bg-gray-100">
+            <tr>
+              <th className="border p-2 text-xs sm:text-sm">Room</th>
+              <th className="border p-2 text-xs sm:text-sm">Type</th>
+              <th className="border p-2 text-xs sm:text-sm">Price</th>
+              <th className="border p-2 text-xs sm:text-sm">Status</th>
+              <th className="border p-2 text-xs sm:text-sm">Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {rooms.map((room) => (
+              <tr key={room._id}>
+                <td className="border p-2 text-xs sm:text-sm">{room.roomName}</td>
+                <td className="border p-2 text-xs sm:text-sm">{room.type}</td>
+                <td className="border p-2 text-xs sm:text-sm">₹{room.price}</td>
+                <td className="border p-2 text-xs sm:text-sm">{room.status}</td>
+                <td className="border p-2 space-x-1 sm:space-x-2">
+                  <button
+                    onClick={() => openEdit(room)}
+                    className="px-2 py-1 text-xs sm:text-sm bg-yellow-400 rounded"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => handleDelete(room._id)}
+                    className="px-2 py-1 text-xs sm:text-sm bg-red-500 text-white rounded"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {/* MODAL */}
       {(showAddModal || editingRoom) && (

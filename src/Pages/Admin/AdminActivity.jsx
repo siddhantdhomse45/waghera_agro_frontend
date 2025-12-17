@@ -1097,13 +1097,13 @@ const AdminActivity = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
-      <h2 className="text-3xl font-bold mb-6 text-gray-800">Activity Management ⚡</h2>
+    <div className="p-4 sm:p-6 bg-gray-50 min-h-screen">
+      <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-gray-800">Activity Management ⚡</h2>
 
       {/* Status */}
       {statusMessage.message && (
         <div
-          className={`px-4 py-3 rounded mb-4 ${
+          className={`px-3 py-2 sm:px-4 sm:py-3 rounded mb-3 sm:mb-4 text-sm sm:text-base ${
             statusMessage.type === "success"
               ? "bg-green-100 border border-green-400 text-green-700"
               : "bg-red-100 border border-red-400 text-red-700"
@@ -1114,25 +1114,25 @@ const AdminActivity = () => {
       )}
 
       {/* Form */}
-      <div className="bg-white p-6 shadow-xl rounded-lg mb-8 max-w-lg mx-auto">
-        <h3 className="text-xl font-semibold mb-4 text-gray-700">
+      <div className="bg-white p-4 sm:p-6 shadow-xl rounded-lg mb-6 sm:mb-8 max-w-lg mx-auto">
+        <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-gray-700">
           {editingId ? "Edit Activity" : "Create Activity"}
         </h3>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
           <input
             type="text"
             name="title"
             placeholder="Title"
             value={newActivity.title}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border p-2 rounded text-sm sm:text-base"
           />
           <textarea
             name="description"
             placeholder="Description"
             value={newActivity.description}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border p-2 rounded text-sm sm:text-base"
             rows={3}
           />
           <input
@@ -1140,12 +1140,12 @@ const AdminActivity = () => {
             name="file"
             onChange={handleFileChange}
             accept="image/*"
-            className="w-full"
+            className="w-full text-xs sm:text-sm"
           />
           <button
             type="submit"
             disabled={loading}
-            className={`w-full py-2 rounded text-white ${
+            className={`w-full py-2 rounded text-white text-sm sm:text-base ${
               loading ? "bg-gray-400" : "bg-[#a8815e] hover:bg-amber-700"
             }`}
           >
@@ -1155,7 +1155,7 @@ const AdminActivity = () => {
             <button
               type="button"
               onClick={resetForm}
-              className="w-full py-2 mt-2 bg-gray-500 text-white rounded"
+              className="w-full py-2 mt-2 bg-gray-500 text-white rounded text-sm sm:text-base"
             >
               Cancel Edit
             </button>
@@ -1164,33 +1164,33 @@ const AdminActivity = () => {
       </div>
 
       {/* Activities List */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-6">
         {activities.map((a) => (
           <div key={a._id} className="bg-white rounded-lg shadow relative group overflow-hidden">
             {/* ✅ Use imageUrl instead of image */}
             <img
               src={a.imageUrl || "https://via.placeholder.com/300x180?text=No+Image"}
               alt={a.title}
-              className="w-full h-48 object-cover"
+              className="w-full h-32 sm:h-48 object-cover"
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src = "https://via.placeholder.com/300x180?text=Image+Not+Found";
               }}
             />
-            <div className="p-4">
-              <p className="font-medium text-gray-900 truncate">{a.title}</p>
-              <p className="text-sm text-gray-600 line-clamp-2">{a.description}</p>
+            <div className="p-3 sm:p-4">
+              <p className="font-medium text-gray-900 truncate text-sm sm:text-base">{a.title}</p>
+              <p className="text-xs sm:text-sm text-gray-600 line-clamp-2">{a.description}</p>
             </div>
-            <div className="absolute top-2 right-2 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="absolute top-1 sm:top-2 right-1 sm:right-2 flex space-x-1 sm:space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
               <button
                 onClick={() => handleEdit(a)}
-                className="bg-yellow-500 text-white p-1 rounded"
+                className="bg-yellow-500 text-white p-1 rounded text-xs sm:text-sm"
               >
                 ✏
               </button>
               <button
                 onClick={() => handleDelete(a._id, a.title)}
-                className="bg-red-600 text-white p-1 rounded"
+                className="bg-red-600 text-white p-1 rounded text-xs sm:text-sm"
               >
                 🗑
               </button>

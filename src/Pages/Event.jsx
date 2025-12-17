@@ -24,7 +24,7 @@
 //   },
 // ];
 //   return (
-//     <div className="font-serif text-gray-800">
+//     <div className=" text-gray-800">
 //       {/* Hero Section */}
 //      <div
 //   className="relative bg-cover bg-center h-[800px] flex items-center justify-center"
@@ -35,7 +35,7 @@
 //   {/* Overlay */}
 //   <div className="absolute inset-0 bg-black/50 z-0" />
 //         <div className="absolute inset-0  bg-opacity-50 flex flex-col items-center justify-center text-white text-center">
-//           <h1 className="text-4xl md:text-7xl font-serif mb-6 mt-25">Events</h1>
+//           <h1 className="text-4xl md:text-7xl  mb-6 mt-25">Events</h1>
 //           <p className="text-xl">Whether you have questions, need answers, or simply want to chat.</p>
 //         </div>
 //       </div>
@@ -53,9 +53,9 @@
 
 //     {/* Right Content */}
 //     <div>
-//       <h2 className="text-6xl md:text-5xl font-serif mb-4 leading-snug">
+//       <h2 className="text-6xl md:text-5xl  mb-4 leading-snug">
 //         A Night of Hope: <br className="hidden md:block" />
-//         <span className=" font-serif">Our Charity Gala Room.</span>
+//         <span className=" ">Our Charity Gala Room.</span>
 //       </h2>
 //       <p className="text-gray-600 text-lg mb-8">
 //         At our Fitness & Yoga Services, we are dedicated to helping you achieve your
@@ -74,7 +74,7 @@
 //   <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 //     {/* Right Content First */}
 //     <div>
-//       <h2 className="text-6xl md:text-5xl font-serif mb-4 leading-snug">
+//       <h2 className="text-6xl md:text-5xl  mb-4 leading-snug">
 //         Taste of Luxury: <br className="hidden md:block" />
 //         <span className="">Food & Wine Festival Event</span>
 //       </h2>
@@ -116,7 +116,7 @@
 //   <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
 //     {/* Left Heading */}
 //     <div className="lg:col-span-1 text-center lg:text-left">
-//       <h2 className="text-5xl md:text-5xl font-serif leading-tight">
+//       <h2 className="text-5xl md:text-5xl  leading-tight">
 //         We're Here to Help 
 //         Reach Out to Us Today 
 //         And Join Our Event
@@ -127,7 +127,7 @@
 //     <div className="lg:col-span-2 flex flex-col md:flex-row gap-6 ml-30 justify-end">
 //       {/* Phone Box */}
 //       <div className="bg-white/10 m border border-white rounded-xl p-6 w-full md:w-1/2 text-left">
-//         <h4 className="text-lg font-serif mb-2 text-white">Reservation By Phone</h4>
+//         <h4 className="text-lg  mb-2 text-white">Reservation By Phone</h4>
 //         <div className="flex items-center gap-3 text-white/90">
 //           <i class="fa-solid fa-phone"></i>
 //           +12505550199
@@ -136,7 +136,7 @@
 
 //       {/* Email Box */}
 //       <div className="bg-white/10 m border border-white rounded-xl p-6 w-full md:w-1/2 text-left">
-//         <h4 className="text-lg font-serif mb-2 text-white">Reservation By Email</h4>
+//         <h4 className="text-lg  mb-2 text-white">Reservation By Email</h4>
 //         <div className="flex items-center gap-3 text-white/90">
 //          <i class="fa-regular fa-envelope"></i>
 //           moonlit@gmail.com
@@ -153,7 +153,7 @@
 //         {facilities.map((item, index) => (
 //           <div key={index} className="text-center">
 //             <img src={item.icon} alt={item.title} className="mx-auto mb-6 w-12 h-12" />
-//             <h3 className="text-3xl font-serif mb-4">{item.title}</h3>
+//             <h3 className="text-3xl  mb-4">{item.title}</h3>
 //             <p className="text-gray-600 text-lg">{item.desc}</p>
 //           </div>
 //         ))}
@@ -207,7 +207,7 @@ export default function Events() {
   }, []);
 
   return (
-    <div className="font-serif text-gray-800">
+    <div className=" text-gray-800">
 
       {/* HERO SECTION */}
       <div
@@ -218,7 +218,7 @@ export default function Events() {
       >
         <div className="absolute inset-0 bg-black/50 z-0" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
-          <h1 className="text-4xl md:text-7xl font-serif mb-6">Events</h1>
+          <h1 className="text-4xl md:text-7xl  mb-6">Events</h1>
           <p className="text-xl">Whether you have questions or want to join the event.</p>
         </div>
       </div>
@@ -240,7 +240,7 @@ export default function Events() {
                   : "order-1 md:order-2"  // Odd → Image Left, Text Right
               }`}
             >
-              <h2 className="text-4xl md:text-5xl font-serif mb-4">{ev.title}</h2>
+              <h2 className="text-4xl md:text-5xl  mb-4">{ev.title}</h2>
               <p className="text-gray-600 text-lg mb-8">{ev.description}</p>
 
               <div className="flex flex-wrap gap-10 text-gray-900 text-lg font-medium">
@@ -276,7 +276,7 @@ export default function Events() {
           {facilities.map((item, index) => (
             <div key={index} className="text-center">
               <img src={item.icon} alt={item.title} className="mx-auto mb-6 w-12 h-12" />
-              <h3 className="text-3xl font-serif mb-4">{item.title}</h3>
+              <h3 className="text-3xl  mb-4">{item.title}</h3>
               <p className="text-gray-600 text-lg">{item.desc}</p>
             </div>
           ))}

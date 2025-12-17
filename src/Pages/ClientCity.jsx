@@ -158,7 +158,7 @@ export default function ClientCity() {
   <div className="relative z-10 w-full px-6 md:px-20 mr-10 flex flex-col md:flex-row items-center justify-between">
     {/* Left Text */}
     <div className="max-w-xl text-white py-16 md:py-32">
-      <h2 className="text-5xl md:text-7xl font-serif  leading-tight">
+      <h2 className="text-5xl md:text-7xl  leading-tight">
         Discover Luxury in the Heart of the City
       </h2>
     </div>
@@ -166,7 +166,7 @@ export default function ClientCity() {
 
     {/* Booking Form */}
     <div className="bg-white text-black rounded-xl shadow-xl p-6 md:p-10 w-full mt-30 md:mt-10 mb-20 max-w-md">
-      <h3 className="text-2xl font-serif mb-6 text-center">Book Your Stay</h3>
+      <h3 className="text-2xl mb-6 text-center">Book Your Stay</h3>
 
       <form className="space-y-4">
         {/* Check In */}
@@ -263,7 +263,7 @@ export default function ClientCity() {
         <div>
           <div className="items-start gap-3 mb-2">
             <img src="https://html.themewant.com/moonlit/assets/images/icon/bed.svg" className="w-12 mb-4" />
-            <h4 className="font-serif text-3xl mb-4">Rooms and Suites</h4>
+            <h4 className="text-3xl mb-4">Rooms and Suites</h4>
           </div>
           <p className="text-xl text-gray-600 leading-relaxed">
             Varied types of rooms, from standard to luxury suites, equipped with essentials like beds.
@@ -274,7 +274,7 @@ export default function ClientCity() {
         <div>
           <div className="items-start gap-3 mb-2">
             <img src="https://html.themewant.com/moonlit/assets/images/icon/security.svg" className="w-10 mb-4" />
-            <h4 className="font-serif text-3xl mb-4">24-Hour Security</h4>
+            <h4 className="text-3xl mb-4">24-Hour Security</h4>
           </div>
           <p className="text-xl text-gray-600 leading-relaxed">
             On-site security personnel and best surveillance. Secure storage for valuables.
@@ -285,7 +285,7 @@ export default function ClientCity() {
         <div>
           <div className="items-start gap-3 mb-4 mt-8">
             <img src="https://html.themewant.com/moonlit/assets/images/icon/gym.svg" className="w-12" />
-            <h4 className="font-serif text-3xl mt-6">Fitness Center</h4>
+            <h4 className="text-3xl mt-6">Fitness Center</h4>
           </div>
           <p className="text-xl text-gray-600 leading-relaxed">
             Equipped with exercise machines and weights. Offering massages, facials, and other treatments.
@@ -296,7 +296,7 @@ export default function ClientCity() {
         <div>
           <div className="items-start gap-3 mb-4 mt-8">
             <img src="https://html.themewant.com/moonlit/assets/images/icon/swimming-pool.svg" className="w-12" />
-            <h4 className="font-serif text-3xl mt-6">Swimming Pool</h4>
+            <h4 className="text-3xl mt-6">Swimming Pool</h4>
           </div>
           <p className="text-xl text-gray-600 leading-relaxed">
             Indoor or outdoor pools for leisure or exercise. Offering massages, facials, and other treatments.
@@ -308,7 +308,7 @@ export default function ClientCity() {
     {/* ✅ Right Column – Title + Image */}
     <div className="order-1 md:order-2">
       {/* Title above the image */}
-      <h4 className="text-yellow-800 text-base font-serif mb-2">
+      <h4 className="text-yellow-800 text-base mb-2">
         <span className="flex text-[#a8815e] gap-2 sm:gap-4 mb-6 sm:mb-10 text-lg sm:text-2xl font-serif">
           <span className="flex items-center">
             <span className="text-sm sm:text-lg">◇</span>
@@ -317,7 +317,7 @@ export default function ClientCity() {
           Facilities
         </span>
       </h4>
-      <h2 className="text-4xl md:text-6xl font-serif text-gray-900 mb-10">
+      <h2 className="text-4xl md:text-6xl text-gray-900 mb-10">
         Apartment Facilities
       </h2>
 
@@ -339,7 +339,7 @@ export default function ClientCity() {
 <section className="bg-[#f5f5f5] py-20 px-4 md:px-20 font-serif">
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-12">
-        <h4 className="text-[#a8815e] text-4xl sm:text-xl font-serif mb-2">
+        <h4 className="text-[#a8815e] text-4xl sm:text-xl mb-2">
         <span className="flex items-center justify-center gap-3 sm:text-xl">
           <span className="flex items-center">
             <span className="text-sm sm:text-lg">◇</span>
@@ -352,7 +352,7 @@ export default function ClientCity() {
           </span>
         </span>
       </h4>
-        <h2 className="text-4xl md:text-6xl font-serif mb-6 leading-tight">
+        <h2 className="text-4xl md:text-6xl mb-6 leading-tight">
           Welcome To Our Moonlit<br />
           Hotel & Resort
         </h2>
@@ -403,7 +403,7 @@ export default function ClientCity() {
               <span className="text-[#a8815e] text-xl">✦</span>
               <span className="text-[#a8815e] text-xl font-serif">Room</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-serif ">Our Rooms</h2>
+            <h2 className="text-4xl md:text-6xl ">Our Rooms</h2>
           </div>
 
           {/* Right: Paragraph */}
@@ -443,7 +443,7 @@ export default function ClientCity() {
     animateText ? "opacity-0 -translate-y-4" : "opacity-100 translate-y-0"
   }`}
 >
-  <h3 className="text-5xl font-serif text-gray-800 mb-2">
+  <h3 className="text-5xl text-gray-800 mb-2">
     {apartmentData[activeIndex].title}
   </h3>
   <div className="flex justify-center gap-6 text-xl text-gray-600 mb-4">
@@ -492,7 +492,7 @@ export default function ClientCity() {
   <div className="max-w-7xl mx-auto px-4 sm:px-8">
     {/* Section Title */}
     <div className="text-center mb-14">
-      <h4 className="text-[#a8815e] text-base sm:text-lg font-serif mb-2">
+      <h4 className="text-[#a8815e] text-base sm:text-lg mb-2">
         <span className="flex items-center justify-center gap-3 sm:text-xl">
           <span className="flex items-center">
             <span className="text-sm sm:text-lg">◇</span>
@@ -505,7 +505,7 @@ export default function ClientCity() {
           </span>
         </span>
       </h4>
-      <h2 className="text-4xl sm:text-6xl font-serif font-light text-black">
+      <h2 className="text-4xl sm:text-6xl font-light text-black">
         Our Services
       </h2>
     </div>
@@ -526,7 +526,7 @@ export default function ClientCity() {
             className="w-full h-[440px] object-cover rounded-xl"
           />
 
-          <div className="mt-6 font-serif text-left">
+          <div className="mt-6 text-left">
             <h3 className="text-3xl sm:text-2xl  mb-2 text-[#111]">
               {room.name}
             </h3>
@@ -565,7 +565,7 @@ export default function ClientCity() {
               <span className="text-[#a8815e] text-xl">✦</span>
               <span className="text-[#a8815e] text-xl font-serif">Room</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-serif ">Our Rooms</h2>
+            <h2 className="text-4xl md:text-6xl ">Our Rooms</h2>
           </div>
 
           {/* Right: Paragraph */}
@@ -643,7 +643,7 @@ export default function ClientCity() {
               <span className="text-sm sm:text-lg">◇</span>
             </span>
           </span>
-          <h2 className="text-4xl md:text-5xl font-serif text-gray-900">
+          <h2 className="text-4xl md:text-5xl text-gray-900">
             What Our Client Say
           </h2>
         </div>
@@ -668,7 +668,7 @@ export default function ClientCity() {
               <p className="text-gray-600 text-3xl leading-relaxed mb-6 font-serif">
                 {testimonial.message}
               </p>
-              <p className="text-gray-900 font-serif text-2xl">{testimonial.name}</p>
+              <p className="text-gray-900 text-2xl">{testimonial.name}</p>
               <p className="text-gray-500 text-lg">{testimonial.role}</p>
             </div>
 

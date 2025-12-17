@@ -149,10 +149,10 @@ Status: ${payment.status}`);
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 sm:p-6">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-[#a8815e]">Payment Management</h1>
-        <p className="text-gray-600">View and manage all payment transactions</p>
+        <h1 className="text-xl sm:text-2xl font-bold text-[#a8815e]">Payment Management</h1>
+        <p className="text-gray-600 text-sm sm:text-base">View and manage all payment transactions</p>
       </div>
 
       <div className="bg-white rounded-lg shadow overflow-hidden">
@@ -160,28 +160,28 @@ Status: ${payment.status}`);
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" className="px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Booking ID
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" className="px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Customer
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" className="px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Room
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" className="px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Amount
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" className="px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Date
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" className="px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Method
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" className="px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Status
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" className="px-2 py-2 sm:px-4 sm:py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Actions
                 </th>
               </tr>
@@ -189,52 +189,52 @@ Status: ${payment.status}`);
             <tbody className="bg-white divide-y divide-gray-200">
               {payments.map((payment) => (
                 <tr key={payment.id}>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  <td className="px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-medium text-gray-900">
                     {payment.bookingId}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm text-gray-500">
                     {payment.customer}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm text-gray-500">
                     {payment.room}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  <td className="px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm font-medium text-gray-900">
                     {formatCurrency(payment.amount)}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm text-gray-500">
                     {payment.date}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm text-gray-500">
                     {payment.method}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${getStatusClass(payment.status)}`}>
+                  <td className="px-2 py-2 sm:px-4 sm:py-3 whitespace-nowrap">
+                    <span className={`px-1 py-0.5 sm:px-2 sm:py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${getStatusClass(payment.status)}`}>
                       {payment.status}
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 relative">
+                  <td className="px-2 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm text-gray-500 relative">
                     <button 
                       onClick={() => toggleMenu(payment.id)}
                       className="text-gray-500 hover:text-gray-700 focus:outline-none"
                     >
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
                       </svg>
                     </button>
 
                     {activeMenu === payment.id && (
-                      <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10">
+                      <div className="origin-top-right absolute right-0 mt-2 w-40 sm:w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10">
                         <div className="py-1" role="menu">
                           <button
                             onClick={() => handleViewDetails(payment)}
-                            className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                            className="block w-full text-left px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                             role="menuitem"
                           >
                             View Details
                           </button>
                           <button
                             onClick={() => handleDownloadPDF(payment)}
-                            className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                            className="block w-full text-left px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                             role="menuitem"
                           >
                             Download Invoice
@@ -321,27 +321,27 @@ const InvoiceModal = ({ payment, onClose }) => {
 
   return (
     <div>
-      <h2 className="text-xl font-bold text-[#a8815e] mb-4">Invoice Preview</h2>
-      <div className="mb-4">
-        <p className="text-gray-600"><span className="font-medium">Booking ID:</span> {payment.bookingId}</p>
-        <p className="text-gray-600"><span className="font-medium">Customer:</span> {payment.customer}</p>
-        <p className="text-gray-600"><span className="font-medium">Room:</span> {payment.room}</p>
-        <p className="text-gray-600"><span className="font-medium">Check-in:</span> {payment.checkIn}</p>
-        <p className="text-gray-600"><span className="font-medium">Check-out:</span> {payment.checkOut}</p>
-        <p className="text-gray-600"><span className="font-medium">Amount:</span> {formatCurrency(payment.amount)}</p>
-        <p className="text-gray-600"><span className="font-medium">Payment Method:</span> {payment.method}</p>
-        <p className="text-gray-600"><span className="font-medium">Date:</span> {payment.date}</p>
+      <h2 className="text-lg sm:text-xl font-bold text-[#a8815e] mb-3 sm:mb-4">Invoice Preview</h2>
+      <div className="mb-4 space-y-1">
+        <p className="text-gray-600 text-sm sm:text-base"><span className="font-medium">Booking ID:</span> {payment.bookingId}</p>
+        <p className="text-gray-600 text-sm sm:text-base"><span className="font-medium">Customer:</span> {payment.customer}</p>
+        <p className="text-gray-600 text-sm sm:text-base"><span className="font-medium">Room:</span> {payment.room}</p>
+        <p className="text-gray-600 text-sm sm:text-base"><span className="font-medium">Check-in:</span> {payment.checkIn}</p>
+        <p className="text-gray-600 text-sm sm:text-base"><span className="font-medium">Check-out:</span> {payment.checkOut}</p>
+        <p className="text-gray-600 text-sm sm:text-base"><span className="font-medium">Amount:</span> {formatCurrency(payment.amount)}</p>
+        <p className="text-gray-600 text-sm sm:text-base"><span className="font-medium">Payment Method:</span> {payment.method}</p>
+        <p className="text-gray-600 text-sm sm:text-base"><span className="font-medium">Date:</span> {payment.date}</p>
       </div>
-      <div className="flex justify-end space-x-3">
+      <div className="flex justify-end space-x-2 sm:space-x-3">
         <button
           onClick={onClose}
-          className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+          className="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
         >
           Cancel
         </button>
         <button
           onClick={handleDownload}
-          className="px-4 py-2 bg-[#a8815e] text-white rounded-md hover:bg-yellow-800 focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
+          className="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm bg-[#a8815e] text-white rounded-md hover:bg-yellow-800 focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
         >
           Download PDF
         </button>

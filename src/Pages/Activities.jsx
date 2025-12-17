@@ -17,7 +17,7 @@
 //     },
 //   ];
 //   return (
-//     <div className="font-serif text-gray-800">
+//     <div className=" text-gray-800">
 //       {/* Hero Section */}
 //       <div
 //         className="relative bg-cover bg-center h-[800px] flex items-center justify-center"
@@ -29,7 +29,7 @@
 //         {/* Overlay */}
 //         <div className="absolute inset-0 bg-black/50 z-0" />
 //         <div className="absolute inset-0  bg-opacity-50 flex flex-col items-center justify-center text-white text-center">
-//           <h1 className="text-4xl md:text-7xl font-serif mb-6 mt-45">
+//           <h1 className="text-4xl md:text-7xl  mb-6 mt-45">
 //             Activities
 //           </h1>
 //           <p className="text-xl">
@@ -40,8 +40,8 @@
 
 //       <section className="bg-white py-16 px-4 md:px-24">
 //         <div className="text-center mb-14">
-//           <h4 className="text-yellow-800 text-base font-serif mb-2">
-//             <span className="flex items-center justify-center text-[#a8815e] gap-2 sm:gap-4 mb-6 sm:mb-10 text-lg sm:text-2xl font-serif">
+//           <h4 className="text-yellow-800 text-base  mb-2">
+//             <span className="flex items-center justify-center text-[#a8815e] gap-2 sm:gap-4 mb-6 sm:mb-10 text-lg sm:text-2xl ">
 //               <span className="flex items-center">
 //                 <span className="text-sm sm:text-lg">◇</span>
 //                 <span className="w-6 sm:w-10 h-px bg-black"></span>
@@ -53,7 +53,7 @@
 //               </span>
 //             </span>
 //           </h4>
-//           <h2 className="text-3xl sm:text-5xl font-serif text-gray-900">
+//           <h2 className="text-3xl sm:text-5xl  text-gray-900">
 //             Our Activities
 //           </h2>
 //         </div>
@@ -75,7 +75,7 @@
 //               <span className="h-px w-6 bg-[#a8815e]"></span>
 //               <span className="text-2xl">Kayaking</span>
 //             </div>
-//             <h3 className="text-5xl font-serif mb-6">Kayaking</h3>
+//             <h3 className="text-5xl  mb-6">Kayaking</h3>
 //             <p className="text-gray-700 mb-4 text-lg">
 //               Kayaking is an adventurous and recreational water sport in which a
 //               person navigates through water using a slender, lightweight boat
@@ -99,7 +99,7 @@
 //               <span className="h-px w-6 bg-[#a8815e]"></span>
 //               <span className="text-2xl">Swimming in River</span>
 //             </div>
-//             <h3 className="text-5xl font-serif mb-6">Swimming in River</h3>
+//             <h3 className="text-5xl  mb-6">Swimming in River</h3>
 //             <p className="text-gray-700 mb-4 text-lg">
 //               Swimming in a river is an outdoor water activity where individuals
 //               enjoy floating, wading, or swimming in naturally flowing
@@ -138,7 +138,7 @@
 //               <span className="h-px w-6 bg-[#a8815e]"></span>
 //               <span className="text-2xl">Visit Strawberry Garden</span>
 //             </div>
-//             <h3 className="text-5xl font-serif mb-6">
+//             <h3 className="text-5xl  mb-6">
 //               Visit Strawberry Garden
 //             </h3>
 //             <p className="text-gray-700 mb-4 text-lg">
@@ -165,7 +165,7 @@
 //               <span className="h-px w-6 bg-[#a8815e]"></span>
 //               <span className="text-2xl">Camp Fire</span>
 //             </div>
-//             <h3 className="text-5xl font-serif mb-6">Camp Fire</h3>
+//             <h3 className="text-5xl  mb-6">Camp Fire</h3>
 //             <p className="text-gray-700 mb-4 text-lg">
 //               Experience the magic of a warm camp fire as the sun sets and the
 //               night sky comes alive. Gather around the crackling flames with
@@ -207,7 +207,7 @@
 //               <span className="h-px w-6 bg-[#a8815e]"></span>
 //               <span className="text-2xl">Grilled BBQ</span>
 //             </div>
-//             <h3 className="text-5xl font-serif mb-6">Grilled BBQ</h3>
+//             <h3 className="text-5xl  mb-6">Grilled BBQ</h3>
 //             <p className="text-gray-700 mb-4 text-lg">
 //               Grilled BBQ is all about the perfect blend of smoky aroma,
 //               sizzling heat, and rich flavors. Freshly marinated ingredients are
@@ -228,7 +228,7 @@
 //               <span className="h-px w-6 bg-[#a8815e]"></span>
 //               <span className="text-2xl">Bonfire with Music</span>
 //             </div>
-//             <h3 className="text-5xl font-serif mb-6">Bonfire with Music</h3>
+//             <h3 className="text-5xl  mb-6">Bonfire with Music</h3>
 //             <p className="text-gray-700 mb-4 text-lg">
 //               A bonfire with music creates the perfect atmosphere for relaxation
 //               and togetherness. As the flames crackle and glow under the night
@@ -275,7 +275,7 @@
 //                 <div className="absolute inset-0 bg-black/40 z-10" />
 
 //                 <div className="absolute bottom-0 left-0 w-full p-4 z-20 bg-gradient-to-t from-black/70 to-transparent text-white">
-//                   <h3 className="text-4xl mb-20 font-serif">{image.title}</h3>
+//                   <h3 className="text-4xl mb-20 ">{image.title}</h3>
 //                   <button className="cursor-pointer absolute bottom-4 left-4  font-bold rounded border border-white  text-white px-4 py-2 hover:bg-yellow-800 transition duration-300">
 //                     View More
 //                   </button>
@@ -317,7 +317,7 @@ const Activities = () => {
   }, []);
 
   return (
-    <div className="font-serif text-gray-800">
+    <div className=" text-gray-800">
       {/* Hero Section */}
       <div
         className="relative bg-cover bg-center h-[800px] flex items-center justify-center"
@@ -328,7 +328,7 @@ const Activities = () => {
       >
         <div className="absolute inset-0 bg-black/50 z-0" />
         <div className="absolute inset-0 bg-opacity-50 flex flex-col items-center justify-center text-white text-center">
-          <h1 className="text-4xl md:text-7xl font-serif mb-6 mt-45">
+          <h1 className="text-4xl md:text-7xl  mb-6 mt-45">
             Activities
           </h1>
           <p className="text-xl">
@@ -340,7 +340,7 @@ const Activities = () => {
       {/* Activities Section */}
       <section className="bg-white py-16 px-4 md:px-24">
         <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-5xl font-serif text-gray-900">
+          <h2 className="text-3xl sm:text-5xl  text-gray-900">
             Our Activities
           </h2>
         </div>
@@ -374,7 +374,7 @@ const Activities = () => {
                   <span className="text-xl">{item.title}</span>
                 </div>
 
-                <h3 className="text-4xl md:text-5xl font-serif mb-6">
+                <h3 className="text-4xl md:text-5xl  mb-6">
                   {item.title}
                 </h3>
 

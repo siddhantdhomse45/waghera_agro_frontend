@@ -170,7 +170,7 @@
 //       >
 //         <div className="absolute inset-0 bg-black/50 z-0" />
 //         <div className="absolute inset-0  bg-opacity-50 flex flex-col items-center justify-center text-white text-center">
-//           <h1 className="text-4xl md:text-7xl font-serif mb-6 mt-45">The Restaurant</h1>
+//           <h1 className="text-4xl md:text-7xl  mb-6 mt-45">The Restaurant</h1>
 //           <p className="text-xl">Whether you have questions, need answers, or simply want to chat.</p>
 //         </div>
 //       </div>
@@ -199,12 +199,12 @@
 
 //           {/* Text */}
 //           <div className="w-full md:w-1/2 text-center md:text-left">
-//             <h4 className="flex items-center text-[#a1865e] text-xl font-serif mb-3">
+//             <h4 className="flex items-center text-[#a1865e] text-xl  mb-3">
 //               <div className="h-px w-10 bg-[#a8815e]" />
 //               <span className="text-xl ml-2">✦</span>
 //               <span className="ml-4">Hotel Experience</span>
 //             </h4>
-//             <h2 className="text-5xl font-serif text-gray-900 leading-tight mb-6">
+//             <h2 className="text-5xl  text-gray-900 leading-tight mb-6">
 //               From Farm to Fork: Enjoy Fresh, Seasonal Dishes at Bokinn
 //             </h2>
 
@@ -236,7 +236,7 @@
 //       {/* -------------------- GALLERY SECTION -------------------- */}
 //       <section className="mt-10 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-29">
 //         <div>
-//           <span className="flex items-center justify-center text-[#a1865e] gap-4 mb-10 text-2xl font-serif">
+//           <span className="flex items-center justify-center text-[#a1865e] gap-4 mb-10 text-2xl ">
 //             <span className="flex items-center">
 //               <span className="text-lg">◇</span>
 //               <span className="w-10 h-px bg-black"></span>
@@ -289,12 +289,12 @@
 //       <section className="mt-20 px-4 sm:px-10 md:px-24 bg-gray-200">
 //         <div className="flex justify-between flex-col md:flex-row mb-10">
 //           <div>
-//             <h4 className="text-[#a1865e] font-serif flex items-center text-3xl mb-2 mt-15">
+//             <h4 className="text-[#a1865e]  flex items-center text-3xl mb-2 mt-15">
 //               <div className="h-px w-10 bg-[#a8815e]" />
 //               <span className="text-2xl">✦</span>
 //               <span className="ml-4">Menu</span>
 //             </h4>
-//             <h2 className="text-7xl font-serif">Restaurant Menu</h2>
+//             <h2 className="text-7xl ">Restaurant Menu</h2>
 //           </div>
 //           <p className="text-gray-500 text-lg mt-5">Our rooms offer a harmonious blend of comfort and elegance…</p>
 //         </div>
@@ -304,7 +304,7 @@
 //             <button
 //               key={cat}
 //               onClick={() => setActiveCategory(cat)}
-//               className={`px-12 py-2 border rounded-md font-serif ${
+//               className={`px-12 py-2 border rounded-md  ${
 //                 activeCategory === cat ? "bg-[#a1865e] text-white" : "text-gray-700 hover:bg-gray-100"
 //               }`}
 //             >
@@ -326,10 +326,10 @@
 //               <div key={index} className="flex justify-between items-start gap-4 pt-8 border-b pb-6">
 //                 <img src={item.image} className="w-20 h-20 rounded-md object-cover" alt={item.title} />
 //                 <div className="flex-1">
-//                   <h3 className="text-lg font-serif">{item.title}</h3>
+//                   <h3 className="text-lg ">{item.title}</h3>
 //                   <p className="text-gray-500 text-sm mt-1">{item.description}</p>
 //                 </div>
-//                 <div className="text-lg font-serif">{item.price}</div>
+//                 <div className="text-lg ">{item.price}</div>
 //               </div>
 //             ))}
 //           </motion.div>
@@ -343,12 +343,12 @@
 //         <div className="absolute bottom-20 left-10 w-40 h-40 bg-[#a1865e]/10 rounded-full blur-3xl" />
 
 //         <div className="text-center mb-14">
-//           <span className="flex items-center justify-center text-[#a1865e] gap-4 mb-4 text-2xl font-serif">
+//           <span className="flex items-center justify-center text-[#a1865e] gap-4 mb-4 text-2xl ">
 //             <span className="w-10 h-px bg-black" />
 //             Premium Combo Deals
 //             <span className="w-10 h-px bg-black" />
 //           </span>
-//           <h2 className="text-6xl font-serif">Chef’s Special Combos</h2>
+//           <h2 className="text-6xl ">Chef’s Special Combos</h2>
 //           <p className="mt-4 text-gray-600 text-xl">Exclusive combinations crafted for families, food lovers & celebrations.</p>
 //         </div>
 
@@ -378,22 +378,22 @@
 //                   alt={combo.title}
 //                 />
 
-//                 <h3 className="text-3xl font-serif mt-5">{combo.title}</h3>
+//                 <h3 className="text-3xl  mt-5">{combo.title}</h3>
 //                 <p className="text-gray-600 mt-2 text-lg">{combo.description}</p>
-//                 <p className="text-4xl text-[#a1865e] mt-4 font-serif">{combo.price}</p>
+//                 <p className="text-4xl text-[#a1865e] mt-4 ">{combo.price}</p>
 //               </motion.div>
 
 //               <div className="p-6 flex justify-between items-center">
 //                 <button
 //                   onClick={() => setSelectedCombo(combo)}
-//                   className="px-6 py-2 border border-[#a1865e] text-[#a1865e] rounded-full font-serif hover:bg-[#a1865e] hover:text-white transition-all"
+//                   className="px-6 py-2 border border-[#a1865e] text-[#a1865e] rounded-full  hover:bg-[#a1865e] hover:text-white transition-all"
 //                 >
 //                   View Details
 //                 </button>
 
 //                 <button
 //                   onClick={() => handleAddToCart(combo)}
-//                   className="px-6 py-2 bg-[#a1865e] text-white rounded-full font-serif hover:bg-[#8b6d4c] transition-all"
+//                   className="px-6 py-2 bg-[#a1865e] text-white rounded-full  hover:bg-[#8b6d4c] transition-all"
 //                 >
 //                   Add to Cart
 //                 </button>
@@ -425,11 +425,11 @@
 
 //                 <img src={selectedCombo.image} className="w-full h-64 object-cover rounded-xl" alt="combo-detail" />
 
-//                 <h3 className="text-4xl font-serif mt-5">{selectedCombo.title}</h3>
+//                 <h3 className="text-4xl  mt-5">{selectedCombo.title}</h3>
 //                 <p className="text-gray-700 text-lg mt-3">{selectedCombo.description}</p>
 
 //                 <div className="mt-6">
-//                   <h4 className="text-2xl font-serif mb-3">Included Items</h4>
+//                   <h4 className="text-2xl  mb-3">Included Items</h4>
 //                   <ul className="list-disc ml-5 text-gray-600 leading-loose text-lg">
 //                     {selectedCombo.description.split("+").map((part, i) => (
 //                       <li key={i}>{part.trim()}</li>
@@ -437,7 +437,7 @@
 //                   </ul>
 //                 </div>
 
-//                 <p className="text-4xl text-[#a1865e] mt-6 font-serif">{selectedCombo.price}</p>
+//                 <p className="text-4xl text-[#a1865e] mt-6 ">{selectedCombo.price}</p>
 
 //                 <div className="mt-6 flex gap-3">
 //                   <button
@@ -445,11 +445,11 @@
 //                       handleAddToCart(selectedCombo);
 //                       setSelectedCombo(null);
 //                     }}
-//                     className="flex-1 py-3 bg-[#a1865e] text-white rounded-xl text-xl font-serif hover:bg-[#8b6d4c]"
+//                     className="flex-1 py-3 bg-[#a1865e] text-white rounded-xl text-xl  hover:bg-[#8b6d4c]"
 //                   >
 //                     Add to Cart
 //                   </button>
-//                   <button onClick={() => setSelectedCombo(null)} className="flex-1 py-3 border rounded-xl text-xl font-serif hover:bg-gray-50">
+//                   <button onClick={() => setSelectedCombo(null)} className="flex-1 py-3 border rounded-xl text-xl  hover:bg-gray-50">
 //                     Close
 //                   </button>
 //                 </div>
@@ -462,13 +462,13 @@
 //       {/* -------------------- TESTIMONIAL SECTION -------------------- */}
 //       <section className="py-20 bg-white px-4 md:px-24">
 //         <div className="text-center mb-16">
-//           <span className="flex items-center justify-center text-[#a1865e] gap-4 mb-10 text-2xl font-serif">
+//           <span className="flex items-center justify-center text-[#a1865e] gap-4 mb-10 text-2xl ">
 //             <span className="w-10 h-px bg-black" />
 //             Testimonial
 //             <span className="w-10 h-px bg-black" />
 //           </span>
 
-//           <h2 className="text-5xl font-serif">What Our Client Say</h2>
+//           <h2 className="text-5xl ">What Our Client Say</h2>
 //         </div>
 
 //         <div className="flex flex-col md:flex-row justify-between items-start gap-10">
@@ -483,8 +483,8 @@
 //               </span>
 //             </div>
 
-//             <p className="text-gray-600 text-2xl leading-relaxed mb-6 font-serif">{testimonial.message}</p>
-//             <p className="text-gray-900 font-serif text-2xl">{testimonial.name}</p>
+//             <p className="text-gray-600 text-2xl leading-relaxed mb-6 ">{testimonial.message}</p>
+//             <p className="text-gray-900  text-2xl">{testimonial.name}</p>
 //             <p className="text-gray-500 text-lg">{testimonial.role}</p>
 //           </div>
 
@@ -672,7 +672,7 @@
 //       >
 //         <div className="absolute inset-0 bg-black/50 z-0" />
 //         <div className="absolute inset-0  bg-opacity-50 flex flex-col items-center justify-center text-white text-center">
-//           <h1 className="text-4xl md:text-7xl font-serif mb-6 mt-45">The Restaurant</h1>
+//           <h1 className="text-4xl md:text-7xl  mb-6 mt-45">The Restaurant</h1>
 //           <p className="text-xl">Whether you have questions, need answers, or simply want to chat.</p>
 //         </div>
 //       </div>
@@ -701,12 +701,12 @@
 
 //           {/* Text */}
 //           <div className="w-full md:w-1/2 text-center md:text-left">
-//             <h4 className="flex items-center text-[#a1865e] text-xl font-serif mb-3">
+//             <h4 className="flex items-center text-[#a1865e] text-xl  mb-3">
 //               <div className="h-px w-10 bg-[#a8815e]" />
 //               <span className="text-xl ml-2">✦</span>
 //               <span className="ml-4">Hotel Experience</span>
 //             </h4>
-//             <h2 className="text-5xl font-serif text-gray-900 leading-tight mb-6">
+//             <h2 className="text-5xl  text-gray-900 leading-tight mb-6">
 //               From Farm to Fork: Enjoy Fresh, Seasonal Dishes at Bokinn
 //             </h2>
 
@@ -739,7 +739,7 @@
       
 //       <section className="mt-10 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-29">
 //         <div>
-//           <span className="flex items-center justify-center text-[#a1865e] gap-4 mb-10 text-2xl font-serif">
+//           <span className="flex items-center justify-center text-[#a1865e] gap-4 mb-10 text-2xl ">
 //             <span className="flex items-center">
 //               <span className="text-lg">◇</span>
 //               <span className="w-10 h-px bg-black"></span>
@@ -792,12 +792,12 @@
 //       <section className="mt-20 px-4 sm:px-10 md:px-24 bg-gray-200">
 //         <div className="flex justify-between flex-col md:flex-row mb-10">
 //           <div>
-//             <h4 className="text-[#a1865e] font-serif flex items-center text-3xl mb-2 mt-15">
+//             <h4 className="text-[#a1865e]  flex items-center text-3xl mb-2 mt-15">
 //               <div className="h-px w-10 bg-[#a8815e]" />
 //               <span className="text-2xl">✦</span>
 //               <span className="ml-4">Menu</span>
 //             </h4>
-//             <h2 className="text-7xl font-serif">Restaurant Menu</h2>
+//             <h2 className="text-7xl ">Restaurant Menu</h2>
 //           </div>
 //           <p className="text-gray-500 text-lg mt-5">Our rooms offer a harmonious blend of comfort and elegance…</p>
 //         </div>
@@ -811,7 +811,7 @@
 //                 <button
 //                   key={cat}
 //                   onClick={() => setActiveCategory(cat)}
-//                   className={`px-12 py-2 border rounded-md font-serif ${
+//                   className={`px-12 py-2 border rounded-md  ${
 //                     activeCategory === cat ? "bg-[#a1865e] text-white" : "text-gray-700 hover:bg-gray-100"
 //                   }`}
 //                 >
@@ -839,11 +839,11 @@
 //                         alt={item.name} 
 //                       />
 //                       <div className="flex-1">
-//                         <h3 className="text-lg font-serif">{item.name}</h3>
+//                         <h3 className="text-lg ">{item.name}</h3>
 //                         <p className="text-gray-500 text-sm mt-1">{item.description}</p>
 //                       </div>
 //                       {/* Assuming price comes as a number, format it */}
-//                       <div className="text-lg font-serif">₹{item.price ? item.price.toFixed(2) : 'N/A'}</div>
+//                       <div className="text-lg ">₹{item.price ? item.price.toFixed(2) : 'N/A'}</div>
 //                     </div>
 //                   ))
 //                 ) : (
@@ -862,12 +862,12 @@
 //         <div className="absolute bottom-20 left-10 w-40 h-40 bg-[#a1865e]/10 rounded-full blur-3xl" />
 
 //         <div className="text-center mb-14">
-//           <span className="flex items-center justify-center text-[#a1865e] gap-4 mb-4 text-2xl font-serif">
+//           <span className="flex items-center justify-center text-[#a1865e] gap-4 mb-4 text-2xl ">
 //             <span className="w-10 h-px bg-black" />
 //             Premium Combo Deals
 //             <span className="w-10 h-px bg-black" />
 //           </span>
-//           <h2 className="text-6xl font-serif">Chef’s Special Combos</h2>
+//           <h2 className="text-6xl ">Chef’s Special Combos</h2>
 //           <p className="mt-4 text-gray-600 text-xl">Exclusive combinations crafted for families, food lovers & celebrations.</p>
 //         </div>
 
@@ -905,22 +905,22 @@
 //                       alt={combo.name}
 //                     />
 
-//                     <h3 className="text-3xl font-serif mt-5">{combo.name}</h3>
+//                     <h3 className="text-3xl  mt-5">{combo.name}</h3>
 //                     <p className="text-gray-600 mt-2 text-lg">{combo.description}</p>
-//                     <p className="text-4xl text-[#a1865e] mt-4 font-serif">₹{combo.price ? combo.price.toFixed(2) : 'N/A'}</p>
+//                     <p className="text-4xl text-[#a1865e] mt-4 ">₹{combo.price ? combo.price.toFixed(2) : 'N/A'}</p>
 //                   </motion.div>
 
 //                   <div className="p-6 flex justify-between items-center">
 //                     <button
 //                       onClick={() => setSelectedCombo(combo)}
-//                       className="px-6 py-2 border border-[#a1865e] text-[#a1865e] rounded-full font-serif hover:bg-[#a1865e] hover:text-white transition-all"
+//                       className="px-6 py-2 border border-[#a1865e] text-[#a1865e] rounded-full  hover:bg-[#a1865e] hover:text-white transition-all"
 //                     >
 //                       View Details
 //                     </button>
 
 //                     <button
 //                       onClick={() => handleAddToCart(combo)}
-//                       className="px-6 py-2 bg-[#a1865e] text-white rounded-full font-serif hover:bg-[#8b6d4c] transition-all"
+//                       className="px-6 py-2 bg-[#a1865e] text-white rounded-full  hover:bg-[#8b6d4c] transition-all"
 //                     >
 //                       Add to Cart
 //                     </button>
@@ -953,11 +953,11 @@
 
 //                 <img src={selectedCombo.imageUrl} className="w-full h-64 object-cover rounded-xl" alt="combo-detail" />
 
-//                 <h3 className="text-4xl font-serif mt-5">{selectedCombo.name}</h3>
+//                 <h3 className="text-4xl  mt-5">{selectedCombo.name}</h3>
 //                 <p className="text-gray-700 text-lg mt-3">{selectedCombo.description}</p>
 
 //                 <div className="mt-6">
-//                   <h4 className="text-2xl font-serif mb-3">Included Items</h4>
+//                   <h4 className="text-2xl  mb-3">Included Items</h4>
 //                   <ul className="list-disc ml-5 text-gray-600 leading-loose text-lg">
 //                     {/* Assuming description still uses '+' as a separator */}
 //                     {selectedCombo.description.split("+").map((part, i) => (
@@ -966,7 +966,7 @@
 //                   </ul>
 //                 </div>
 
-//                 <p className="text-4xl text-[#a1865e] mt-6 font-serif">₹{selectedCombo.price ? selectedCombo.price.toFixed(2) : 'N/A'}</p>
+//                 <p className="text-4xl text-[#a1865e] mt-6 ">₹{selectedCombo.price ? selectedCombo.price.toFixed(2) : 'N/A'}</p>
 
 //                 <div className="mt-6 flex gap-3">
 //                   <button
@@ -974,11 +974,11 @@
 //                       handleAddToCart(selectedCombo);
 //                       setSelectedCombo(null);
 //                     }}
-//                     className="flex-1 py-3 bg-[#a1865e] text-white rounded-xl text-xl font-serif hover:bg-[#8b6d4c]"
+//                     className="flex-1 py-3 bg-[#a1865e] text-white rounded-xl text-xl  hover:bg-[#8b6d4c]"
 //                   >
 //                     Add to Cart
 //                   </button>
-//                   <button onClick={() => setSelectedCombo(null)} className="flex-1 py-3 border rounded-xl text-xl font-serif hover:bg-gray-50">
+//                   <button onClick={() => setSelectedCombo(null)} className="flex-1 py-3 border rounded-xl text-xl  hover:bg-gray-50">
 //                     Close
 //                   </button>
 //                 </div>
@@ -992,13 +992,13 @@
 //       {/* -------------------- TESTIMONIAL SECTION -------------------- */}
 //       <section className="py-20 bg-white px-4 md:px-24">
 //         <div className="text-center mb-16">
-//           <span className="flex items-center justify-center text-[#a1865e] gap-4 mb-10 text-2xl font-serif">
+//           <span className="flex items-center justify-center text-[#a1865e] gap-4 mb-10 text-2xl ">
 //             <span className="w-10 h-px bg-black" />
 //             Testimonial
 //             <span className="w-10 h-px bg-black" />
 //           </span>
 
-//           <h2 className="text-5xl font-serif">What Our Client Say</h2>
+//           <h2 className="text-5xl ">What Our Client Say</h2>
 //         </div>
 
 //         <div className="flex flex-col md:flex-row justify-between items-start gap-10">
@@ -1013,8 +1013,8 @@
 //               </span>
 //             </div>
 
-//             <p className="text-gray-600 text-2xl leading-relaxed mb-6 font-serif">{testimonial.message}</p>
-//             <p className="text-gray-900 font-serif text-2xl">{testimonial.name}</p>
+//             <p className="text-gray-600 text-2xl leading-relaxed mb-6 ">{testimonial.message}</p>
+//             <p className="text-gray-900  text-2xl">{testimonial.name}</p>
 //             <p className="text-gray-500 text-lg">{testimonial.role}</p>
 //           </div>
 
@@ -1179,7 +1179,7 @@
 //       >
 //         <div className="absolute inset-0 bg-black/50 z-0" />
 //         <div className="absolute inset-0 bg-opacity-50 flex flex-col items-center justify-center text-white text-center">
-//           <h1 className="text-4xl md:text-7xl font-serif mb-6 mt-45">The Restaurant</h1>
+//           <h1 className="text-4xl md:text-7xl  mb-6 mt-45">The Restaurant</h1>
 //           <p className="text-xl">Whether you have questions, need answers, or simply want to chat.</p>
 //         </div>
 //       </div>
@@ -1188,12 +1188,12 @@
 //       <section className="mt-20 px-4 sm:px-10 md:px-24 bg-gray-200">
 //         <div className="flex justify-between flex-col md:flex-row mb-10">
 //           <div>
-//             <h4 className="text-[#a1865e] font-serif flex items-center text-3xl mb-2 mt-15">
+//             <h4 className="text-[#a1865e]  flex items-center text-3xl mb-2 mt-15">
 //               <div className="h-px w-10 bg-[#a8815e]" />
 //               <span className="text-2xl">✦</span>
 //               <span className="ml-4">Menu</span>
 //             </h4>
-//             <h2 className="text-7xl font-serif">Restaurant Menu</h2>
+//             <h2 className="text-7xl ">Restaurant Menu</h2>
 //           </div>
 //           <p className="text-gray-500 text-lg mt-5">
 //             Explore all our delicious dishes below.
@@ -1222,10 +1222,10 @@
 //                   alt={item.name}
 //                 />
 //                 <div className="flex-1">
-//                   <h3 className="text-lg font-serif">{item.name}</h3>
+//                   <h3 className="text-lg ">{item.name}</h3>
 //                   <p className="text-gray-500 text-sm mt-1">{item.description}</p>
 //                 </div>
-//                 <div className="text-lg font-serif">₹{item.price}</div>
+//                 <div className="text-lg ">₹{item.price}</div>
 //                 <button
 //                   onClick={() => handleAddToCart(item)}
 //                   className="px-3 py-1 bg-[#a1865e] text-white rounded-full text-sm ml-2"
@@ -1244,12 +1244,12 @@
 //         <div className="absolute bottom-20 left-10 w-40 h-40 bg-[#a1865e]/10 rounded-full blur-3xl" />
 
 //         <div className="text-center mb-14">
-//           <span className="flex items-center justify-center text-[#a1865e] gap-4 mb-4 text-2xl font-serif">
+//           <span className="flex items-center justify-center text-[#a1865e] gap-4 mb-4 text-2xl ">
 //             <span className="w-10 h-px bg-black" />
 //             Premium Combo Deals
 //             <span className="w-10 h-px bg-black" />
 //           </span>
-//           <h2 className="text-6xl font-serif">Chef’s Special Combos</h2>
+//           <h2 className="text-6xl ">Chef’s Special Combos</h2>
 //           <p className="mt-4 text-gray-600 text-xl">Exclusive combinations crafted for families, food lovers & celebrations.</p>
 //         </div>
 
@@ -1278,22 +1278,22 @@
 //                   alt={combo.title}
 //                 />
 
-//                 <h3 className="text-3xl font-serif mt-5">{combo.title}</h3>
+//                 <h3 className="text-3xl  mt-5">{combo.title}</h3>
 //                 <p className="text-gray-600 mt-2 text-lg">{combo.description}</p>
-//                 <p className="text-4xl text-[#a1865e] mt-4 font-serif">₹{combo.price}</p>
+//                 <p className="text-4xl text-[#a1865e] mt-4 ">₹{combo.price}</p>
 //               </motion.div>
 
 //               <div className="p-6 flex justify-between items-center">
 //                 <button
 //                   onClick={() => setSelectedCombo(combo)}
-//                   className="px-6 py-2 border border-[#a1865e] text-[#a1865e] rounded-full font-serif hover:bg-[#a1865e] hover:text-white transition-all"
+//                   className="px-6 py-2 border border-[#a1865e] text-[#a1865e] rounded-full  hover:bg-[#a1865e] hover:text-white transition-all"
 //                 >
 //                   View Details
 //                 </button>
 
 //                 <button
 //                   onClick={() => handleAddToCart(combo)}
-//                   className="px-6 py-2 bg-[#a1865e] text-white rounded-full font-serif hover:bg-[#8b6d4c] transition-all"
+//                   className="px-6 py-2 bg-[#a1865e] text-white rounded-full  hover:bg-[#8b6d4c] transition-all"
 //                 >
 //                   Add to Cart
 //                 </button>
@@ -1318,11 +1318,11 @@
 //                 exit={{ y: 50, opacity: 0 }}
 //                 className="bg-white rounded-2xl p-10 max-w-3xl z-50"
 //               >
-//                 <h2 className="text-4xl font-serif">{selectedCombo.title}</h2>
+//                 <h2 className="text-4xl ">{selectedCombo.title}</h2>
 //                 <p className="mt-4 text-gray-600">{selectedCombo.description}</p>
-//                 <p className="mt-4 text-3xl text-[#a1865e] font-serif">₹{selectedCombo.price}</p>
+//                 <p className="mt-4 text-3xl text-[#a1865e] ">₹{selectedCombo.price}</p>
 //                 <button
-//                   className="mt-6 px-6 py-2 bg-[#a1865e] text-white rounded-full font-serif"
+//                   className="mt-6 px-6 py-2 bg-[#a1865e] text-white rounded-full "
 //                   onClick={() => {
 //                     handleAddToCart(selectedCombo);
 //                     setSelectedCombo(null);
@@ -1339,12 +1339,12 @@
 //       {/* -------------------- TESTIMONIAL SECTION -------------------- */}
 //       <section className="py-24 px-4 md:px-24 bg-[#faf7f2]">
 //         <div className="text-center mb-12">
-//           <span className="text-[#a1865e] text-2xl font-serif mb-4 flex justify-center items-center gap-4">
+//           <span className="text-[#a1865e] text-2xl  mb-4 flex justify-center items-center gap-4">
 //             <span className="w-10 h-px bg-black" />
 //             Testimonials
 //             <span className="w-10 h-px bg-black" />
 //           </span>
-//           <h2 className="text-6xl font-serif">What Our Customers Say</h2>
+//           <h2 className="text-6xl ">What Our Customers Say</h2>
 //         </div>
 
 //         <div className="flex flex-col md:flex-row gap-10 items-center justify-center max-w-5xl mx-auto">
@@ -1355,7 +1355,7 @@
 //           />
 //           <div>
 //             <p className="text-xl text-gray-600 mb-4">{testimonial.message}</p>
-//             <h4 className="text-2xl font-serif">{testimonial.name}</h4>
+//             <h4 className="text-2xl ">{testimonial.name}</h4>
 //             <p className="text-gray-500">{testimonial.role}</p>
 //           </div>
 //         </div>
@@ -1481,7 +1481,7 @@ export default function Restaurant() {
       >
         <div className="absolute inset-0 bg-black/50 z-0" />
         <div className="absolute inset-0 bg-opacity-50 flex flex-col items-center justify-center text-white text-center">
-          <h1 className="text-4xl md:text-7xl font-serif mb-6 mt-45">The Restaurant</h1>
+          <h1 className="text-4xl md:text-7xl  mb-6 mt-45">The Restaurant</h1>
           <p className="text-xl">Whether you have questions, need answers, or simply want to chat.</p>
         </div>
       </div>
@@ -1490,12 +1490,12 @@ export default function Restaurant() {
       <section className="mt-20 px-4 sm:px-10 md:px-24 bg-gray-200">
         <div className="flex justify-between flex-col md:flex-row mb-10">
           <div>
-            <h4 className="text-[#a1865e] font-serif flex items-center text-3xl mb-2 mt-15">
+            <h4 className="text-[#a1865e]  flex items-center text-3xl mb-2 mt-15">
               <div className="h-px w-10 bg-[#a8815e]" />
               <span className="text-2xl">✦</span>
               <span className="ml-4">Menu</span>
             </h4>
-            <h2 className="text-7xl font-serif">Available Menu</h2>
+            <h2 className="text-7xl ">Available Menu</h2>
           </div>
           <p className="text-gray-500 text-lg mt-5">
             Explore all our delicious dishes below.
@@ -1524,10 +1524,10 @@ export default function Restaurant() {
                   alt={item.name}
                 />
                 <div className="flex-1">
-                  <h3 className="text-lg font-serif">{item.name}</h3>
+                  <h3 className="text-lg ">{item.name}</h3>
                   <p className="text-gray-500 text-sm mt-1">{item.description}</p>
                 </div>
-                {/* <div className="text-lg font-serif">₹{item.price}</div> */}
+                {/* <div className="text-lg ">₹{item.price}</div> */}
                 {/* <button
                   onClick={() => handleAddToCart(item)}
                   className="px-3 py-1 bg-[#a1865e] text-white rounded-full text-sm ml-2"
@@ -1546,12 +1546,12 @@ export default function Restaurant() {
         <div className="absolute bottom-20 left-10 w-40 h-40 bg-[#a1865e]/10 rounded-full blur-3xl" />
 
         <div className="text-center mb-14">
-          <span className="flex items-center justify-center text-[#a1865e] gap-4 mb-4 text-2xl font-serif">
+          <span className="flex items-center justify-center text-[#a1865e] gap-4 mb-4 text-2xl ">
             <span className="w-10 h-px bg-black" />
             Premium Combo Deals
             <span className="w-10 h-px bg-black" />
           </span>
-          <h2 className="text-6xl font-serif">Chef’s Special Combos</h2>
+          <h2 className="text-6xl ">Chef’s Special Combos</h2>
           <p className="mt-4 text-gray-600 text-xl">Exclusive combinations crafted for families, food lovers & celebrations.</p>
         </div>
 
@@ -1580,22 +1580,22 @@ export default function Restaurant() {
                   alt={combo.title}
                 />
 
-                <h3 className="text-3xl font-serif mt-5">{combo.title}</h3>
+                <h3 className="text-3xl  mt-5">{combo.title}</h3>
                 <p className="text-gray-600 mt-2 text-lg">{combo.description}</p>
-                <p className="text-4xl text-[#a1865e] mt-4 font-serif">₹{combo.price}</p>
+                <p className="text-4xl text-[#a1865e] mt-4 ">₹{combo.price}</p>
               </motion.div>
 
               <div className="p-6 flex justify-between items-center">
                 <button
                   onClick={() => setSelectedCombo(combo)}
-                  className="px-6 py-2 border border-[#a1865e] text-[#a1865e] rounded-full font-serif hover:bg-[#a1865e] hover:text-white transition-all"
+                  className="px-6 py-2 border border-[#a1865e] text-[#a1865e] rounded-full  hover:bg-[#a1865e] hover:text-white transition-all"
                 >
                   View Details
                 </button>
 
                 <button
                   onClick={() => handleAddToCart(combo)}
-                  className="px-6 py-2 bg-[#a1865e] text-white rounded-full font-serif hover:bg-[#8b6d4c] transition-all"
+                  className="px-6 py-2 bg-[#a1865e] text-white rounded-full  hover:bg-[#8b6d4c] transition-all"
                 >
                   Add to Cart
                 </button>
@@ -1620,11 +1620,11 @@ export default function Restaurant() {
                 exit={{ y: 50, opacity: 0 }}
                 className="bg-white rounded-2xl p-10 max-w-3xl z-50"
               >
-                <h2 className="text-4xl font-serif">{selectedCombo.title}</h2>
+                <h2 className="text-4xl ">{selectedCombo.title}</h2>
                 <p className="mt-4 text-gray-600">{selectedCombo.description}</p>
-                <p className="mt-4 text-3xl text-[#a1865e] font-serif">₹{selectedCombo.price}</p>
+                <p className="mt-4 text-3xl text-[#a1865e] ">₹{selectedCombo.price}</p>
                 <button
-                  className="mt-6 px-6 py-2 bg-[#a1865e] text-white rounded-full font-serif"
+                  className="mt-6 px-6 py-2 bg-[#a1865e] text-white rounded-full "
                   onClick={() => {
                     handleAddToCart(selectedCombo);
                     setSelectedCombo(null);
@@ -1641,12 +1641,12 @@ export default function Restaurant() {
       {/* -------------------- TESTIMONIAL SECTION -------------------- */}
       <section className="py-24 px-4 md:px-24 bg-[#faf7f2]">
         <div className="text-center mb-12">
-          <span className="text-[#a1865e] text-2xl font-serif mb-4 flex justify-center items-center gap-4">
+          <span className="text-[#a1865e] text-2xl  mb-4 flex justify-center items-center gap-4">
             <span className="w-10 h-px bg-black" />
             Testimonials
             <span className="w-10 h-px bg-black" />
           </span>
-          <h2 className="text-6xl font-serif">What Our Customers Say</h2>
+          <h2 className="text-6xl ">What Our Customers Say</h2>
         </div>
 
         <div className="flex flex-col md:flex-row gap-10 items-center justify-center max-w-5xl mx-auto">
@@ -1657,7 +1657,7 @@ export default function Restaurant() {
           />
           <div>
             <p className="text-xl text-gray-600 mb-4">{testimonial.message}</p>
-            <h4 className="text-2xl font-serif">{testimonial.name}</h4>
+            <h4 className="text-2xl ">{testimonial.name}</h4>
             <p className="text-gray-500">{testimonial.role}</p>
           </div>
         </div>

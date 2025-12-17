@@ -359,43 +359,43 @@ const AdminEvent = () => {
     };
 
     return (
-        <div className="p-6 bg-gray-50 min-h-screen">
-            <h2 className="text-3xl font-bold mb-6">Event Photo Gallery Management 📸</h2>
+        <div className="p-4 sm:p-6 bg-gray-50 min-h-screen">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Event Photo Gallery Management 📸</h2>
 
             {statusMessage.message && (
-                <div className={`px-4 py-3 rounded mb-4 ${statusMessage.type === 'success' ? 'bg-green-100 text-green-700 border-green-400' : 'bg-red-100 text-red-700 border-red-400'}`} role="alert">
+                <div className={`px-3 py-2 sm:px-4 sm:py-3 rounded mb-3 sm:mb-4 text-sm sm:text-base ${statusMessage.type === 'success' ? 'bg-green-100 text-green-700 border-green-400' : 'bg-red-100 text-red-700 border-red-400'}`} role="alert">
                     {statusMessage.message}
                 </div>
             )}
 
             {/* Upload Form */}
-            <div className="bg-white p-6 shadow-lg rounded mb-8">
-                <h3 className="text-xl font-semibold mb-4">Upload New Event Photo</h3>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    <input type="text" name="title" placeholder="Title*" onChange={handleChange} className="block w-full p-2 border rounded" required />
-                    <textarea name="description" placeholder="Description (optional)" onChange={handleChange} className="block w-full p-2 border rounded"></textarea>
-                    <input type="file" name="file" onChange={handleFileChange} accept="image/*" className="block w-full mt-2" required />
-                    <button type="submit" disabled={uploading} className={`w-full py-2 rounded text-white ${uploading ? 'bg-gray-400' : 'bg-[#a8815e]'}`}>
+            <div className="bg-white p-4 sm:p-6 shadow-lg rounded mb-6 sm:mb-8">
+                <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Upload New Event Photo</h3>
+                <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+                    <input type="text" name="title" placeholder="Title*" onChange={handleChange} className="block w-full p-2 border rounded text-sm sm:text-base" required />
+                    <textarea name="description" placeholder="Description (optional)" onChange={handleChange} className="block w-full p-2 border rounded text-sm sm:text-base"></textarea>
+                    <input type="file" name="file" onChange={handleFileChange} accept="image/*" className="block w-full mt-2 text-xs sm:text-sm" required />
+                    <button type="submit" disabled={uploading} className={`w-full py-2 rounded text-white text-sm sm:text-base ${uploading ? 'bg-gray-400' : 'bg-[#a8815e]'}`}>
                         {uploading ? 'Uploading...' : 'Upload Photo'}
                     </button>
                 </form>
             </div>
 
             {/* Gallery */}
-            <div className="bg-white p-6 shadow-lg rounded">
-                <h3 className="text-xl font-semibold mb-4">Existing Event Photos ({photos.length})</h3>
-                {loading ? <p>Loading photos...</p> :
-                    photos.length === 0 ? <p className="text-gray-500">No photos found.</p> :
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white p-4 sm:p-6 shadow-lg rounded">
+                <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Existing Event Photos ({photos.length})</h3>
+                {loading ? <p className="text-sm sm:text-base">Loading photos...</p> :
+                    photos.length === 0 ? <p className="text-gray-500 text-sm sm:text-base">No photos found.</p> :
+                        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-6">
                             {photos.map(photo => (
                                 <div key={photo._id} className="border rounded shadow relative group">
-                                    <img src={photo.imageUrl} alt={photo.title} className="w-full h-48 object-cover" />
-                                    <div className="p-4">
-                                        <p className="font-medium truncate">{photo.title}</p>
-                                        <p className="text-sm text-gray-600 line-clamp-2">{photo.description}</p>
+                                    <img src={photo.imageUrl} alt={photo.title} className="w-full h-32 sm:h-48 object-cover" />
+                                    <div className="p-3 sm:p-4">
+                                        <p className="font-medium truncate text-sm sm:text-base">{photo.title}</p>
+                                        <p className="text-xs sm:text-sm text-gray-600 line-clamp-2">{photo.description}</p>
                                     </div>
-                                    <button onClick={() => handleDelete(photo._id, photo.title)} className="absolute top-2 right-2 p-2 bg-red-600 text-white rounded-full opacity-0 group-hover:opacity-100">
-                                        <Trash2 className="w-4 h-4" />
+                                    <button onClick={() => handleDelete(photo._id, photo.title)} className="absolute top-1 sm:top-2 right-1 sm:right-2 p-1.5 sm:p-2 bg-red-600 text-white rounded-full opacity-0 group-hover:opacity-100">
+                                        <Trash2 className="w-3 h-3 sm:w-4 sm:h-4" />
                                     </button>
                                 </div>
                             ))}
