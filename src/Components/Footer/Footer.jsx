@@ -69,7 +69,7 @@ export default function Footer() {
           <ul className="space-y-3 text-gray-700">
             <li className="hover:text-[#a8815e] cursor-pointer">Rooms & Suites</li>
             <li className="hover:text-[#a8815e] cursor-pointer">Dining</li>
-            <li className="hover:text-[#a8815e] cursor-pointer">Spa & Wellness</li>
+            {/* <li className="hover:text-[#a8815e] cursor-pointer">Spa & Wellness</li> */}
             <li className="hover:text-[#a8815e] cursor-pointer">Special Offers</li>
           </ul>
         </div>
@@ -87,7 +87,7 @@ export default function Footer() {
         </div>
 
         {/* Contact Info */}
-        <div>
+        {/* <div>
           <h4 className="text-xl font-semibold mb-4 text-gray-900">Contact Us</h4>
           <ul className="space-y-4 text-gray-700">
             <li className="flex items-center gap-3">
@@ -102,6 +102,19 @@ export default function Footer() {
               <FaMapMarkerAlt className="text-[#a8815e]" />
               Mahabaleshwar, M5T 2L9
             </li>
+          </ul>
+        </div> */}
+
+               <div>
+          <h4 className="text-xl font-semibold mb-4 text-gray-900">Near By Places </h4>
+          <ul className="space-y-3 text-gray-700">
+            <li className="hover:text-[#a8815e] cursor-pointer">Near places</li>
+            <li className="hover:text-[#a8815e] cursor-pointer">Datta Mandir</li>
+            <li className="hover:text-[#a8815e] cursor-pointer">Shivling</li>
+            <li className="hover:text-[#a8815e] cursor-pointer">Tracking</li>
+           <li className="hover:text-[#a8815e] cursor-pointer">Vasota fort</li>
+           <li className="hover:text-[#a8815e] cursor-pointer">Bird photography</li>
+          
           </ul>
         </div>
       </div>
