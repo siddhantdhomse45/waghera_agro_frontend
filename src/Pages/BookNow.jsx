@@ -45,7 +45,7 @@ export default function BookNow() {
 
   // Logic from Node version: Fetch rooms from Port 5000
   useEffect(() => {
-    fetch("http://localhost:5000/api/admin/rooms")
+    fetch("https://backend-waghera.onrender.com/api/admin/rooms")
       .then((res) => res.json())
       .then((data) => {
         setRooms(data);
@@ -87,7 +87,7 @@ export default function BookNow() {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/api/bookings/book", {
+      const response = await fetch("https://backend-waghera.onrender.com/api/bookings/book", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bookingData),
