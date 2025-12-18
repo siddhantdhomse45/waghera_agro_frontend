@@ -53,7 +53,7 @@ export default function Events() {
         <div className="absolute inset-0 bg-black/50 z-0" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
           <h1 className="text-4xl md:text-7xl  mb-6">Events</h1>
-          <p className="text-xl">Whether you have questions or want to join the event.</p>
+          <p className="text-xl">Whether you have questions or want to join the event</p>
         </div>
       </div>
 
