@@ -286,11 +286,217 @@
 // }
 
 
+// import { useState, useEffect } from "react";
+// import { FaGoogle, FaFacebookF } from "react-icons/fa";
+// import { useNavigate } from "react-router-dom";
+
+
+// export default function SignUp({ onSwitchToSignIn, onClose }) {
+
+//   const [form, setForm] = useState({
+//     name: "",
+//     email: "",
+//     contact: "",
+//     password: "",
+//     confirmPassword: "",
+//   });
+
+//   const navigate = useNavigate();
+
+
+//   // Disable background scroll
+//   useEffect(() => {
+//     document.body.style.overflow = "hidden";
+//     return () => {
+//       document.body.style.overflow = "auto";
+//     };
+//   }, []);
+
+//   const handleChange = (e) => {
+//     setForm({ ...form, [e.target.name]: e.target.value });
+//   };
+
+//   const handleRegister = async () => {
+//     if (form.password !== form.confirmPassword) {
+//       alert("Passwords do not match!");
+//       return;
+//     }
+
+//     try {
+//       const response = await fetch("http://localhost:5000/api/auth/signup", {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({
+//           name: form.name,
+//           email: form.email,
+//           contact: form.contact,
+//           password: form.password,
+//         }),
+//       });
+
+//       const data = await response.text();
+//       alert(data);
+
+//       if (response.ok) {
+//         onSwitchToSignIn();
+//       }
+//     } catch (error) {
+//       alert("Something went wrong.");
+//       console.error(error);
+//     }
+//   };
+
+//   return (
+//     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 px-4 rounded-2xl">
+      
+//       {/* Modal Card */}
+//       <div className="relative bg-white w-full max-w-md rounded-2xl shadow-2xl p-8 animate-scaleIn">
+
+//         {/* Close Button */}
+//         <button
+//           onClick={onClose}
+//           className="absolute top-4 right-4 text-gray-400 hover:text-black text-xl"
+//         >
+//           ✕
+//         </button>
+
+//         <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">
+//           Create Your Account
+//         </h2>
+
+//         {/* Name */}
+//         <div className="mb-4">
+//           <label className="block mb-1 text-sm font-medium text-gray-600">
+//             Your Name
+//           </label>
+//           <input
+//             type="text"
+//             name="name"
+//             value={form.name}
+//             onChange={handleChange}
+//             placeholder="Enter your name"
+//             className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm
+//                        focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
+//           />
+//         </div>
+
+//         {/* Email */}
+//         <div className="mb-4">
+//           <label className="block mb-1 text-sm font-medium text-gray-600">
+//             Your Email
+//           </label>
+//           <input
+//             type="email"
+//             name="email"
+//             value={form.email}
+//             onChange={handleChange}
+//             placeholder="Enter your email"
+//             className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm
+//                        focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
+//           />
+//         </div>
+
+//         {/* Contact */}
+//         <div className="mb-4">
+//           <label className="block mb-1 text-sm font-medium text-gray-600">
+//             Contact Number
+//           </label>
+//           <input
+//             type="tel"
+//             name="contact"
+//             value={form.contact}
+//             onChange={handleChange}
+//             placeholder="Enter your contact number"
+//             className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm
+//                        focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
+//           />
+//         </div>
+
+//         {/* Password */}
+//         <div className="mb-4">
+//           <label className="block mb-1 text-sm font-medium text-gray-600">
+//             Password
+//           </label>
+//           <input
+//             type="password"
+//             name="password"
+//             value={form.password}
+//             onChange={handleChange}
+//             placeholder="Create a password"
+//             className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm
+//                        focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
+//           />
+//         </div>
+
+//         {/* Confirm Password */}
+//         <div className="mb-6">
+//           <label className="block mb-1 text-sm font-medium text-gray-600">
+//             Confirm Password
+//           </label>
+//           <input
+//             type="password"
+//             name="confirmPassword"
+//             value={form.confirmPassword}
+//             onChange={handleChange}
+//             placeholder="Confirm your password"
+//             className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm
+//                        focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
+//           />
+//         </div>
+
+//         <button
+//           onClick={handleRegister}
+//           className="w-full bg-[#a8815e] text-white py-2.5 rounded-lg font-semibold
+//                      hover:bg-[#8f6b4c] transition mb-4"
+//         >
+//           Register
+//         </button>
+
+//         <div className="flex items-center gap-3 my-5">
+//           <hr className="flex-1 border-gray-300" />
+//           <span className="text-gray-400 text-sm">OR</span>
+//           <hr className="flex-1 border-gray-300" />
+//         </div>
+
+//         <div className="flex flex-col sm:flex-row gap-3">
+//           <button className="flex-1 flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2 hover:bg-[#a8815e] hover:text-white transition">
+//             <FaGoogle /> Google
+//           </button>
+//           <button className="flex-1 flex items-center justify-center gap-2 border border-gray-300 rounded-lg py-2 hover:bg-[#a8815e] hover:text-white transition">
+//             <FaFacebookF /> Facebook
+//           </button>
+//         </div>
+
+//         {/* <p className="text-sm text-center mt-6 text-gray-600">
+//           Already have an account?{" "}
+//           <span
+//             className="text-[#a8815e] font-medium hover:underline cursor-pointer"
+//             onClick={onSwitchToSignIn}
+//           >
+//             Login
+//           </span>
+//         </p> */}
+
+//         <p className="text-sm text-center mt-6 text-gray-600">
+//   Already have an account?{" "}
+//   <span
+//     className="text-[#a8815e] font-medium hover:underline cursor-pointer"
+//     onClick={() => navigate("/SignIn")}
+//   >
+//     Login
+//   </span>
+// </p>
+
+//       </div>
+//     </div>
+//   );
+//}
+
+
 import { useState, useEffect } from "react";
 import { FaGoogle, FaFacebookF } from "react-icons/fa";
 
 export default function SignUp({ onSwitchToSignIn, onClose }) {
-
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -333,7 +539,9 @@ export default function SignUp({ onSwitchToSignIn, onClose }) {
       alert(data);
 
       if (response.ok) {
-        onSwitchToSignIn();
+        // Close SignUp modal and open SignIn modal
+        onClose && onClose();           // Close current modal
+        onSwitchToSignIn && onSwitchToSignIn(); // Open SignIn modal
       }
     } catch (error) {
       alert("Something went wrong.");
@@ -343,11 +551,7 @@ export default function SignUp({ onSwitchToSignIn, onClose }) {
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 px-4">
-      
-      {/* Modal Card */}
       <div className="relative bg-white w-full max-w-md rounded-2xl shadow-2xl p-8 animate-scaleIn">
-
-        {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-400 hover:text-black text-xl"
@@ -370,8 +574,7 @@ export default function SignUp({ onSwitchToSignIn, onClose }) {
             value={form.name}
             onChange={handleChange}
             placeholder="Enter your name"
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm
-                       focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
           />
         </div>
 
@@ -386,8 +589,7 @@ export default function SignUp({ onSwitchToSignIn, onClose }) {
             value={form.email}
             onChange={handleChange}
             placeholder="Enter your email"
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm
-                       focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
           />
         </div>
 
@@ -402,8 +604,7 @@ export default function SignUp({ onSwitchToSignIn, onClose }) {
             value={form.contact}
             onChange={handleChange}
             placeholder="Enter your contact number"
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm
-                       focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
           />
         </div>
 
@@ -418,8 +619,7 @@ export default function SignUp({ onSwitchToSignIn, onClose }) {
             value={form.password}
             onChange={handleChange}
             placeholder="Create a password"
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm
-                       focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
           />
         </div>
 
@@ -434,15 +634,13 @@ export default function SignUp({ onSwitchToSignIn, onClose }) {
             value={form.confirmPassword}
             onChange={handleChange}
             placeholder="Confirm your password"
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm
-                       focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
+            className="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#a8815e]"
           />
         </div>
 
         <button
           onClick={handleRegister}
-          className="w-full bg-[#a8815e] text-white py-2.5 rounded-lg font-semibold
-                     hover:bg-[#8f6b4c] transition mb-4"
+          className="w-full bg-[#a8815e] text-white py-2.5 rounded-lg font-semibold hover:bg-[#8f6b4c] transition mb-4"
         >
           Register
         </button>
@@ -466,7 +664,10 @@ export default function SignUp({ onSwitchToSignIn, onClose }) {
           Already have an account?{" "}
           <span
             className="text-[#a8815e] font-medium hover:underline cursor-pointer"
-            onClick={onSwitchToSignIn}
+            onClick={() => {
+              onClose && onClose();
+              onSwitchToSignIn && onSwitchToSignIn();
+            }}
           >
             Login
           </span>
@@ -475,3 +676,4 @@ export default function SignUp({ onSwitchToSignIn, onClose }) {
     </div>
   );
 }
+
