@@ -310,7 +310,7 @@ const Activities = () => {
   const [activities, setActivities] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/activities/all")
+    fetch("https://backend-waghera.onrender.com/api/activities/all")
       .then((res) => res.json())
       .then((data) => setActivities(data))
       .catch((err) => console.log("Error:", err));

@@ -716,7 +716,7 @@
 
 import React, { useEffect, useState } from "react";
 
-const MENU_API = "http://localhost:5000/api/menu";
+const MENU_API = "https://backend-waghera.onrender.com/api/menu";
 
 export default function Combo() {
   const [menuItems, setMenuItems] = useState([]);

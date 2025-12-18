@@ -1013,7 +1013,7 @@ export default function ContactPage() {
     setToastMsg("");
 
     try {
-      const response = await fetch("http://localhost:5000/api/contact/", {
+      const response = await fetch("https://backend-waghera.onrender.com/api/contact/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData), // ✅ mobile included

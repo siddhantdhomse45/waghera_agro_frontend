@@ -526,7 +526,7 @@ const Gallery = () => {
   // --------------------- Fetch Images ---------------------
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/gallery/all")
+      .get("https://backend-waghera.onrender.com/api/gallery/all")
       .then((res) => {
         const formatted = res.data
           .filter((img) => img && img.url)

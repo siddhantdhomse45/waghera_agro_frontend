@@ -268,7 +268,7 @@ export default function AboutUs() {
   // Fetch team members from backend
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/team")
+      .get("https://backend-waghera.onrender.com/api/team")
       .then((res) => setTeam(res.data))
       .catch((err) => console.error("Team API Error:", err));
   }, []);

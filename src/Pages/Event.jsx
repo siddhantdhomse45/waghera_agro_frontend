@@ -198,7 +198,7 @@ export default function Events() {
   ];
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/event-photos")
+    axios.get("https://backend-waghera.onrender.com/api/event-photos")
       .then(res => {
         console.log("API Data:", res.data);
         setEvents(res.data);

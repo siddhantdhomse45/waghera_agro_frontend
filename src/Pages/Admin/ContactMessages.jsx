@@ -322,7 +322,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Trash2 } from "lucide-react";
 
-const API_BASE = "http://localhost:5000/api/contact";
+const API_BASE = "https://backend-waghera.onrender.com/api/contact";
 
 const ContactMessages = () => {
   const [messages, setMessages] = useState([]);

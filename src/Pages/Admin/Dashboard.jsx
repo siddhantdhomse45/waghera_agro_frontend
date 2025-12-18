@@ -600,13 +600,13 @@ const Dashboard = () => {
       try {
         // ROOM STATS
         const statsRes = await axios.get(
-          "http://localhost:5000/api/dashboard/room-stats"
+          "https://backend-waghera.onrender.com/api/dashboard/room-stats"
         );
         const stats = statsRes.data;
 
         // Total bookings = bookedToday + available (or fetch all bookings if backend provides)
         const totalBookingsRes = await axios.get(
-          "http://localhost:5000/api/dashboard/monthly-bookings"
+          "https://backend-waghera.onrender.com/api/dashboard/monthly-bookings"
         );
         const totalBookings = totalBookingsRes.data.values.reduce(
           (acc, val) => acc + val,
@@ -617,7 +617,7 @@ const Dashboard = () => {
 
         // DAILY
         const dailyRes = await axios.get(
-          "http://localhost:5000/api/dashboard/daily-bookings"
+          "https://backend-waghera.onrender.com/api/dashboard/daily-bookings"
         );
         const daily = dailyRes.data.labels.map((label, idx) => ({
           day: label,
@@ -627,7 +627,7 @@ const Dashboard = () => {
 
         // WEEKLY
         const weeklyRes = await axios.get(
-          "http://localhost:5000/api/dashboard/weekly-bookings"
+          "https://backend-waghera.onrender.com/api/dashboard/weekly-bookings"
         );
         const weekly = weeklyRes.data.labels.map((label, idx) => ({
           week: label,
@@ -644,7 +644,7 @@ const Dashboard = () => {
 
         // YEARLY
         const yearlyRes = await axios.get(
-          "http://localhost:5000/api/dashboard/yearly-bookings"
+          "https://backend-waghera.onrender.com/dashboard/yearly-bookings"
         );
         const yearly = yearlyRes.data.labels.map((label, idx) => ({
           year: label,

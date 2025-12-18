@@ -587,7 +587,7 @@
 import React, { useEffect, useState } from "react";
 
 // ✅ API BASE URL (matches your Express setup)
-const BASE_URL = "http://localhost:5000/api/admin/rooms";
+const BASE_URL = "https://backend-waghera.onrender.com/api/admin/rooms";
 
 const Rooms = () => {
   const [rooms, setRooms] = useState([]);

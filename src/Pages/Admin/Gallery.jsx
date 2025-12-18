@@ -498,7 +498,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const API_BASE = "http://localhost:5000/api/gallery";
+const API_BASE = "https://backend-waghera.onrender.com/api/gallery";
 
 const Gallery = () => {
   const [images, setImages] = useState([]);
