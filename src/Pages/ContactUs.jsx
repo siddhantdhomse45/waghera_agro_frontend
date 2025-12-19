@@ -62,7 +62,7 @@ export default function ContactPage() {
     <div className="min-h-screen w-full bg-gray-50">
 
       {/* ================= HERO SECTION ================= */}
-      <section className="relative h-[80vh] flex items-center justify-center">
+      <section className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] flex items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -71,35 +71,35 @@ export default function ContactPage() {
           }}
         />
         <div className="absolute inset-0 " />
-        <div className="relative z-10 text-center max-w-3xl px-6 py-16 bg-white/80 backdrop-blur-md rounded-3xl shadow-md animate-fadeUp">
-          <h1 className="text-5xl font-bold text-gray-800 mb-4">
+        <div className="relative z-10 text-center max-w-3xl px-4 sm:px-6 py-12 sm:py-16 bg-white/80 backdrop-blur-md rounded-2xl sm:rounded-3xl shadow-md animate-fadeUp">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-3 sm:mb-4">
             Get In Touch
           </h1>
-          <p className="text-gray-700 text-lg">
+          <p className="text-gray-700 text-base sm:text-lg md:text-lg px-2">
             We’re here for support, inquiries & collaborations
           </p>
-          <div className="mt-6 w-32 h-1 mx-auto bg-[#AB8A62] rounded-full"></div>
+          <div className="mt-4 sm:mt-6 w-24 sm:w-32 h-1 mx-auto bg-[#AB8A62] rounded-full"></div>
         </div>
       </section>
 
       {/* ================= CONTACT SECTION ================= */}
-      <section className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 px-6 md:px-10 -mt-16 mb-20">
+      <section className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 px-4 sm:px-6 md:px-10 -mt-12 sm:-mt-16 mb-16 sm:mb-20">
 
         {/* CONTACT INFO */}
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {contactInfo.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={idx}
-                className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition"
+                className="flex items-start gap-3 sm:gap-4 p-4 sm:p-6 bg-white rounded-xl sm:rounded-2xl shadow-sm hover:shadow-md transition"
               >
-                <div className="p-3 rounded-lg bg-[#f0e6d2]">
-                  <Icon size={26} className="text-[#AB8A62]" />
+                <div className="p-2 sm:p-3 rounded-lg bg-[#f0e6d2]">
+                  <Icon size={20} className="sm:text-[#AB8A62] text-[#AB8A62]" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">{item.title}</p>
-                  <p className="text-lg font-medium text-gray-800">{item.text}</p>
+                  <p className="text-xs sm:text-sm text-gray-500">{item.title}</p>
+                  <p className="text-sm sm:text-lg font-medium text-gray-800">{item.text}</p>
                 </div>
               </div>
             );
@@ -107,19 +107,19 @@ export default function ContactPage() {
         </div>
 
         {/* CONTACT FORM */}
-        <div className="bg-white rounded-2xl shadow-sm p-10">
-          <h2 className="text-3xl font-semibold text-gray-800 mb-6">
+        <div className="bg-white rounded-xl sm:rounded-2xl shadow-sm p-6 sm:p-8 md:p-10">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4 sm:mb-6">
             Send Us a Message
           </h2>
 
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          <form className="space-y-3 sm:space-y-4" onSubmit={handleSubmit}>
             <input
               type="text"
               name="name"
               placeholder="Your Name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#AB8A62] focus:border-transparent transition"
+              className="w-full p-2.5 sm:p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#AB8A62] focus:border-transparent transition text-sm sm:text-base"
               required
             />
 
@@ -129,7 +129,7 @@ export default function ContactPage() {
               placeholder="Your Email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#AB8A62] focus:border-transparent transition"
+              className="w-full p-2.5 sm:p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#AB8A62] focus:border-transparent transition text-sm sm:text-base"
               required
             />
 
@@ -142,31 +142,31 @@ export default function ContactPage() {
               onChange={handleChange}
               pattern="[6-9]{1}[0-9]{9}"
               maxLength="10"
-              className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#AB8A62] focus:border-transparent transition"
+              className="w-full p-2.5 sm:p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#AB8A62] focus:border-transparent transition text-sm sm:text-base"
               required
             />
 
             <textarea
               name="message"
-              rows="5"
+              rows="4"
               placeholder="Your Message"
               value={formData.message}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#AB8A62] focus:border-transparent transition"
+              className="w-full p-2.5 sm:p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#AB8A62] focus:border-transparent transition text-sm sm:text-base"
               required
             />
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-[#AB8A62] text-white rounded-lg hover:bg-[#a8815e] transition duration-300"
+              className="w-full py-2.5 sm:py-3 bg-[#AB8A62] text-white rounded-lg hover:bg-[#a8815e] transition duration-300 text-sm sm:text-base"
             >
               {loading ? "Sending..." : "Send Message"}
             </button>
 
             {toastMsg && (
               <p
-                className={`text-center mt-2 font-medium ${
+                className={`text-center mt-2 font-medium text-sm ${
                   toastType === "success"
                     ? "text-[#AB8A62]"
                     : "text-red-600"
@@ -180,11 +180,11 @@ export default function ContactPage() {
       </section>
 
       {/* ================= IMAGE MAP ================= */}
-      <section className="w-full h-[600px] mb-20">
+      <section className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] mb-16 sm:mb-20">
         <img
           src={map}
           alt="Company Location"
-          className="h-full w-auto mx-auto object-cover rounded-2xl shadow-md"
+          className="h-full w-auto mx-auto object-cover rounded-xl sm:rounded-2xl shadow-md"
         />
       </section>
 

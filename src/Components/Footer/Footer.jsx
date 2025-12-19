@@ -67,7 +67,7 @@ export default function Footer() {
         <div>
           <h4 className="text-xl font-semibold mb-4 text-gray-900">Quick Links</h4>
           <ul className="space-y-3 text-gray-700">
-            <li className="hover:text-[#a8815e] cursor-pointer">Rooms & Suites</li>
+            <li className="hover:text-[#a8815e] cursor-pointer">Rooms & Tents</li>
             <li className="hover:text-[#a8815e] cursor-pointer">Dining</li>
             {/* <li className="hover:text-[#a8815e] cursor-pointer">Spa & Wellness</li> */}
             <li className="hover:text-[#a8815e] cursor-pointer">Special Offers</li>

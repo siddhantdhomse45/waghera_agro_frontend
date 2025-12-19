@@ -23,71 +23,67 @@ const Activities = () => {
     <div className=" text-gray-800">
       {/* Hero Section */}
       <div
-        className="relative bg-cover bg-center h-[800px] flex items-center justify-center"
+        className="relative bg-cover bg-center h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center"
         style={{
           backgroundImage:
             "url('https://html.themewant.com/moonlit/assets/images/pages/header__bg.webp')",
         }}
       >
         <div className="absolute inset-0 bg-black/50 z-0" />
-        <div className="absolute inset-0 bg-opacity-50 flex flex-col items-center justify-center text-white text-center">
-          <h1 className="text-4xl md:text-7xl  mb-6 mt-45">
+        <div className="absolute inset-0 bg-opacity-50 flex flex-col items-center justify-center text-white text-center px-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4 sm:mb-6">
             Activities
           </h1>
-          <p className="text-xl">
+          <p className="text-base sm:text-lg md:text-xl max-w-2xl px-2">
             Whether you have questions, need answers, or simply want to chat.
           </p>
         </div>
       </div>
 
       {/* Activities Section */}
-      <section className="bg-white py-16 px-4 md:px-24">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-5xl  text-gray-900">
+      <section className="bg-white py-12 sm:py-16 px-4 md:px-6 lg:px-8">
+        <div className="text-center mb-10 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-900">
             Our Activities
           </h2>
         </div>
 
         {/* Alternating Layout */}
-        <div className="grid grid-cols-1 gap-20 max-w-screen-xl mx-auto">
+        <div className="grid grid-cols-1 gap-12 sm:gap-16 md:gap-20 max-w-screen-xl mx-auto">
           {activities.map((item, index) => (
             <div
               key={index}
-              className={`grid grid-cols-1 md:grid-cols-2 gap-12 items-center ${
+              className={`grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center ${
                 index % 2 === 1 ? "md:flex-row-reverse" : ""
               }`}
-              style={{
-                display: "flex",
-                flexDirection: index % 2 === 1 ? "row-reverse" : "row",
-              }}
             >
               {/* Image Section */}
-              <div className="w-full md:w-1/2">
+              <div className="w-full">
                 <img
                   src={item.imageUrl}
                   alt={item.title}
-                  className="w-full h-[500px] object-cover rounded-xl shadow-lg"
+                  className="w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] object-cover rounded-xl shadow-lg"
                 />
               </div>
 
               {/* Text Section */}
-              <div className="w-full md:w-1/2 flex flex-col justify-center px-4">
+              <div className="w-full flex flex-col justify-center px-0 sm:px-4">
                 <div className="flex items-center gap-2 text-[#a8815e] mb-2">
-                  <span className="h-px w-8 bg-[#a8815e]"></span>
-                  <span className="text-xl">{item.title}</span>
+                  <span className="h-px w-6 sm:w-8 bg-[#a8815e]"></span>
+                  <span className="text-lg sm:text-xl">{item.title}</span>
                 </div>
 
-                <h3 className="text-4xl md:text-5xl  mb-6">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 sm:mb-6">
                   {item.title}
                 </h3>
 
-                <p className="text-gray-700 mb-6 text-lg leading-relaxed">
+                <p className="text-gray-700 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
                   {item.description}
                 </p>
 
                 <a
                   href="#"
-                  className="text-[#b86e2e] border-b border-[#b86e2e] w-fit hover:text-[#a15d20] transition-all"
+                  className="text-[#b86e2e] border-b border-[#b86e2e] w-fit hover:text-[#a15d20] transition-all text-base sm:text-lg"
                 >
                   Read More
                 </a>

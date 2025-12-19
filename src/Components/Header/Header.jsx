@@ -48,7 +48,7 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
 
   const pages = [
     // { name: "About", path: "/about" },
-    { name: "Restaurant", path: "/restaurant" },
+    { name: "Menu", path: "/restaurant" },
     { name: "Gallery", path: "/gallery" },
     // { name: "Service", path: "/service" },
     { name: "Event", path: "/event" },
@@ -409,7 +409,7 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
               }}
               className="cursor-pointer rounded-lg bg-gray-800 bg-opacity-50 px-4 py-3 hover:bg-yellow-600 hover:text-black transition text-center font-semibold"
             >
-              Sign In
+              Login
             </div>
             <div
               onClick={() => {
@@ -427,7 +427,7 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
           </nav>
 
           {/* Sticky Contact Info */}
-          <div className="mt-auto pt-6 border-t border-gray-700 text-white text-sm space-y-4 sticky bottom-0 bg-black bg-opacity-80 px-4 py-3 rounded-t-lg">
+          {/* <div className="mt-auto pt-6 border-t border-gray-700 text-white text-sm space-y-4 sticky bottom-0 bg-black bg-opacity-80 px-4 py-3 rounded-t-lg">
             <div>
               <FaPhoneAlt className="inline mr-2 text-xs" /> +12505550199
             </div>
@@ -441,7 +441,7 @@ export default function Header({ onSignInClick, onSignUpClick, bg }) {
               <FaMapMarkerAlt className="inline mr-2 text-xs" /> 280 Augusta
               Avenue, M5T 2L9 Toronto, Canada
             </div>
-          </div>
+          </div> */}
         </div>
       )}
     </header>
