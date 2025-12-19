@@ -31,12 +31,7 @@ const facilities = [
     "We warmly welcome pets with comfortable spaces, open areas, and special care to ensure a pleasant stay for you and your furry companions.",
 }
 ,
-  // {
-  //   icon: <FaSwimmingPool className="text-4xl text-[#a8815e] mb-4 block mx-auto" />,
-  //   title: "Swimming Pool",
-  //   description:
-  //     "Indoor or outdoor pools for leisure or exercise. Offering massages, facials, and other treatments.",
-  // },
+
   {
   icon: <GiRiver className="text-4xl text-[#a8815e] mb-4 block mx-auto" />,
   title: "River Swimming",

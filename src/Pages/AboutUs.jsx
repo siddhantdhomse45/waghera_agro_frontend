@@ -5,6 +5,9 @@ import axios from "axios";
 import ClientSay from "../Components/ClientSay/ClientSay";
 import image from "../assets/images/about-us-small-image.jpeg"
 import image2 from "../assets/images/imgae-small.jpeg"
+import { FaPaw } from "react-icons/fa";
+import { GiRiver } from "react-icons/gi";
+
 export default function AboutUs() {
   const [team, setTeam] = useState([]);
 
@@ -123,30 +126,32 @@ Come, relax, and reconnect with nature at Waghera Agro Tourism — where every s
               </div>
 
               {/* 3 */}
-              <div>
-                <div className=" items-start gap-3 mb-6 mt-10">
-                  <span className="text-[#b88d56] text-4xl ">
-                    <img src="https://html.themewant.com/moonlit/assets/images/icon/gym.svg" />
-                  </span>
-                  <h4 className="font-medium text-3xl mt-10">Fitness Center</h4>
-                </div>
-                <p className="text-xl text-gray-600 leading-relaxed">
-                  Well-equipped gym & spa treatments.
-                </p>
-              </div>
+           {/* 3 - Pet Friendly */}
+<div>
+  <div className="items-start gap-3 mb-6 mt-10">
+    <span className="text-[#b88d56] text-4xl block">
+      <FaPaw />
+    </span>
+    <h4 className="font-medium text-3xl mt-10">Pet Friendly</h4>
+  </div>
+  <p className="text-xl text-gray-600 leading-relaxed">
+    We warmly welcome pets with comfortable spaces, open areas.
+  </p>
+</div>
 
-              {/* 4 */}
-              <div>
-                <div className=" items-start gap-3 mb-6 mt-10">
-                  <span className="text-[#b88d56] text-7xl">
-                    <img src="https://html.themewant.com/moonlit/assets/images/icon/swimming-pool.svg" />
-                  </span>
-                  <h4 className="font-medium text-3xl mt-10">Swimming Pool</h4>
-                </div>
-                <p className="text-xl text-gray-600 leading-relaxed">
-                  Beautiful indoor & outdoor pools.
-                </p>
-              </div>
+{/* 4 - River Swimming */}
+<div>
+  <div className="items-start gap-3 mb-6 mt-10">
+    <span className="text-[#b88d56] text-4xl block">
+      <GiRiver />
+    </span>
+    <h4 className="font-medium text-3xl mt-10">River Swimming</h4>
+  </div>
+  <p className="text-xl text-gray-600 leading-relaxed">
+    Enjoy natural river swimming in a serene environment.
+  </p>
+</div>
+
 
             </div>
           </div>

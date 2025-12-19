@@ -57,7 +57,7 @@ export default function Hotel() {
     </div>
 
     {/* Experience Info Box */}
-    <div className="absolute bottom-20 right-4 sm:right-10 md:right-90 bg-white bg-opacity-90 p-4 sm:p-6 rounded-lg shadow-lg flex items-center space-x-3 w-48 sm:w-60">
+    {/* <div className="absolute bottom-20 right-4 sm:right-10 md:right-90 bg-white bg-opacity-90 p-4 sm:p-6 rounded-lg shadow-lg flex items-center space-x-3 w-48 sm:w-60">
       <div className="bg-gray-200 p-2 rounded-full">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +73,7 @@ export default function Hotel() {
         <div className="text-lg sm:text-xl font-semibold text-gray-700">50+</div>
         <div className="text-sm sm:text-base text-gray-500">Experience Staff</div>
       </div>
-    </div>
+    </div> */}
   </div>
 
   {/* Text Content */}
@@ -95,7 +95,14 @@ export default function Hotel() {
 
     {/* Paragraph */}
     <p className="text-gray-600 text-sm sm:text-base mb-6">
-      Welcome to Bokinn, where luxury meets comfort in the heart of Canada. Since 1999, we have been dedicated to providing an exceptional stay for our guests, blending modern amenities with timeless elegance. Our beautifully designed rooms and suites offer stunning views and plush accommodations, ensuring a restful retreat whether you’re here for business or leisure.
+      {/* Welcome to Bokinn, where luxury meets comfort in the heart of Canada. Since 1999, we have been dedicated to providing an exceptional stay for our guests, blending modern amenities with timeless elegance. Our beautifully designed rooms and suites offer stunning views and plush accommodations, ensuring a restful retreat whether you’re here for business or leisure. */}
+      Where nature, tradition, and comfort come together in perfect harmony.
+
+Located in the breathtaking hills of Mahabaleshwar, Waghera Agro Tourism is a peaceful retreat surrounded by lush greenery, fresh mountain air, and scenic views. Designed for travelers seeking relaxation and authenticity, our agro tourism stay offers a refreshing break from the fast-paced city lifestyle.
+
+At Waghera Agro Tourism, guests can experience the charm of farm life, enjoy locally grown fresh food, and immerse themselves in the calm beauty of nature — all while enjoying clean, comfortable, and well-maintained accommodations. Whether you’re waking up to birdsong, enjoying a walk through green fields, or spending quality time with family by a cozy evening bonfire, every moment here is crafted to create lasting memories.
+
+{/* We believe in warm hospitality and personalized service. From couples and families to group travelers and nature lovers, Waghera Agro Tourism welcomes everyone with a promise of comfort, simplicity, and genuine rural experiences.. */}
     </p>
 
     {/* Button */}
