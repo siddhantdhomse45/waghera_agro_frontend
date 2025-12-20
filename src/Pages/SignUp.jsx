@@ -199,35 +199,72 @@ export default function SignUp({ onSwitchToSignIn }) {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // const handleRegister = async () => {
+  //   if (form.password !== form.confirmPassword) {
+  //     alert("Passwords do not match!");
+  //     return;
+  //   }
+
+  //   try {
+  //     const response = await fetch(
+  //       "https://backend-waghera.onrender.com/api/auth/signup",
+  //       {
+  //         method: "POST",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify({
+  //           name: form.name,
+  //           email: form.email,
+  //           contact: form.contact,
+  //           password: form.password
+  //         }),
+  //       }
+  //     );
+
+  //     const data = await response.text();
+  //     alert(data);
+
+  //     if (response.ok) onSwitchToSignIn();
+  //   } catch (error) {
+  //     alert("Something went wrong. Please try again.");
+  //   }
+  // };
+
+
   const handleRegister = async () => {
-    if (form.password !== form.confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
+  if (form.password !== form.confirmPassword) {
+    alert("Passwords do not match!");
+    return;
+  }
 
-    try {
-      const response = await fetch(
-        "https://backend-waghera.onrender.com/api/auth/signup",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: form.name,
-            email: form.email,
-            contact: form.contact,
-            password: form.password
-          }),
-        }
-      );
+  try {
+    const response = await fetch(
+  "http://localhost:5000/api/auth/signup",   
+//  "https://backend-waghera.onrender.com/api/auth/signup",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          contact: form.contact,
+          password: form.password,
+        }),
+      }
+    );
 
-      const data = await response.text();
-      alert(data);
+    const data = await response.json().catch(() => ({}));
 
-      if (response.ok) onSwitchToSignIn();
-    } catch (error) {
-      alert("Something went wrong. Please try again.");
-    }
-  };
+    console.log("Signup status:", response.status);
+    console.log("Signup response:", data);
+
+    alert(data.message || "Unknown error");
+
+    if (response.ok) onSwitchToSignIn();
+  } catch (error) {
+    console.error("Signup error:", error);
+    alert("Something went wrong. Please try again.");
+  }
+};
 
   return (
     <div className="min-h-[85vh] flex items-center justify-center bg-gray-100 px-4">

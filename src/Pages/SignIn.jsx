@@ -1,33 +1,23 @@
-
-
-
 import { useState } from "react";
 
-const API_BASE_URL = "https://backend-waghera.onrender.com/api/auth";
+// ✅ Use a single API base URL
+const API_BASE_URL = "http://localhost:5000/api/auth";
 
-const signInUser = async (credentials) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/signin`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(credentials),
-    });
-
-    const data = await response.json();
-    return { success: response.ok, data };
-  } catch (error) {
-    return { success: false, data: { message: "Network Error" } };
-  }
-};
-
-const Message = ({ type, text }) => {
+// ✅ Message component with safe fallback
+const Message = ({ type = "info", text }) => {
   if (!text) return null;
+
   const styles = {
     success: "bg-green-100 text-green-800 border-green-500",
     error: "bg-red-100 text-red-800 border-red-500",
     info: "bg-blue-100 text-blue-800 border-blue-500",
   };
-  return <div className={`p-3 mb-4 rounded border-l-4 ${styles[type]}`}>{text}</div>;
+
+  return (
+    <div className={`p-3 mb-4 rounded border-l-4 ${styles[type] || styles.info}`}>
+      {text}
+    </div>
+  );
 };
 
 export default function SignIn({ onSwitchToSignUp, onLoginSuccess }) {
@@ -36,36 +26,61 @@ export default function SignIn({ onSwitchToSignUp, onLoginSuccess }) {
   const [messageType, setMessageType] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  // ✅ Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setMessage("");
   };
 
+  // ✅ Handle login
   const handleSignIn = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    setMessage("Checking credentials...");
+    setMessage("");
     setMessageType("info");
 
-    const result = await signInUser(formData);
+    try {
+      const response = await fetch(`${API_BASE_URL}/signin`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    if (result.success && result.data.success) {
+      const data = await response.json();
+      console.log("Login response:", data);
+
+      if (!response.ok) {
+        // ❌ Show error from backend if any
+        setMessage(data.message || "Login failed");
+        setMessageType("error");
+        return;
+      }
+
+      // ✅ Adjust based on backend response structure
+      // Example: { token, user }
+      const token = data.token || data.data?.token;
+      const user = data.user || data.data?.user;
+
+      if (!token || !user) {
+        setMessage("Invalid server response");
+        setMessageType("error");
+        return;
+      }
+
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
+
       setMessage("Login successful!");
       setMessageType("success");
 
-      const loggedUser = {
-        id: result.data.user.id,  // ✅ Correct
-        name: result.data.user.name,
-        email: result.data.user.email,
-      };
-      localStorage.setItem("user", JSON.stringify(loggedUser));
-      onLoginSuccess && onLoginSuccess(loggedUser);
-      setFormData({ email: "", password: "" });
-    } else {
-      setMessage(result.data.message || "Login failed");
+      onLoginSuccess && onLoginSuccess(user);
+    } catch (error) {
+      console.error("LOGIN ERROR:", error);
+      setMessage("Network error");
       setMessageType("error");
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   return (
