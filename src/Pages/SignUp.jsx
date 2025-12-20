@@ -224,117 +224,115 @@ export default function SignUp({ onSwitchToSignIn }) {
       alert(data);
 
       if (response.ok) onSwitchToSignIn();
-
     } catch (error) {
       alert("Something went wrong. Please try again.");
-      console.error(error);
     }
   };
 
   return (
-    <div className="min-h-[90vh] flex items-center justify-center bg-gray-100 px-4">
+    <div className="min-h-[85vh] flex items-center justify-center bg-gray-100 px-4">
 
       <div className="
         bg-white 
         w-full 
-        max-w-lg 
+        max-w-xl 
         rounded-2xl 
-        shadow-xl 
-        p-6
+        shadow-lg 
+        p-5
       ">
 
-        <h2 className="text-2xl font-bold mb-5 text-center text-gray-800">
+        <h2 className="text-xl font-bold mb-4 text-center text-gray-800">
           Create Your Account
         </h2>
 
         {/* Name */}
-        <div className="mb-3">
-          <label className="block mb-1 font-medium text-gray-700">Your Name</label>
+        <div className="mb-2">
+          <label className="block mb-1 text-sm font-medium text-gray-700">Your Name</label>
           <input
             type="text"
             name="name"
-            placeholder="Enter your name"
             value={form.name}
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-600"
+            placeholder="Enter your name"
+            className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-yellow-600"
           />
         </div>
 
         {/* Email */}
-        <div className="mb-3">
-          <label className="block mb-1 font-medium text-gray-700">Your Email</label>
+        <div className="mb-2">
+          <label className="block mb-1 text-sm font-medium text-gray-700">Your Email</label>
           <input
             type="email"
             name="email"
-            placeholder="Enter your email"
             value={form.email}
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-600"
+            placeholder="Enter your email"
+            className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-yellow-600"
           />
         </div>
 
         {/* Contact */}
-        <div className="mb-3">
-          <label className="block mb-1 font-medium text-gray-700">Contact Number</label>
+        <div className="mb-2">
+          <label className="block mb-1 text-sm font-medium text-gray-700">Contact Number</label>
           <input
             type="tel"
             name="contact"
-            placeholder="Enter your contact number"
             value={form.contact}
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-600"
+            placeholder="Enter contact number"
+            className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-yellow-600"
           />
         </div>
 
         {/* Password */}
-        <div className="mb-3">
-          <label className="block mb-1 font-medium text-gray-700">Password</label>
+        <div className="mb-2">
+          <label className="block mb-1 text-sm font-medium text-gray-700">Password</label>
           <input
             type="password"
             name="password"
-            placeholder="Create a password"
             value={form.password}
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-600"
+            placeholder="Create password"
+            className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-yellow-600"
           />
         </div>
 
         {/* Confirm Password */}
-        <div className="mb-4">
-          <label className="block mb-1 font-medium text-gray-700">Confirm Password</label>
+        <div className="mb-3">
+          <label className="block mb-1 text-sm font-medium text-gray-700">Confirm Password</label>
           <input
             type="password"
             name="confirmPassword"
-            placeholder="Confirm your password"
             value={form.confirmPassword}
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-600"
+            placeholder="Confirm password"
+            className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-yellow-600"
           />
         </div>
 
         <button
           onClick={handleRegister}
-          className="w-full py-2 rounded-lg font-semibold bg-blue-100 hover:bg-[#a8815e] hover:text-white transition mb-3"
+          className="w-full py-2 rounded-md font-semibold bg-blue-100 hover:bg-[#a8815e] hover:text-white transition mb-2"
         >
           Register
         </button>
 
-        <div className="flex items-center gap-2 my-3">
+        <div className="flex items-center gap-2 my-2">
           <hr className="flex-1" />
-          <span className="text-sm text-gray-400">Or</span>
+          <span className="text-xs text-gray-400">OR</span>
           <hr className="flex-1" />
         </div>
 
-        <div className="flex gap-3">
-          <button className="flex-1 flex items-center justify-center gap-2 border rounded-lg py-2 hover:bg-[#a8815e] hover:text-white transition">
+        <div className="flex gap-2">
+          <button className="flex-1 flex items-center justify-center gap-2 border rounded-md py-2 hover:bg-[#a8815e] hover:text-white transition text-sm">
             <FaGoogle /> Google
           </button>
-          <button className="flex-1 flex items-center justify-center gap-2 border rounded-lg py-2 hover:bg-[#a8815e] hover:text-white transition">
+          <button className="flex-1 flex items-center justify-center gap-2 border rounded-md py-2 hover:bg-[#a8815e] hover:text-white transition text-sm">
             <FaFacebookF /> Facebook
           </button>
         </div>
 
-        <p className="text-sm text-center mt-4">
+        <p className="text-xs text-center mt-3">
           Already have an account?{" "}
           <span
             className="text-blue-600 cursor-pointer hover:underline"
