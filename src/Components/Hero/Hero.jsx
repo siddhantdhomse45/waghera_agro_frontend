@@ -159,27 +159,27 @@ export default function HeroSlider() {
 
   const slides = [
     {
-      title1: "Luxury Stay Hotel Experience",
+      title1: "Luxury Stay Resort Experience",
       title2: "Comfort & Elegance",
-      subtitle: "Welcome to Our Hotel",
+      subtitle: "Welcome to Our Resort",
       description:
-        "Choosing Bokinn was one of the best decisions we've ever made. They have proven to be a reliable and innovative partner",
+        "Waghera Agro Tourism gave us the perfect escape from city life. A beautiful farm stay, friendly staff, and memorable village experiences made our trip special.",
       image: "https://html.themewant.com/moonlit/assets/images/banner/1.webp",
     },
     {
       title1: "Lavish Getaway A Blend of",
       title2: "Comfort & Style",
-      subtitle: "Welcome to Our Spa",
+      subtitle: "Welcome to Our Resort",
       description:
-        "Choosing Bokinn was one of the best decisions we've ever made. They have proven to be a reliable and innovative partner",
+        "Waghera Agro Tourism gave us the perfect escape from city life. A beautiful farm stay, friendly staff, and memorable village experiences made our trip special.",
       image: "https://html.themewant.com/moonlit/assets/images/banner/2.webp",
     },
     {
       title1: "A Perfect Fusion of Comfort",
       title2: "and Elegance",
-      subtitle: "Welcome to Our Spa",
+      subtitle: "Welcome to Our Resort",
       description:
-        "Choosing Bokinn was one of the best decisions we've ever made. They have proven to be a reliable and innovative partner",
+        "Waghera Agro Tourism gave us the perfect escape from city life. A beautiful farm stay, friendly staff, and memorable village experiences made our trip special.",
       image:
         "https://html.themewant.com/moonlit/assets/images/banner/banner-3.webp",
     },
@@ -211,7 +211,7 @@ export default function HeroSlider() {
                       <span className="text-sm sm:text-lg">◇</span>
                       <span className="w-6 sm:w-10 h-px bg-white"></span>
                     </span>
-                    Welcome to Our Hotel And Resort
+                    Welcome to Our Resort
                     <span className="flex items-center">
                       <span className="w-6 sm:w-10 h-px bg-white"></span>
                       <span className="text-sm sm:text-lg">◇</span>

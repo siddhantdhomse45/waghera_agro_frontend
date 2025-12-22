@@ -21,14 +21,14 @@ export default function Events() {
     },
     {
       icon: "https://html.themewant.com/moonlit/assets/images/icon/fitness.svg",
-      title: "Fitness Center",
+      title: "Yoga Center",
       desc: "A fitness center promotes health and well-being with multiple facilities.",
     },
-    {
-      icon: "https://html.themewant.com/moonlit/assets/images/icon/home-theater.svg",
-      title: "Airport transport",
-      desc: "Airport transport offers comfortable and fast travel services.",
-    },
+    // {
+    //   icon: "https://html.themewant.com/moonlit/assets/images/icon/home-theater.svg",
+    //   title: "Airport transport",
+    //   desc: "Airport transport offers comfortable and fast travel services.",
+    // },
   ];
 
   useEffect(() => {
@@ -47,7 +47,7 @@ export default function Events() {
       <div
         className="relative bg-cover bg-center h-[800px] flex items-center justify-center"
         style={{
-          backgroundImage: "url('https://html.themewant.com/moonlit/assets/images/pages/header__bg.webp')",
+          backgroundImage: "url('https://i.pinimg.com/736x/08/a5/b5/08a5b501347a81250d992e2bfacbeba6.jpg')",
         }}
       >
         <div className="absolute inset-0 bg-black/50 z-0" />
