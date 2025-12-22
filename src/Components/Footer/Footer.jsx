@@ -31,7 +31,7 @@ export default function Footer() {
       {/* Newsletter Section */}
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16 gap-8">
         <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 leading-tight">
-          Join Our Newsletter
+          Join Our Resort
         </h2>
 
         <form className="flex flex-col sm:flex-row w-full max-w-lg bg-white rounded-xl shadow-lg overflow-hidden border border-[#d6c2a8]">
@@ -82,7 +82,7 @@ export default function Footer() {
             <li className="hover:text-[#a8815e] cursor-pointer">Parking</li>
             <li className="hover:text-[#a8815e] cursor-pointer">Room Service</li>
             <li className="hover:text-[#a8815e] cursor-pointer">Free Wi-Fi</li>
-            <li className="hover:text-[#a8815e] cursor-pointer">Concierge Service</li>
+            {/* <li className="hover:text-[#a8815e] cursor-pointer">Concierge Service</li> */}
           </ul>
         </div>
 
@@ -113,7 +113,7 @@ export default function Footer() {
             <li className="hover:text-[#a8815e] cursor-pointer">Shivling</li>
             <li className="hover:text-[#a8815e] cursor-pointer">Tracking</li>
            <li className="hover:text-[#a8815e] cursor-pointer">Vasota fort</li>
-           <li className="hover:text-[#a8815e] cursor-pointer">Bird photography</li>
+           {/* <li className="hover:text-[#a8815e] cursor-pointer">Bird photography</li> */}
           
           </ul>
         </div>

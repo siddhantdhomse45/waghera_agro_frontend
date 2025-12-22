@@ -17,7 +17,7 @@ export default function ContactPage() {
   const contactInfo = [
     { icon: MapPin, title: "Address", text: "Pali t.ategaon, Maharashtra" },
     { icon: Phone, title: "Phone", text: "+91 9420604657 / 9421687397" },
-    { icon: Contact, title: "Mr : DIPAK SHANKAR SHINDE", text: "UPI-ID : ds5705386@okaxis" },
+    { icon: Contact, title: "Mr : DIPAK SHANKAR SHINDE", text: "UPI-ID : ds5705386@okaxis", text1:" Before Payment Please Contact Above Number" },
     { icon: Mail, title: "Email", text: "support@gmail.com" },
     { icon: Clock, title: "Working Hours", text: "24 X 7" },
   ];
@@ -97,6 +97,7 @@ export default function ContactPage() {
                 <div>
                   <p className="text-xs sm:text-sm text-gray-500">{item.title}</p>
                   <p className="text-sm sm:text-lg font-medium text-gray-800">{item.text}</p>
+                  <p className="text-sm sm:text-lg font-medium text-gray-800">{item.text1}</p>
                 </div>
               </div>
             );

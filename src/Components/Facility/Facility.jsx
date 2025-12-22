@@ -58,7 +58,7 @@ export default function facility() {
         </span>
       </span>
     </h4>
-    <h2 className="text-6xl text-black">Hotel Facilities</h2>
+    <h2 className="text-6xl text-black">Resort Facilities</h2>
   </div>
 
   <div className="max-w-[1400px] px-4 sm:px-6 lg:px-8 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-9">

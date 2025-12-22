@@ -108,12 +108,12 @@ export default function Restaurant() {
     <div className="font-sans text-gray-800">
       {/* -------------------- HERO SECTION -------------------- */}
       <div
-        className="relative bg-cover bg-center h-[800px] flex items-center justify-center"
-        style={{
-          backgroundImage:
-            "url('https://html.themewant.com/moonlit/assets/images/pages/header__bg.webp')",
-        }}
-      >
+  className="relative bg-cover bg-center h-[800px] flex items-center justify-center"
+  style={{
+    backgroundImage: "url('https://i.pinimg.com/1200x/3f/61/64/3f6164e4fdbd6fedd34e0f26513624c5.jpg')",
+  }}
+>
+
         <div className="absolute inset-0 bg-black/50 z-0" />
         <div className="absolute inset-0 bg-opacity-50 flex flex-col items-center justify-center text-white text-center">
           <h1 className="text-4xl md:text-7xl  mb-6 mt-45">Our Menus</h1>
