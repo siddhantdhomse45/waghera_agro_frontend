@@ -389,143 +389,350 @@
 
 
 
+// import { useState } from "react";
+// import { FaGoogle, FaFacebookF } from "react-icons/fa";
+
+// export default function SignUp({ onSwitchToSignIn }) {
+//   const [form, setForm] = useState({
+//     name: "",
+//     email: "",
+//     contact: "",
+//     password: "",
+//     confirmPassword: "",
+//   });
+
+//   const [popup, setPopup] = useState({
+//     show: false,
+//     message: "",
+//     type: "success", // success | error
+//   });
+
+//   const handleChange = (e) => {
+//     setForm({ ...form, [e.target.name]: e.target.value });
+//   };
+
+//   const showPopup = (message, type = "success") => {
+//     setPopup({ show: true, message, type });
+//     setTimeout(() => {
+//       setPopup({ show: false, message: "", type });
+//     }, 3000);
+//   };
+
+//   const handleRegister = async () => {
+//     if (form.password !== form.confirmPassword) {
+//       showPopup("Passwords do not match", "error");
+//       return;
+//     }
+
+//     try {
+//       const response = await fetch(
+//         // "http://localhost:5000/api/auth/signup",
+//         "https://backend-waghera.onrender.com/api/auth/signup",
+//         {
+//           method: "POST",
+//           headers: { "Content-Type": "application/json" },
+//           body: JSON.stringify({
+//             name: form.name,
+//             email: form.email,
+//             contact: form.contact,
+//             password: form.password,
+//           }),
+//         }
+//       );
+
+//       const data = await response.json();
+
+//       if (!response.ok) {
+//         showPopup(data.message || "Signup failed", "error");
+//         return;
+//       }
+
+//       showPopup("Registration successful! Please login.", "success");
+
+//       setTimeout(() => {
+//         onSwitchToSignIn();
+//       }, 2000);
+//     } catch (error) {
+//       console.error("Signup error:", error);
+//       showPopup("Server error. Please try again later.", "error");
+//     }
+//   };
+
+//   return (
+//     <div className="min-h-[85vh] flex items-center justify-center bg-gray-100 px-4 relative">
+      
+//       {/* ✅ POPUP */}
+//       {popup.show && (
+//         <div
+//           className={`fixed top-5 right-5 z-50 px-4 py-3 rounded-lg shadow-lg text-white text-sm
+//             ${popup.type === "success" ? "bg-green-600" : "bg-red-600"}
+//           `}
+//         >
+//           {popup.message}
+//         </div>
+//       )}
+
+//       <div className="bg-white w-full max-w-xl rounded-2xl shadow-lg p-5">
+//         <h2 className="text-xl font-bold mb-4 text-center text-gray-800">
+//           Create Your Account
+//         </h2>
+
+//         {/* Name */}
+//         <input
+//           type="text"
+//           name="name"
+//           value={form.name}
+//           onChange={handleChange}
+//           placeholder="Your Name"
+//           className="w-full border rounded-md px-3 py-2 mb-2"
+//         />
+
+//         {/* Email */}
+//         <input
+//           type="email"
+//           name="email"
+//           value={form.email}
+//           onChange={handleChange}
+//           placeholder="Your Email"
+//           className="w-full border rounded-md px-3 py-2 mb-2"
+//         />
+
+//         {/* Contact */}
+//         <input
+//           type="tel"
+//           name="contact"
+//           value={form.contact}
+//           onChange={handleChange}
+//           placeholder="Contact Number"
+//           className="w-full border rounded-md px-3 py-2 mb-2"
+//         />
+
+//         {/* Password */}
+//         <input
+//           type="password"
+//           name="password"
+//           value={form.password}
+//           onChange={handleChange}
+//           placeholder="Password"
+//           className="w-full border rounded-md px-3 py-2 mb-2"
+//         />
+
+//         {/* Confirm Password */}
+//         <input
+//           type="password"
+//           name="confirmPassword"
+//           value={form.confirmPassword}
+//           onChange={handleChange}
+//           placeholder="Confirm Password"
+//           className="w-full border rounded-md px-3 py-2 mb-3"
+//         />
+
+//         <button
+//           onClick={handleRegister}
+//           className="w-full py-2 rounded-md font-semibold bg-blue-100 hover:bg-[#a8815e] hover:text-white transition mb-2"
+//         >
+//           Register
+//         </button>
+
+//         <div className="flex items-center gap-2 my-2">
+//           <hr className="flex-1" />
+//           <span className="text-xs text-gray-400">OR</span>
+//           <hr className="flex-1" />
+//         </div>
+
+//         <div className="flex gap-2">
+//           <button className="flex-1 flex items-center justify-center gap-2 border rounded-md py-2">
+//             <FaGoogle /> Google
+//           </button>
+//           <button className="flex-1 flex items-center justify-center gap-2 border rounded-md py-2">
+//             <FaFacebookF /> Facebook
+//           </button>
+//         </div>
+
+//         <p className="text-xs text-center mt-3">
+//           Already have an account?{" "}
+//           <span
+//             className="text-blue-600 cursor-pointer hover:underline"
+//             onClick={onSwitchToSignIn}
+//           >
+//             Login
+//           </span>
+//         </p>
+//       </div>
+//     </div>
+//   );
+// }
+
+
+
+
+
+
+
 import { useState } from "react";
 import { FaGoogle, FaFacebookF } from "react-icons/fa";
 
 export default function SignUp({ onSwitchToSignIn }) {
+
   const [form, setForm] = useState({
     name: "",
     email: "",
     contact: "",
     password: "",
-    confirmPassword: "",
-  });
-
-  const [popup, setPopup] = useState({
-    show: false,
-    message: "",
-    type: "success", // success | error
+    confirmPassword: ""
   });
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const showPopup = (message, type = "success") => {
-    setPopup({ show: true, message, type });
-    setTimeout(() => {
-      setPopup({ show: false, message: "", type });
-    }, 3000);
-  };
+  // const handleRegister = async () => {
+  //   if (form.password !== form.confirmPassword) {
+  //     alert("Passwords do not match!");
+  //     return;
+  //   }
+
+  //   try {
+  //     const response = await fetch(
+  //       "https://backend-waghera.onrender.com/api/auth/signup",
+  //       {
+  //         method: "POST",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify({
+  //           name: form.name,
+  //           email: form.email,
+  //           contact: form.contact,
+  //           password: form.password
+  //         }),
+  //       }
+  //     );
+
+  //     const data = await response.text();
+  //     alert(data);
+
+  //     if (response.ok) onSwitchToSignIn();
+  //   } catch (error) {
+  //     alert("Something went wrong. Please try again.");
+  //   }
+  // };
+
 
   const handleRegister = async () => {
-    if (form.password !== form.confirmPassword) {
-      showPopup("Passwords do not match", "error");
-      return;
-    }
+  if (form.password !== form.confirmPassword) {
+    alert("Passwords do not match!");
+    return;
+  }
 
-    try {
-      const response = await fetch(
-        // "http://localhost:5000/api/auth/signup",
-        "https://backend-waghera.onrender.com/api/auth/signup",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: form.name,
-            email: form.email,
-            contact: form.contact,
-            password: form.password,
-          }),
-        }
-      );
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        showPopup(data.message || "Signup failed", "error");
-        return;
+  try {
+    const response = await fetch(
+  // "http://localhost:5000/api/auth/signup",   
+ "https://backend-waghera.onrender.com/api/auth/signup",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          contact: form.contact,
+          password: form.password,
+        }),
       }
+    );
 
-      showPopup("Registration successful! Please login.", "success");
+    const data = await response.json().catch(() => ({}));
 
-      setTimeout(() => {
-        onSwitchToSignIn();
-      }, 2000);
-    } catch (error) {
-      console.error("Signup error:", error);
-      showPopup("Server error. Please try again later.", "error");
-    }
-  };
+    console.log("Signup status:", response.status);
+    console.log("Signup response:", data);
+
+    alert(data.message || "Unknown error");
+
+    if (response.ok) onSwitchToSignIn();
+  } catch (error) {
+    console.error("Signup error:", error);
+    alert("Something went wrong. Please try again.");
+  }
+};
 
   return (
-    <div className="min-h-[85vh] flex items-center justify-center bg-gray-100 px-4 relative">
-      
-      {/* ✅ POPUP */}
-      {popup.show && (
-        <div
-          className={`fixed top-5 right-5 z-50 px-4 py-3 rounded-lg shadow-lg text-white text-sm
-            ${popup.type === "success" ? "bg-green-600" : "bg-red-600"}
-          `}
-        >
-          {popup.message}
-        </div>
-      )}
+    <div className="min-h-[85vh] flex items-center justify-center bg-gray-100 px-4">
 
-      <div className="bg-white w-full max-w-xl rounded-2xl shadow-lg p-5">
+      <div className="
+        bg-white 
+        w-full 
+        max-w-xl 
+        rounded-2xl 
+        shadow-lg 
+        p-5
+      ">
+
         <h2 className="text-xl font-bold mb-4 text-center text-gray-800">
           Create Your Account
         </h2>
 
         {/* Name */}
-        <input
-          type="text"
-          name="name"
-          value={form.name}
-          onChange={handleChange}
-          placeholder="Your Name"
-          className="w-full border rounded-md px-3 py-2 mb-2"
-        />
+        <div className="mb-2">
+          <label className="block mb-1 text-sm font-medium text-gray-700">Your Name</label>
+          <input
+            type="text"
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            placeholder="Enter your name"
+            className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-yellow-600"
+          />
+        </div>
 
         {/* Email */}
-        <input
-          type="email"
-          name="email"
-          value={form.email}
-          onChange={handleChange}
-          placeholder="Your Email"
-          className="w-full border rounded-md px-3 py-2 mb-2"
-        />
+        <div className="mb-2">
+          <label className="block mb-1 text-sm font-medium text-gray-700">Your Email</label>
+          <input
+            type="email"
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+            placeholder="Enter your email"
+            className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-yellow-600"
+          />
+        </div>
 
         {/* Contact */}
-        <input
-          type="tel"
-          name="contact"
-          value={form.contact}
-          onChange={handleChange}
-          placeholder="Contact Number"
-          className="w-full border rounded-md px-3 py-2 mb-2"
-        />
+        <div className="mb-2">
+          <label className="block mb-1 text-sm font-medium text-gray-700">Contact Number</label>
+          <input
+            type="tel"
+            name="contact"
+            value={form.contact}
+            onChange={handleChange}
+            placeholder="Enter contact number"
+            className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-yellow-600"
+          />
+        </div>
 
         {/* Password */}
-        <input
-          type="password"
-          name="password"
-          value={form.password}
-          onChange={handleChange}
-          placeholder="Password"
-          className="w-full border rounded-md px-3 py-2 mb-2"
-        />
+        <div className="mb-2">
+          <label className="block mb-1 text-sm font-medium text-gray-700">Password</label>
+          <input
+            type="password"
+            name="password"
+            value={form.password}
+            onChange={handleChange}
+            placeholder="Create password"
+            className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-yellow-600"
+          />
+        </div>
 
         {/* Confirm Password */}
-        <input
-          type="password"
-          name="confirmPassword"
-          value={form.confirmPassword}
-          onChange={handleChange}
-          placeholder="Confirm Password"
-          className="w-full border rounded-md px-3 py-2 mb-3"
-        />
+        <div className="mb-3">
+          <label className="block mb-1 text-sm font-medium text-gray-700">Confirm Password</label>
+          <input
+            type="password"
+            name="confirmPassword"
+            value={form.confirmPassword}
+            onChange={handleChange}
+            placeholder="Confirm password"
+            className="w-full border rounded-md px-3 py-2 focus:ring-2 focus:ring-yellow-600"
+          />
+        </div>
 
         <button
           onClick={handleRegister}
@@ -541,10 +748,10 @@ export default function SignUp({ onSwitchToSignIn }) {
         </div>
 
         <div className="flex gap-2">
-          <button className="flex-1 flex items-center justify-center gap-2 border rounded-md py-2">
+          <button className="flex-1 flex items-center justify-center gap-2 border rounded-md py-2 hover:bg-[#a8815e] hover:text-white transition text-sm">
             <FaGoogle /> Google
           </button>
-          <button className="flex-1 flex items-center justify-center gap-2 border rounded-md py-2">
+          <button className="flex-1 flex items-center justify-center gap-2 border rounded-md py-2 hover:bg-[#a8815e] hover:text-white transition text-sm">
             <FaFacebookF /> Facebook
           </button>
         </div>
@@ -558,6 +765,7 @@ export default function SignUp({ onSwitchToSignIn }) {
             Login
           </span>
         </p>
+
       </div>
     </div>
   );
