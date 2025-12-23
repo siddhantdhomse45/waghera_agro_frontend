@@ -126,7 +126,7 @@ return (
       {/* Confirm Password */}
       <div className="mb-3">
         <label className="block text-xs font-medium text-gray-700">
-          Confirm Password
+          Confirm
         </label>
         <input
           type="password"
