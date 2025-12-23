@@ -383,7 +383,10 @@ export default function Header({ onSignInClick, onSignUpClick, bg, isLoggedIn: p
 
         {/* Mobile Menu Button */}
         <div className="flex lg:hidden items-center gap-2 ml-auto">
-          <button className="hidden sm:inline-block bg-yellow-700 text-white px-4 py-1 rounded hover:bg-yellow-800">
+          <button 
+            onClick={handleBookNowClick}
+            className="bg-yellow-700 text-white px-3 py-1 text-sm rounded hover:bg-yellow-800"
+          >
             Book Now
           </button>
           <button

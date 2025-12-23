@@ -222,7 +222,7 @@ export default function SignIn({ onSwitchToSignUp, onLoginSuccess }) {
       localStorage.setItem("user", JSON.stringify(user));
 
       // ✅ SUCCESS MESSAGE AFTER LOGIN
-      setMessage("Registration successful. Welcome to Waghera Agro Tourism!");
+      setMessage("Login successful. Welcome to Waghera Agro Tourism!");
       setMessageType("success");
 
       // ✅ Close popup & redirect to home
