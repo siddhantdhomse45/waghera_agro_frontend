@@ -596,7 +596,13 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
       <section className="bg-white px-4 py-10 md:px-24 min-h-[200vh] mt-1 font-serif">
         {!user ? (
           <div className="text-center py-20">
-            <h2 className="text-3xl text-red-600">Please log in first to book a room.</h2>
+            <h2 className="text-3xl text-red-600 mb-6">Please log in first to book a room.</h2>
+            <button
+              onClick={() => window.location.href = '/'}  // or use navigate('/') if using useNavigate
+              className="bg-yellow-700 text-2xl text-white px-10 py-5 rounded-lg font-semibold hover:bg-yellow-700 transition duration-200"
+            >
+              Login
+            </button>
           </div>
         ) : (
           <div className="grid lg:grid-cols-3 gap-10">
@@ -676,7 +682,7 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
                     type="date"
                     value={checkIn}
                     min={moment().format("YYYY-MM-DD")}
-                    className="w-full border px-3 py-2 rounded outline-none bg-white"
+                    className="w-full border px-3 py-2 rounded outline-none bg-white font-bold text-base"
                     onChange={(e) => setCheckIn(e.target.value)}
                   />
                 </div>
@@ -687,7 +693,7 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
                     type="date"
                     value={checkOut}
                     min={moment(checkIn).add(1, "days").format("YYYY-MM-DD")}
-                    className="w-full border px-3 py-2 rounded outline-none bg-white"
+                    className="w-full border px-3 py-2 rounded outline-none bg-white font-bold text-base"
                     onChange={(e) => setCheckOut(e.target.value)}
                   />
                 </div>
@@ -698,7 +704,7 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
                   {/* <select
                     value={selectedRoomId}
                     onChange={handleRoomTypeChange}
-                    className="w-full border px-3 py-2 rounded outline-none bg-white text-xl"
+                    className="w-full border px-3 py-2 rounded outline-none bg-white font-bold text-base"
                   >
                     <option value="">-- Choose Room Type --</option>
                     {rooms.map((room) => (
@@ -733,15 +739,15 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
                 <div className="grid grid-cols-1 gap-3">
                   <div>
                     <label className="block font-medium mt-5 mb-5">Adults</label>
-                    <input type="number" min={1} value={adults} onChange={(e) => setAdults(e.target.value)} className="w-full border px-3 py-2 rounded outline-none bg-white" />
+                    <input type="number" min={1} value={adults} onChange={(e) => setAdults(e.target.value)} className="w-full border px-3 py-2 rounded outline-none bg-white font-bold text-base" />
                   </div>
                   <div>
                     <label className="block font-medium mb-5 mt-5">Children</label>
-                    <input type="number" min={0} value={children} onChange={(e) => setChildren(e.target.value)} className="w-full border px-3 py-2 rounded outline-none bg-white" />
+                    <input type="number" min={0} value={children} onChange={(e) => setChildren(e.target.value)} className="w-full border px-3 py-2 rounded outline-none bg-white font-bold text-base" />
                   </div>
                   <div>
                     <label className="block font-medium mb-5 mt-5">Extra Bed</label>
-                    <input type="number" min={0} value={extraBed} onChange={(e) => setExtraBed(e.target.value)} className="w-full border px-3 py-2 rounded outline-none bg-white" />
+                    <input type="number" min={0} value={extraBed} onChange={(e) => setExtraBed(e.target.value)} className="w-full border px-3 py-2 rounded outline-none bg-white font-bold text-base" />
                   </div>
                 </div>
 

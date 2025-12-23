@@ -332,6 +332,7 @@ export default function Header({ onSignInClick, onSignUpClick, bg, isLoggedIn: p
         <div className="hidden lg:flex gap-3 font-semibold absolute right-24">
           {!isLoggedIn ? (
             <>
+            
               <button
                 onClick={onSignInClick} // 🔁 This triggers the modal now
                 className="cursor-pointer border border-gray-300 px-4 py-2 rounded hover:bg-[#a8815e]"
@@ -486,9 +487,9 @@ export default function Header({ onSignInClick, onSignUpClick, bg, isLoggedIn: p
                   if (onLogout) onLogout();
                   else window.location.reload();
                 }}
-                className="cursor-pointer rounded-lg bg-gray-800 bg-opacity-50 px-4 py-3 hover:bg-red-500 hover:text-white transition text-center font-semibold"
+                className="cursor-pointer rounded-lg bg-gray-800 bg-opacity-50 px-4 py-3 hover:bg-yellow-700 hover:text-white transition text-center font-semibold"
               >
-                Logout
+                Logout 
               </div>
             )}
           </nav>
