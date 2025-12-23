@@ -2,20 +2,20 @@ import React, { useState } from "react";
 
 const testimonials = [
   {
-    name: "Sarah Martinez",
-    role: "COO of Apex Solutions",
+    name: "Samir Zagade",
+    // role: "COO of Apex Solutions",
     message:
-      "Choosing Bokinn was one of the best decisions we’ve ever made. They have proven to be a reliable and innovative partner, always ready to tackle new challenges with and expertise. Their commitment to and delivering tailored.",
+      "Waghera Agro Tourism delivers exceptional hospitality with warmth, innovation, and attention to detail. A truly memorable experience",
     image:
-      "https://html.themewant.com/moonlit/assets/images/author/author-2x.webp",
+      "https://i.pinimg.com/736x/7f/bb/2a/7fbb2ae1508485fee8fcec11669fc30e.jpg",
   },
   {
-    name: "John Carter",
-    role: "CEO of TechSphere",
+    name: "Suhas Lambe",
+    // role: "CEO of TechSphere",
     message:
-      "Working with Bokinn was a seamless experience. They offered tailored services, great communication, and top-notch results. I would highly recommend them to anyone looking for quality and commitment.",
+      "Waghera Agro Tourism offers a perfect blend of comfort and nature. Great hospitality, peaceful surroundings, and a truly authentic rural experience. Highly recommended.",
     image:
-      "https://html.themewant.com/moonlit/assets/images/author/author-4.webp",
+      "https://i.pinimg.com/736x/7f/b8/61/7fb861a3d553131346cc57345fd54aca.jpg",
   },
 ];
 

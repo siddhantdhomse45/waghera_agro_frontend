@@ -1,6 +1,3 @@
-
-
-
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 
@@ -8,7 +5,7 @@ import moment from "moment";
 const EXTRA_SERVICES = [
   { label: "Room Clean", price: 10, unit: "/ Night" },
   { label: "Parking", price: 0, unit: "Free" },
-  { label: "Airport Transport", price: 20, unit: "/ Night" },
+  // { label: "Airport Transport", price: 20, unit: "/ Night" },
   { label: "Pet Friendly", price: 15, unit: "/ Night" },
 ];
 
@@ -44,18 +41,61 @@ export default function BookNow() {
   };
 
   // Logic from Node version: Fetch rooms from Port 5000
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/api/admin/rooms")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setRooms(data);
+  //       if (data.length > 0) setSelectedRoomId(data[0]._id);
+  //     })
+  //     .catch((err) => {
+  //       console.error("Error fetching rooms:", err);
+  //       setBookingStatus("error-fetch");
+  //     });
+  // }, []);
+
+
+
   useEffect(() => {
-    fetch("https://backend-waghera.onrender.com/api/admin/rooms")
-      .then((res) => res.json())
-      .then((data) => {
-        setRooms(data);
-        if (data.length > 0) setSelectedRoomId(data[0]._id);
-      })
-      .catch((err) => {
-        console.error("Error fetching rooms:", err);
-        setBookingStatus("error-fetch");
-      });
-  }, []);
+  if (checkIn && checkOut) {
+    fetchAvailableRooms(checkIn, checkOut);
+  }
+}, [checkIn, checkOut]);
+ 
+
+const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
+  try {
+    const response = await fetch("https://backend-waghera.onrender.com/api/availability", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        checkInDate,
+        checkOutDate,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch availability");
+    }
+
+    const data = await response.json();
+    setRooms(data);
+
+    // auto select first available room
+    if (data.length > 0) {
+      setSelectedRoomId(data[0]._id);
+    } else {
+      setSelectedRoomId("");
+    }
+  } catch (error) {
+    console.error("Availability Error:", error);
+    setRooms([]);
+  }
+};
+
+
+
+
 
   const handleRoomTypeChange = (e) => setSelectedRoomId(e.target.value);
 
@@ -120,7 +160,7 @@ export default function BookNow() {
   };
 
   return (
-    <div className=" text-gray-800">
+    <div className="font-sanserif text-gray-800">
       {/* Hero Section */}
       <div
         className="relative bg-cover bg-center h-[400px] flex items-center justify-center mb-25"
@@ -128,7 +168,7 @@ export default function BookNow() {
       ></div>
 
       {/* Booking & Room Info */}
-      <section className="bg-white px-4 py-10 md:px-24 min-h-[200vh] mt-1 ">
+      <section className="bg-white px-4 py-10 md:px-24 min-h-[200vh] mt-1 font-serif">
         {!user ? (
           <div className="text-center py-20">
             <h2 className="text-3xl text-red-600">Please log in first to book a room.</h2>
@@ -137,10 +177,10 @@ export default function BookNow() {
           <div className="grid lg:grid-cols-3 gap-10">
             {/* Left Column: Room Details */}
             <div className="lg:col-span-2 h-[150vh] overflow-y-scroll scrollbar-hide pr-2">
-              <h2 className="text-5xl  text-[#af7b4f]">
+              <h2 className="text-5xl font-serif text-[#af7b4f]">
                 {selectedRoom ? `${selectedRoom.price} ₹ / Night` : "---"}
               </h2>
-              <h1 className="text-6xl  mt-5 mb-4">
+              <h1 className="text-6xl font-serif mt-5 mb-4">
                 {selectedRoom ? selectedRoom.roomName : "Select a Room Type"}
               </h1>
 
@@ -162,32 +202,32 @@ export default function BookNow() {
               </p>
 
               {/* Amenities */}
-              <h2 className="text-4xl  mb-8">Room Amenities</h2>
+              <h2 className="text-4xl font-serif mb-8">Room Amenities</h2>
               <div className="divide-y divide-gray-200 text-7xl mb-10">
                 <div className="grid grid-cols-3 gap-6 py-4">
                   <div className="flex items-center gap-5">
                     <img src="https://html.themewant.com/moonlit/assets/images/icon/wifi.svg" alt="Wifi" className="w-9 h-9" />
-                    <span className="text-2xl  text-gray-800">Free Wifi</span>
+                    <span className="text-2xl font-serif text-gray-800">Free Wifi</span>
                   </div>
                   <div className="flex items-center gap-5">
                     <img src="https://html.themewant.com/moonlit/assets/images/icon/shower.svg" alt="Shower" className="w-9 h-9" />
-                    <span className="text-xl  text-gray-800">Shower</span>
+                    <span className="text-xl font-serif text-gray-800">Shower</span>
                   </div>
                   <div className="flex items-center gap-5">
                     <img src="https://html.themewant.com/moonlit/assets/images/icon/aeroplane.svg" alt="Airport" className="w-9 h-9" />
-                    <span className="text-xl  text-gray-800">Airport Transport</span>
+                    <span className="text-xl font-serif text-gray-800">Airport Transport</span>
                   </div>
                 </div>
               </div>
 
               {/* Room Features */}
-              <h2 className="text-5xl  mb-6">Room Features</h2>
+              <h2 className="text-5xl font-serif mb-6">Room Features</h2>
               <img
                 src="https://html.themewant.com/moonlit/assets/images/pages/room/3.webp"
                 alt="Features"
                 className="rounded-md object-cover w-full h-140 mb-11"
               />
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-[19px]  text-gray-900 mb-10">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-[19px] font-serif text-gray-900 mb-10">
                 {["Children and extra beds", "Climate Control", "Art and Decor", "Coffee/Tea Maker", "High-End Bedding", "Smart Technology"].map((feature, i) => (
                   <div key={i} className="flex items-start gap-4">
                     <span className="mt-3 w-2 h-2 rounded-full bg-[#a1865e]"></span>
@@ -199,14 +239,14 @@ export default function BookNow() {
 
             {/* Right Column: Booking Sidebar */}
             <div className="bg-gray-100 rounded-lg p-6 shadow-sm h-fit min-h-[140vh]">
-              <h3 className="text-3xl text-center  text-gray-800 mb-7">
+              <h3 className="text-3xl text-center font-serif text-gray-800 mb-7">
                 Book Your Stay
               </h3>
 
               <form className="space-y-4 text-gray-700 text-xl" onSubmit={handleSubmit}>
                 {/* Dates */}
                 <div>
-                  <label className="block  mb-5">Check In</label>
+                  <label className="block font-serif mb-5">Check In</label>
                   <input
                     type="date"
                     value={checkIn}
@@ -230,7 +270,7 @@ export default function BookNow() {
                 {/* Room Selection */}
                 <div className="mt-5">
                   <label className="block font-medium mb-5">Room Type</label>
-                  <select
+                  {/* <select
                     value={selectedRoomId}
                     onChange={handleRoomTypeChange}
                     className="w-full border px-3 py-2 rounded outline-none bg-white text-xl"
@@ -241,7 +281,27 @@ export default function BookNow() {
                         {room.roomName} (₹{room.price})
                       </option>
                     ))}
-                  </select>
+                  </select> */}
+
+                  <select
+  value={selectedRoomId}
+  onChange={handleRoomTypeChange}
+  className="w-full border px-3 py-2 rounded outline-none bg-white text-xl"
+>
+  {rooms.length === 0 ? (
+    <option value="">No rooms available for selected dates</option>
+  ) : (
+    <>
+      <option value="">-- Choose Room Type --</option>
+      {rooms.map((room) => (
+        <option key={room._id} value={room._id}>
+          {room.roomName} (₹{room.price})
+        </option>
+      ))}
+    </>
+  )}
+</select>
+
                 </div>
 
                 {/* Guests */}
@@ -261,7 +321,7 @@ export default function BookNow() {
                 </div>
 
                 {/* Extra Services */}
-                <h4 className=" text-center text-3xl mt-10 mb-5">Extra Services</h4>
+                <h4 className="font-serif text-center text-3xl mt-10 mb-5">Extra Services</h4>
                 <div className="space-y-2">
                   {EXTRA_SERVICES.map((item, i) => (
                     <label key={i} className="flex justify-between text-xl mt-5">
@@ -280,7 +340,7 @@ export default function BookNow() {
                 </div>
 
                 {/* Total Price */}
-                <div className="flex text-2xl border-t pt-6 justify-between items-center  mt-8">
+                <div className="flex text-2xl border-t pt-6 justify-between items-center font-serif mt-8">
                   <span>Total Price</span>
                   <span className="text-[#af7b4f] font-bold">₹{calculateTotal()}</span>
                 </div>
@@ -304,9 +364,9 @@ export default function BookNow() {
       </section>
 
       {/* Similar Rooms Section */}
-      {/* <section className="bg-white pt-0 pb-16 px-4 sm:px-6 md:px-24">
-        <h4 className="text-yellow-800 text-base  mb-2">
-          <span className="flex items-center justify-center text-[#a8815e] gap-2 sm:gap-4 mb-5 sm:mb-10 text-lg sm:text-2xl ">
+      <section className="bg-white pt-0 pb-16 px-4 sm:px-6 md:px-24">
+        <h4 className="text-yellow-800 text-base font-serif mb-2">
+          <span className="flex items-center justify-center text-[#a8815e] gap-2 sm:gap-4 mb-5 sm:mb-10 text-lg sm:text-2xl font-serif">
             <span className="flex items-center">
               <span className="text-sm sm:text-lg">◇</span>
               <span className="w-6 sm:w-10 h-px bg-black"></span>
@@ -319,7 +379,7 @@ export default function BookNow() {
           </span>
         </h4>
 
-        <h2 className="text-4xl sm:text-5xl  text-center text-gray-900 mb-10">
+        <h2 className="text-4xl sm:text-5xl font-serif text-center text-gray-900 mb-10">
           Similar Rooms
         </h2>
 
@@ -329,10 +389,10 @@ export default function BookNow() {
             { name: "Single Room", Amt: "3999₹", img: "https://html.themewant.com/moonlit/assets/images/pages/room/2.webp" },
             { name: "Triple Room", Amt: "12999₹", img: "https://html.themewant.com/moonlit/assets/images/pages/room/3.webp" },
           ].map((member, index) => (
-            <div key={index} className=" border border-gray-300 rounded-xl overflow-hidden hover:shadow-xl transition duration-300">
+            <div key={index} className="font-serif border border-gray-300 rounded-xl overflow-hidden hover:shadow-xl transition duration-300">
               <img src={member.img} alt={member.name} className="w-full h-74 object-cover transition-transform duration-500 hover:scale-105" />
               <div className="p-4">
-                <h3 className="text-3xl ">{member.name}</h3>
+                <h3 className="text-3xl font-serif">{member.name}</h3>
                 <div className="flex items-center gap-10 mt-4 text-xl text-gray-500">
                   <span className="flex items-center gap-3"><i className="fa-solid fa-house"></i> 35 sqm</span>
                   <span className="flex items-center gap-3"><i className="fa-solid fa-user"></i> 5 Person</span>
@@ -345,7 +405,7 @@ export default function BookNow() {
             </div>
           ))}
         </div>
-      </section> */}
+      </section>
 
       <style>{`
         .scrollbar-hide { scrollbar-width: none; -ms-overflow-style: none; }
