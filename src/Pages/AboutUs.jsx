@@ -6,7 +6,7 @@ import image2 from "../assets/images/imgae-small.jpeg"
 import { FaPaw } from "react-icons/fa";
 import { GiRiver } from "react-icons/gi";
 import heroImg from "../assets/images/hero.jpeg";
-
+import aboutImage from "../assets/images/aboutimage.jpeg";
 
 export default function AboutUs() {
   const [team, setTeam] = useState([]);
@@ -157,9 +157,9 @@ At Waghera Agro Tourism, guests can experience the charm of farm life, enjoy loc
           {/* Right Image */}
           <div className="w-full">
             <img
-              src="https://html.themewant.com/moonlit/assets/images/index-3/facility.webp"
+              src={aboutImage}
               alt="Hotel"
-              className="rounded-md w-full shadow-md"
+              className="rounded-md w-full h-48 sm:h-64 md:h-200 shadow-md object-cover"
             />
           </div>
 
