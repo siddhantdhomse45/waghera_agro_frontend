@@ -329,7 +329,7 @@ export default function Header({ onSignInClick, onSignUpClick, bg, isLoggedIn: p
         </Link>
 
         {/* Desktop Buttons - Right Side */}
-        <div className="hidden lg:flex gap-3 font-semibold absolute right-24">
+        <div className="hidden lg:flex gap-3 text-sm font-semibold absolute right-24">
           {!isLoggedIn ? (
             <>
             
@@ -353,10 +353,10 @@ export default function Header({ onSignInClick, onSignUpClick, bg, isLoggedIn: p
                 localStorage.removeItem("token");
                 localStorage.removeItem("user");
                 setIsLoggedIn(false);
-                if (onLogout) onLogout();
-                else window.location.reload();
+                // Immediate redirect to home
+                window.location.href = "/";
               }}
-              className="cursor-pointer border border-gray-300 px-4 py-2 rounded hover:bg-red-500 hover:text-white"
+              className="cursor-pointer border border-gray-300 px-4 py-2 rounded hover:bg-yellow-700 hover:text-white"
             >
               Logout
             </button>
@@ -376,7 +376,7 @@ export default function Header({ onSignInClick, onSignUpClick, bg, isLoggedIn: p
   onClick={handleBookNowClick}
   className="cursor-pointer bg-[#af7b4f] text-white px-4 py-2 rounded hover:bg-yellow-800 transition duration-300"
 >
-  Book Now
+  BookNow
 </button>
 
           )}
@@ -388,7 +388,7 @@ export default function Header({ onSignInClick, onSignUpClick, bg, isLoggedIn: p
             onClick={handleBookNowClick}
             className="bg-yellow-700 text-white px-3 py-1 text-sm rounded hover:bg-yellow-800"
           >
-            Book Now
+            BookNow
           </button>
           <button
             className="text-3xl bg-yellow-700 text-white p-1 rounded"
@@ -484,8 +484,8 @@ export default function Header({ onSignInClick, onSignUpClick, bg, isLoggedIn: p
                   localStorage.removeItem("token");
                   localStorage.removeItem("user");
                   setIsLoggedIn(false);
-                  if (onLogout) onLogout();
-                  else window.location.reload();
+                  // Immediate redirect to home
+                  window.location.href = "/";
                 }}
                 className="cursor-pointer rounded-lg bg-gray-800 bg-opacity-50 px-4 py-3 hover:bg-yellow-700 hover:text-white transition text-center font-semibold"
               >
