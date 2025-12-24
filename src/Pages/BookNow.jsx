@@ -10,6 +10,7 @@
 
 import React, { useEffect, useState } from "react";
 import moment from "moment";
+import ScrollToTop from "../Components/ScrollToTop";
 import tentImage from "../assets/images/t.jpeg";
 import roomImage from "../assets/images/fr.jpeg";
 import mainImage from "../assets/images/main.jpeg";
@@ -54,9 +55,6 @@ const [isExtraBedSelected, setIsExtraBedSelected] = useState(false);
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) setUser(JSON.parse(storedUser));
-    
-    // Scroll to top when component mounts
-    window.scrollTo(0, 0);
   }, []);
 
   const selectedRoom = rooms.find((room) => room._id === selectedRoomId);
@@ -194,6 +192,7 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
 
   return (
     <div className="font-sanserif text-gray-800">
+      <ScrollToTop />
       {/* Hero Section */}
       <div
         className="relative bg-cover bg-center h-[250px] sm:h-[350px] md:h-[450px] lg:h-[600px] flex items-center justify-center mb-4"

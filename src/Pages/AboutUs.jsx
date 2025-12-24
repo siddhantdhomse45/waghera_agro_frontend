@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ClientSay from "../Components/ClientSay/ClientSay";
+import ScrollToTop from "../Components/ScrollToTop";
 import image from "../assets/images/about-us-small-image.jpeg"
 import image2 from "../assets/images/imgae-small.jpeg"
 import { FaPaw } from "react-icons/fa";
@@ -21,6 +22,7 @@ export default function AboutUs() {
 
   return (
     <div className=" text-gray-800">
+      <ScrollToTop />
 
       {/* Hero Section */}
       <div
