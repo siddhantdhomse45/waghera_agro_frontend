@@ -45,7 +45,8 @@ const [isCheckInSelected, setIsCheckInSelected] = useState(false);
 const [isRoomSelected, setIsRoomSelected] = useState(false);
 const [isAdultsSelected, setIsAdultsSelected] = useState(false);
 const [isChildrenSelected, setIsChildrenSelected] = useState(false);
-const [isExtraBedSelected, setIsExtraBedSelected] = useState(false);
+// const [isExtraBedSelected, setIsExtraBedSelected] = useState(false);
+
 
 
 
@@ -176,12 +177,14 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
         link.click();
         URL.revokeObjectURL(fileURL);
         setBookingStatus("success");
-        alert("Booking Successful! PDF Downloaded.");
+        alert(" For Booking confirmation! Call the following number: +91-9876543210 \n If you want to make online payment use \n  UPI-ID : ds5705386@okaxis   ");
+        window.location.href = "/";
       } else {
         const data = await response.json();
         if (!response.ok) throw new Error(data.message || "Error creating booking");
         setBookingStatus("success");
-        alert(data.message || "Booking successful!");
+        alert("For Booking confirmation! Call the following number: +91-9876543210 \n If you want to make online payment use\n UPI-ID : ds5705386@okaxis ");
+        window.location.href = "/";
       }
     } catch (error) {
       console.error("Booking Error:", error);
