@@ -14,7 +14,7 @@ import ScrollToTop from "../Components/ScrollToTop";
 import tentImage from "../assets/images/t.jpeg";
 import roomImage from "../assets/images/fr.jpeg";
 import mainImage from "../assets/images/main.jpeg";
-import rmainImage from "../assets/images/rmain.jpeg";
+import r1mainImage from "../assets/images/2222.png";
 
 
 
@@ -29,6 +29,7 @@ const EXTRA_SERVICES = [
 
 export default function BookNow() {
   const [rooms, setRooms] = useState([]);
+  const [allRooms, setAllRooms] = useState([]);
   const [selectedRoomId, setSelectedRoomId] = useState("");
   const [checkIn, setCheckIn] = useState(moment().format("YYYY-MM-DD"));
   const [checkOut, setCheckOut] = useState(moment().add(1, "days").format("YYYY-MM-DD"));
@@ -88,10 +89,24 @@ const [isChildrenSelected, setIsChildrenSelected] = useState(false);
 
 
   useEffect(() => {
-  if (checkIn && checkOut) {
-    fetchAvailableRooms(checkIn, checkOut);
-  }
-}, [checkIn, checkOut]);
+    // Fetch all rooms on component mount
+    fetchAllRooms();
+    if (checkIn && checkOut) {
+      fetchAvailableRooms(checkIn, checkOut);
+    }
+  }, [checkIn, checkOut]);
+
+  const fetchAllRooms = async () => {
+    try {
+      const response = await fetch("https://backend-waghera.onrender.com/api/admin/rooms");
+      if (response.ok) {
+        const data = await response.json();
+        setAllRooms(data);
+      }
+    } catch (error) {
+      console.error("Error fetching all rooms:", error);
+    }
+  };
  
 
 const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
@@ -142,7 +157,8 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
 
     if (!user || !user.id) return alert("Please log in first to book a room.");
     if (!selectedRoomId) return alert("Please select a room type.");
-    if (numNights <= 0) return alert("Check-out must be after check-in.");
+    if (!adults || adults < 1) return alert("At least 1 adult is required for booking.");
+    if (numNights < 0) return alert("Check-out must be on or after check-in.");
 
     setBookingStatus("loading");
 
@@ -194,16 +210,16 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
   };
 
   return (
-    <div className="font-sanserif text-gray-800">
+    <div className="text-gray-800">
       <ScrollToTop />
       {/* Hero Section */}
       <div
         className="relative bg-cover bg-center h-[250px] sm:h-[350px] md:h-[450px] lg:h-[600px] flex items-center justify-center mb-4"
-        style={{ backgroundImage: `url(${rmainImage})` }}
+        style={{ backgroundImage: `url(${r1mainImage})` }}
       ></div>
 
       {/* Booking & Room Info */}
-      <section className="bg-white px-2 py-2 sm:px-4 sm:py-4 md:px-24 font-serif">
+      <section className="bg-white px-2 py-2 sm:px-4 sm:py-4 md:px-24">
         {!user ? (
           <div className="text-center py-8 sm:py-12">
             <h2 className="text-3xl text-red-600 mb-6">Please log in first to book a room.</h2>
@@ -218,10 +234,10 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
           <div className="grid lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-10">
             {/* Left Column: Room Details */}
             <div className="lg:col-span-2 pr-1 sm:pr-2">
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-serif text-[#af7b4f]">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl text-[#af7b4f]">
                 {selectedRoom ? `${selectedRoom.price} ₹ / Night` : "---"}
               </h2>
-              <h1 className="text-3xl sm:text-4xl md:text-6xl font-serif mt-2 sm:mt-3 mb-2 sm:mb-3">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl mt-2 sm:mt-3 mb-2 sm:mb-3">
                 {selectedRoom ? selectedRoom.roomName : "Select a Room Type"}
               </h1>
 
@@ -243,32 +259,32 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
               </p>
 
               {/* Amenities */}
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif mb-4 sm:mb-6">Room Amenities</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6">Room Amenities</h2>
               <div className="divide-y divide-gray-200 mb-4 sm:mb-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 py-2 sm:py-3">
                   <div className="flex items-center gap-5">
                     <img src="https://html.themewant.com/moonlit/assets/images/icon/wifi.svg" alt="Wifi" className="w-9 h-9" />
-                    <span className="text-base sm:text-lg md:text-2xl font-serif text-gray-800">Free Wifi</span>
+                    <span className="text-base sm:text-lg md:text-2xl text-gray-800">Free Wifi</span>
                   </div>
                   <div className="flex items-center gap-5">
                     <img src="https://html.themewant.com/moonlit/assets/images/icon/shower.svg" alt="Shower" className="w-9 h-9" />
-                    <span className="text-base sm:text-lg md:text-xl font-serif text-gray-800">Shower</span>
+                    <span className="text-base sm:text-lg md:text-xl text-gray-800">Shower</span>
                   </div>
                   {/* <div className="flex items-center gap-5">
                     <img src="https://html.themewant.com/moonlit/assets/images/icon/aeroplane.svg" alt="Airport" className="w-9 h-9" />
-                    <span className="text-xl font-serif text-gray-800">Airport Transport</span>
+                    <span className="text-xl text-gray-800">Airport Transport</span>
                   </div> */}
                 </div>
               </div>
 
               {/* Room Features */}
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-serif mb-3 sm:mb-4">Room Features</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-5xl mb-3 sm:mb-4">Room Features</h2>
               <img
                 src={mainImage}
                 alt="Features"
                 className="rounded-md object-cover w-full h-40 sm:h-48 md:h-64 lg:h-100 mb-4 sm:mb-6"
               />
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 text-sm sm:text-base lg:text-[15px] font-serif text-gray-900 mb-4 sm:mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 text-sm sm:text-base lg:text-[15px] text-gray-900 mb-4 sm:mb-6">
                 {["Children and extra beds", "Climate Control", "Coffee/Tea Maker"].map((feature, i) => (
                   <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition-colors">
                     <div className="w-3 h-3 rounded-full bg-[#a1865e] flex-shrink-0"></div>
@@ -280,19 +296,21 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
 
             {/* Right Column: Booking Sidebar */}
             <div className="bg-gray-100 rounded-lg p-3 sm:p-4 md:p-6 shadow-sm h-fit">
-              <h3 className="text-xl sm:text-2xl md:text-3xl text-center font-serif text-gray-800 mb-4 sm:mb-5">
+              <h3 className="text-xl sm:text-2xl md:text-3xl text-center text-gray-800 mb-4 sm:mb-5">
                 Book Your Stay
               </h3>
 
               <form className="space-y-2 sm:space-y-3 text-gray-700 text-base sm:text-lg md:text-xl" onSubmit={handleSubmit}>
                 {/* Dates */}
                 <div>
-  <label className="block font-serif mb-2 sm:mb-3">Check In</label>
+  <label className="block font-medium mb-2 sm:mb-3">Check In</label>
   <input
     type="date"
     value={checkIn}
     min={moment().format("YYYY-MM-DD")}
-    onFocus={(e) => e.target.showPicker && e.target.showPicker()}
+    onClick={(e) => {
+      setTimeout(() => e.target.showPicker && e.target.showPicker(), 50);
+    }}
     className={`w-full border px-3 py-2 rounded outline-none bg-white text-base cursor-pointer
       ${isCheckInSelected ? " text-black" : "font-normal text-gray-400"}
     `}
@@ -309,8 +327,10 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
   <input
     type="date"
     value={checkOut}
-    min={moment(checkIn).add(1, "days").format("YYYY-MM-DD")}
-    onFocus={(e) => e.target.showPicker && e.target.showPicker()}
+    min={moment(checkIn).format("YYYY-MM-DD")}
+    onClick={(e) => {
+      setTimeout(() => e.target.showPicker && e.target.showPicker(), 50);
+    }}
     className={`w-full border px-3 py-2 rounded outline-none bg-white text-base cursor-pointer
       ${isCheckOutSelected ? " text-black" : "font-normal text-gray-400"}
     `}
@@ -329,24 +349,41 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
   <select
     value={selectedRoomId}
     onChange={(e) => {
-      setSelectedRoomId(e.target.value);
+      const roomId = e.target.value;
+      const isAvailable = rooms.some(room => room._id === roomId);
+      if (roomId && !isAvailable) {
+        alert("This room is not available for the selected dates");
+        return;
+      }
+      setSelectedRoomId(roomId);
       setIsRoomSelected(true);
-      handleRoomTypeChange(e); // keep your existing logic
+      handleRoomTypeChange(e);
     }}
     className={`w-full border px-3 py-2 rounded outline-none bg-white text-xl
       ${isRoomSelected ? " text-black" : "font-normal text-gray-400"}
     `}
   >
-    {rooms.length === 0 ? (
-      <option value="">No rooms available for selected dates</option>
+    {allRooms.length === 0 ? (
+      <option value="">Loading rooms...</option>
     ) : (
       <>
         <option value="">-- Choose Room Type --</option>
-        {rooms.map((room) => (
-          <option key={room._id} value={room._id}>
-            {room.roomName} (₹{room.price})
-          </option>
-        ))}
+        {allRooms.map((room) => {
+          const isAvailable = rooms.some(availableRoom => availableRoom._id === room._id);
+          return (
+            <option 
+              key={room._id} 
+              value={room._id}
+              style={{
+                color: isAvailable ? '#000' : '#ccc',
+                backgroundColor: isAvailable ? '#fff' : '#f5f5f5'
+              }}
+              disabled={!isAvailable}
+            >
+              {room.roomName} (₹{room.price}) {!isAvailable ? '- Not Available' : ''}
+            </option>
+          );
+        })}
       </>
     )}
   </select>
@@ -385,7 +422,7 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
         setIsAdultsSelected(true);
       }}
       className={`w-full border px-3 py-2 rounded outline-none bg-white text-base
-        ${isAdultsSelected ? "text-black" : "font-normal text-gray-400"}
+        ${isAdultsSelected ? " text-black" : "font-normal text-gray-400"}
       `}
     />
   </div>
@@ -455,14 +492,14 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
                 </div>
 
                 {/* Total Price */}
-                <div className="flex text-lg sm:text-xl md:text-2xl border-t pt-4 sm:pt-6 justify-between items-center font-serif mt-6 sm:mt-8">
+                <div className="flex text-lg sm:text-xl md:text-2xl border-t pt-4 sm:pt-6 justify-between items-center mt-6 sm:mt-8">
                   <span>Total Price</span>
                   <span className="text-[#af7b4f] font-bold">₹{calculateTotal()}</span>
                 </div>
 
                 <button
                   type="submit"
-                  disabled={bookingStatus === "loading" || !selectedRoomId || numNights <= 0}
+                  disabled={bookingStatus === "loading" || !selectedRoomId || numNights < 0}
                   className={`w-full mt-3 sm:mt-4 py-2 text-lg sm:text-xl md:text-2xl text-white font-medium rounded transition ${
                     bookingStatus === "loading" ? "bg-gray-500 cursor-not-allowed" : "bg-[#af7b4f] hover:bg-yellow-800"
                   }`}
@@ -480,8 +517,8 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
 
       {/* Similar Rooms Section */}
       <section className="bg-white pt-2 sm:pt-4 pb-6 sm:pb-8 px-2 sm:px-4 md:px-24">
-        <h4 className="text-yellow-800 text-base font-serif mb-2">
-          <span className="flex items-center justify-center text-[#a8815e] gap-1 sm:gap-2 md:gap-4 mb-3 sm:mb-5 md:mb-10 text-base sm:text-lg md:text-2xl font-serif">
+        <h4 className="text-yellow-800 text-base mb-2">
+          <span className="flex items-center justify-center text-[#a8815e] gap-1 sm:gap-2 md:gap-4 mb-3 sm:mb-5 md:mb-10 text-base sm:text-lg md:text-2xl">
             <span className="flex items-center">
               <span className="text-sm sm:text-lg">◇</span>
               <span className="w-6 sm:w-10 h-px bg-black"></span>
@@ -494,7 +531,7 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
           </span>
         </h4>
 
-        <h2 className="text-2xl sm:text-4xl md:text-5xl font-serif text-center text-gray-900 mb-6 sm:mb-8 md:mb-10">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl text-center text-gray-900 mb-6 sm:mb-8 md:mb-10">
           Similar Rooms
         </h2>
 
@@ -504,10 +541,10 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
             { name: "Tent", img: tentImage },
             // { name: "Triple Room", Amt: "12999₹", img: "https://html.themewant.com/moonlit/assets/images/t" },
           ].map((member, index) => (
-            <div key={index} className="font-serif border border-gray-300 rounded-xl overflow-hidden hover:shadow-xl transition duration-300">
+            <div key={index} className="border border-gray-300 rounded-xl overflow-hidden hover:shadow-xl transition duration-300">
               <img src={member.img} alt={member.name} className="w-full h-48 sm:h-64 md:h-74 object-cover transition-transform duration-500 hover:scale-105" />
               <div className="p-3 sm:p-4">
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-serif">{member.name}</h3>
+                <h3 className="text-xl sm:text-2xl md:text-3xl">{member.name}</h3>
                 <div className="flex items-center gap-6 sm:gap-8 md:gap-10 mt-3 sm:mt-4 text-base sm:text-lg md:text-xl text-gray-500">
                   {/* <span className="flex items-center gap-3"><i className="fa-solid fa-house"></i> 35 sqm</span> */}
                   {/* <span className="flex items-center gap-3"><i className="fa-solid fa-user"></i> 5 Person</span> */}
