@@ -153,8 +153,8 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import Booking from "../Booking/Booking";
-import hero from "../../assets/images/hero.jpeg"
-import hero1 from "../../assets/images/hero1.jpeg"
+import hero from "../../assets/images/image1.png"
+import hero1 from "../../assets/images/image.png"
 import hero2 from "../../assets/images/hero2.jpeg"
 export default function HeroSlider() {
   const swiperRef = useRef(null);
