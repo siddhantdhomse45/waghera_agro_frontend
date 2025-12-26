@@ -102,7 +102,7 @@ export default function FollowInstagram() {
             src={selectedImage}
             alt="Preview"
             onClick={(e) => e.stopPropagation()} // ❌ prevent close
-            className="max-w-[90%] max-h-[90%] rounded-lg"
+            // className="max-w-[90%] max-h-[90%] rounded-lg"
           />
 
         </div>

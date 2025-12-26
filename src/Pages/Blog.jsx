@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AiFillStar } from "react-icons/ai";
 import axios from "axios";
+import ScrollToTop from "../Components/ScrollToTop";
 import blog from "../../src/assets/images/blog.jpeg";
 import room from "../../src/assets/images/room1.jpeg";
 import tent from "../../src/assets/images/tent.jpeg";
@@ -239,6 +240,7 @@ const Blog = () => {
 
   return (
     <div className=" text-gray-800 bg-gray-50">
+      <ScrollToTop />
             {/* HERO SECTION (omitted for brevity) */}     {" "}
       <div
         className="relative h-[600px] md:h-[700px] flex items-center justify-center bg-cover bg-center"

@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from "react";
+import ScrollToTop from "../Components/ScrollToTop";
 import ClientSay from "../Components/ClientSay/ClientSay";
 import activities1 from "../../src/assets/images/activities.jpeg"
 
@@ -15,6 +16,7 @@ const Activities = () => {
 
   return (
     <div className="text-gray-800">
+      <ScrollToTop />
       {/* ================= HERO SECTION ================= */}
       <div
         className="relative bg-cover bg-center h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center"

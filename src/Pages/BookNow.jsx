@@ -294,7 +294,7 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
     min={moment().format("YYYY-MM-DD")}
     onFocus={(e) => e.target.showPicker && e.target.showPicker()}
     className={`w-full border px-3 py-2 rounded outline-none bg-white text-base cursor-pointer
-      ${isCheckInSelected ? "font-bold text-black" : "font-normal text-gray-400"}
+      ${isCheckInSelected ? " text-black" : "font-normal text-gray-400"}
     `}
     onChange={(e) => {
       setCheckIn(e.target.value);
@@ -312,7 +312,7 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
     min={moment(checkIn).add(1, "days").format("YYYY-MM-DD")}
     onFocus={(e) => e.target.showPicker && e.target.showPicker()}
     className={`w-full border px-3 py-2 rounded outline-none bg-white text-base cursor-pointer
-      ${isCheckOutSelected ? "font-bold text-black" : "font-normal text-gray-400"}
+      ${isCheckOutSelected ? " text-black" : "font-normal text-gray-400"}
     `}
     onChange={(e) => {
       setCheckOut(e.target.value);
@@ -334,7 +334,7 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
       handleRoomTypeChange(e); // keep your existing logic
     }}
     className={`w-full border px-3 py-2 rounded outline-none bg-white text-xl
-      ${isRoomSelected ? "font-bold text-black" : "font-normal text-gray-400"}
+      ${isRoomSelected ? " text-black" : "font-normal text-gray-400"}
     `}
   >
     {rooms.length === 0 ? (
@@ -385,7 +385,7 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
         setIsAdultsSelected(true);
       }}
       className={`w-full border px-3 py-2 rounded outline-none bg-white text-base
-        ${isAdultsSelected ? "font-bold text-black" : "font-normal text-gray-400"}
+        ${isAdultsSelected ? "text-black" : "font-normal text-gray-400"}
       `}
     />
   </div>
@@ -410,7 +410,7 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
         setIsChildrenSelected(true);
       }}
       className={`w-full border px-3 py-2 rounded outline-none bg-white text-base
-        ${isChildrenSelected ? "font-bold text-black" : "font-normal text-gray-400"}
+        ${isChildrenSelected ? " text-black" : "font-normal text-gray-400"}
       `}
     />
   </div>

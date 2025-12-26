@@ -3,6 +3,7 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
+import ScrollToTop from "../Components/ScrollToTop";
 
 export default function Events() {
 
@@ -42,6 +43,7 @@ export default function Events() {
 
   return (
     <div className=" text-gray-800">
+      <ScrollToTop />
 
       {/* HERO SECTION */}
       <div

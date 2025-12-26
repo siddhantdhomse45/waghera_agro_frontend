@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Mail, Phone, MapPin, Clock, Contact } from "lucide-react";
+import ScrollToTop from "../Components/ScrollToTop";
 import map from "../../src/assets/images/map.jpg";
+
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -57,6 +59,7 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen w-full bg-gray-50">
+      <ScrollToTop />
 
       {/* ================= HERO SECTION ================= */}
       <section className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] flex items-center justify-center">

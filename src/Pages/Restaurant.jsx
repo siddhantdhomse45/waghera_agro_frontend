@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
+import ScrollToTop from "../Components/ScrollToTop";
 import img7 from "../assets/images/img7.png"; // fallback image
 
 /* --------------------------- DATA --------------------------- */
@@ -106,6 +107,7 @@ export default function Restaurant() {
 
   return (
     <div className="font-sans text-gray-800">
+      <ScrollToTop />
       {/* -------------------- HERO SECTION -------------------- */}
       <div
   className="relative bg-cover bg-center h-[800px] flex items-center justify-center"

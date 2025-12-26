@@ -1,4 +1,5 @@
 import React from "react";
+import ScrollToTop from "../Components/ScrollToTop";
 import Hero from "../Components/Hero/Hero";
 import Hotel from "../Components/HotelSection/Hotel";
 import Facility from "../Components/Facility/Facility"
@@ -11,6 +12,7 @@ import FollowInstagram from "../Components/FollowInstagram/FollowInstagram";
 export default function Home() {
   return (
     <div>
+      <ScrollToTop />
       <Hero />
       <Hotel/>
       <Facility/>

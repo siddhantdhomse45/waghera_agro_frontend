@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import ScrollToTop from "../Components/ScrollToTop";
 import gallery from "../assets/images/gallery.jpeg";
 
 const Gallery = () => {
@@ -35,6 +36,7 @@ const Gallery = () => {
 
   return (
     <div className="pt-24">
+      <ScrollToTop />
 
       {/* ---------------- HERO ---------------- */}
       <div
