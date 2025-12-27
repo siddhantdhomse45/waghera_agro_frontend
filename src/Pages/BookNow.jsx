@@ -304,41 +304,97 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
                 {/* Dates */}
                 <div>
   <label className="block font-medium mb-2 sm:mb-3">Check In</label>
-  <input
-    type="date"
-    value={checkIn}
-    min={moment().format("YYYY-MM-DD")}
-    onClick={(e) => {
-      setTimeout(() => e.target.showPicker && e.target.showPicker(), 50);
-    }}
-    className={`w-full border px-3 py-2 rounded outline-none bg-white text-base cursor-pointer
-      ${isCheckInSelected ? " text-black" : "font-normal text-gray-400"}
-    `}
-    onChange={(e) => {
-      setCheckIn(e.target.value);
-      setIsCheckInSelected(true);
-    }}
-  />
+  <div className="relative">
+    <input
+      type="date"
+      value={checkIn}
+      min={moment().format("YYYY-MM-DD")}
+      onClick={(e) => {
+        setTimeout(() => e.target.showPicker && e.target.showPicker(), 50);
+      }}
+      className={`w-full border px-3 py-2 pr-12 rounded outline-none bg-white text-base cursor-pointer
+        ${isCheckInSelected ? " text-black" : "font-normal text-gray-400"}
+      `}
+      onChange={(e) => {
+        setCheckIn(e.target.value);
+        setIsCheckInSelected(true);
+      }}
+    />
+    <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex flex-col">
+      <button
+        type="button"
+        onClick={() => {
+          const newDate = moment(checkIn).add(1, 'day').format('YYYY-MM-DD');
+          setCheckIn(newDate);
+          setIsCheckInSelected(true);
+        }}
+        className="text-gray-500 hover:text-gray-700 text-xs leading-none"
+      >
+        ▲
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          const newDate = moment(checkIn).subtract(1, 'day').format('YYYY-MM-DD');
+          if (moment(newDate).isSameOrAfter(moment().format('YYYY-MM-DD'))) {
+            setCheckIn(newDate);
+            setIsCheckInSelected(true);
+          }
+        }}
+        className="text-gray-500 hover:text-gray-700 text-xs leading-none"
+      >
+        ▼
+      </button>
+    </div>
+  </div>
 </div>
 
 
                <div>
   <label className="block font-medium mb-2 sm:mb-3 mt-2 sm:mt-3">Check Out</label>
-  <input
-    type="date"
-    value={checkOut}
-    min={moment(checkIn).format("YYYY-MM-DD")}
-    onClick={(e) => {
-      setTimeout(() => e.target.showPicker && e.target.showPicker(), 50);
-    }}
-    className={`w-full border px-3 py-2 rounded outline-none bg-white text-base cursor-pointer
-      ${isCheckOutSelected ? " text-black" : "font-normal text-gray-400"}
-    `}
-    onChange={(e) => {
-      setCheckOut(e.target.value);
-      setIsCheckOutSelected(true);
-    }}
-  />
+  <div className="relative">
+    <input
+      type="date"
+      value={checkOut}
+      min={moment(checkIn).format("YYYY-MM-DD")}
+      onClick={(e) => {
+        setTimeout(() => e.target.showPicker && e.target.showPicker(), 50);
+      }}
+      className={`w-full border px-3 py-2 pr-12 rounded outline-none bg-white text-base cursor-pointer
+        ${isCheckOutSelected ? " text-black" : "font-normal text-gray-400"}
+      `}
+      onChange={(e) => {
+        setCheckOut(e.target.value);
+        setIsCheckOutSelected(true);
+      }}
+    />
+    <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex flex-col">
+      <button
+        type="button"
+        onClick={() => {
+          const newDate = moment(checkOut).add(1, 'day').format('YYYY-MM-DD');
+          setCheckOut(newDate);
+          setIsCheckOutSelected(true);
+        }}
+        className="text-gray-500 hover:text-gray-700 text-xs leading-none"
+      >
+        ▲
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          const newDate = moment(checkOut).subtract(1, 'day').format('YYYY-MM-DD');
+          if (moment(newDate).isSameOrAfter(moment(checkIn).format('YYYY-MM-DD'))) {
+            setCheckOut(newDate);
+            setIsCheckOutSelected(true);
+          }
+        }}
+        className="text-gray-500 hover:text-gray-700 text-xs leading-none"
+      >
+        ▼
+      </button>
+    </div>
+  </div>
 </div>
 
 
