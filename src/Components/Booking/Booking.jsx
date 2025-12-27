@@ -7,9 +7,9 @@ import { useNavigate } from "react-router-dom";
 
 const Booking = () => {
   const navigate = useNavigate();
-const checkInRef = useRef(null);
-const checkOutRef = useRef(null);
-const [childrenWarning, setChildrenWarning] = useState("");
+  const checkInRef = useRef(null);
+  const checkOutRef = useRef(null);
+  const [childrenWarning, setChildrenWarning] = useState("");
 
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
@@ -95,41 +95,41 @@ const [childrenWarning, setChildrenWarning] = useState("");
       },
     });
   };
-const handleChildrenChange = (e) => {
-  const value = e.target.value;
+  const handleChildrenChange = (e) => {
+    const value = e.target.value;
 
-  // allow empty while typing
-  if (value === "") {
-    setChildren("");
-    setChildAges([]);
+    // allow empty while typing
+    if (value === "") {
+      setChildren("");
+      setChildAges([]);
+      setChildrenWarning("");
+      return;
+    }
+
+    const num = Number(value);
+
+    // ❌ block invalid numbers
+    if (isNaN(num) || num < 0) {
+      return;
+    }
+
+    // ⚠️ show warning if above 5
+    if (num > 5) {
+      setChildrenWarning("Maximum 5 children allowed.");
+      return;
+    }
+
+    // ✅ valid value
+    setChildren(num);
     setChildrenWarning("");
-    return;
-  }
 
-  const num = Number(value);
-
-  // ❌ block invalid numbers
-  if (isNaN(num) || num < 0) {
-    return;
-  }
-
-  // ⚠️ show warning if above 5
-  if (num > 5) {
-    setChildrenWarning("Maximum 5 children allowed.");
-    return;
-  }
-
-  // ✅ valid value
-  setChildren(num);
-  setChildrenWarning("");
-
-  // sync child ages
-  if (num > 0) {
-    setChildAges(Array(num).fill(""));
-  } else {
-    setChildAges([]);
-  }
-};
+    // sync child ages
+    if (num > 0) {
+      setChildAges(Array(num).fill(""));
+    } else {
+      setChildAges([]);
+    }
+  };
 
 
   const handleChildAgeChange = (index, value) => {
@@ -148,54 +148,54 @@ const handleChildrenChange = (e) => {
         >
           {/* Check In */}
           <div>
-  <label className="block font-medium mb-1">Check In</label>
+            <label className="block font-medium mb-1">Check In</label>
 
-  <div
-    className="flex items-center gap-2 border px-3 py-2 rounded-md cursor-pointer"
-    onClick={() => {
-      checkInRef.current?.focus();
-      checkInRef.current?.showPicker?.();
-    }}
-  >
-    <FaCalendarAlt />
+            <div
+              className="flex items-center gap-2 border px-3 py-2 rounded-md cursor-pointer"
+              onClick={() => {
+                checkInRef.current?.focus();
+                checkInRef.current?.showPicker?.();
+              }}
+            >
+              <FaCalendarAlt />
 
-    <input
-      ref={checkInRef}
-      type="date"
-      value={checkIn}
-      min={new Date().toISOString().split("T")[0]}
-      onChange={(e) => setCheckIn(e.target.value)}
-      className="w-full outline-none cursor-pointer"
-      required
-    />
-  </div>
-</div>
+              <input
+                ref={checkInRef}
+                type="date"
+                value={checkIn}
+                min={new Date().toISOString().split("T")[0]}
+                onChange={(e) => setCheckIn(e.target.value)}
+                className="w-full outline-none cursor-pointer"
+                required
+              />
+            </div>
+          </div>
 
 
           {/* Check Out */}
-        <div>
-  <label className="block font-medium mb-1">Check Out</label>
+          <div>
+            <label className="block font-medium mb-1">Check Out</label>
 
-  <div
-    className="flex items-center gap-2 border px-3 py-2 rounded-md cursor-pointer"
-    onClick={() => {
-      checkOutRef.current?.focus();
-      checkOutRef.current?.showPicker?.();
-    }}
-  >
-    <FaCalendarAlt />
+            <div
+              className="flex items-center gap-2 border px-3 py-2 rounded-md cursor-pointer"
+              onClick={() => {
+                checkOutRef.current?.focus();
+                checkOutRef.current?.showPicker?.();
+              }}
+            >
+              <FaCalendarAlt />
 
-    <input
-      ref={checkOutRef}
-      type="date"
-      value={checkOut}
-      min={checkIn}
-      onChange={(e) => setCheckOut(e.target.value)}
-      className="w-full outline-none cursor-pointer"
-      required
-    />
-  </div>
-</div>
+              <input
+                ref={checkOutRef}
+                type="date"
+                value={checkOut}
+                min={checkIn}
+                onChange={(e) => setCheckOut(e.target.value)}
+                className="w-full outline-none cursor-pointer"
+                required
+              />
+            </div>
+          </div>
 
 
           {/* Adults */}
@@ -215,62 +215,64 @@ const handleChildrenChange = (e) => {
           </div>
 
           {/* Children */}
-         <div>
-  <label className="block font-medium mb-1">Children</label>
+          <div>
+            <label className="block font-medium mb-1">Children</label>
 
-  <div className="flex items-center gap-2 border px-3 py-2 rounded-md">
-    <FaUser />
-    <input
-      type="number"
-      min="0"
-      max="5"
-      value={children}
-      onChange={handleChildrenChange}
-      className="w-full outline-none"
-      required
-    />
-  </div>
+            <div className="flex items-center gap-2 border px-3 py-2 rounded-md">
+              <FaUser />
+              <input
+                type="number"
+                min="0"
+                max="5"
+                value={children}
+                onChange={handleChildrenChange}
+                className="w-full outline-none"
+                required
+              />
+            </div>
 
-  {childrenWarning && (
-    <p className="text-red-500 text-sm mt-1">
-      {childrenWarning}
-    </p>
-  )}
-</div>
+            {childrenWarning && (
+              <p className="text-red-500 text-sm mt-1">
+                {childrenWarning}
+              </p>
+            )}
+          </div>
 
 
           {/* Search */}
-     {/* Child Ages */}
-{Number(children) > 0 && (
-  <div className="md:col-span-5">
-    <label className="block font-medium mb-2">Child Ages</label>
-    <div className="flex flex-wrap gap-3">
-      {childAges.map((age, index) => (
-        <input
-          key={index}
-          type="number"
-          min="1"
-          max="17"
-          value={age}
-          onChange={(e) => handleChildAgeChange(index, e.target.value)}
-          className="w-20 border px-3 py-2 rounded-md outline-none"
-          placeholder={`Age ${index + 1}`}
-        />
-      ))}
-    </div>
-  </div>
-)}
+          {/* Child Ages */}
+          {Number(children) > 0 && (
+            <div className="md:col-span-5">
+              <label className="block font-medium mb-2">Child Ages</label>
+              <div className="flex flex-wrap gap-3">
+                {childAges.map((age, index) => (
+                  <input
+                    key={index}
+                    type="number"
+                    min="1"
+                    max="17"
+                    value={age}
+                    onChange={(e) => handleChildAgeChange(index, e.target.value)}
+                    className="w-20 border px-3 py-2 rounded-md outline-none"
+                    placeholder={`Age ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
 
-{/* Search */}
-<div className="flex items-end">
+          {/* Search */}
+          <div className="flex items-end">
   <button
     type="submit"
     disabled={loading}
-    className="w-full bg-[#a8815e] text-white px-6 py-3 rounded-md hover:bg-[#916c49]"
+    className="w-full h-11 bg-[#a8815e] text-white px-6 py-3 rounded-md 
+               hover:bg-[#916c49] flex items-center justify-center h-10"
   >
     {loading ? "Searching..." : "Search"}
   </button>
 </div>
+
 
 
           {error && (

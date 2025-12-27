@@ -302,6 +302,10 @@ const Rooms = () => {
     type: "",
     price: "",
     status: "AVAILABLE",
+    description: "",
+    capacity: "",
+    amenities: "",
+    images: "",
   };
 
   const [formData, setFormData] = useState(emptyRoom);
