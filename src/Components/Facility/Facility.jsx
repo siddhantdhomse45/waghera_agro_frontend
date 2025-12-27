@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaBed, FaUserShield, FaDumbbell, FaSwimmingPool } from 'react-icons/fa';
 import { FaPaw } from "react-icons/fa";
 import { GiRiver } from "react-icons/gi";
+import { FaArrowRight } from 'react-icons/fa';
 
 
 
@@ -42,6 +43,13 @@ const facilities = [
 ];
 
 export default function facility() {
+  const [hoveredCard, setHoveredCard] = useState(null);
+
+  const handleCardClick = (facility) => {
+    console.log('Facility clicked:', facility.title);
+    // Add your click functionality here (e.g., navigate to detail page, open modal, etc.)
+  };
+
   return (
     <div className="bg-gray-100 py-16 mt-20">
   <div className="text-center mb-12">
@@ -65,15 +73,33 @@ export default function facility() {
     {facilities.map((facility, index) => (
       <div
         key={index}
-        className="bg-white rounded-lg shadow-md p-10 min-h-[280px] w-full max-w-[420px] mx-auto text-center hover:shadow-xl transition-shadow duration-300"
+        className="bg-white rounded-lg shadow-md p-10 min-h-[280px] w-full max-w-[420px] mx-auto text-center hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer group relative overflow-hidden"
+        onMouseEnter={() => setHoveredCard(index)}
+        onMouseLeave={() => setHoveredCard(null)}
+        onClick={() => handleCardClick(facility)}
       >
-        {facility.icon}
-        <h3 className="text-xl mt-5 font-medium text-black mb-2">
-          {facility.title}
-        </h3>
-        <p className="text-gray-600 text-sm mt-5">
-          {facility.description}
-        </p>
+        {/* Hover overlay */}
+        <div className={`absolute inset-0 bg-[#af7b4f] opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
+        
+        <div className="relative z-10">
+          <div className="transform group-hover:scale-110 transition-transform duration-300">
+            {facility.icon}
+          </div>
+          <h3 className="text-xl mt-5 font-medium text-black mb-2 group-hover:text-[#af7b4f] transition-colors duration-300">
+            {facility.title}
+          </h3>
+          <p className="text-gray-600 text-sm mt-5 group-hover:text-gray-700 transition-colors duration-300">
+            {facility.description}
+          </p>
+          
+          {/* Learn More button - appears on hover */}
+          <div className={`mt-6 transform transition-all duration-300 ${hoveredCard === index ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+            <button className="inline-flex items-center gap-2 text-[#af7b4f] font-medium hover:text-[#8b6240] transition-colors duration-200">
+              Learn More
+              <FaArrowRight className="text-sm" />
+            </button>
+          </div>
+        </div>
       </div>
     ))}
   </div>
