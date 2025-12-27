@@ -93,12 +93,12 @@ export default function facility() {
           </p>
           
           {/* Learn More button - appears on hover */}
-          <div className={`mt-6 transform transition-all duration-300 ${hoveredCard === index ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+          {/* <div className={`mt-6 transform transition-all duration-300 ${hoveredCard === index ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
             <button className="inline-flex items-center gap-2 text-[#af7b4f] font-medium hover:text-[#8b6240] transition-colors duration-200">
               Learn More
               <FaArrowRight className="text-sm" />
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     ))}

@@ -312,7 +312,7 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
       onClick={(e) => {
         setTimeout(() => e.target.showPicker && e.target.showPicker(), 50);
       }}
-      className={`w-full border px-3 py-2 pr-12 rounded outline-none bg-white text-base cursor-pointer
+      className={`w-full border px-3 py-2 rounded outline-none bg-white text-base cursor-pointer
         ${isCheckInSelected ? " text-black" : "font-normal text-gray-400"}
       `}
       onChange={(e) => {
@@ -320,32 +320,6 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
         setIsCheckInSelected(true);
       }}
     />
-    <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex flex-col">
-      <button
-        type="button"
-        onClick={() => {
-          const newDate = moment(checkIn).add(1, 'day').format('YYYY-MM-DD');
-          setCheckIn(newDate);
-          setIsCheckInSelected(true);
-        }}
-        className="text-gray-500 hover:text-gray-700 text-xs leading-none"
-      >
-        ▲
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          const newDate = moment(checkIn).subtract(1, 'day').format('YYYY-MM-DD');
-          if (moment(newDate).isSameOrAfter(moment().format('YYYY-MM-DD'))) {
-            setCheckIn(newDate);
-            setIsCheckInSelected(true);
-          }
-        }}
-        className="text-gray-500 hover:text-gray-700 text-xs leading-none"
-      >
-        ▼
-      </button>
-    </div>
   </div>
 </div>
 
@@ -360,7 +334,7 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
       onClick={(e) => {
         setTimeout(() => e.target.showPicker && e.target.showPicker(), 50);
       }}
-      className={`w-full border px-3 py-2 pr-12 rounded outline-none bg-white text-base cursor-pointer
+      className={`w-full border px-3 py-2 rounded outline-none bg-white text-base cursor-pointer
         ${isCheckOutSelected ? " text-black" : "font-normal text-gray-400"}
       `}
       onChange={(e) => {
@@ -368,39 +342,13 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
         setIsCheckOutSelected(true);
       }}
     />
-    <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex flex-col">
-      <button
-        type="button"
-        onClick={() => {
-          const newDate = moment(checkOut).add(1, 'day').format('YYYY-MM-DD');
-          setCheckOut(newDate);
-          setIsCheckOutSelected(true);
-        }}
-        className="text-gray-500 hover:text-gray-700 text-xs leading-none"
-      >
-        ▲
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          const newDate = moment(checkOut).subtract(1, 'day').format('YYYY-MM-DD');
-          if (moment(newDate).isSameOrAfter(moment(checkIn).format('YYYY-MM-DD'))) {
-            setCheckOut(newDate);
-            setIsCheckOutSelected(true);
-          }
-        }}
-        className="text-gray-500 hover:text-gray-700 text-xs leading-none"
-      >
-        ▼
-      </button>
-    </div>
   </div>
 </div>
 
 
                 {/* Room Selection */}
                 <div className="mt-2 sm:mt-3">
-  <label className="block font-medium mb-2 sm:mb-3">Room Type</label>
+  <label className="block font-medium mb-2 sm:mb-3 text-base sm:text-lg md:text-xl">Room Type</label>
 
   <select
     value={selectedRoomId}
@@ -415,7 +363,7 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
       setIsRoomSelected(true);
       handleRoomTypeChange(e);
     }}
-    className={`w-full border px-3 py-2 rounded outline-none bg-white text-xl
+    className={`w-full border px-3 py-2 rounded outline-none bg-white text-base sm:text-lg
       ${isRoomSelected ? " text-black" : "font-normal text-gray-400"}
     `}
   >
