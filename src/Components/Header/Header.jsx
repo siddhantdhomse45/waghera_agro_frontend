@@ -133,6 +133,19 @@ export default function Header({ onSignInClick, onSignUpClick, bg, isLoggedIn: p
     }
   }, [loading]);
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isPagesOpen && !event.target.closest('.amenities-dropdown')) {
+        setIsPagesOpen(false);
+        setIsPagesClicked(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isPagesOpen]);
+
   return (
     <header className="w-full fixed top-0 left-0 z-50">
       {/* Top Header */}
@@ -229,13 +242,7 @@ export default function Header({ onSignInClick, onSignUpClick, bg, isLoggedIn: p
  */}
 
           <li
-            className="relative cursor-pointer"
-            onMouseEnter={() => {
-              if (!isPagesClicked) setIsPagesOpen(true);
-            }}
-            onMouseLeave={() => {
-              if (!isPagesClicked) setIsPagesOpen(false);
-            }}
+            className="relative cursor-pointer amenities-dropdown"
           >
             {/* Clickable trigger */}
             <div

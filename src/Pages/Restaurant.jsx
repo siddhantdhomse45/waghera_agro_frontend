@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
 import ScrollToTop from "../Components/ScrollToTop";
+import ClientSay from "../Components/ClientSay/ClientSay";
 import img7 from "../assets/images/img7.png"; // fallback image
 
 /* --------------------------- DATA --------------------------- */
@@ -276,29 +277,7 @@ export default function Restaurant() {
       </section> */}
 
       {/* -------------------- TESTIMONIAL SECTION -------------------- */}
-      <section className="py-24 px-4 md:px-24 bg-[#faf7f2]">
-        <div className="text-center mb-12">
-          <span className="text-[#a1865e] text-2xl  mb-4 flex justify-center items-center gap-4">
-            <span className="w-10 h-px bg-black" />
-            Testimonials
-            <span className="w-10 h-px bg-black" />
-          </span>
-          <h2 className="text-3xl ">What Our Customers Say</h2>
-        </div>
-
-        <div className="flex flex-col md:flex-row gap-10 items-center justify-center max-w-5xl mx-auto">
-          <img
-            src={testimonial.image}
-            className="w-40 h-40 rounded-full object-cover"
-            alt={testimonial.name}
-          />
-          <div>
-            <p className="text-xl text-gray-600 mb-4">{testimonial.message}</p>
-            <h4 className="text-2xl ">{testimonial.name}</h4>
-            <p className="text-gray-500">{testimonial.role}</p>
-          </div>
-        </div>
-      </section>
+      <ClientSay />
     </div>
   );
 }

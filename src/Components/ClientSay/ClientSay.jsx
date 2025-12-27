@@ -1,13 +1,27 @@
 import React, { useState } from "react";
-
+import image1 from "../../assets/images/c1.jpeg";
+import image2 from "../../assets/images/c2.jpeg";
 const testimonials = [
+  {
+    name: "Prasad Langhe",
+    // role: "COO of Apex Solutions",
+    message:
+      "Waghera Agro Tourism delivers exceptional hospitality with warmth, innovation, and attention to detail. A truly memorable experience",
+    image: image1,
+  },
+  // {
+  //   name: "Sadanand Belote",
+  //   // role: "COO of Apex Solutions",
+  //   message:
+  //     "Waghera Agro Tourism delivers exceptional hospitality with warmth, innovation, and attention to detail. A truly memorable experience",
+  //   image: image2,
+  // },
   {
     name: "Samir Zagade",
     // role: "COO of Apex Solutions",
     message:
       "Waghera Agro Tourism delivers exceptional hospitality with warmth, innovation, and attention to detail. A truly memorable experience",
-    image:
-      "https://i.pinimg.com/736x/7f/bb/2a/7fbb2ae1508485fee8fcec11669fc30e.jpg",
+    image: "https://i.pinimg.com/736x/7f/bb/2a/7fbb2ae1508485fee8fcec11669fc30e.jpg",
   },
   {
     name: "Suhas Lambe",
@@ -16,6 +30,13 @@ const testimonials = [
       "Waghera Agro Tourism offers a perfect blend of comfort and nature. Great hospitality, peaceful surroundings, and a truly authentic rural experience. Highly recommended.",
     image:
       "https://i.pinimg.com/736x/7f/b8/61/7fb861a3d553131346cc57345fd54aca.jpg",
+  },
+    {
+    name: "Sadanand Belote",
+    // role: "COO of Apex Solutions",
+    message:
+      "Waghera Agro Tourism delivers exceptional hospitality with warmth, innovation, and attention to detail. A truly memorable experience",
+    image: image2,
   },
 ];
 
