@@ -1,7 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AdminNavbar = ({ onMenuClick }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('adminToken');
+    localStorage.removeItem('adminUser');
+    navigate('/admin-login');
+  };
   return (
     <nav className="fixed top-0 left-0 right-0 z-40 bg-[#a8815e] shadow-md">
       <div className="flex items-center justify-between px-4 sm:px-6 py-3">
@@ -26,7 +33,7 @@ const AdminNavbar = ({ onMenuClick }) => {
             </svg>
           </button>
 
-          <Link to="/admin/dashboard" className="text-xl font-semibold text-white">
+          <Link to="/admin/dashboard" className="text-white font-bold text-xl">
             Admin Panel
           </Link>
         </div>
@@ -58,6 +65,12 @@ const AdminNavbar = ({ onMenuClick }) => {
             <span className="hidden md:block font-medium text-white">
               Admin User
             </span>
+            <button
+              onClick={handleLogout}
+              className="ml-3 bg-yellow-700 hover:bg-yellow-700 text-white px-3 py-1 rounded text-sm transition"
+            >
+              Logout
+            </button>
           </div>
         </div>
       </div>

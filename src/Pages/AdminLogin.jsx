@@ -4,17 +4,36 @@ import { useNavigate } from 'react-router-dom';
 const AdminLogin = () => {
   const [credentials, setCredentials] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError('');
     
-    // Simple admin check (replace with your logic)
-    if (credentials.username === 'admin' && credentials.password === 'admin123') {
-      localStorage.setItem('adminToken', 'admin-authenticated');
-      navigate('/admin');
-    } else {
-      setError('Invalid admin credentials');
+    try {
+      const response = await fetch('https://backend-waghera.onrender.com/api/admin/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(credentials),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        localStorage.setItem('adminToken', data.token);
+        localStorage.setItem('adminUser', JSON.stringify(data.admin));
+        navigate('/admin');
+      } else {
+        setError(data.message || 'Login failed');
+      }
+    } catch (error) {
+      setError('Network error. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -46,9 +65,12 @@ const AdminLogin = () => {
           
           <button
             type="submit"
-            className="w-full bg-[#a8815e] text-white p-3 rounded-md hover:bg-[#916c49]"
+            disabled={loading}
+            className={`w-full bg-[#a8815e] text-white p-3 rounded-md hover:bg-[#916c49] ${
+              loading ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
           >
-            Login as Admin
+            {loading ? 'Logging in...' : 'Login as Admin'}
           </button>
         </form>
         

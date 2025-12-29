@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaGoogle, FaFacebookF } from "react-icons/fa";
+import { Eye, EyeOff } from "lucide-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export default function SignUp({ onSwitchToSignIn }) {
@@ -12,6 +13,9 @@ export default function SignUp({ onSwitchToSignIn }) {
     password: "",
     confirmPassword: ""
   });
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   // Handle input changes
   const handleChange = (e) => {
@@ -69,72 +73,94 @@ return (
 
       {/* Name */}
       <div className="mb-2">
-        <label className="block text-xs font-medium text-gray-700">
-          Name
+        <label className="block text-xm font-medium text-gray-700">
+          Name :
         </label>
         <input
           type="text"
           name="name"
           value={form.name}
           onChange={handleChange}
+          placeholder="Enter your full name"
           className="w-full border rounded-md px-3 py-1.5 text-sm focus:ring-1 focus:ring-yellow-600 outline-none"
         />
       </div>
 
       {/* Email */}
       <div className="mb-2">
-        <label className="block text-xs font-medium text-gray-700">
-          Email
+        <label className="block text-xm font-medium text-gray-700">
+          Email :
         </label>
         <input
           type="email"
           name="email"
           value={form.email}
           onChange={handleChange}
+          placeholder="Enter your email address"
           className="w-full border rounded-md px-3 py-1.5 text-sm focus:ring-1 focus:ring-yellow-600 outline-none"
         />
       </div>
 
       {/* Contact */}
       <div className="mb-2">
-        <label className="block text-xs font-medium text-gray-700">
-          Contact
+        <label className="block text-xm font-medium text-gray-700">
+          Contact :
         </label>
         <input
           type="tel"
           name="contact"
           value={form.contact}
           onChange={handleChange}
+          placeholder="Enter your phone number"
           className="w-full border rounded-md px-3 py-1.5 text-sm focus:ring-1 focus:ring-yellow-600 outline-none"
         />
       </div>
 
       {/* Password */}
       <div className="mb-2">
-        <label className="block text-xs font-medium text-gray-700">
-          Password
+        <label className="block text-xM font-medium text-gray-700">
+          Password :
         </label>
-        <input
-          type="password"
-          name="password"
-          value={form.password}
-          onChange={handleChange}
-          className="w-full border rounded-md px-3 py-1.5 text-sm focus:ring-1 focus:ring-yellow-600 outline-none"
-        />
+        <div className="relative">
+          <input
+            type={showPassword ? "text" : "password"}
+            name="password"
+            value={form.password}
+            onChange={handleChange}
+            placeholder="Create a password"
+            className="w-full border rounded-md px-3 py-1.5 pr-8 text-sm focus:ring-1 focus:ring-yellow-600 outline-none"
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute right-2 top-1.5 text-gray-500 hover:text-gray-700"
+          >
+            {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+          </button>
+        </div>
       </div>
-
       {/* Confirm Password */}
       <div className="mb-3">
-        <label className="block text-xs font-medium text-gray-700">
-          Confirm
+        <label className="block text-xm font-medium text-gray-700">
+          Confirm Password :
         </label>
-        <input
-          type="password"
-          name="confirmPassword"
-          value={form.confirmPassword}
-          onChange={handleChange}
-          className="w-full border rounded-md px-3 py-1.5 text-sm focus:ring-1 focus:ring-yellow-600 outline-none"
-        />
+        <div className="relative">
+          <input
+            type={showConfirmPassword ? "text" : "password"}
+            name="confirmPassword"
+            value={form.confirmPassword}
+            onChange={handleChange}
+            placeholder="Confirm your password"
+            className="w-full border rounded-md px-3 py-1.5 pr-8 text-sm focus:ring-1 focus:ring-yellow-600 outline-none"
+          />
+          <button
+            type="button"
+            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+            className="absolute right-2 top-1.5 text-gray-500 hover:text-gray-700"
+          >
+            {showConfirmPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+          </button>
+        </div>
       </div>
 
       {/* Register Button */}

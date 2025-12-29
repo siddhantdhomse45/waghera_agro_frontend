@@ -50,7 +50,9 @@ import Combo from "./Pages/Admin/Combo";
 import ContactMessages from "./Pages/Admin/ContactMessages";
 import AdminActivity from "./Pages/Admin/AdminActivity";
 import AdminEvent from "./Pages/Admin/AdminEvent";
+import AdminProfile from "./Pages/Admin/AdminProfile";
 import AdminLogin from "./Pages/AdminLogin";
+import ProtectedAdminRoute from "./Components/ProtectedAdminRoute";
 
 function App() {
   const [showSignIn, setShowSignIn] = useState(false);
@@ -67,12 +69,13 @@ function App() {
     setShowSignUp(false);
   }, [location.pathname]);
 
-  // ✅ AUTO OPEN SIGN-IN ONLY IF NOT LOGGED IN
+  // ✅ AUTO OPEN SIGN-IN ONLY IF NOT LOGGED IN AND NOT ON ADMIN PAGES
   useEffect(() => {
-    if (!isLoggedIn) {
+    const isAdminRelatedPage = location.pathname.toLowerCase().startsWith("/admin");
+    if (!isLoggedIn && !isAdminRelatedPage) {
       setShowSignIn(true);
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, location.pathname]);
 
   const isBeachPage =
     location.pathname.toLowerCase().startsWith("/beachhotel") ||
@@ -140,7 +143,11 @@ function App() {
         <Route path="/blog" element={<Blog />} />
 
         {/* ADMIN ROUTES */}
-        <Route path="/admin" element={<AdminLayout />}>
+        <Route path="/admin" element={
+          <ProtectedAdminRoute>
+            <AdminLayout />
+          </ProtectedAdminRoute>
+        }>
           <Route index element={<Dashboard />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="bookings" element={<Bookings />} />
@@ -154,6 +161,7 @@ function App() {
           <Route path="contact-messages" element={<ContactMessages />} />
           <Route path="activities" element={<AdminActivity />} />
           <Route path="events" element={<AdminEvent />} />
+          <Route path="profile" element={<AdminProfile />} />
         </Route>
 
         <Route path="/signin" element={<SignIn />} />

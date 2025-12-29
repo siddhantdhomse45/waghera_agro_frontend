@@ -147,6 +147,7 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Eye, EyeOff } from "lucide-react";
 import logo from "../assets/waghera_logo.png";
 
 // API base URL
@@ -180,6 +181,7 @@ export default function SignIn({ onSwitchToSignUp, onLoginSuccess }) {
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState("info");
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   // Handle input change
   const handleChange = (e) => {
@@ -260,14 +262,23 @@ export default function SignIn({ onSwitchToSignUp, onLoginSuccess }) {
         />
 
         <label className="block mb-1 text-gray-700">Password</label>
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          className="w-full border px-3 py-2 mb-4 rounded"
-          required
-        />
+        <div className="relative">
+          <input
+            type={showPassword ? "text" : "password"}
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            className="w-full border px-3 py-2 mb-4 rounded pr-10"
+            required
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute right-3 top-2 text-gray-500 hover:text-gray-700"
+          >
+            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+          </button>
+        </div>
 
         <Message type={messageType} text={message} />
 
