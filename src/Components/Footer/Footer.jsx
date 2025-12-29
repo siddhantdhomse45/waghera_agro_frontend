@@ -81,8 +81,20 @@ export default function Footer() {
             >
               Dining
             </li>
+              <li 
+              className="hover:text-[#a8815e] cursor-pointer"
+              onClick={() => window.location.href = '/event'}
+            >
+              Event
+            </li>
+              <li 
+              className="hover:text-[#a8815e] cursor-pointer"
+              onClick={() => window.location.href = '/activities'}
+            >
+              Activities
+            </li>
             {/* <li className="hover:text-[#a8815e] cursor-pointer">Spa & Wellness</li> */}
-            <li className="hover:text-[#a8815e] cursor-pointer">Special Offers</li>
+            {/* <li className="hover:text-[#a8815e] cursor-pointer">Special Offers</li> */}
           </ul>
         </div>
 

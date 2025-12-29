@@ -234,12 +234,14 @@ const fetchAvailableRooms = async (checkInDate, checkOutDate) => {
           <div className="grid lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-10">
             {/* Left Column: Room Details */}
             <div className="lg:col-span-2 pr-1 sm:pr-2">
-              <h2 className="text-2xl sm:text-3xl md:text-5xl text-[#af7b4f]">
-                {selectedRoom ? `${selectedRoom.price} ₹ / Night` : "---"}
-              </h2>
-              <h1 className="text-3xl sm:text-4xl md:text-6xl mt-2 sm:mt-3 mb-2 sm:mb-3">
+               <h1 className="text-3xl sm:text-4xl md:text-6xl mt-2 sm:mt-3 mb-2 sm:mb-3">
                 {selectedRoom ? selectedRoom.roomName : "Select a Room Type"}
               </h1>
+              <h2 className="text-sm sm:text-base md:text-lg  font-bold text-[#af7b4f]">
+  {selectedRoom ? `${selectedRoom.price} ₹ / Night` : "---"}
+</h2>
+
+             
 
               {/* Room Images - Using logic from first file if data exists */}
               <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">

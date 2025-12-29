@@ -1,11 +1,23 @@
 import { useNavigate } from "react-router-dom";
 import tent from '../../../src/assets/images/tent.jpeg'
+import room1 from "../../assets/images/room6.jpeg";
+import room2 from "../../assets/images/room2.jpeg";
+import room3 from "../../assets/images/room3.jpeg";
+import room4 from "../../assets/images/room7.jpeg";
+
+
+// const galleryImages = [
+//   "../assets/images/room1.jpeg",
+//   "https://html.themewant.com/moonlit/assets/images/pages/room/r-d-2.webp",
+//   "https://html.themewant.com/moonlit/assets/images/pages/room/2.webp",
+//   "https://html.themewant.com/moonlit/assets/images/pages/room/3.webp",
+// ];
 
 const galleryImages = [
-  "https://html.themewant.com/moonlit/assets/images/pages/room/1.webp",
-  "https://html.themewant.com/moonlit/assets/images/pages/room/r-d-2.webp",
-  "https://html.themewant.com/moonlit/assets/images/pages/room/2.webp",
-  "https://html.themewant.com/moonlit/assets/images/pages/room/3.webp",
+  room1,
+  room2,
+  room3,
+  room4
 ];
 
 const amenities = [
