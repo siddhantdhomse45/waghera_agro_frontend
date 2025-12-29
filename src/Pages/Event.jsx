@@ -108,9 +108,9 @@ export default function Events() {
       <section className="bg-white py-20 px-4 md:px-24">
         <h4 className="flex justify-center text-4xl mb-16 mt-[-200px]">Why Choose Our Events</h4>
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
           {facilities.map((item, index) => (
-            <div key={index} className="text-justify">
+            <div key={index} className="text-center">
               <img src={item.icon} alt={item.title} className="mx-auto mb-6 w-12 h-12" />
               <h3 className="text-3xl  mb-4">{item.title}</h3>
               <p className="text-gray-600 text-lg">{item.desc}</p>

@@ -88,13 +88,13 @@ At Waghera Agro Tourism, guests can experience the charm of farm life, enjoy loc
       </section>
 
       {/* Facilities Section */}
-      <section className="bg-[#f4f4f4] px-6 md:px-21 py-15 relative">
+      <section className="bg-[#f4f4f4] px-6 md:px-21  py-15 relative">
         <div className="grid md:grid-cols-2 items-center gap-13 relative z-10">
 
           <div className="mb-5">
             <p className="text-[#a1865e] text-3xl mb-5 ">―◇ Facilities</p>
             <h2 className="text-4xl md:text-6xl  text-gray-900 mb-20">
-              Hotel Facilities
+              Resort Facilities
             </h2>
 
             <div className="grid grid-cols-2 gap-y-10 gap-x-6 text-gray-800 text-[15px]">
@@ -161,7 +161,7 @@ At Waghera Agro Tourism, guests can experience the charm of farm life, enjoy loc
             <img
               src={aboutImage}
               alt="Hotel"
-              className="rounded-md w-full h-48 sm:h-64 md:h-200 shadow-md object-cover"
+              className="rounded-md w-full h-48 sm:h-64 md:h-170 shadow-md object-cover"
             />
           </div>
 

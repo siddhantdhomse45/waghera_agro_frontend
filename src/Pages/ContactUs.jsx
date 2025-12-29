@@ -94,8 +94,8 @@ export default function ContactPage() {
                 key={idx}
                 className="flex items-start gap-3 sm:gap-4 p-4 sm:p-6 bg-white rounded-xl sm:rounded-2xl shadow-sm hover:shadow-md transition"
               >
-                <div className="p-2 sm:p-3 rounded-lg bg-[#f0e6d2]">
-                  <Icon size={20} className="sm:text-[#AB8A62] text-[#AB8A62]" />
+                <div className="p-2 sm:p-3 rounded-lg bg-[#AB8A62]">
+                  <Icon size={20} className="sm:text-white text-white" />
                 </div>
                 <div>
                   <p className="text-xs sm:text-sm text-gray-500">{item.title}</p>
