@@ -3,7 +3,7 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaLin
 import { FaArrowUpLong } from "react-icons/fa6";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import logo from "../../assets/waghera_logo.png";
 export default function Footer() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -56,9 +56,14 @@ export default function Footer() {
 
         {/* Logo & Intro */}
         <div>
-          <h1 className="text-3xl font-bold text-[#a8815e] mb-4">
-            Waghera Agro Tourism
-          </h1>
+        {/* Logo - Centered */}
+    
+          <img
+            src={logo}
+            alt="Logo"
+            className={`h-40 w-40 cursor-pointer mb-4 }`}
+          />
+        
           <p className="text-gray-700 leading-relaxed">
             Experience nature, comfort, and authentic hospitality in the heart of Mahabaleshwar. 
             Enjoy premium rooms, relaxation spaces, local cuisine & more.
@@ -145,12 +150,14 @@ export default function Footer() {
 
       {/* Bottom Footer */}
       <div className="mt-16 pt-6 border-t border-[#d6c2a8] flex flex-col sm:flex-row justify-between items-center gap-6 text-gray-600">
-        <p className="text-center">© 2025 Waghera Agro Tourism. All rights reserved.</p>
-
-        <div className="flex gap-6 text-xl">
-          <FaFacebookF className="hover:text-[#a8815e] cursor-pointer transition" />
-          <FaInstagram className="hover:text-[#a8815e] cursor-pointer transition" />
-          <FaLinkedinIn className="hover:text-[#a8815e] cursor-pointer transition" />
+        <div className="flex-1"></div>
+        <p className="text-center">Developed by Smart Software Solution Pvt Ltd.</p>
+        <div className="flex-1 flex justify-end">
+          <div className="flex gap-6 text-xl">
+            {/* <FaFacebookF className="hover:text-[#a8815e] cursor-pointer transition" /> */}
+            <FaInstagram className="hover:text-[#a8815e] cursor-pointer transition" />
+            {/* <FaLinkedinIn className="hover:text-[#a8815e] cursor-pointer transition" /> */}
+          </div>
         </div>
       </div>
 
