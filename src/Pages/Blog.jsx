@@ -39,9 +39,9 @@ Waghera Agro Tourism promises a refreshing, memorable, and soul-soothing experie
   },
   {
     id: 2,
-    title: "Tent",
+    title: "Tent",  
     image: tent,
-    author: "Minashi kubhade",
+    author: "Sadanand Belote",
     time: "10 Min Read",
     // avatar: "https://randomuser.me/api/portraits/women/65.jpg",
     content: `
@@ -102,7 +102,7 @@ A complete, nutritious meal that reflects the true taste of Maharashtrian home-s
     title: "Non-Veg Specials: Savor the Rich Meaty Dishes",
     image:
       nonveg,
-    author: "Sneha Shinde",
+    author: "Nitin Katore",
     time: "6 Min Read",
     // avatar: "https://randomuser.me/api/portraits/women/46.jpg",
     content: `
@@ -122,7 +122,7 @@ Perfect for spice lovers, food explorers, and those craving authentic village-st
     title: "Waghera Special Misal Pav",
     image:
      misal,
-    author: "Sneha Shinde",
+    author: "Keshav Golande",
     time: "3 Min Read",
     // avatar: "https://randomuser.me/api/portraits/women/49.jpg",
     content: `
@@ -273,7 +273,7 @@ const Blog = () => {
                {" "}
         <div className="lg:col-span-2">
                    {" "}
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                        {" "}
             {blogPosts.map((post, index) => (
               <motion.div
@@ -297,7 +297,7 @@ const Blog = () => {
                                  {" "}
                   <p className="text-gray-600 mb-4">
                                         Explore our luxury offerings and insider
-                    tips to enhance                     your stay.              
+                    tips to enhance your stay.              
                        {" "}
                   </p>
                                    {" "}
@@ -322,7 +322,7 @@ const Blog = () => {
                                        {" "}
                     <button
                       onClick={() => setSelectedPost(post)}
-                      className="px-4 py-2 rounded-md bg-yellow-700 text-white hover:bg-yellow-900 transition"
+                      className="px-4 py-2 rounded-md bg-yellow-700 text-white hover:bg-yellow-900 transition w-40 h-10"
                     >
                                             Read More                    {" "}
                     </button>
@@ -352,7 +352,7 @@ const Blog = () => {
             {/* Display Reviews (FIX 2: Corrected field names for display) */} 
                      {" "}
             {!loading && !error && (
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                {" "}
                 {visibleReviews.map((review) => (
                   <motion.div
@@ -394,7 +394,7 @@ const Blog = () => {
                                          {" "}
                     </div>
                                        {" "}
-                    <p className="text-gray-700">{review.comment}</p>{" "}
+                    <p className="text-gray-700 text-sm">{review.comment}</p>{" "}
                     {/* Use comment from backend */}                   {" "}
                   </motion.div>
                 ))}
@@ -424,12 +424,12 @@ const Blog = () => {
                            {" "}
               <h3 className="text-2xl font-semibold mb-6">Write a Review</h3>   
                        {" "}
-              <form onSubmit={handleSubmit} className="grid gap-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                                {" "}
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="border p-3 rounded-md"
+                  className="w-full border p-3 rounded-md text-sm sm:text-base"
                   value={formData.name}
                   required
                   onChange={(e) =>
@@ -439,7 +439,7 @@ const Blog = () => {
                                {" "}
                 <textarea
                   placeholder="Your Review"
-                  className="border p-3 rounded-md"
+                  className="w-full border p-3 rounded-md text-sm sm:text-base"
                   rows="4"
                   required
                   value={formData.comment}
@@ -503,7 +503,7 @@ const Blog = () => {
           >
                        {" "}
             <motion.div
-              className="bg-white p-6 rounded-xl max-w-2xl w-full shadow-xl relative"
+              className="bg-white p-4 sm:p-6 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-xl relative mx-4"
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
@@ -516,16 +516,16 @@ const Blog = () => {
                                 ✖              {" "}
               </button>
                            {" "}
-              <h2 className="text-3xl font-semibold mb-4">
+              <h2 className="text-xl sm:text-3xl font-semibold mb-4 pr-8">
                                 {selectedPost.title}             {" "}
               </h2>
                            {" "}
               <img
                 src={selectedPost.image}
-                className="w-full h-72 object-cover rounded-md mb-4"
+                className="w-full h-48 sm:h-72 object-cover rounded-md mb-4"
               />
                            {" "}
-              <p className="text-gray-700 whitespace-pre-line mb-4">
+              <p className="text-sm sm:text-base text-gray-700 whitespace-pre-line mb-4">
                                 {selectedPost.content}             {" "}
               </p>
                          {" "}

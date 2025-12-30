@@ -393,12 +393,12 @@ export default function Header({ onSignInClick, onSignUpClick, bg, isLoggedIn: p
         <div className="flex lg:hidden items-center gap-2 ml-auto">
           <button 
             onClick={handleBookNowClick}
-            className="bg-yellow-700 text-white px-3 py-1 text-sm rounded hover:bg-yellow-800"
+            className="bg-yellow-700 text-white px-3 py-2 text-sm rounded hover:bg-yellow-800 h-10"
           >
             BookNow
           </button>
           <button
-            className="text-3xl bg-yellow-700 text-white p-1 rounded"
+            className="text-2xl bg-yellow-700 text-white p-2 rounded h-10 w-10 flex items-center justify-center"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? <HiX /> : <HiOutlineMenu />}
