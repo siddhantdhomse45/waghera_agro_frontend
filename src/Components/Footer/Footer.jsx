@@ -55,13 +55,13 @@ export default function Footer() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 text-base">
 
         {/* Logo & Intro */}
-        <div>
+        <div className="flex flex-col items-center text-center">
         {/* Logo - Centered */}
     
           <img
             src={logo}
             alt="Logo"
-            className={`h-40 w-40 cursor-pointer mb-4 }`}
+            className={`h-40 w-40 cursor-pointer mb-4 mx-auto}`}
           />
         
           <p className="text-gray-700 leading-relaxed">

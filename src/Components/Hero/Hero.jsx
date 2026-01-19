@@ -12,8 +12,8 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import Booking from "../Booking/Booking";
-import hero from "../../assets/images/image1.png"
-import hero1 from "../../assets/images/image.png"
+import hero123 from "../../assets/images/hero123.jpeg"
+import hero12 from "../../assets/images/hero12.jpeg"
 import hero2 from "../../assets/images/hero2.jpeg"
 export default function HeroSlider() {
   const swiperRef = useRef(null);
@@ -25,7 +25,7 @@ export default function HeroSlider() {
       subtitle: "Welcome to Our Resort",
       description:
         "Waghera Agro Tourism gave us the perfect escape from city life. A beautiful farm stay, friendly staff, and memorable village experiences made our trip special.",
-      image: hero,
+      image: hero2,
     },
     {
       title1: "Lavish Getaway A Blend of",
@@ -33,7 +33,7 @@ export default function HeroSlider() {
       subtitle: "Welcome to Our Resort",
       description:
         "Waghera Agro Tourism gave us the perfect escape from city life. A beautiful farm stay, friendly staff, and memorable village experiences made our trip special.",
-     image: hero1,
+     image: hero12,
     },
     {
       title1: "A Perfect Fusion of Comfort",
@@ -42,7 +42,7 @@ export default function HeroSlider() {
       description:
         "Waghera Agro Tourism gave us the perfect escape from city life. A beautiful farm stay, friendly staff, and memorable village experiences made our trip special.",
       image:
-        hero2
+        hero123
     },
   ];
 
@@ -57,7 +57,7 @@ export default function HeroSlider() {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-[120vh] group">
+            <div className="relative w-full h-[60vh] sm:h-[80vh] lg:h-[100vh] xl:h-[120vh] group">
               <img
                 src={slide.image}
                 alt="slide"
@@ -79,7 +79,7 @@ export default function HeroSlider() {
                     </span>
                   </span>
 
-                  <h1 className="text-5xl md:text-6xl leading-tight mb-9 text-white opacity-0 animate-[slideUp_1s_ease-out_forwards]">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 sm:mb-9 text-white opacity-0 animate-[slideUp_1s_ease-out_forwards]">
                     <span className="block">{slide.title1}</span>
                     <span className="block">{slide.title2}</span>
                   </h1>
@@ -97,7 +97,7 @@ export default function HeroSlider() {
                     }
                   `}</style>
 
-                  <p className="max-w-2xl mx-auto text-lg mb-8">
+                  <p className="max-w-2xl mx-auto text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 px-4">
                     {slide.description}
                   </p>
                   {/* <a
