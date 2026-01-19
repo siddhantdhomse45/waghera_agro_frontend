@@ -85,10 +85,11 @@ function App() {
     setShowSignUp(false);
   }, [location.pathname]);
 
-  // ✅ AUTO OPEN SIGN-IN ONLY IF NOT LOGGED IN AND NOT ON ADMIN PAGES
+  // ✅ AUTO OPEN SIGN-IN ONLY ON HOME AND BOOK NOW PAGES
   useEffect(() => {
-    const isAdminRelatedPage = location.pathname.toLowerCase().startsWith("/admin");
-    if (!isLoggedIn && !isAdminRelatedPage) {
+    const allowedPages = ["/", "/booknow", "/book-now"];
+    const isAllowedPage = allowedPages.includes(location.pathname.toLowerCase());
+    if (!isLoggedIn && isAllowedPage) {
       setShowSignIn(true);
     }
   }, [isLoggedIn, location.pathname]);
