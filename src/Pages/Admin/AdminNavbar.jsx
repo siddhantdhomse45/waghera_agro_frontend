@@ -11,15 +11,15 @@ const AdminNavbar = ({ onMenuClick }) => {
   };
   return (
     <nav className="fixed top-0 left-0 right-0 z-40 bg-[#a8815e] shadow-md">
-      <div className="flex items-center justify-between px-4 sm:px-6 py-3">
+      <div className="flex items-center justify-between px-4 py-3">
         {/* Left: brand + mobile toggle */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <button 
-            className="text-white focus:outline-none lg:hidden"
+            className="text-white focus:outline-none lg:hidden p-1"
             onClick={onMenuClick}
           >
             <svg
-              className="h-6 w-6"
+              className="h-5 w-5 sm:h-6 sm:w-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -33,16 +33,16 @@ const AdminNavbar = ({ onMenuClick }) => {
             </svg>
           </button>
 
-          <Link to="/admin/dashboard" className="text-white font-bold text-xl">
+          <Link to="/admin/dashboard" className="text-white font-bold text-lg sm:text-xl">
             Admin Panel
           </Link>
         </div>
 
         {/* Right: notifications + user */}
-        <div className="flex items-center space-x-4">
-          <button className="text-white hover:text-gray-200 focus:outline-none">
+        <div className="flex items-center space-x-2 sm:space-x-4">
+          <button className="text-white hover:text-gray-200 focus:outline-none p-1">
             <svg
-              className="h-6 w-6"
+              className="h-5 w-5 sm:h-6 sm:w-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -56,18 +56,18 @@ const AdminNavbar = ({ onMenuClick }) => {
             </svg>
           </button>
 
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-1 sm:space-x-2">
             <img
-              className="h-10 w-10 rounded-full object-cover"
+              className="h-8 w-8 sm:h-10 sm:w-10 rounded-full object-cover"
               src="https://ui-avatars.com/api/?name=Admin+User"
               alt="Admin avatar"
             />
-            <span className="hidden md:block font-medium text-white">
+            <span className="hidden md:block font-medium text-white text-sm sm:text-base">
               Admin User
             </span>
             <button
               onClick={handleLogout}
-              className="ml-3 bg-yellow-700 hover:bg-yellow-700 text-white px-3 py-1 rounded text-sm transition"
+              className="ml-1 sm:ml-3 bg-yellow-700 hover:bg-yellow-700 text-white px-2 py-1 sm:px-3 sm:py-1 rounded text-xs sm:text-sm transition"
             >
               Logout
             </button>

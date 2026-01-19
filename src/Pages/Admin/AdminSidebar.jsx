@@ -1,28 +1,27 @@
 
-
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-const AdminSidebar = () => {
-  const location = useLocation();
-  
-  const isActive = (path) => {
-    return location.pathname === path;
-  };
+const AdminSidebar = ({ onItemClick }) => {
+  const location = useLocation();
+  
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
 
-  const menuItems = [
-    { name: 'Dashboard', path: '/admin/dashboard', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6' },
-    { name: 'Bookings', path: '/admin/bookings', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
-    { name: 'Rooms', path: '/admin/rooms', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' },
-    { name: 'Add Menu', path: '/admin/combos', icon: 'M17 20h-5m-5 0H7m0 0a2 2 0 01-2-2v-2h14v2a2 2 0 01-2 2zm-2-8a2 2 0 01-2-2V7a2 2 0 012-2h4a2 2 0 012 2v3a2 2 0 01-2 2h-4zM10 9h.01M14 9h.01' }, 
-//     { name: 'Payments', path: '/admin/payments', icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
-    { name: 'Gallery', path: '/admin/gallery', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z' },
-    { name: 'Activity', path: '/admin/activities', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' },
-    { 
-      name: 'Events', 
-      path: '/admin/events', 
-      icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5h6M6 13h12M6 17h12' // Icon for a document/clipboard list
-    },
+  const menuItems = [
+    { name: 'Dashboard', path: '/admin/dashboard', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6' },
+    { name: 'Bookings', path: '/admin/bookings', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
+    { name: 'Rooms', path: '/admin/rooms', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' },
+    { name: 'Add Menu', path: '/admin/combos', icon: 'M17 20h-5m-5 0H7m0 0a2 2 0 01-2-2v-2h14v2a2 2 0 01-2 2zm-2-8a2 2 0 01-2-2V7a2 2 0 012-2h4a2 2 0 012 2v3a2 2 0 01-2 2h-4zM10 9h.01M14 9h.01' }, 
+//     { name: 'Payments', path: '/admin/payments', icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
+    { name: 'Gallery', path: '/admin/gallery', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z' },
+    { name: 'Activity', path: '/admin/activities', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' },
+    { 
+      name: 'Events', 
+      path: '/admin/events', 
+      icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5h6M6 13h12M6 17h12' // Icon for a document/clipboard list
+    },
 {
   name: 'Contact Messages',
   path: '/admin/contact-messages',
@@ -34,68 +33,70 @@ const AdminSidebar = () => {
   icon: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'
 },
 
-  ];
+  ];
 
-  return (
-    <div className="flex flex-col h-full bg-white shadow-md">
-      <div className="flex items-center justify-center h-16 bg-[#a8815e]">
-        <span className="text-white font-bold text-xl">Admin Panel</span>
-      </div>
-      
-      <div className="flex flex-col flex-1 overflow-y-auto">
-        <nav className="flex-1 px-2 py-4 bg-white">
-          {menuItems.map((item, index) => (
-            <Link
-              key={index}
-              to={item.path}
-              className={`flex items-center px-4 py-3 mt-1 text-base font-medium rounded-lg ${
-                isActive(item.path)
-                  ? 'bg-[#a8815e] text-white'
-                  : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
-              }`}
-            >
-              <svg 
-                className="w-6 h-6 mr-3 flex-shrink-0" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth="2" 
-                  d={item.icon}
-                />
-              </svg>
-              <span className="truncate">{item.name}</span>
-            </Link>
-          ))}
-        </nav>
-        
-        <div className="p-4 border-t border-gray-200 mt-auto">
-          <Link
-            to="/"
-            className="flex items-center px-4 py-3 text-base font-medium text-gray-600 rounded-lg hover:bg-[#a8815e] hover:text-white"
-          >
-            <svg 
-              className="w-6 h-6 mr-3 flex-shrink-0" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth="2" 
-                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-              />
-            </svg>
-            <span className="truncate">Back to Site</span>
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
+  return (
+    <div className="flex flex-col h-full bg-white shadow-md">
+      <div className="flex items-center justify-center h-16 bg-[#a8815e]">
+        <span className="text-white font-bold text-xl">Admin Panel</span>
+      </div>
+      
+      <div className="flex flex-col flex-1 overflow-y-auto">
+        <nav className="flex-1 px-2 py-4 bg-white">
+          {menuItems.map((item, index) => (
+            <Link
+              key={index}
+              to={item.path}
+              onClick={onItemClick}
+              className={`flex items-center px-4 py-3 mt-1 text-base font-medium rounded-lg ${
+                isActive(item.path)
+                  ? 'bg-[#a8815e] text-white'
+                  : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+              }`}
+            >
+              <svg 
+                className="w-6 h-6 mr-3 flex-shrink-0" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth="2" 
+                  d={item.icon}
+                />
+              </svg>
+              <span className="truncate">{item.name}</span>
+            </Link>
+          ))}
+        </nav>
+        
+        <div className="p-4 border-t border-gray-200 mt-auto">
+          <Link
+            to="/"
+            onClick={onItemClick}
+            className="flex items-center px-4 py-3 text-base font-medium text-gray-600 rounded-lg hover:bg-[#a8815e] hover:text-white"
+          >
+            <svg 
+              className="w-6 h-6 mr-3 flex-shrink-0" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth="2" 
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+              />
+            </svg>
+            <span className="truncate">Back to Site</span>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default AdminSidebar;

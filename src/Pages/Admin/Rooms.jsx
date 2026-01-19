@@ -447,11 +447,11 @@ const Rooms = () => {
 
   return (
     <div className="p-4 sm:p-6">
-      <div className="flex justify-between mb-4">
-        <h1 className="text-2xl font-bold">Rooms Management</h1>
+      <div className="flex flex-col sm:flex-row justify-between mb-4 gap-3">
+        <h1 className="text-xl sm:text-2xl font-bold">Rooms Management</h1>
         <button
           onClick={() => setShowAddModal(true)}
-          className="px-4 py-2 bg-blue-600 text-white rounded"
+          className="px-3 py-2 sm:px-4 bg-blue-600 text-white rounded text-sm"
         >
           + Add Room
         </button>
@@ -462,20 +462,20 @@ const Rooms = () => {
 
       {/* TABLE */}
       <div className="overflow-x-auto">
-        <table className="w-full border">
+        <table className="w-full border min-w-[500px]">
           <thead className="bg-gray-100">
             <tr>
-              <th className="border p-2">Room</th>
-              <th className="border p-2">Type</th>
-              <th className="border p-2">Price</th>
-              <th className="border p-2">Status</th>
-              <th className="border p-2">Actions</th>
+              <th className="border p-2 text-xs sm:text-sm">Room</th>
+              <th className="border p-2 text-xs sm:text-sm">Type</th>
+              <th className="border p-2 text-xs sm:text-sm">Price</th>
+              <th className="hidden sm:table-cell border p-2 text-xs sm:text-sm">Status</th>
+              <th className="border p-2 text-xs sm:text-sm">Actions</th>
             </tr>
           </thead>
           <tbody>
             {rooms.length === 0 && !loading && (
               <tr>
-                <td colSpan="5" className="text-center p-4">
+                <td colSpan="5" className="text-center p-4 text-sm">
                   No rooms found
                 </td>
               </tr>
@@ -483,23 +483,28 @@ const Rooms = () => {
 
             {rooms.map((room) => (
               <tr key={room._id}>
-                <td className="border p-2">{room.roomName}</td>
-                <td className="border p-2">{room.type}</td>
-                <td className="border p-2">₹{room.price}</td>
-                <td className="border p-2">{room.status}</td>
-                <td className="border p-2 space-x-2">
-                  <button
-                    onClick={() => openEdit(room)}
-                    className="px-2 py-1 bg-yellow-400 rounded"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(room._id)}
-                    className="px-2 py-1 bg-red-500 text-white rounded"
-                  >
-                    Delete
-                  </button>
+                <td className="border p-2 text-xs sm:text-sm">
+                  {room.roomName}
+                  <div className="sm:hidden text-xs text-gray-500">{room.status}</div>
+                </td>
+                <td className="border p-2 text-xs sm:text-sm">{room.type}</td>
+                <td className="border p-2 text-xs sm:text-sm">₹{room.price}</td>
+                <td className="hidden sm:table-cell border p-2 text-xs sm:text-sm">{room.status}</td>
+                <td className="border p-2">
+                  <div className="flex flex-col sm:flex-row gap-1 sm:gap-2">
+                    <button
+                      onClick={() => openEdit(room)}
+                      className="px-2 py-1 bg-yellow-400 rounded text-xs"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDelete(room._id)}
+                      className="px-2 py-1 bg-red-500 text-white rounded text-xs"
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}
@@ -509,10 +514,10 @@ const Rooms = () => {
 
       {/* MODAL */}
       {(showAddModal || editingRoom) && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center p-4">
           <form
             onSubmit={editingRoom ? handleUpdateRoom : handleAddRoom}
-            className="bg-white p-6 rounded w-96 space-y-3"
+            className="bg-white p-4 sm:p-6 rounded w-full max-w-md space-y-3"
           >
             <h2 className="text-xl font-bold">
               {editingRoom ? "Edit Room" : "Add Room"}

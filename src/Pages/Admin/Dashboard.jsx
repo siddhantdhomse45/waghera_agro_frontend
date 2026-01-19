@@ -257,23 +257,23 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="p-4 space-y-6">
+    <div className="p-2 sm:p-4 space-y-4 sm:space-y-6">
       {/* Header */}
-      <div className="mb-2 flex items-center justify-between">
+      <div className="mb-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-[#a8815e]">Dashboard</h1>
-          <p className="text-gray-600">Welcome to your admin dashboard</p>
+          <h1 className="text-xl sm:text-2xl font-bold text-[#a8815e]">Dashboard</h1>
+          <p className="text-sm sm:text-base text-gray-600">Welcome to your admin dashboard</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-2">
           <button
             onClick={() => window.location.reload()}
-            className="px-4 py-2 bg-[#a8815e] text-white rounded-md text-sm font-semibold hover:bg-yellow-800 transition-colors"
+            className="px-3 py-2 sm:px-4 bg-[#a8815e] text-white rounded-md text-xs sm:text-sm font-semibold hover:bg-yellow-800 transition-colors"
           >
             Refresh Data
           </button>
           <button
             onClick={() => navigate("/admin/bookings")}
-            className="px-4 py-2 bg-[#a8815e] text-white rounded-md text-sm font-semibold hover:bg-yellow-800 transition-colors"
+            className="px-3 py-2 sm:px-4 bg-[#a8815e] text-white rounded-md text-xs sm:text-sm font-semibold hover:bg-yellow-800 transition-colors"
           >
             Go to Bookings
           </button>
@@ -281,15 +281,15 @@ const Dashboard = () => {
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-4">
         {stats.map((stat, index) => (
           <div
             key={index}
-            className="bg-white rounded-lg shadow p-6 hover:shadow-md transition-shadow duration-300"
+            className="bg-white rounded-lg shadow p-3 sm:p-6 hover:shadow-md transition-shadow duration-300"
           >
-            <div className="flex items-center">
-              <div className={`${stat.color} p-3 rounded-full text-white`}>
-                <svg className="w-6 h-6" fill="none" stroke="currentColor">
+            <div className="flex flex-col sm:flex-row items-center">
+              <div className={`${stat.color} p-2 sm:p-3 rounded-full text-white mb-2 sm:mb-0`}>
+                <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -298,11 +298,11 @@ const Dashboard = () => {
                   />
                 </svg>
               </div>
-              <div className="ml-4">
-                <h2 className="text-lg font-semibold text-gray-600">
+              <div className="sm:ml-4 text-center sm:text-left">
+                <h2 className="text-xs sm:text-lg font-semibold text-gray-600">
                   {stat.title}
                 </h2>
-                <p className="text-2xl font-bold text-[#a8815e]">
+                <p className="text-lg sm:text-2xl font-bold text-[#a8815e]">
                   {stat.value}
                 </p>
               </div>
@@ -312,20 +312,20 @@ const Dashboard = () => {
       </div>
 
       {/* Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Pie Chart */}
-        <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-200">
-          <h3 className="text-xl font-semibold mb-4 text-gray-800">
+        <div className="bg-white rounded-xl p-4 sm:p-6 shadow-lg border border-gray-200">
+          <h3 className="text-lg sm:text-xl font-semibold mb-4 text-gray-800">
             Room Status Overview
           </h3>
 
-          <ResponsiveContainer width="100%" height={300}>
+          <ResponsiveContainer width="100%" height={250}>
             <PieChart>
               <Pie
                 data={pieData}
                 dataKey="value"
-                outerRadius={120}
-                innerRadius={60}
+                outerRadius={80}
+                innerRadius={40}
                 paddingAngle={5}
                 label={({ name, value }) => `${name}: ${value}`}
               >
@@ -345,17 +345,17 @@ const Dashboard = () => {
         </div>
 
         {/* Line Chart */}
-        <div className="lg:col-span-2 bg-white rounded-xl p-6 shadow-lg">
-          <div className="flex justify-between mb-4">
-            <h3 className="text-xl font-semibold text-gray-700">
+        <div className="lg:col-span-2 bg-white rounded-xl p-4 sm:p-6 shadow-lg">
+          <div className="flex flex-col sm:flex-row justify-between mb-4 gap-3">
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-700">
               Booking Trends
             </h3>
 
-            <div className="space-x-3">
+            <div className="flex flex-wrap gap-1 sm:gap-3">
               {["daily","weekly","monthly","yearly"].map(v => (
                 <button
                   key={v}
-                  className={`px-4 py-2 rounded-md ${
+                  className={`px-2 py-1 sm:px-4 sm:py-2 rounded-md text-xs sm:text-sm ${
                     view === v ? "bg-amber-600 text-white" : "bg-gray-200 text-gray-700"
                   }`}
                   onClick={() => setView(v)}
@@ -366,7 +366,7 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <ResponsiveContainer width="100%" height={280}>
+          <ResponsiveContainer width="100%" height={250}>
             <LineChart data={lineData}>
               <XAxis dataKey={xKey} />
               <YAxis />
