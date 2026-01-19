@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import image1 from "../../assets/images/c1.jpeg";
 import image2 from "../../assets/images/c2.jpeg";
+import keshav from "../../assets/images/keshavi.jpeg";
 const testimonials = [
   {
     name: "Prasad Langhe",
@@ -9,19 +10,12 @@ const testimonials = [
       "Waghera Agro Tourism delivers exceptional hospitality with warmth, innovation, and attention to detail. A truly memorable experience",
     image: image1,
   },
-  // {
-  //   name: "Sadanand Belote",
-  //   // role: "COO of Apex Solutions",
-  //   message:
-  //     "Waghera Agro Tourism delivers exceptional hospitality with warmth, innovation, and attention to detail. A truly memorable experience",
-  //   image: image2,
-  // },
   {
-    name: "Samir Zagade",
+    name: "Keshav Golande",
     // role: "COO of Apex Solutions",
     message:
       "Waghera Agro Tourism delivers exceptional hospitality with warmth, innovation, and attention to detail. A truly memorable experience",
-    image: "https://i.pinimg.com/736x/7f/bb/2a/7fbb2ae1508485fee8fcec11669fc30e.jpg",
+    image: keshav,
   },
   {
     name: "Suhas Lambe",
