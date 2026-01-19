@@ -1,5 +1,5 @@
 
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import { FaArrowUpLong } from "react-icons/fa6";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -154,9 +154,9 @@ export default function Footer() {
         <p className="text-center">Developed by Smart Software Solution Pvt Ltd.</p>
         <div className="flex-1 flex justify-end">
           <div className="flex gap-6 text-xl">
-            {/* <FaFacebookF className="hover:text-[#a8815e] cursor-pointer transition" /> */}
+            <FaFacebookF className="hover:text-[#a8815e] cursor-pointer transition" />
             <FaInstagram className="hover:text-[#a8815e] cursor-pointer transition" />
-            {/* <FaLinkedinIn className="hover:text-[#a8815e] cursor-pointer transition" /> */}
+            <FaYoutube className="hover:text-[#a8815e] cursor-pointer transition" />
           </div>
         </div>
       </div>
