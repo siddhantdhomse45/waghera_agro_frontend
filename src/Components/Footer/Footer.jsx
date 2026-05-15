@@ -149,18 +149,41 @@ export default function Footer() {
       </div>
 
       {/* Bottom Footer */}
-      <div className="mt-16 pt-6 border-t border-[#d6c2a8] flex flex-col sm:flex-row justify-between items-center gap-6 text-gray-600">
-        <div className="flex-1"></div>
-        <p className="text-center">Developed by Smart Software Solution Pvt Ltd.</p>
-        <div className="flex-1 flex justify-end">
-          <div className="flex gap-6 text-xl">
-            <FaFacebookF className="hover:text-[#a8815e] cursor-pointer transition" />
-            <FaInstagram className="hover:text-[#a8815e] cursor-pointer transition" />
-            <FaYoutube className="hover:text-[#a8815e] cursor-pointer transition" />
-          </div>
-        </div>
-      </div>
+      {/* Bottom Footer */}
+<div className="mt-16 pt-6 border-t border-[#d6c2a8] flex flex-col sm:flex-row justify-between items-center gap-6 text-gray-600">
+  <div className="flex-1"></div>
 
+  <p className="text-center">
+    Developed by Smart Software Solution Pvt Ltd.
+  </p>
+
+  <div className="flex-1 flex justify-end">
+    <div className="flex gap-6 text-xl">
+
+      {/* Facebook */}
+      <FaFacebookF className="hover:text-[#a8815e] cursor-pointer transition" />
+
+      {/* Instagram */}
+      <a
+        href="https://www.instagram.com/_waghera_agro_tourism_/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FaInstagram className="hover:text-[#a8815e] cursor-pointer transition" />
+      </a>
+
+      {/* YouTube */}
+      <a
+        href="https://www.youtube.com/@GaneshShinde-n7o"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FaYoutube className="hover:text-[#a8815e] cursor-pointer transition" />
+      </a>
+
+    </div>
+  </div>
+</div>
       {/* Scroll to Top Button */}
       <div
         style={{
